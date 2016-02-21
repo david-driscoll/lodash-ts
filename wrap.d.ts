@@ -104,3 +104,5 @@ export interface Static {
     chain<T>(array: ArrayLike<T>): Types.Wrap.ExplicitArray1<T>;
     chain<T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ExplicitObject1<T, TObj>;
 }
+
+export default Static;

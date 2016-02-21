@@ -1121,7 +1121,6 @@ export namespace Types {
     }
 }
 
-export interface Static {
     add: Types.Add;
     ceil: Types.Ceil;
     floor: Types.Ceil;
@@ -1139,7 +1138,7 @@ export interface Static {
     inRange(num: number, end: number): boolean;
     inRange(num: number, start: number, end: number): boolean;
     random(lower?: number, upper?: number, floating?: boolean): number;
-}
+    
 export namespace Types {
     interface Assign {
         <TObject, TSource>(object: TObject, source: TSource): TObject & TSource;
@@ -1596,4 +1595,6 @@ export interface Static {
     chain<T>(array: ArrayLike<T>): Types.Wrap.ExplicitArray1<T>;
     chain<T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ExplicitObject1<T, TObj>;
 }
+
+export default Static;
 

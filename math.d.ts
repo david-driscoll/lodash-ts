@@ -10,7 +10,6 @@ export namespace Types {
     }
 }
 
-export interface Static {
     add: Types.Add;
     ceil: Types.Ceil;
     floor: Types.Ceil;
@@ -28,4 +27,4 @@ export interface Static {
     inRange(num: number, end: number): boolean;
     inRange(num: number, start: number, end: number): boolean;
     random(lower?: number, upper?: number, floating?: boolean): number;
-}
+    
