@@ -1597,5 +1597,6 @@ interface Static {
     chain<T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ExplicitObject1<T, TObj>;
 }
 
+namespace Static {}
 export = Static;
 
