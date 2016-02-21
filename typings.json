@@ -1,6 +1,6 @@
 {
   "name": "lodash",
-  "main": "index.d.ts",
+  "main": "out/lodash.d.ts",
   "author": "David Driscoll <david.driscoll@gmail.com>",
   "description": "Lodash typings for v4",
   "dependencies": {},
