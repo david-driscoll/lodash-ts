@@ -513,42 +513,50 @@ namespace Types {
     interface CountBy {
         <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
         <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
+        <T>(collection: any, iteratee: ValuePredicate<T>): { [index: string]: number; };
     }
 
     interface GroupBy {
-        <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: T; };
-        <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: any; };
+        <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
+        <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
+        <T>(collection: any, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
     }
 
     interface ByBooleanPredicate {
         <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): boolean;
         <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): boolean;
+        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): boolean;
     }
 
     interface ByArrayPredicate {
         <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): T[];
         <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
+        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
     }
 
     interface ResultPredicate {
         <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): T;
         <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): T;
+        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): T;
     }
 
     interface FlatMap {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult[]>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>): TResult[];
+        <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>): TResult[];
     }
 
     interface ForEach {
         <T>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => boolean | void>): ArrayLike<T>;
         <T>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
+        <T>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
     }
 
     interface Includes {
         (collection: string, value: string, fromIndex?: number): boolean;
         <T>(collection: ArrayLike<T>, value: T, fromIndex?: number): boolean;
         <T>(collection: _Obj<T>, value: any, fromIndex?: number): boolean;
+        <T>(collection: any, value: any, fromIndex?: number): boolean;
     }
 
     interface InvokeMap {
@@ -562,21 +570,25 @@ namespace Types {
     interface Map {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
+        <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
     }
 
     interface OrderBy {
         <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
         <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T>(collection: any, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
     }
 
     interface Partition {
         <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
         <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
+        <T>(collection: any, iteratee?: ValuePredicate<T>): [T[], T[]];
     }
 
     interface Reduce {
         <T, TAcc>(collection: ArrayLike<T>, iteratee?: AccumulatorArrayPredicate<T, ArrayLike<T>, TAcc>): TAcc;
         <T, TAcc>(collection: _Obj<T>, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc>): TAcc;
+        <T, TAcc>(collection: any, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc>): TAcc;
     }
 
     interface Sample {
@@ -598,6 +610,7 @@ namespace Types {
     interface SortBy {
         <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): T[];
         <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): T[];
+        <T>(collection: any, iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): T[];
     }
 }
 
@@ -637,7 +650,7 @@ namespace Types {
     type Iteratee<T extends Function> = string | Object | T;
     type PathLocation = string | string[];
 
-    type _Obj<T> = { [index: string]: T; };
+    type _Obj<T> = { [index: string]: T; } | any;
     type ArrayPredicate<T, TArray extends ArrayLike<T>> = Iteratee<(value: T, index: number, collection: TArray) => boolean>;
     type AccumulatorArrayPredicate<T, TArray extends ArrayLike<T>, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: number, collection: TArray) => TAcc>;
 
