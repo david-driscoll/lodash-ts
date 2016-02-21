@@ -77,64 +77,64 @@ namespace Types {
     }
 }
 
-interface Static {
-    attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error;
-    attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error;
-    attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error;
-    attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error;
-    attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error;
-    attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error;
+namespace Static {
+    function attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error;
+    function attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error;
+    function attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error;
+    function attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error;
+    function attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error;
+    function attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error;
 
-    bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T;
+    function bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T;
 
-    cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult;
+    function cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult;
 
-    conforms<U, T extends { [index: string]: (obj: U) => boolean; }>(arg: T): (arg: U) => boolean;
+    function conforms<U, T extends { [index: string]: (obj: U) => boolean; }>(arg: T): (arg: U) => boolean;
 
-    constant<T>(value: T): () => T;
+    function constant<T>(value: T): () => T;
 
-    flow: Types.Flow;
-    flowRight: Types.Flow;
+    var flow: Types.Flow;
+    var flowRight: Types.Flow;
 
-    identity<T>(value: T): T;
+    function identity<T>(value: T): T;
 
-    iteratee: Types.IterateeMethod;
+    var iteratee: Types.IterateeMethod;
 
-    matches<T, O>(obj: T): (obj: O) => boolean;
-    matchesProperty<O>(path: Types.PathLocation, value: any): (obj: O) => boolean;
+    function matches<T, O>(obj: T): (obj: O) => boolean;
+    function matchesProperty<O>(path: Types.PathLocation, value: any): (obj: O) => boolean;
 
-    method: Types.Method;
+    var method: Types.Method;
 
-    methodOf: Types.MethodOf;
+    var methodOf: Types.MethodOf;
 
-    mixin<TObject, TSource>(obj: TObject, source: TSource, options?: { chain?: boolean }): TObject & TSource;
-    mixin<TSource>(source: TSource, options?: { chain?: boolean }): Static & TSource;
+    function mixin<TObject, TSource>(obj: TObject, source: TSource, options?: { chain?: boolean }): TObject & TSource;
+    function mixin<TSource>(source: TSource, options?: { chain?: boolean }): Static & TSource;
 
-    noConflict(): Static;
+    function noConflict(): Static;
 
-    noop(...args: any[]): void;
+    function noop(...args: any[]): void;
 
-    nthArg<TResult>(num?: number): TResult;
+    function nthArg<TResult>(num?: number): TResult;
 
-    over: Types.Over;
+    var over: Types.Over;
 
-    overEvery: Types.OverEveryORSome;
-    overSome: Types.OverEveryORSome;
+    var overEvery: Types.OverEveryORSome;
+    var overSome: Types.OverEveryORSome;
 
-    property<TResult>(path: Types.PathLocation): (object: any) => TResult;
-    propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult;
+    function property<TResult>(path: Types.PathLocation): (object: any) => TResult;
+    function propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult;
 
-    range: Types.Range;
-    rangeRight: Types.Range;
+    var range: Types.Range;
+    var rangeRight: Types.Range;
 
-    runInContext(context?: any): Static;
+    function runInContext(context?: any): Static;
 
-    times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[];
-    times(n: number): number[];
+    function times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[];
+    function times(n: number): number[];
 
-    toPath(value: string): string[];
+    function toPath(value: string): string[];
 
-    uniqueId(prefix?: string): string;
+    function uniqueId(prefix?: string): string;
 
-    now(): number;
+    function now(): number;
 }

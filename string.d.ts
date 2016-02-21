@@ -23,40 +23,40 @@ namespace Types {
     }
 }
 
-interface Static {
-    templateSettings: Types.TemplateSettings;
+namespace Static {
+    var templateSettings: Types.TemplateSettings;
     VERSION: string;
 
-    camelCase: Types.StringMethod;
-    capitalize: Types.StringMethod;
-    deburr: Types.StringMethod;
-    endsWith: Types.WithStringMethod;
-    escape: Types.StringMethod;
-    escapeRegExp: Types.StringMethod;
-    kebabCase: Types.StringMethod;
-    lowerCase: Types.StringMethod;
-    lowerFirst: Types.StringMethod;
-    pad: Types.PadStringMethod;
-    padEnd: Types.PadStringMethod;
-    padStart: Types.PadStringMethod;
-    parseInt(str: string, radix?: number): number;
-    repeat(str?: string, num?: number): string;
-    replace(str: string, pattern: RegExp | string, replacement: string | ((substring: string, ...args: any[]) => string)): string;
-    replace(pattern: RegExp | string, replacement: string | ((substring: string, ...args: any[]) => string)): string;
-    snakeCase: Types.StringMethod;
-    split(str: string, separator: string | RegExp, limit?: number): string[];
-    split(separator: string | RegExp, limit?: number): string[];
-    startCase: Types.StringMethod;
-    startsWith: Types.WithStringMethod;
-    template<T>(str?: string, options?: Types.TemplateOptions): (ctx: T) => string;
-    toLower: Types.StringMethod;
-    toUpper: Types.StringMethod;
-    trim: Types.TrimStringMethod;
-    trimEnd: Types.TrimStringMethod;
-    trimStart: Types.TrimStringMethod;
-    truncate(str?: string, options?: Types.TruncateOptions): string;
-    unescape: Types.StringMethod;
-    upperCase: Types.StringMethod;
-    upperFirst: Types.StringMethod;
-    words(str?: string, pattern?: string | RegExp): string[];
+    var camelCase: Types.StringMethod;
+    var capitalize: Types.StringMethod;
+    var deburr: Types.StringMethod;
+    var endsWith: Types.WithStringMethod;
+    var escape: Types.StringMethod;
+    var escapeRegExp: Types.StringMethod;
+    var kebabCase: Types.StringMethod;
+    var lowerCase: Types.StringMethod;
+    var lowerFirst: Types.StringMethod;
+    var pad: Types.PadStringMethod;
+    var padEnd: Types.PadStringMethod;
+    var padStart: Types.PadStringMethod;
+    function parseInt(str: string, radix?: number): number;
+    function repeat(str?: string, num?: number): string;
+    function replace(str: string, pattern: RegExp | string, replacement: string | ((substring: string, ...args: any[]) => string)): string;
+    function replace(pattern: RegExp | string, replacement: string | ((substring: string, ...args: any[]) => string)): string;
+    var snakeCase: Types.StringMethod;
+    function split(str: string, separator: string | RegExp, limit?: number): string[];
+    function split(separator: string | RegExp, limit?: number): string[];
+    var startCase: Types.StringMethod;
+    var startsWith: Types.WithStringMethod;
+    function template<T>(str?: string, options?: Types.TemplateOptions): (ctx: T) => string;
+    var toLower: Types.StringMethod;
+    var toUpper: Types.StringMethod;
+    var trim: Types.TrimStringMethod;
+    var trimEnd: Types.TrimStringMethod;
+    var trimStart: Types.TrimStringMethod;
+    function truncate(str?: string, options?: Types.TruncateOptions): string;
+    var unescape: Types.StringMethod;
+    var upperCase: Types.StringMethod;
+    var upperFirst: Types.StringMethod;
+    function words(str?: string, pattern?: string | RegExp): string[];
 }

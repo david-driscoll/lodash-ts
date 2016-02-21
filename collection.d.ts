@@ -90,31 +90,31 @@ namespace Types {
     }
 }
 
-interface Static {
-    countBy: Types.CountBy;
-    every: Types.ByBooleanPredicate;
-    filter: Types.ByArrayPredicate;
-    find: Types.ResultPredicate;
-    findLast: Types.ResultPredicate;
-    flatMap: Types.FlatMap;
-    forEach: Types.ForEach;
-    forEachRight: Types.ForEach;
-    each: Types.ForEach;
-    eachRight: Types.ForEach;
-    keyBy: Types.KeyBy;
-    groupBy: Types.GroupBy;
-    includes: Types.Includes;
-    invokeMap: Types.InvokeMap;
-    map: Types.Map;
-    orderBy: Types.OrderBy;
-    partition: Types.Partition;
-    reduce: Types.Reduce;
-    reduceRight: Types.Reduce;
-    reject: Types.ByArrayPredicate;
-    sample: Types.Sample;
-    sampleSize: Types.SampleSize;
-    shuffle: Types.Shuffle;
-    size: Types.Size;
-    some: Types.ByBooleanPredicate;
-    sortBy: Types.SortBy;
+namespace Static {
+    var countBy: Types.CountBy;
+    var every: Types.ByBooleanPredicate;
+    var filter: Types.ByArrayPredicate;
+    var find: Types.ResultPredicate;
+    var findLast: Types.ResultPredicate;
+    var flatMap: Types.FlatMap;
+    var forEach: Types.ForEach;
+    var forEachRight: Types.ForEach;
+    var each: Types.ForEach;
+    var eachRight: Types.ForEach;
+    var keyBy: Types.KeyBy;
+    var groupBy: Types.GroupBy;
+    var includes: Types.Includes;
+    var invokeMap: Types.InvokeMap;
+    var map: Types.Map;
+    var orderBy: Types.OrderBy;
+    var partition: Types.Partition;
+    var reduce: Types.Reduce;
+    var reduceRight: Types.Reduce;
+    var reject: Types.ByArrayPredicate;
+    var sample: Types.Sample;
+    var sampleSize: Types.SampleSize;
+    var shuffle: Types.Shuffle;
+    var size: Types.Size;
+    var some: Types.ByBooleanPredicate;
+    var sortBy: Types.SortBy;
 }

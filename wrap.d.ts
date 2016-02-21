@@ -97,13 +97,15 @@ namespace Types {
     }
 }
 
-interface Static {
+interface IStatic extends Types.PH {
     <T>(array: ArrayLike<T>): Types.Wrap.ImplicitArray1<T>;
     <T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ImplicitObject1<T, TObj>;
-
-    chain<T>(array: ArrayLike<T>): Types.Wrap.ExplicitArray1<T>;
-    chain<T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ExplicitObject1<T, TObj>;
 }
 
-namespace Static {}
+var Static: IStatic;
+namespace Static {
+    function chain<T>(array: ArrayLike<T>): Types.Wrap.ExplicitArray1<T>;
+    function chain<T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ExplicitObject1<T, TObj>;
+}
+
 export = Static;
