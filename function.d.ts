@@ -346,28 +346,28 @@ namespace Types {
     }
 }
 
-namespace Static {
-    var after: Types.AfterMethod;
-    function ary<T extends Function>(func: T, num?: number): T;
-    var before: Types.AfterMethod;
-    var bind: Types.Bind;
-    function bindKey<TResult extends Function>(object: Object, key: string, ...partials: any[]): TResult;
-    var curry: Types.Curry;
-    var curryRight: Types.CurryRight;
-    function debounce<T extends Function>(func: T, wait?: number, options?: Types.DebounceOptions): T;
-    var defer: Types.Defer;
-    var delay: Types.Delay;
-    var flip: Types.Flip;
-    var memoize: Types.Memoize;
-    var negate: Types.Negate;
-    var once: Types.ReturnMethod;
-    var overArgs: Types.OverArgs;
-    var partial: Types.Partial;
-    var partialRight: Types.PartialRight;
-    var rearg: Types.Rearg;
-    var rest: Types.Rest;
-    var spread: Types.Spread;
-    function throttle<T extends Function>(func: T, wait?: number, options?: Types.ThrottleOptions): T;
-    var unary: Types.Unary;
-    function wrap<TResult>(value: any, wrapper: Function): TResult;
+interface IStatic {
+    after: Types.AfterMethod;
+    ary<T extends Function>(func: T, num?: number): T
+    before: Types.AfterMethod;
+    bind: Types.Bind;
+    bindKey<TResult extends Function>(object: Object, key: string, ...partials: any[]): TResult
+    curry: Types.Curry;
+    curryRight: Types.CurryRight;
+    debounce<T extends Function>(func: T, wait?: number, options?: Types.DebounceOptions): T
+    defer: Types.Defer;
+    delay: Types.Delay;
+    flip: Types.Flip;
+    memoize: Types.Memoize;
+    negate: Types.Negate;
+    once: Types.ReturnMethod;
+    overArgs: Types.OverArgs;
+    partial: Types.Partial;
+    partialRight: Types.PartialRight;
+    rearg: Types.Rearg;
+    rest: Types.Rest;
+    spread: Types.Spread;
+    throttle<T extends Function>(func: T, wait?: number, options?: Types.ThrottleOptions): T
+    unary: Types.Unary;
+    wrap<TResult>(value: any, wrapper: Function): TResult
 }

@@ -77,64 +77,64 @@ namespace Types {
     }
 }
 
-namespace Static {
-    function attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error;
-    function attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error;
-    function attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error;
-    function attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error;
-    function attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error;
-    function attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error;
+interface IStatic {
+    attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error
+    attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error
+    attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error
+    attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error
+    attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error
+    attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error
 
-    function bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T;
+    bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T
 
-    function cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult;
+    cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult
 
-    function conforms<U, T extends { [index: string]: (obj: U) => boolean; }>(arg: T): (arg: U) => boolean;
+    conforms<U, T extends { [index: string]: (obj: U) => boolean }>(arg: T): (arg: U) => boolean;
 
-    function constant<T>(value: T): () => T;
+    constant<T>(value: T): () => T
 
-    var flow: Types.Flow;
-    var flowRight: Types.Flow;
+    flow: Types.Flow;
+    flowRight: Types.Flow;
 
-    function identity<T>(value: T): T;
+    identity<T>(value: T): T
 
-    var iteratee: Types.IterateeMethod;
+    iteratee: Types.IterateeMethod;
 
-    function matches<T, O>(obj: T): (obj: O) => boolean;
-    function matchesProperty<O>(path: Types.PathLocation, value: any): (obj: O) => boolean;
+    matches<T, O>(obj: T): (obj: O) => boolean
+    matchesProperty<O>(path: Types.PathLocation, value: any): (obj: O) => boolean
 
-    var method: Types.Method;
+    method: Types.Method;
 
-    var methodOf: Types.MethodOf;
+    methodOf: Types.MethodOf;
 
-    function mixin<TObject, TSource>(obj: TObject, source: TSource, options?: { chain?: boolean }): TObject & TSource;
-    function mixin<TSource>(source: TSource, options?: { chain?: boolean }): Static & TSource;
+    mixin<TObject, TSource>(obj: TObject, source: TSource, options?: { chain?: boolean }): TObject & TSource
+    mixin<TSource>(source: TSource, options?: { chain?: boolean }): IStatic & TSource
 
-    function noConflict(): Static;
+    noConflict(): IStatic
 
-    function noop(...args: any[]): void;
+    noop(...args: any[]): void
 
-    function nthArg<TResult>(num?: number): TResult;
+    nthArg<TResult>(num?: number): TResult
 
-    var over: Types.Over;
+    over: Types.Over;
 
-    var overEvery: Types.OverEveryORSome;
-    var overSome: Types.OverEveryORSome;
+    overEvery: Types.OverEveryORSome;
+    overSome: Types.OverEveryORSome;
 
-    function property<TResult>(path: Types.PathLocation): (object: any) => TResult;
-    function propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult;
+    property<TResult>(path: Types.PathLocation): (object: any) => TResult
+    propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult
 
-    var range: Types.Range;
-    var rangeRight: Types.Range;
+    range: Types.Range;
+    rangeRight: Types.Range;
 
-    function runInContext(context?: any): Static;
+    runInContext(context?: any): IStatic
 
-    function times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[];
-    function times(n: number): number[];
+    times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[]
+    times(n: number): number[]
 
-    function toPath(value: string): string[];
+    toPath(value: string): string[]
 
-    function uniqueId(prefix?: string): string;
+    uniqueId(prefix?: string): string
 
-    function now(): number;
+    now(): number
 }

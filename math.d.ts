@@ -10,22 +10,22 @@ namespace Types {
     }
 }
 
-namespace Static {
-    var add: Types.Add;
-    var ceil: Types.Ceil;
-    var floor: Types.Ceil;
-    var max: Types.Max;
-    var maxBy: Types.MaxBy;
-    var mean: Types.Max;
-    var min: Types.Max;
-    var minBy: Types.MaxBy;
-    var round: Types.Ceil;
-    var subtract: Types.Add;
-    var sum: Types.Max;
-    var sumBy: Types.MaxBy;
-    function clamp(num: number, upper: number): number;
-    function clamp(num: number, lower: number, upper: number): number;
-    function inRange(num: number, end: number): boolean;
-    function inRange(num: number, start: number, end: number): boolean;
-    function random(lower?: number, upper?: number, floating?: boolean): number;
+interface IStatic {
+    add: Types.Add;
+    ceil: Types.Ceil;
+    floor: Types.Ceil;
+    max: Types.Max;
+    maxBy: Types.MaxBy;
+    mean: Types.Max;
+    min: Types.Max;
+    minBy: Types.MaxBy;
+    round: Types.Ceil;
+    subtract: Types.Add;
+    sum: Types.Max;
+    sumBy: Types.MaxBy;
+    clamp(num: number, upper: number): number
+    clamp(num: number, lower: number, upper: number): number
+    inRange(num: number, end: number): boolean
+    inRange(num: number, start: number, end: number): boolean
+    random(lower?: number, upper?: number, floating?: boolean): number
 }

@@ -1,6 +1,6 @@
 /// <reference path="./index.ts" />
 
-declare var _: LoDash.Static;
+declare var _: LoDash.IStatic;
 
 declare var $: any, jQuery: any;
 

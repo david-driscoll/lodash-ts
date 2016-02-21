@@ -103,46 +103,46 @@ namespace Types {
     }
 }
 
-namespace Static {
-    var assign: Types.Assign;
-    var assignIn: Types.Assign;
-    var assignWith: Types.AssignWith;
-    var assignInWith: Types.AssignWith;
-    var at: Types.At;
-    function create<T, P>(prototype: T, properties?: P): T & P;
-    function create<TResult>(prototype: any, properties?: any): TResult;
-    var defaults: Types.Assign;
-    var defaultsDeep: Types.Assign;
-    var extend: Types.Assign;
-    var findKey: Types.FindKey;
-    var findLastKey: Types.FindKey;
-    var forIn: Types.ForIn;
-    var forInRight: Types.ForIn;
-    var forOwn: Types.ForIn;
-    var forOwnRight: Types.ForIn;
-    var functions: Types.Functions;
-    var functionsIn: Types.Functions;
-    var get: Types.Get;
-    var has: Types.Has;
-    var hasIn: Types.Has;
-    function invert<TResult>(obj: Object): TResult;
-    var invoke: Types.Invoke;
-    var keys: Types.Keys;
-    var keysIn: Types.Keys;
-    var mapKeys: Types.MapKeys;
-    var merge: Types.Assign;
-    var mergeWith: Types.AssignWith;
-    var omit: Types.Omit;
-    var omitBy: Types.OmitBy;
-    var pick: Types.Omit;
-    var pickBy: Types.OmitBy;
-    var result: Types.Get;
-    var set: Types.Set;
-    var setWith: Types.SetWith;
-    var toPairs: Types.ToPairs;
-    var toPairsIn: Types.ToPairs;
-    var transform: Types.Transform;
-    var unset: Types.Unset;
-    var values: Types.Values;
-    var valuesIn: Types.Values;
+interface IStatic {
+    assign: Types.Assign;
+    assignIn: Types.Assign;
+    assignWith: Types.AssignWith;
+    assignInWith: Types.AssignWith;
+    at: Types.At;
+    create<T, P>(prototype: T, properties?: P): T & P
+    create<TResult>(prototype: any, properties?: any): TResult
+    defaults: Types.Assign;
+    defaultsDeep: Types.Assign;
+    extend: Types.Assign;
+    findKey: Types.FindKey;
+    findLastKey: Types.FindKey;
+    forIn: Types.ForIn;
+    forInRight: Types.ForIn;
+    forOwn: Types.ForIn;
+    forOwnRight: Types.ForIn;
+    functions: Types.Functions;
+    functionsIn: Types.Functions;
+    get: Types.Get;
+    has: Types.Has;
+    hasIn: Types.Has;
+    invert<TResult>(obj: Object): TResult
+    invoke: Types.Invoke;
+    keys: Types.Keys;
+    keysIn: Types.Keys;
+    mapKeys: Types.MapKeys;
+    merge: Types.Assign;
+    mergeWith: Types.AssignWith;
+    omit: Types.Omit;
+    omitBy: Types.OmitBy;
+    pick: Types.Omit;
+    pickBy: Types.OmitBy;
+    result: Types.Get;
+    set: Types.Set;
+    setWith: Types.SetWith;
+    toPairs: Types.ToPairs;
+    toPairsIn: Types.ToPairs;
+    transform: Types.Transform;
+    unset: Types.Unset;
+    values: Types.Values;
+    valuesIn: Types.Values;
 }

@@ -351,68 +351,68 @@ namespace Types {
     interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
 }
 
-namespace Static {
-    var chunk: Types.Chunk;
-    var compact: Types.ArrayPassThrough;
-    var concat: Types.Concat;
-    var difference: Types.Difference;
-    var differenceBy: Types.DifferenceBy;
-    var differenceWith: Types.DifferenceWith;
-    var drop: Types.Drop;
-    var dropRight: Types.Drop;
-    var dropWhile: Types.DropWhile;
-    var dropWhileRight: Types.DropWhile;
-    var fill: Types.Fill;
-    var findIndex: Types.FindIndex;
-    var findLastIndex: Types.FindIndex;
-    var first: Types.ArrayValueThrough;
-    var flatten: Types.Flatten;
-    var flattenDeep: Types.FlattenDeep;
-    var flattenDepth: Types.FlattenDepth;
-    var fromPairs: Types.FromPairs;
-    var head: Types.ArrayValueThrough;
-    var indexOf: Types.IndexOf;
-    var initial: Types.ArrayPassThrough;
-    var intersection: Types.Difference;
-    var intersectionBy: Types.DifferenceBy;
-    var intersectionWith: Types.DifferenceWith;
-    var join: Types.Join;
-    var last: Types.ArrayValueThrough;
-    var lastIndexOf: Types.IndexOf;
-    var pull: Types.ArrayArgs;
-    var pullAll: Types.PullAll;
-    var pullAt: Types.PullAt;
-    var remove: Types.Remove;
-    var reverse: Types.ArrayPassThrough;
-    var slice: Types.Slice;
-    var sortedIndex: Types.SortedIndex;
-    var sortedIndexOf: Types.SortedIndex;
-    var sortedLastIndexOf: Types.SortedIndex;
-    var sortedIndexBy: Types.SortedIndexBy;
-    var sortedLastIndexBy: Types.SortedIndexBy;
-    var sortedUniq: Types.ArrayPassThrough;
-    var sortedUniqBy: Types.UniqBy;
-    var tail: Types.ArrayPassThrough;
-    var take: Types.Drop;
-    var takeRight: Types.Drop;
-    var takeWhile: Types.DropWhile;
-    var takeRightWhile: Types.DropWhile;
-    var union: Types.Difference;
-    var unionBy: Types.DifferenceBy;
-    var unionWith: Types.DifferenceWith;
-    var uniq: Types.ArrayPassThrough;
-    var uniqBy: Types.UniqBy;
-    var uniqWith: Types.UniqWith;
-    var unzip: Types.Unzip;
-    var unzipWith: Types.UnzipWith;
-    var without: Types.ArrayArgs;
-    var xor: Types.Difference;
-    var xorBy: Types.DifferenceBy;
-    var xorWith: Types.DifferenceWith;
-    var zip: Types.Zip;
-    var zipWith: Types.ZipWith;
-    var zipObject: Types.ZipObject;
-    var zipObjectDeep: Types.ZipObject;
+interface IStatic {
+    chunk: Types.Chunk;
+    compact: Types.ArrayPassThrough;
+    concat: Types.Concat;
+    difference: Types.Difference;
+    differenceBy: Types.DifferenceBy;
+    differenceWith: Types.DifferenceWith;
+    drop: Types.Drop;
+    dropRight: Types.Drop;
+    dropWhile: Types.DropWhile;
+    dropWhileRight: Types.DropWhile;
+    fill: Types.Fill;
+    findIndex: Types.FindIndex;
+    findLastIndex: Types.FindIndex;
+    first: Types.ArrayValueThrough;
+    flatten: Types.Flatten;
+    flattenDeep: Types.FlattenDeep;
+    flattenDepth: Types.FlattenDepth;
+    fromPairs: Types.FromPairs;
+    head: Types.ArrayValueThrough;
+    indexOf: Types.IndexOf;
+    initial: Types.ArrayPassThrough;
+    intersection: Types.Difference;
+    intersectionBy: Types.DifferenceBy;
+    intersectionWith: Types.DifferenceWith;
+    join: Types.Join;
+    last: Types.ArrayValueThrough;
+    lastIndexOf: Types.IndexOf;
+    pull: Types.ArrayArgs;
+    pullAll: Types.PullAll;
+    pullAt: Types.PullAt;
+    remove: Types.Remove;
+    reverse: Types.ArrayPassThrough;
+    slice: Types.Slice;
+    sortedIndex: Types.SortedIndex;
+    sortedIndexOf: Types.SortedIndex;
+    sortedLastIndexOf: Types.SortedIndex;
+    sortedIndexBy: Types.SortedIndexBy;
+    sortedLastIndexBy: Types.SortedIndexBy;
+    sortedUniq: Types.ArrayPassThrough;
+    sortedUniqBy: Types.UniqBy;
+    tail: Types.ArrayPassThrough;
+    take: Types.Drop;
+    takeRight: Types.Drop;
+    takeWhile: Types.DropWhile;
+    takeRightWhile: Types.DropWhile;
+    union: Types.Difference;
+    unionBy: Types.DifferenceBy;
+    unionWith: Types.DifferenceWith;
+    uniq: Types.ArrayPassThrough;
+    uniqBy: Types.UniqBy;
+    uniqWith: Types.UniqWith;
+    unzip: Types.Unzip;
+    unzipWith: Types.UnzipWith;
+    without: Types.ArrayArgs;
+    xor: Types.Difference;
+    xorBy: Types.DifferenceBy;
+    xorWith: Types.DifferenceWith;
+    zip: Types.Zip;
+    zipWith: Types.ZipWith;
+    zipObject: Types.ZipObject;
+    zipObjectDeep: Types.ZipObject;
 }
 namespace Types.Wrap {
     interface ForEach<T, TWrapper> {
@@ -601,33 +601,33 @@ namespace Types {
     }
 }
 
-namespace Static {
-    var countBy: Types.CountBy;
-    var every: Types.ByBooleanPredicate;
-    var filter: Types.ByArrayPredicate;
-    var find: Types.ResultPredicate;
-    var findLast: Types.ResultPredicate;
-    var flatMap: Types.FlatMap;
-    var forEach: Types.ForEach;
-    var forEachRight: Types.ForEach;
-    var each: Types.ForEach;
-    var eachRight: Types.ForEach;
-    var keyBy: Types.KeyBy;
-    var groupBy: Types.GroupBy;
-    var includes: Types.Includes;
-    var invokeMap: Types.InvokeMap;
-    var map: Types.Map;
-    var orderBy: Types.OrderBy;
-    var partition: Types.Partition;
-    var reduce: Types.Reduce;
-    var reduceRight: Types.Reduce;
-    var reject: Types.ByArrayPredicate;
-    var sample: Types.Sample;
-    var sampleSize: Types.SampleSize;
-    var shuffle: Types.Shuffle;
-    var size: Types.Size;
-    var some: Types.ByBooleanPredicate;
-    var sortBy: Types.SortBy;
+interface IStatic {
+    countBy: Types.CountBy;
+    every: Types.ByBooleanPredicate;
+    filter: Types.ByArrayPredicate;
+    find: Types.ResultPredicate;
+    findLast: Types.ResultPredicate;
+    flatMap: Types.FlatMap;
+    forEach: Types.ForEach;
+    forEachRight: Types.ForEach;
+    each: Types.ForEach;
+    eachRight: Types.ForEach;
+    keyBy: Types.KeyBy;
+    groupBy: Types.GroupBy;
+    includes: Types.Includes;
+    invokeMap: Types.InvokeMap;
+    map: Types.Map;
+    orderBy: Types.OrderBy;
+    partition: Types.Partition;
+    reduce: Types.Reduce;
+    reduceRight: Types.Reduce;
+    reject: Types.ByArrayPredicate;
+    sample: Types.Sample;
+    sampleSize: Types.SampleSize;
+    shuffle: Types.Shuffle;
+    size: Types.Size;
+    some: Types.ByBooleanPredicate;
+    sortBy: Types.SortBy;
 }
 namespace Types {
     interface Identity {
@@ -1002,30 +1002,30 @@ namespace Types {
     }
 }
 
-namespace Static {
-    var after: Types.AfterMethod;
-    function ary<T extends Function>(func: T, num?: number): T;
-    var before: Types.AfterMethod;
-    var bind: Types.Bind;
-    function bindKey<TResult extends Function>(object: Object, key: string, ...partials: any[]): TResult;
-    var curry: Types.Curry;
-    var curryRight: Types.CurryRight;
-    function debounce<T extends Function>(func: T, wait?: number, options?: Types.DebounceOptions): T;
-    var defer: Types.Defer;
-    var delay: Types.Delay;
-    var flip: Types.Flip;
-    var memoize: Types.Memoize;
-    var negate: Types.Negate;
-    var once: Types.ReturnMethod;
-    var overArgs: Types.OverArgs;
-    var partial: Types.Partial;
-    var partialRight: Types.PartialRight;
-    var rearg: Types.Rearg;
-    var rest: Types.Rest;
-    var spread: Types.Spread;
-    function throttle<T extends Function>(func: T, wait?: number, options?: Types.ThrottleOptions): T;
-    var unary: Types.Unary;
-    function wrap<TResult>(value: any, wrapper: Function): TResult;
+interface IStatic {
+    after: Types.AfterMethod;
+    ary<T extends Function>(func: T, num?: number): T
+    before: Types.AfterMethod;
+    bind: Types.Bind;
+    bindKey<TResult extends Function>(object: Object, key: string, ...partials: any[]): TResult
+    curry: Types.Curry;
+    curryRight: Types.CurryRight;
+    debounce<T extends Function>(func: T, wait?: number, options?: Types.DebounceOptions): T
+    defer: Types.Defer;
+    delay: Types.Delay;
+    flip: Types.Flip;
+    memoize: Types.Memoize;
+    negate: Types.Negate;
+    once: Types.ReturnMethod;
+    overArgs: Types.OverArgs;
+    partial: Types.Partial;
+    partialRight: Types.PartialRight;
+    rearg: Types.Rearg;
+    rest: Types.Rest;
+    spread: Types.Spread;
+    throttle<T extends Function>(func: T, wait?: number, options?: Types.ThrottleOptions): T
+    unary: Types.Unary;
+    wrap<TResult>(value: any, wrapper: Function): TResult
 }
 namespace Types {
     interface CastArray {
@@ -1047,67 +1047,67 @@ namespace Types {
     }
 }
 
-namespace Static {
-    var castArray: Types.CastArray;
-    var clone: Types.Clone;
-    var cloneDeep: Types.Clone;
-    var cloneWith: Types.CloneWith;
-    var cloneDeepWith: Types.CloneWith;
-    var eq: Types.Comparison;
-    var gt: Types.Comparison;
-    var gte: Types.Comparison;
-    var lt: Types.Comparison;
-    var lte: Types.Comparison;
-    function isArguments(value: any): value is IArguments;
-    function isArray(value: any): value is any[];
-    function isArray<T>(value: any): value is T[];
-    function isArrayBuffer(value: any): value is ArrayBuffer;
-    function isArrayLike(value: any): value is ArrayLike<any>;
-    function isArrayLike<T>(value: any): value is ArrayLike<T>;
-    function isArrayLikeObject(value: any): value is ArrayLike<any>;
-    function isArrayLikeObject<T>(value: any): value is ArrayLike<T> & Object;
-    function isBoolean(value: any): value is boolean | Boolean;
-    function isBuffer(value: any): boolean; // buffer signature?
-    function isDate(value: any): value is Date;
-    function isElement<T extends Element>(value: any): value is T;
-    function isEmpty(value: any): boolean;
-    var isEqual: Types.Comparison;
-    function isEqualWith<T>(a: T, b: T, customizer: (valueA: any, valueB: any, key: string, a: T, b: T, stack: any) => any): boolean;
-    function isError<T extends Error>(value: any): value is T;
-    function isFinite(value: number): boolean;
-    function isFunction<T extends Function>(value: any): value is T;
-    function isInteger(value: number): boolean;
-    function isLength(value: number): boolean;
-    function isMap<K, V>(value: any): value is Map<K, V>;
-    function isMatch<T extends R, R>(value: T, match: R): boolean;
-    function isMatchWith<T, R>(value: T, source: R, customizer: (valueA: any, valueB: any, key: string, a: T, b: R) => any): boolean;
-    function isNaN(value: number): boolean;
-    function isNative<T extends Function>(value: T): boolean;
-    function isNil(value: any): boolean;
-    function isNull(value: any): boolean;
-    function isNumber(value: any): value is number;
-    function isObject<T extends Object>(value: any): value is T;
-    function isObjectLike<T extends Object>(value: any): value is T;
-    function isPlainObject<T extends Object>(value: any): value is T;
-    function isRegExp(value: any): value is RegExp;
-    function isSafeInteger(value: number): boolean;
-    function isSet<T>(value: any): value is Set<T>;
-    function isString(value: any): value is string;
-    function isSymbol(value: any): value is Symbol;
-    function isTypedArray(value: any): boolean;
-    function isUndefined(value: any): boolean;
-    function isWeakMap<K, V>(value: any): value is WeakMap<K, V>;
-    function isWeakSet<T>(value: any): value is WeakSet<T>;
-    function toArray<T>(value: { [index: string]: T }): T[];
-    function toArray(value: string): string[];
-    function toArray<T>(value: T[]): T[];
-    function toArray<T>(value: any): T[];
-    function toInteger(value: number | string): number;
-    function toLength(value: number): number;
-    function toNumber(value: any): number;
-    function toPlainObject<T extends Object>(value: any): T;
-    function toSafeInteger(value: number | string): number;
-    function toString(value: any): string;
+interface IStatic {
+    castArray: Types.CastArray;
+    clone: Types.Clone;
+    cloneDeep: Types.Clone;
+    cloneWith: Types.CloneWith;
+    cloneDeepWith: Types.CloneWith;
+    eq: Types.Comparison;
+    gt: Types.Comparison;
+    gte: Types.Comparison;
+    lt: Types.Comparison;
+    lte: Types.Comparison;
+    isArguments(value: any): value is IArguments
+    isArray(value: any): value is any[]
+    isArray<T>(value: any): value is T[]
+    isArrayBuffer(value: any): value is ArrayBuffer
+    isArrayLike(value: any): value is ArrayLike<any>
+    isArrayLike<T>(value: any): value is ArrayLike<T>
+    isArrayLikeObject(value: any): value is ArrayLike<any>
+    isArrayLikeObject<T>(value: any): value is ArrayLike<T> & Object
+    isBoolean(value: any): value is boolean | Boolean
+    isBuffer(value: any): boolean // buffer signature?
+    isDate(value: any): value is Date
+    isElement<T extends Element>(value: any): value is T
+    isEmpty(value: any): boolean
+    isEqual: Types.Comparison;
+    isEqualWith<T>(a: T, b: T, customizer: (valueA: any, valueB: any, key: string, a: T, b: T, stack: any) => any): boolean
+    isError<T extends Error>(value: any): value is T
+    isFinite(value: number): boolean
+    isFunction<T extends Function>(value: any): value is T
+    isInteger(value: number): boolean
+    isLength(value: number): boolean
+    isMap<K, V>(value: any): value is Map<K, V>
+    isMatch<T extends R, R>(value: T, match: R): boolean
+    isMatchWith<T, R>(value: T, source: R, customizer: (valueA: any, valueB: any, key: string, a: T, b: R) => any): boolean
+    isNaN(value: number): boolean
+    isNative<T extends Function>(value: T): boolean
+    isNil(value: any): boolean
+    isNull(value: any): boolean
+    isNumber(value: any): value is number
+    isObject<T extends Object>(value: any): value is T
+    isObjectLike<T extends Object>(value: any): value is T
+    isPlainObject<T extends Object>(value: any): value is T
+    isRegExp(value: any): value is RegExp
+    isSafeInteger(value: number): boolean
+    isSet<T>(value: any): value is Set<T>
+    isString(value: any): value is string
+    isSymbol(value: any): value is Symbol
+    isTypedArray(value: any): boolean
+    isUndefined(value: any): boolean
+    isWeakMap<K, V>(value: any): value is WeakMap<K, V>
+    isWeakSet<T>(value: any): value is WeakSet<T>
+    toArray<T>(value: { [index: string]: T }): T[]
+    toArray(value: string): string[]
+    toArray<T>(value: T[]): T[]
+    toArray<T>(value: any): T[]
+    toInteger(value: number | string): number
+    toLength(value: number): number
+    toNumber(value: any): number
+    toPlainObject<T extends Object>(value: any): T
+    toSafeInteger(value: number | string): number
+    toString(value: any): string
 }
 namespace Types {
     type Add = (augend: number, addend: number) => number;
@@ -1121,24 +1121,24 @@ namespace Types {
     }
 }
 
-namespace Static {
-    var add: Types.Add;
-    var ceil: Types.Ceil;
-    var floor: Types.Ceil;
-    var max: Types.Max;
-    var maxBy: Types.MaxBy;
-    var mean: Types.Max;
-    var min: Types.Max;
-    var minBy: Types.MaxBy;
-    var round: Types.Ceil;
-    var subtract: Types.Add;
-    var sum: Types.Max;
-    var sumBy: Types.MaxBy;
-    function clamp(num: number, upper: number): number;
-    function clamp(num: number, lower: number, upper: number): number;
-    function inRange(num: number, end: number): boolean;
-    function inRange(num: number, start: number, end: number): boolean;
-    function random(lower?: number, upper?: number, floating?: boolean): number;
+interface IStatic {
+    add: Types.Add;
+    ceil: Types.Ceil;
+    floor: Types.Ceil;
+    max: Types.Max;
+    maxBy: Types.MaxBy;
+    mean: Types.Max;
+    min: Types.Max;
+    minBy: Types.MaxBy;
+    round: Types.Ceil;
+    subtract: Types.Add;
+    sum: Types.Max;
+    sumBy: Types.MaxBy;
+    clamp(num: number, upper: number): number
+    clamp(num: number, lower: number, upper: number): number
+    inRange(num: number, end: number): boolean
+    inRange(num: number, start: number, end: number): boolean
+    random(lower?: number, upper?: number, floating?: boolean): number
 }
 namespace Types {
     interface Assign {
@@ -1245,48 +1245,48 @@ namespace Types {
     }
 }
 
-namespace Static {
-    var assign: Types.Assign;
-    var assignIn: Types.Assign;
-    var assignWith: Types.AssignWith;
-    var assignInWith: Types.AssignWith;
-    var at: Types.At;
-    function create<T, P>(prototype: T, properties?: P): T & P;
-    function create<TResult>(prototype: any, properties?: any): TResult;
-    var defaults: Types.Assign;
-    var defaultsDeep: Types.Assign;
-    var extend: Types.Assign;
-    var findKey: Types.FindKey;
-    var findLastKey: Types.FindKey;
-    var forIn: Types.ForIn;
-    var forInRight: Types.ForIn;
-    var forOwn: Types.ForIn;
-    var forOwnRight: Types.ForIn;
-    var functions: Types.Functions;
-    var functionsIn: Types.Functions;
-    var get: Types.Get;
-    var has: Types.Has;
-    var hasIn: Types.Has;
-    function invert<TResult>(obj: Object): TResult;
-    var invoke: Types.Invoke;
-    var keys: Types.Keys;
-    var keysIn: Types.Keys;
-    var mapKeys: Types.MapKeys;
-    var merge: Types.Assign;
-    var mergeWith: Types.AssignWith;
-    var omit: Types.Omit;
-    var omitBy: Types.OmitBy;
-    var pick: Types.Omit;
-    var pickBy: Types.OmitBy;
-    var result: Types.Get;
-    var set: Types.Set;
-    var setWith: Types.SetWith;
-    var toPairs: Types.ToPairs;
-    var toPairsIn: Types.ToPairs;
-    var transform: Types.Transform;
-    var unset: Types.Unset;
-    var values: Types.Values;
-    var valuesIn: Types.Values;
+interface IStatic {
+    assign: Types.Assign;
+    assignIn: Types.Assign;
+    assignWith: Types.AssignWith;
+    assignInWith: Types.AssignWith;
+    at: Types.At;
+    create<T, P>(prototype: T, properties?: P): T & P
+    create<TResult>(prototype: any, properties?: any): TResult
+    defaults: Types.Assign;
+    defaultsDeep: Types.Assign;
+    extend: Types.Assign;
+    findKey: Types.FindKey;
+    findLastKey: Types.FindKey;
+    forIn: Types.ForIn;
+    forInRight: Types.ForIn;
+    forOwn: Types.ForIn;
+    forOwnRight: Types.ForIn;
+    functions: Types.Functions;
+    functionsIn: Types.Functions;
+    get: Types.Get;
+    has: Types.Has;
+    hasIn: Types.Has;
+    invert<TResult>(obj: Object): TResult
+    invoke: Types.Invoke;
+    keys: Types.Keys;
+    keysIn: Types.Keys;
+    mapKeys: Types.MapKeys;
+    merge: Types.Assign;
+    mergeWith: Types.AssignWith;
+    omit: Types.Omit;
+    omitBy: Types.OmitBy;
+    pick: Types.Omit;
+    pickBy: Types.OmitBy;
+    result: Types.Get;
+    set: Types.Set;
+    setWith: Types.SetWith;
+    toPairs: Types.ToPairs;
+    toPairsIn: Types.ToPairs;
+    transform: Types.Transform;
+    unset: Types.Unset;
+    values: Types.Values;
+    valuesIn: Types.Values;
 }
 namespace Types {
     type StringMethod = (str?: string) => string;
@@ -1313,42 +1313,42 @@ namespace Types {
     }
 }
 
-namespace Static {
-    var templateSettings: Types.TemplateSettings;
+interface IStatic {
+    templateSettings: Types.TemplateSettings;
     VERSION: string;
 
-    var camelCase: Types.StringMethod;
-    var capitalize: Types.StringMethod;
-    var deburr: Types.StringMethod;
-    var endsWith: Types.WithStringMethod;
-    var escape: Types.StringMethod;
-    var escapeRegExp: Types.StringMethod;
-    var kebabCase: Types.StringMethod;
-    var lowerCase: Types.StringMethod;
-    var lowerFirst: Types.StringMethod;
-    var pad: Types.PadStringMethod;
-    var padEnd: Types.PadStringMethod;
-    var padStart: Types.PadStringMethod;
-    function parseInt(str: string, radix?: number): number;
-    function repeat(str?: string, num?: number): string;
-    function replace(str: string, pattern: RegExp | string, replacement: string | ((substring: string, ...args: any[]) => string)): string;
-    function replace(pattern: RegExp | string, replacement: string | ((substring: string, ...args: any[]) => string)): string;
-    var snakeCase: Types.StringMethod;
-    function split(str: string, separator: string | RegExp, limit?: number): string[];
-    function split(separator: string | RegExp, limit?: number): string[];
-    var startCase: Types.StringMethod;
-    var startsWith: Types.WithStringMethod;
-    function template<T>(str?: string, options?: Types.TemplateOptions): (ctx: T) => string;
-    var toLower: Types.StringMethod;
-    var toUpper: Types.StringMethod;
-    var trim: Types.TrimStringMethod;
-    var trimEnd: Types.TrimStringMethod;
-    var trimStart: Types.TrimStringMethod;
-    function truncate(str?: string, options?: Types.TruncateOptions): string;
-    var unescape: Types.StringMethod;
-    var upperCase: Types.StringMethod;
-    var upperFirst: Types.StringMethod;
-    function words(str?: string, pattern?: string | RegExp): string[];
+    camelCase: Types.StringMethod;
+    capitalize: Types.StringMethod;
+    deburr: Types.StringMethod;
+    endsWith: Types.WithStringMethod;
+    escape: Types.StringMethod;
+    escapeRegExp: Types.StringMethod;
+    kebabCase: Types.StringMethod;
+    lowerCase: Types.StringMethod;
+    lowerFirst: Types.StringMethod;
+    pad: Types.PadStringMethod;
+    padEnd: Types.PadStringMethod;
+    padStart: Types.PadStringMethod;
+    parseInt(str: string, radix?: number): number
+    repeat(str?: string, num?: number): string
+    replace(str: string, pattern: RegExp | string, replacement: string | ((substring: string, ...args: any[]) => string)): string
+    replace(pattern: RegExp | string, replacement: string | ((substring: string, ...args: any[]) => string)): string
+    snakeCase: Types.StringMethod;
+    split(str: string, separator: string | RegExp, limit?: number): string[]
+    split(separator: string | RegExp, limit?: number): string[]
+    startCase: Types.StringMethod;
+    startsWith: Types.WithStringMethod;
+    template<T>(str?: string, options?: Types.TemplateOptions): (ctx: T) => string
+    toLower: Types.StringMethod;
+    toUpper: Types.StringMethod;
+    trim: Types.TrimStringMethod;
+    trimEnd: Types.TrimStringMethod;
+    trimStart: Types.TrimStringMethod;
+    truncate(str?: string, options?: Types.TruncateOptions): string
+    unescape: Types.StringMethod;
+    upperCase: Types.StringMethod;
+    upperFirst: Types.StringMethod;
+    words(str?: string, pattern?: string | RegExp): string[]
 }
 namespace Types {
     interface Flow {
@@ -1429,66 +1429,66 @@ namespace Types {
     }
 }
 
-namespace Static {
-    function attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error;
-    function attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error;
-    function attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error;
-    function attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error;
-    function attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error;
-    function attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error;
+interface IStatic {
+    attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error
+    attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error
+    attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error
+    attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error
+    attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error
+    attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error
 
-    function bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T;
+    bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T
 
-    function cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult;
+    cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult
 
-    function conforms<U, T extends { [index: string]: (obj: U) => boolean; }>(arg: T): (arg: U) => boolean;
+    conforms<U, T extends { [index: string]: (obj: U) => boolean }>(arg: T): (arg: U) => boolean;
 
-    function constant<T>(value: T): () => T;
+    constant<T>(value: T): () => T
 
-    var flow: Types.Flow;
-    var flowRight: Types.Flow;
+    flow: Types.Flow;
+    flowRight: Types.Flow;
 
-    function identity<T>(value: T): T;
+    identity<T>(value: T): T
 
-    var iteratee: Types.IterateeMethod;
+    iteratee: Types.IterateeMethod;
 
-    function matches<T, O>(obj: T): (obj: O) => boolean;
-    function matchesProperty<O>(path: Types.PathLocation, value: any): (obj: O) => boolean;
+    matches<T, O>(obj: T): (obj: O) => boolean
+    matchesProperty<O>(path: Types.PathLocation, value: any): (obj: O) => boolean
 
-    var method: Types.Method;
+    method: Types.Method;
 
-    var methodOf: Types.MethodOf;
+    methodOf: Types.MethodOf;
 
-    function mixin<TObject, TSource>(obj: TObject, source: TSource, options?: { chain?: boolean }): TObject & TSource;
-    function mixin<TSource>(source: TSource, options?: { chain?: boolean }): Static & TSource;
+    mixin<TObject, TSource>(obj: TObject, source: TSource, options?: { chain?: boolean }): TObject & TSource
+    mixin<TSource>(source: TSource, options?: { chain?: boolean }): IStatic & TSource
 
-    function noConflict(): Static;
+    noConflict(): IStatic
 
-    function noop(...args: any[]): void;
+    noop(...args: any[]): void
 
-    function nthArg<TResult>(num?: number): TResult;
+    nthArg<TResult>(num?: number): TResult
 
-    var over: Types.Over;
+    over: Types.Over;
 
-    var overEvery: Types.OverEveryORSome;
-    var overSome: Types.OverEveryORSome;
+    overEvery: Types.OverEveryORSome;
+    overSome: Types.OverEveryORSome;
 
-    function property<TResult>(path: Types.PathLocation): (object: any) => TResult;
-    function propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult;
+    property<TResult>(path: Types.PathLocation): (object: any) => TResult
+    propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult
 
-    var range: Types.Range;
-    var rangeRight: Types.Range;
+    range: Types.Range;
+    rangeRight: Types.Range;
 
-    function runInContext(context?: any): Static;
+    runInContext(context?: any): IStatic
 
-    function times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[];
-    function times(n: number): number[];
+    times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[]
+    times(n: number): number[]
 
-    function toPath(value: string): string[];
+    toPath(value: string): string[]
 
-    function uniqueId(prefix?: string): string;
+    uniqueId(prefix?: string): string
 
-    function now(): number;
+    now(): number
 }
 namespace Types {
     interface Tap {
@@ -1595,9 +1595,9 @@ interface IStatic extends Types.PH {
 }
 
 var Static: IStatic;
-namespace Static {
-    function chain<T>(array: ArrayLike<T>): Types.Wrap.ExplicitArray1<T>;
-    function chain<T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ExplicitObject1<T, TObj>;
+interface IStatic {
+    chain<T>(array: ArrayLike<T>): Types.Wrap.ExplicitArray1<T>;
+    chain<T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ExplicitObject1<T, TObj>;
 }
 
 export = Static;
