@@ -1,4 +1,4 @@
-declare namespace Types {
+export namespace Types {
     interface Identity {
         <T>(value: T, ...args: any[]): T;
     }

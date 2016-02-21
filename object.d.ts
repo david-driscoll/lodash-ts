@@ -1,4 +1,4 @@
-declare namespace Types {
+export namespace Types {
     interface Assign {
         <TObject, TSource>(object: TObject, source: TSource): TObject & TSource;
         <TObject, TSource1, TSource2>(object: TObject, source1: TSource1, source2: TSource2): TObject & TSource1 & TSource2;
@@ -103,7 +103,7 @@ declare namespace Types {
     }
 }
 
-interface Static {
+export interface Static {
     assign: Types.Assign;
     assignIn: Types.Assign;
     assignWith: Types.AssignWith;

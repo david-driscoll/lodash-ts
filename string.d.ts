@@ -1,4 +1,4 @@
-declare namespace Types {
+export namespace Types {
     type StringMethod = (str?: string) => string;
     type WithStringMethod = (str?: string, target?: string, position?: number) => boolean;
     type PadStringMethod = (str?: string, length?: number, chars?: string) => string;
@@ -23,7 +23,7 @@ declare namespace Types {
     }
 }
 
-interface Static {
+export interface Static {
     templateSettings: Types.TemplateSettings;
     VERSION: string;
 

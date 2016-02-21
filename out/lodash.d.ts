@@ -1,4 +1,4 @@
-namespace Types.Wrap {
+export namespace Types.Wrap {
     interface ArrayPassThrough<TWrapper> {
         (): TWrapper;
     }
@@ -181,7 +181,7 @@ namespace Types.Wrap {
         zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee<(...args: any[]) => TResult>)[]): ExplicitArray1<TResult>;
     }
 }
-namespace Types {
+export namespace Types {
     interface ArrayPassThrough {
         <T>(array: ArrayLike<T>): T[];
     }
@@ -351,7 +351,7 @@ namespace Types {
     interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
 }
 
-interface Static {
+export interface Static {
     chunk: Types.Chunk;
     compact: Types.ArrayPassThrough;
     concat: Types.Concat;
@@ -414,7 +414,7 @@ interface Static {
     zipObject: Types.ZipObject;
     zipObjectDeep: Types.ZipObject;
 }
-namespace Types.Wrap {
+export namespace Types.Wrap {
     interface ForEach<T, TWrapper> {
         (iteratee?: Iteratee<(value: T, index: number) => boolean | void>): TWrapper;
     }
@@ -509,7 +509,7 @@ namespace Types.Wrap {
         sortBy: SortBy<T, ExplicitArray1<T>>;
     }
 }
-namespace Types {
+export namespace Types {
     interface CountBy {
         <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
         <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
@@ -601,7 +601,7 @@ namespace Types {
     }
 }
 
-interface Static {
+export interface Static {
     countBy: Types.CountBy;
     every: Types.ByBooleanPredicate;
     filter: Types.ByArrayPredicate;
@@ -629,7 +629,7 @@ interface Static {
     some: Types.ByBooleanPredicate;
     sortBy: Types.SortBy;
 }
-namespace Types {
+export namespace Types {
     interface Identity {
         <T>(value: T, ...args: any[]): T;
     }
@@ -654,7 +654,7 @@ namespace Types {
         type AccumulatorObjectPredicate<T, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: string) => TAcc>;
     }
 }
-declare namespace Types {
+export namespace Types {
     type AfterMethod = <T extends Function>(num: number, func: T) => T;
     type ReturnMethod = <T extends Function>(func: T) => T;
     interface PH {
@@ -1002,7 +1002,7 @@ declare namespace Types {
     }
 }
 
-interface Static extends Types.PH {
+export interface Static extends Types.PH {
     after: Types.AfterMethod;
     ary<T extends Function>(func: T, num?: number): T;
     before: Types.AfterMethod;
@@ -1027,7 +1027,7 @@ interface Static extends Types.PH {
     unary: Types.Unary;
     wrap<TResult>(value: any, wrapper: Function): TResult;
 }
-namespace Types {
+export namespace Types {
     interface CastArray {
         <T>(value: T[]): T[];
         <T>(value: T): T[];
@@ -1047,7 +1047,7 @@ namespace Types {
     }
 }
 
-interface Static {
+export interface Static {
     castArray: Types.CastArray;
     clone: Types.Clone;
     cloneDeep: Types.Clone;
@@ -1109,7 +1109,7 @@ interface Static {
     toSafeInteger(value: number | string): number;
     toString(value: any): string;
 }
-namespace Types {
+export namespace Types {
     type AddSignature = (augend: number, addend: number) => number;
     type MaxSignature = (array: number[]) => number;
     type CeilSignature = (n: number, precision?: number) => number;
@@ -1121,7 +1121,7 @@ namespace Types {
     }
 }
 
-interface Static {
+export interface Static {
     add: Types.Add;
     ceil: Types.Ceil;
     floor: Types.Ceil;
@@ -1140,7 +1140,7 @@ interface Static {
     inRange(num: number, start: number, end: number): boolean;
     random(lower?: number, upper?: number, floating?: boolean): number;
 }
-namespace Types {
+export namespace Types {
     interface Assign {
         <TObject, TSource>(object: TObject, source: TSource): TObject & TSource;
         <TObject, TSource1, TSource2>(object: TObject, source1: TSource1, source2: TSource2): TObject & TSource1 & TSource2;
@@ -1245,7 +1245,7 @@ namespace Types {
     }
 }
 
-interface Static {
+export interface Static {
     assign: Types.Assign;
     assignIn: Types.Assign;
     assignWith: Types.AssignWith;
@@ -1288,7 +1288,7 @@ interface Static {
     values: Types.Values;
     valuesIn: Types.Values;
 }
-namespace Types {
+export namespace Types {
     type StringMethod = (str?: string) => string;
     type WithStringMethod = (str?: string, target?: string, position?: number) => boolean;
     type PadStringMethod = (str?: string, length?: number, chars?: string) => string;
@@ -1313,7 +1313,7 @@ namespace Types {
     }
 }
 
-interface Static {
+export interface Static {
     templateSettings: Types.TemplateSettings;
     VERSION: string;
 
@@ -1350,7 +1350,7 @@ interface Static {
     upperFirst: Types.StringMethod;
     words(str?: string, pattern?: string | RegExp): string[];
 }
-namespace Types {
+export namespace Types {
     interface Flow {
         <T, V>(func?: (t1: T) => V, ...funcs: ((value: V) => V)[]): V;
         <T, T2, V>(func?: (t1: T, t2: T2) => V, ...funcs: ((value: V) => V)[]): V;
@@ -1429,7 +1429,7 @@ namespace Types {
     }
 }
 
-interface Static {
+export interface Static {
     attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error;
     attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error;
     attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error;
@@ -1490,7 +1490,7 @@ interface Static {
 
     now(): number;
 }
-namespace Types {
+export namespace Types {
     interface Tap {
         <T, TIn extends ArrayLike<T>>(array: TIn, interceptor: (value: T) => void): TIn;
     }
@@ -1589,7 +1589,7 @@ namespace Types {
     }
 }
 
-interface Static {
+export interface Static {
     <T>(array: ArrayLike<T>): Types.Wrap.ImplicitArray1<T>;
     <T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ImplicitObject1<T, TObj>;
 

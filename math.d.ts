@@ -1,4 +1,4 @@
-declare namespace Types {
+export namespace Types {
     type AddSignature = (augend: number, addend: number) => number;
     type MaxSignature = (array: number[]) => number;
     type CeilSignature = (n: number, precision?: number) => number;
@@ -10,7 +10,7 @@ declare namespace Types {
     }
 }
 
-interface Static {
+export interface Static {
     add: Types.Add;
     ceil: Types.Ceil;
     floor: Types.Ceil;

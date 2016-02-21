@@ -1,4 +1,4 @@
-declare declare namespace Types {
+export namespace Types {
     type AfterMethod = <T extends Function>(num: number, func: T) => T;
     type ReturnMethod = <T extends Function>(func: T) => T;
     interface PH {
@@ -346,7 +346,7 @@ declare declare namespace Types {
     }
 }
 
-interface Static extends Types.PH {
+export interface Static extends Types.PH {
     after: Types.AfterMethod;
     ary<T extends Function>(func: T, num?: number): T;
     before: Types.AfterMethod;

@@ -1,4 +1,4 @@
-declare namespace Types.Wrap {
+export namespace Types.Wrap {
     interface ForEach<T, TWrapper> {
         (iteratee?: Iteratee<(value: T, index: number) => boolean | void>): TWrapper;
     }
