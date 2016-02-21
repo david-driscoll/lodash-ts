@@ -1,4 +1,4 @@
-// declare namespace LoDash {
+
     namespace Types.Wrap {
         interface ArrayPassThrough<TWrapper> {
             (): TWrapper;
@@ -183,7 +183,7 @@
         }
     }
 }
-// declare namespace LoDash {
+
     namespace Types {
         interface ArrayPassThrough {
             <T>(array: ArrayLike<T>): T[];
@@ -419,7 +419,7 @@
     }
 
 }
-// declare namespace LoDash {
+
     namespace Types.Wrap {
         interface ForEach<T, TWrapper> {
             (iteratee?: Iteratee<(value: T, index: number) => boolean | void>): TWrapper;
@@ -516,7 +516,7 @@
         }
     }
 }
-// declare namespace LoDash {
+
     namespace Types {
         interface CountBy {
             <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
@@ -638,7 +638,7 @@
         sortBy: Types.SortBy;
     }
 }
-// declare namespace LoDash {
+
     namespace Types {
         interface Identity {
             <T>(value: T, ...args: any[]): T;
@@ -665,7 +665,7 @@
         }
     }
 }
-// declare namespace LoDash {
+
     namespace Types {
         type AfterMethod = <T extends Function>(num: number, func: T) => T;
         type ReturnMethod = <T extends Function>(func: T) => T;
@@ -1040,7 +1040,7 @@
         wrap<TResult>(value: any, wrapper: Function): TResult;
     }
 }
-// declare namespace LoDash {
+
     namespace Types {
         interface CastArray {
             <T>(value: T[]): T[];
@@ -1124,7 +1124,7 @@
         toString(value: any): string;
     }
 }
-// declare namespace LoDash {
+
     namespace Types {
         type AddSignature = (augend: number, addend: number) => number;
         type MaxSignature = (array: number[]) => number;
@@ -1157,7 +1157,7 @@
         random(lower?: number, upper?: number, floating?: boolean): number;
     }
 }
-// declare namespace LoDash {
+
     namespace Types {
         interface Assign {
             <TObject, TSource>(object: TObject, source: TSource): TObject & TSource;
@@ -1307,7 +1307,7 @@
         valuesIn: Types.Values;
     }
 }
-// declare namespace LoDash {
+
     namespace Types {
         type StringMethod = (str?: string) => string;
         type WithStringMethod = (str?: string, target?: string, position?: number) => boolean;
@@ -1371,7 +1371,7 @@
         words(str?: string, pattern?: string | RegExp): string[];
     }
 }
-// declare namespace LoDash {
+
     namespace Types {
         interface Flow {
             <T, V>(func?: (t1: T) => V, ...funcs: ((value: V) => V)[]): V;
@@ -1513,7 +1513,7 @@
         now(): number;
     }
 }
-// declare namespace LoDash {
+
     namespace Types {
         interface Tap {
             <T, TIn extends ArrayLike<T>>(array: TIn, interceptor: (value: T) => void): TIn;
