@@ -4,7 +4,7 @@ foreach ($item in Get-ChildItem *.d.ts | get-content) {
     $content += "$item`n".
         Replace("/// <reference path=`"", "// ").
         Replace("declare namespace LoDash", "// declare namespace LoDash").
-        Replace("}`n", "// }`n");
+        Replace("`n}`n", "`n// }`n");
 }
 
 Set-Content ./out/lodash.d.ts $content
