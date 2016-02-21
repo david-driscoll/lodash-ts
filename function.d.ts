@@ -5,7 +5,7 @@ interface MapCache {
     set(key: string, value: any): MapCache;
 }
 
-type MemoizedFunction = { cache: MapCache; };
+type MemoizedFunction = { cache: typeof Static.MapCache; };
 
 namespace Types {
     type AfterMethod = <T extends Function>(num: number, func: T) => T;
@@ -348,6 +348,7 @@ namespace Types {
 }
 
 interface IStatic {
+    MapCache: MapCache;
     after: Types.AfterMethod;
     ary<T extends Function>(func: T, num?: number): T
     before: Types.AfterMethod;
