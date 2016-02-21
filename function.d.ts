@@ -1,11 +1,9 @@
-interface MapCache {
+type MemoizedFunction = { cache: {
     delete(key: string): boolean;
     get(key: string): any;
     has(key: string): boolean;
-    set(key: string, value: any): MapCache;
-}
-
-type MemoizedFunction = { cache: typeof Static.MapCache; };
+    set(key: string, value: any): any;
+} };
 
 namespace Types {
     type AfterMethod = <T extends Function>(num: number, func: T) => T;
@@ -56,7 +54,12 @@ namespace Types {
     }
     
     interface Memoize {
-        Cache: MapCache;
+        Cache: {
+            delete(key: string): boolean;
+            get(key: string): any;
+            has(key: string): boolean;
+            set(key: string, value: any): any;
+        };
         <T extends Function>(func: T, resolver?: Function): T & MemoizedFunction;
     }
 
