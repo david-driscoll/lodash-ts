@@ -1,3 +1,12 @@
+interface MapCache {
+    delete(key: string): boolean;
+    get(key: string): any;
+    has(key: string): boolean;
+    set(key: string, value: any): MapCache;
+}
+
+type MemoizedFunction = { cache: MapCache; };
+
 namespace Types {
     type AfterMethod = <T extends Function>(num: number, func: T) => T;
     type ReturnMethod = <T extends Function>(func: T) => T;
@@ -45,15 +54,7 @@ namespace Types {
         <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult): (t5: T5, t4: T4, t3: T3, t2: T2, t1: T) => TResult;
         <TResult extends Function>(func: Function): TResult;
     }
-
-    interface MapCache {
-        delete(key: string): boolean;
-        get(key: string): any;
-        has(key: string): boolean;
-        set(key: string, value: any): MapCache;
-    }
-
-    type MemoizedFunction = { cache: MapCache; };
+    
     interface Memoize {
         Cache: MapCache;
         <T extends Function>(func: T, resolver?: Function): T & MemoizedFunction;

@@ -10,34 +10,34 @@ namespace Types {
     }
 
     interface ByBooleanPredicate {
-        <T, TIn extends ArrayLike<T>>(collection: TIn, iteratee?: ArrayPredicate<T, TIn>): boolean;
-        <T, TIn extends _Obj<T>>(collection: TIn, iteratee?: ObjectPredicate<T, TIn>): boolean;
+        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): boolean;
+        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): boolean;
     }
 
     interface ByArrayPredicate {
-        <T, TIn extends ArrayLike<T>>(collection: TIn, iteratee?: ArrayPredicate<T, TIn>): T[];
-        <T, TIn extends _Obj<T>>(collection: TIn, iteratee?: ObjectPredicate<T, TIn>): T[];
+        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): T[];
+        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
     }
 
     interface ResultPredicate {
-        <T, TIn extends ArrayLike<T>>(collection: TIn, iteratee?: ArrayPredicate<T, TIn>): T;
-        <T, TIn extends _Obj<T>>(collection: TIn, iteratee?: ObjectPredicate<T, TIn>): T;
+        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): T;
+        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): T;
     }
 
     interface FlatMap {
-        <T, TIn extends ArrayLike<T>, TResult>(collection: TIn, iteratee?: Iteratee<(value: T, index: number, collection: TIn) => TResult[]>): TResult[];
-        <T, TIn extends _Obj<T>, TResult>(collection: TIn, iteratee?: Iteratee<(value: T, index: string, collection: TIn) => TResult[]>): TResult[];
+        <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult[]>): TResult[];
+        <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>): TResult[];
     }
 
     interface ForEach {
-        <T, TIn extends ArrayLike<T>>(collection: TIn, iteratee?: Iteratee<(value: T, index: number, collection: TIn) => boolean | void>): TIn;
-        <T, TIn extends _Obj<T>>(collection: TIn, iteratee?: Iteratee<(value: T, index: number, collection: TIn) => boolean | void>): TIn;
+        <T>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => boolean | void>): ArrayLike<T>;
+        <T>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: number, collection: _Obj<T>) => boolean | void>): _Obj<T>;
     }
 
     interface Includes {
         (collection: string, value: string, fromIndex?: number): boolean;
-        <T, TIn extends ArrayLike<T>>(collection: TIn, value: T, fromIndex?: number): boolean;
-        <T, TIn extends _Obj<T>>(collection: TIn, value: any, fromIndex?: number): boolean;
+        <T>(collection: ArrayLike<T>, value: T, fromIndex?: number): boolean;
+        <T>(collection: _Obj<T>, value: any, fromIndex?: number): boolean;
     }
 
     interface InvokeMap {
@@ -49,23 +49,23 @@ namespace Types {
     }
 
     interface Map {
-        <T, TIn extends ArrayLike<T>, TResult>(collection: TIn, iteratee?: Iteratee<(value: T, index: number, collection: TIn) => TResult>): TResult[];
-        <T, TIn extends _Obj<T>, TResult>(collection: TIn, iteratee?: Iteratee<(value: T, index: string, collection: TIn) => TResult>): TResult[];
+        <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult>): TResult[];
+        <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
     }
 
     interface OrderBy {
-        <T, TIn extends ArrayLike<T>>(collection: TIn, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
-        <T, TIn extends _Obj<T>>(collection: TIn, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
     }
 
     interface Partition {
-        <T, TIn extends ArrayLike<T>>(collection: TIn, iteratee?: ValuePredicate<T>): [T[], T[]];
-        <T, TIn extends _Obj<T>>(collection: TIn, iteratee?: ValuePredicate<T>): [T[], T[]];
+        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
+        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
     }
 
     interface Reduce {
-        <T, TIn extends ArrayLike<T>, TAcc>(collection: TIn, iteratee?: AccumulatorArrayPredicate<T, TIn, TAcc>): TAcc;
-        <T, TIn extends _Obj<T>, TAcc>(collection: TIn, iteratee?: AccumulatorObjectPredicate<T, TIn, TAcc>): TAcc;
+        <T, TAcc>(collection: ArrayLike<T>, iteratee?: AccumulatorArrayPredicate<T, ArrayLike<T>, TAcc>): TAcc;
+        <T, TAcc>(collection: _Obj<T>, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc>): TAcc;
     }
 
     interface Sample {
@@ -85,8 +85,8 @@ namespace Types {
     }
 
     interface SortBy {
-        <T, TIn extends ArrayLike<T>>(collection: TIn, iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): T[];
-        <T, TIn extends _Obj<T>>(collection: TIn, iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): T[];
+        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): T[];
+        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): T[];
     }
 }
 

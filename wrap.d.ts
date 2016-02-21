@@ -1,10 +1,10 @@
 namespace Types {
     interface Tap {
-        <T, TIn extends ArrayLike<T>>(array: TIn, interceptor: (value: T) => void): TIn;
+        <T>(array: ArrayLike<T>, interceptor: (value: T) => void): ArrayLike<T>;
     }
 
     interface Thru {
-        <T, TIn extends ArrayLike<T>, TResult>(array: TIn, interceptor: (value: T) => TResult): TResult;
+        <T, TResult>(array: ArrayLike<T>, interceptor: (value: T) => TResult): TResult;
     }
 
     namespace Wrap {

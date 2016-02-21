@@ -50,7 +50,7 @@ namespace Types {
     }
 
     interface DropWhile {
-        <T, TIn extends ArrayLike<T>>(array: TIn, predicate?: ArrayPredicate<T, TIn>): T[];
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): T[];
     }
 
     interface Flatten {
@@ -77,11 +77,11 @@ namespace Types {
     }
 
     interface Fill {
-        <T, TIn extends ArrayLike<T>>(array: TIn, value: T, start?: number, end?: number): TIn;
+        <T>(array: ArrayLike<T>, value: T, start?: number, end?: number): ArrayLike<T>;
     }
 
     interface FindIndex {
-        <T, TIn extends ArrayLike<T>>(array: TIn, predicate?: ArrayPredicate<T, TIn>): number;
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): number;
     }
 
     interface IndexOf {
@@ -101,7 +101,7 @@ namespace Types {
     }
 
     interface Remove {
-        <T, TIn extends ArrayLike<T>>(array: TIn, predicate?: ArrayPredicate<T, TIn>): TIn;
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): ArrayLike<T>;
     }
 
     interface Slice {

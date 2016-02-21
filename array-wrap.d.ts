@@ -46,11 +46,11 @@ namespace Types.Wrap {
     }
 
     interface DropWhile<T, TWrapper> {
-        <TIn extends ArrayLike<T>>(predicate?: ArrayPredicate<T>): TWrapper;
+        (predicate?: ArrayPredicate<T>): TWrapper;
     }
 
     interface Fill<T, TWrapper> {
-        <TIn extends ArrayLike<T>>(value: T, start?: number, end?: number): TWrapper;
+        (value: T, start?: number, end?: number): TWrapper;
     }
 
     interface PullAll<T, TWrapper> {
@@ -66,7 +66,7 @@ namespace Types.Wrap {
     }
 
     interface Remove<T, TWrapper> {
-        <TIn extends ArrayLike<T>>(predicate?: ArrayPredicate<T>): TWrapper;
+        (predicate?: ArrayPredicate<T>): TWrapper;
     }
 
     interface Slice<T, TWrapper> {
@@ -82,7 +82,7 @@ namespace Types.Wrap {
     }
 
     interface TakeWhile<T, TWrapper> {
-        <TIn extends ArrayLike<T>>(predicate?: ArrayPredicate<T>): TWrapper;
+        (predicate?: ArrayPredicate<T>): TWrapper;
     }
 
     interface ZipWith<T, TWrapper> {
@@ -145,8 +145,8 @@ namespace Types.Wrap {
         flatten<TResult>(): ImplicitArray1<TResult>;
         flattenDeep<TResult>(): ImplicitArray1<TResult>;
         flattenDepth<T>(depth?: number): ImplicitArray1<T>;
-        findIndex<TIn extends ArrayLike<T>>(predicate?: ArrayPredicate<T>): number;
-        findLastIndex<TIn extends ArrayLike<T>>(predicate?: ArrayPredicate<T>): number;
+        findIndex(predicate?: ArrayPredicate<T>): number;
+        findLastIndex(predicate?: ArrayPredicate<T>): number;
         join(separator?: string): string;
         indexOf(value: T, fromIndex?: number): number;
         lastIndexOf(value: T, fromIndex?: number): number;
@@ -167,8 +167,8 @@ namespace Types.Wrap {
         flatten<T>(): ExplicitArray1<T>;
         flattenDeep<T>(): ExplicitArray1<T>;
         flattenDepth<T>(depth?: number): ExplicitArray1<T>;
-        findIndex<TIn extends ArrayLike<T>>(predicate?: ArrayPredicate<T>): ExplicitValue1<number>;
-        findLastIndex<TIn extends ArrayLike<T>>(predicate?: ArrayPredicate<T>): ExplicitValue1<number>;
+        findIndex(predicate?: ArrayPredicate<T>): ExplicitValue1<number>;
+        findLastIndex(predicate?: ArrayPredicate<T>): ExplicitValue1<number>;
         join(separator?: string): ExplicitString;
         indexOf(value: T, fromIndex?: number): ExplicitValue1<number>;
         lastIndexOf(value: T, fromIndex?: number): ExplicitValue1<number>;
