@@ -1,7 +1,7 @@
 namespace Types {
-    type AddSignature = (augend: number, addend: number) => number;
-    type MaxSignature = (array: number[]) => number;
-    type CeilSignature = (n: number, precision?: number) => number;
+    type Add = (augend: number, addend: number) => number;
+    type Max = (array: number[]) => number;
+    type Ceil = (n: number, precision?: number) => number;
     interface MaxBy {
         <T>(array: T[]): T;
         <T>(array: T[], iteratee: (value: T) => number): T;

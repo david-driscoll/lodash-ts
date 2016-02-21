@@ -748,7 +748,7 @@ namespace Types {
     }
 
     interface Unary {
-        <T, TResult>(func: (t1: T, t2) => TResult): (t1: T) => TResult;
+        <T, TResult>(func: (t1: T, t2: T2) => TResult): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t1: T) => TResult;
         <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t1: T) => TResult;
         <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult): (t1: T) => TResult;
@@ -1110,9 +1110,9 @@ interface Static {
     toString(value: any): string;
 }
 namespace Types {
-    type AddSignature = (augend: number, addend: number) => number;
-    type MaxSignature = (array: number[]) => number;
-    type CeilSignature = (n: number, precision?: number) => number;
+    type Add = (augend: number, addend: number) => number;
+    type Max = (array: number[]) => number;
+    type Ceil = (n: number, precision?: number) => number;
     interface MaxBy {
         <T>(array: T[]): T;
         <T>(array: T[], iteratee: (value: T) => number): T;
