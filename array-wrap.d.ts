@@ -93,7 +93,7 @@ namespace Types.Wrap {
     interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
 
     interface ArrayWrapper<T, TWrapper> {
-        compact: ArrayPassThrough<T>;
+        compact: ArrayPassThrough<TWrapper>;
         concat: Concat<T, TWrapper>;
         difference: Difference<T, TWrapper>;
         differenceBy: DifferenceBy<T, TWrapper>;
@@ -103,7 +103,7 @@ namespace Types.Wrap {
         dropWhile: DropWhile<T, TWrapper>;
         dropWhileRight: DropWhile<T, TWrapper>;
         fill: Fill<T, TWrapper>;
-        initial: ArrayPassThrough<T>;
+        initial: ArrayPassThrough<TWrapper>;
         intersection: Difference<T, TWrapper>;
         intersectionBy: DifferenceBy<T, TWrapper>;
         intersectionWith: DifferenceWith<T, TWrapper>;
@@ -111,11 +111,11 @@ namespace Types.Wrap {
         pullAll: PullAll<T, TWrapper>;
         pullAt: PullAt<T, TWrapper>;
         remove: Remove<T, TWrapper>;
-        reverse: ArrayPassThrough<T>;
+        reverse: ArrayPassThrough<TWrapper>;
         slice: Slice<T, TWrapper>;
-        sortedUniq: ArrayPassThrough<T>;
+        sortedUniq: ArrayPassThrough<TWrapper>;
         sortedUniqBy: UniqBy<T, TWrapper>;
-        tail: ArrayPassThrough<T>;
+        tail: ArrayPassThrough<TWrapper>;
         take: Drop<TWrapper>;
         takeRight: Drop<TWrapper>;
         takeWhile: DropWhile<T, TWrapper>;
@@ -123,7 +123,7 @@ namespace Types.Wrap {
         union: Difference<T, TWrapper>;
         unionBy: DifferenceBy<T, TWrapper>;
         unionWith: DifferenceWith<T, TWrapper>;
-        uniq: ArrayPassThrough<T>;
+        uniq: ArrayPassThrough<TWrapper>;
         uniqBy: UniqBy<T, TWrapper>;
         uniqWith: UniqWith<T, TWrapper>;
         unzip: ArrayArgs<T, TWrapper>;
