@@ -351,7 +351,6 @@ namespace Types {
 }
 
 interface IStatic {
-    MapCache: MapCache;
     after: Types.AfterMethod;
     ary<T extends Function>(func: T, num?: number): T
     before: Types.AfterMethod;
