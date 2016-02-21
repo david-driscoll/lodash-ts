@@ -1,4 +1,4 @@
-export namespace Types {
+namespace Types {
     interface CountBy {
         <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
         <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
@@ -90,7 +90,7 @@ export namespace Types {
     }
 }
 
-export interface Static {
+interface Static {
     countBy: Types.CountBy;
     every: Types.ByBooleanPredicate;
     filter: Types.ByArrayPredicate;

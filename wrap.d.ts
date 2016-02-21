@@ -1,4 +1,4 @@
-export namespace Types {
+namespace Types {
     interface Tap {
         <T, TIn extends ArrayLike<T>>(array: TIn, interceptor: (value: T) => void): TIn;
     }
@@ -97,7 +97,7 @@ export namespace Types {
     }
 }
 
-export interface Static {
+interface Static {
     <T>(array: ArrayLike<T>): Types.Wrap.ImplicitArray1<T>;
     <T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ImplicitObject1<T, TObj>;
 
@@ -105,4 +105,4 @@ export interface Static {
     chain<T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ExplicitObject1<T, TObj>;
 }
 
-export default Static;
+export = Static;

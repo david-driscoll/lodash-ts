@@ -1,4 +1,4 @@
-export namespace Types {
+namespace Types {
     type AddSignature = (augend: number, addend: number) => number;
     type MaxSignature = (array: number[]) => number;
     type CeilSignature = (n: number, precision?: number) => number;
@@ -10,6 +10,7 @@ export namespace Types {
     }
 }
 
+interface Static {
     add: Types.Add;
     ceil: Types.Ceil;
     floor: Types.Ceil;
@@ -27,4 +28,4 @@ export namespace Types {
     inRange(num: number, end: number): boolean;
     inRange(num: number, start: number, end: number): boolean;
     random(lower?: number, upper?: number, floating?: boolean): number;
-    
+}

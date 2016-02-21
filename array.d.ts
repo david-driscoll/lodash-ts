@@ -1,4 +1,4 @@
-export namespace Types {
+namespace Types {
     interface ArrayPassThrough {
         <T>(array: ArrayLike<T>): T[];
     }
@@ -168,7 +168,7 @@ export namespace Types {
     interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
 }
 
-export interface Static {
+interface Static {
     chunk: Types.Chunk;
     compact: Types.ArrayPassThrough;
     concat: Types.Concat;

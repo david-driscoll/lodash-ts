@@ -1,4 +1,4 @@
-export namespace Types {
+namespace Types {
     interface CastArray {
         <T>(value: T[]): T[];
         <T>(value: T): T[];
@@ -18,7 +18,7 @@ export namespace Types {
     }
 }
 
-export interface Static {
+interface Static {
     castArray: Types.CastArray;
     clone: Types.Clone;
     cloneDeep: Types.Clone;

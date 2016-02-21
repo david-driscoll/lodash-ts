@@ -1,4 +1,4 @@
-export namespace Types {
+namespace Types {
     interface Flow {
         <T, V>(func?: (t1: T) => V, ...funcs: ((value: V) => V)[]): V;
         <T, T2, V>(func?: (t1: T, t2: T2) => V, ...funcs: ((value: V) => V)[]): V;
@@ -77,7 +77,7 @@ export namespace Types {
     }
 }
 
-export interface Static {
+interface Static {
     attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error;
     attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error;
     attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error;
