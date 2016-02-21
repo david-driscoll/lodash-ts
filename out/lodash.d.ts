@@ -1002,7 +1002,7 @@ namespace Types {
     }
 }
 
-namespace Static extends Types.PH {
+namespace Static {
     var after: Types.AfterMethod;
     function ary<T extends Function>(func: T, num?: number): T;
     var before: Types.AfterMethod;
