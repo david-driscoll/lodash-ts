@@ -1,4 +1,3 @@
-/// <reference path="./common.d.ts" />
 declare namespace LoDash {
     namespace Types.Wrap {
         interface ArrayPassThrough<TWrapper> {

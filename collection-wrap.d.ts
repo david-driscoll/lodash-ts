@@ -1,5 +1,3 @@
-/// <reference path="./common.d.ts" />
-
 declare namespace LoDash {
     namespace Types.Wrap {
         interface ForEach<T, TWrapper> {

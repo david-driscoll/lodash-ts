@@ -1,4 +1,3 @@
-/// <reference path="./common.d.ts" />
 declare namespace LoDash {
     namespace Types {
         type AddSignature = (augend: number, addend: number) => number;
