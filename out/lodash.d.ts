@@ -1187,10 +1187,12 @@ namespace Types {
 
     interface FindKey {
         <T>(obj: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): string;
+        <T>(obj: any, iteratee?: ObjectPredicate<T, _Obj<T>>): string;
     }
 
     interface ForIn {
         <T>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: number, collection: _Obj<T>) => boolean | void>): _Obj<T>;
+        <T>(obj: any, iteratee?: Iteratee<(value: T, index: number, collection: _Obj<T>) => boolean | void>): _Obj<T>;
     }
 
     interface Functions {
@@ -1198,28 +1200,30 @@ namespace Types {
     }
 
     interface Get {
-        <TResult>(obj: Object, path: PathLocation, defaultValue?: TResult): TResult;
+        <TResult>(obj: any, path: PathLocation, defaultValue?: TResult): TResult;
     }
 
     interface Has {
-        (obj: Object, path: PathLocation): boolean;
+        (obj: any, path: PathLocation): boolean;
     }
 
     interface InvertBy {
         <T>(obj: { [index: string]: T }, iteratee?: ValuePredicate<T>): { [index: string]: string[]; };
         <T>(obj: { [index: number]: T }, iteratee?: ValuePredicate<T>): { [index: string]: number[]; };
+        <T>(obj: any, iteratee?: ValuePredicate<T>): { [index: string]: number[]; };
     }
 
     interface Invoke {
-        <TResult>(obj: Object, path: PathLocation, ...args: any[]): TResult[];
+        <TResult>(obj: any, path: PathLocation, ...args: any[]): TResult[];
     }
 
     interface Keys {
-        (obj: Object): string[];
+        (obj: any): string[];
     }
 
     interface MapKeys {
         <T>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => string>): _Obj<T>;
+        <T>(obj: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => string>): _Obj<T>;
     }
 
     interface MapValues {
@@ -1233,6 +1237,7 @@ namespace Types {
 
     interface OmitBy {
         <T, TResult>(obj: _Obj<T>, predicate?: Iteratee<(value: T, key: string) => boolean>): TResult;
+        <T, TResult>(obj: any, predicate?: Iteratee<(value: T, key: string) => boolean>): TResult;
     }
 
     interface Set {
@@ -1246,6 +1251,7 @@ namespace Types {
     interface ToPairs {
         <T>(obj: { [index: number]: T }): [number, T][];
         <T>(obj: { [index: string]: T }): [string, T][];
+        <T>(obj: any): [string, T][];
     }
 
     interface Transform {
@@ -1253,12 +1259,13 @@ namespace Types {
     }
 
     interface Unset {
-        (obj: Object, path: PathLocation): boolean;
+        (obj: any, path: PathLocation): boolean;
     }
 
     interface Values {
         <T>(obj: { [index: string]: T; }): T[];
         <T>(obj: { [index: number]: T; }): T[];
+        <T>(obj: any): T[];
     }
 }
 
@@ -1268,8 +1275,8 @@ interface IStatic {
     assignWith: Types.AssignWith;
     assignInWith: Types.AssignWith;
     at: Types.At;
-    create<T, P>(prototype: T, properties?: P): T & P
-    create<TResult>(prototype: any, properties?: any): TResult
+    create<T, P>(prototype: T, properties?: P): T & P;
+    create<TResult>(prototype: any, properties?: any): TResult;
     defaults: Types.Assign;
     defaultsDeep: Types.Assign;
     extend: Types.Assign;
@@ -1284,7 +1291,7 @@ interface IStatic {
     get: Types.Get;
     has: Types.Has;
     hasIn: Types.Has;
-    invert<TResult>(obj: Object): TResult
+    invert<TResult>(obj: Object): TResult;
     invoke: Types.Invoke;
     keys: Types.Keys;
     keysIn: Types.Keys;
