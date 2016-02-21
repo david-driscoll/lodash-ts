@@ -64,7 +64,7 @@ namespace Types {
     }
 
     interface MapValues {
-        <T, TResult>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): _Obj<RestSignature>;
+        <T, TResult>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): _Obj<Rest>;
     }
 
     interface Omit {

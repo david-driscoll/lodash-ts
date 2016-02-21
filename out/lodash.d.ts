@@ -748,7 +748,7 @@ namespace Types {
     }
 
     interface Unary {
-        <T, TResult>(func: (t1: T, t2: T2) => TResult): (t1: T) => TResult;
+        <T, TResult>(func: (t1: T) => TResult): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t1: T) => TResult;
         <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t1: T) => TResult;
         <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult): (t1: T) => TResult;
@@ -1206,7 +1206,7 @@ namespace Types {
     }
 
     interface MapValues {
-        <T, TResult>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): _Obj<RestSignature>;
+        <T, TResult>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): _Obj<Rest>;
     }
 
     interface Omit {
