@@ -457,7 +457,7 @@ namespace Types.Wrap {
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ImplicitArray1<TResult>;
         keyBy(iteratee?: ValuePredicate<T>): { [index: string]: T; };
         map<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult>): ImplicitArray1<TResult>;
-        groupBy(iteratee: ValuePredicate<T>): { [index: string]: T; };
+        groupBy(iteratee: ValuePredicate<T>): { [index: string]: T[]; };
         partition(iteratee?: ValuePredicate<T>): ImplicitValue1<[T[], T[]]>;
         reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): TAcc;
         reduceRight<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): TAcc;
@@ -478,7 +478,7 @@ namespace Types.Wrap {
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ExplicitArray1<TResult>;
         keyBy(iteratee?: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T; }>;
         map<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult>): ExplicitArray1<TResult>;
-        groupBy(iteratee: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T; }>;
+        groupBy(iteratee: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee?: ValuePredicate<T>): ExplicitValue1<[T[], T[]]>;
         reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
         reduceRight<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
