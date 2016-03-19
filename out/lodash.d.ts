@@ -449,7 +449,7 @@ namespace Types.Wrap {
     }
 
     interface ImplicitWrapper<T, TWrapper> {
-        countBy(iteratee: ValuePredicate<T>): { [index: string]: number; };
+        countBy(iteratee: ValuePredicate<T>): ImplicitValue1<{ [index: string]: number; }>;
         every(iteratee?: ArrayPredicate<T>): boolean;
         filter(iteratee?: ArrayPredicate<T>): TWrapper;
         find(iteratee?: ArrayPredicate<T>): T;
@@ -457,9 +457,9 @@ namespace Types.Wrap {
         flatMap<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ImplicitArray1<TResult>;
         includes(value: T, fromIndex?: number): boolean;
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ImplicitArray1<TResult>;
-        keyBy(iteratee?: ValuePredicate<T>): { [index: string]: T; };
+        keyBy(iteratee?: ValuePredicate<T>): ImplicitValue1<{ [index: string]: T; }>;
         map<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult>): ImplicitArray1<TResult>;
-        groupBy(iteratee: ValuePredicate<T>): { [index: string]: T; };
+        groupBy(iteratee: ValuePredicate<T>): ImplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee?: ValuePredicate<T>): ImplicitValue1<[T[], T[]]>;
         reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): TAcc;
         reduceRight<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): TAcc;
@@ -480,7 +480,7 @@ namespace Types.Wrap {
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ExplicitArray1<TResult>;
         keyBy(iteratee?: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T; }>;
         map<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult>): ExplicitArray1<TResult>;
-        groupBy(iteratee: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T; }>;
+        groupBy(iteratee: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee?: ValuePredicate<T>): ExplicitValue1<[T[], T[]]>;
         reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
         reduceRight<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
@@ -1608,14 +1608,14 @@ namespace Types {
             thru<TResult>(interceptor: (value: T) => TResult): ImplicitValue1<TResult>;
         }
 
-        interface ImplicitValue1<T> extends ExplicitArray<T, ImplicitValue1<T>> { }
+        interface ImplicitValue1<T> extends ImplicitValue<T, ImplicitValue1<T>> { }
 
         interface ExplicitValue<T, TWrapper extends ExplicitValue<T, TWrapper>> extends ValueWrapper<T, TWrapper> {
             commit(): TWrapper;
             thru<TResult>(interceptor: (value: T) => TResult): ExplicitValue1<TResult>;
         }
 
-        interface ExplicitValue1<T> extends ExplicitArray<T, ExplicitValue1<T>> { }
+        interface ExplicitValue1<T> extends ExplicitValue<T, ExplicitValue1<T>> { }
 
         interface StringWrapper extends ValueWrapper<string, StringWrapper> {
             tap(interceptor: (value: string) => void): StringWrapper;

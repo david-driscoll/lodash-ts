@@ -77,14 +77,14 @@ declare namespace Types {
             thru<TResult>(interceptor: (value: T) => TResult): ImplicitValue1<TResult>;
         }
 
-        interface ImplicitValue1<T> extends ExplicitArray<T, ImplicitValue1<T>> { }
+        interface ImplicitValue1<T> extends ImplicitValue<T, ImplicitValue1<T>> { }
 
         interface ExplicitValue<T, TWrapper extends ExplicitValue<T, TWrapper>> extends ValueWrapper<T, TWrapper> {
             commit(): TWrapper;
             thru<TResult>(interceptor: (value: T) => TResult): ExplicitValue1<TResult>;
         }
 
-        interface ExplicitValue1<T> extends ExplicitArray<T, ExplicitValue1<T>> { }
+        interface ExplicitValue1<T> extends ExplicitValue<T, ExplicitValue1<T>> { }
 
         interface StringWrapper extends ValueWrapper<string, StringWrapper> {
             tap(interceptor: (value: string) => void): StringWrapper;
