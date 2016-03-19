@@ -1,4 +1,4 @@
-namespace Types {
+delcare namespace Types {
     interface Identity {
         <T>(value: T, ...args: any[]): T;
     }

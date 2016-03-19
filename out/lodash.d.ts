@@ -382,13 +382,15 @@ interface IStatic {
     pull: Types.ArrayArgs;
     pullAll: Types.PullAll;
     pullAt: Types.PullAt;
+    pullAllBy: Types.PullAllBy;
     remove: Types.Remove;
     reverse: Types.ArrayPassThrough;
     slice: Types.Slice;
     sortedIndex: Types.SortedIndex;
     sortedIndexOf: Types.SortedIndex;
-    sortedLastIndexOf: Types.SortedIndex;
     sortedIndexBy: Types.SortedIndexBy;
+    sortedLastIndex: Types.SortedIndex;
+    sortedLastIndexOf: Types.SortedIndex;
     sortedLastIndexBy: Types.SortedIndexBy;
     sortedUniq: Types.ArrayPassThrough;
     sortedUniqBy: Types.UniqBy;
@@ -616,6 +618,8 @@ namespace Types {
 
 interface IStatic {
     countBy: Types.CountBy;
+    each: Types.ForEach;
+    eachRight: Types.ForEach;
     every: Types.ByBooleanPredicate;
     filter: Types.ByArrayPredicate;
     find: Types.ResultPredicate;
@@ -623,12 +627,10 @@ interface IStatic {
     flatMap: Types.FlatMap;
     forEach: Types.ForEach;
     forEachRight: Types.ForEach;
-    each: Types.ForEach;
-    eachRight: Types.ForEach;
-    keyBy: Types.KeyBy;
     groupBy: Types.GroupBy;
     includes: Types.Includes;
     invokeMap: Types.InvokeMap;
+    keyBy: Types.KeyBy;
     map: Types.Map;
     orderBy: Types.OrderBy;
     partition: Types.Partition;
@@ -642,7 +644,7 @@ interface IStatic {
     some: Types.ByBooleanPredicate;
     sortBy: Types.SortBy;
 }
-namespace Types {
+delcare namespace Types {
     interface Identity {
         <T>(value: T, ...args: any[]): T;
     }
@@ -721,7 +723,7 @@ namespace Types {
         <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult): (t5: T5, t4: T4, t3: T3, t2: T2, t1: T) => TResult;
         <TResult extends Function>(func: Function): TResult;
     }
-    
+
     interface Memoize {
         Cache: {
             delete(key: string): boolean;
@@ -1248,6 +1250,14 @@ namespace Types {
         <T, TObj>(obj: TObj, path: PathLocation, value: T, customizer?: (nsValue: T, key: string, nsObject: TObj) => any): TObj;
     }
 
+    interface Update {
+        <T, TObj>(obj: TObj, path: PathLocation, updater: (value: T) => any): TObj;
+    }
+
+    interface UpdateWith {
+        <T, TObj>(obj: TObj, path: PathLocation, updater: (value: T) => any, customizer?: (nsValue: T, key: string, nsObject: TObj) => any): TObj;
+    }
+
     interface ToPairs {
         <T>(obj: { [index: number]: T }): [number, T][];
         <T>(obj: { [index: string]: T }): [string, T][];
@@ -1280,6 +1290,7 @@ interface IStatic {
     defaults: Types.Assign;
     defaultsDeep: Types.Assign;
     extend: Types.Assign;
+    extendWith: Types.AssignWith;
     findKey: Types.FindKey;
     findLastKey: Types.FindKey;
     forIn: Types.ForIn;
@@ -1292,10 +1303,12 @@ interface IStatic {
     has: Types.Has;
     hasIn: Types.Has;
     invert<TResult>(obj: Object): TResult;
+    invertBy: Types.InvertBy;
     invoke: Types.Invoke;
     keys: Types.Keys;
     keysIn: Types.Keys;
     mapKeys: Types.MapKeys;
+    mapValues: Types.MapValues;
     merge: Types.Assign;
     mergeWith: Types.AssignWith;
     omit: Types.Omit;
@@ -1309,6 +1322,8 @@ interface IStatic {
     toPairsIn: Types.ToPairs;
     transform: Types.Transform;
     unset: Types.Unset;
+    update: Types.Update;
+    updateWith: Types.UpdateWith;
     values: Types.Values;
     valuesIn: Types.Values;
 }

@@ -1,4 +1,4 @@
-namespace Types {
+declare namespace Types {
     type Add = (augend: number, addend: number) => number;
     type Max = (array: number[]) => number;
     type Ceil = (n: number, precision?: number) => number;

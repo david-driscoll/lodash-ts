@@ -1,4 +1,4 @@
-namespace Types {
+declare namespace Types {
     interface CastArray {
         <T>(value: T[]): T[];
         <T>(value: T): T[];

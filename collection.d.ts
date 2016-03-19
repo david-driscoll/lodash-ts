@@ -1,4 +1,4 @@
-namespace Types {
+declare namespace Types {
     interface CountBy {
         <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
         <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
@@ -105,6 +105,8 @@ namespace Types {
 
 interface IStatic {
     countBy: Types.CountBy;
+    each: Types.ForEach;
+    eachRight: Types.ForEach;
     every: Types.ByBooleanPredicate;
     filter: Types.ByArrayPredicate;
     find: Types.ResultPredicate;
@@ -112,12 +114,10 @@ interface IStatic {
     flatMap: Types.FlatMap;
     forEach: Types.ForEach;
     forEachRight: Types.ForEach;
-    each: Types.ForEach;
-    eachRight: Types.ForEach;
-    keyBy: Types.KeyBy;
     groupBy: Types.GroupBy;
     includes: Types.Includes;
     invokeMap: Types.InvokeMap;
+    keyBy: Types.KeyBy;
     map: Types.Map;
     orderBy: Types.OrderBy;
     partition: Types.Partition;

@@ -1,4 +1,4 @@
-namespace Types {
+declare namespace Types {
     interface Tap {
         <T>(array: ArrayLike<T>, interceptor: (value: T) => void): ArrayLike<T>;
     }

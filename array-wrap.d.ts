@@ -1,4 +1,4 @@
-namespace Types.Wrap {
+declare namespace Types.Wrap {
     interface ArrayPassThrough<TWrapper> {
         (): TWrapper;
     }

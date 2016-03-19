@@ -1,4 +1,4 @@
-namespace Types {
+declare namespace Types {
     interface Assign {
         <TObject, TSource>(object: TObject, source: TSource): TObject & TSource;
         <TObject, TSource1, TSource2>(object: TObject, source1: TSource1, source2: TSource2): TObject & TSource1 & TSource2;
@@ -89,6 +89,14 @@ namespace Types {
         <T, TObj>(obj: TObj, path: PathLocation, value: T, customizer?: (nsValue: T, key: string, nsObject: TObj) => any): TObj;
     }
 
+    interface Update {
+        <T, TObj>(obj: TObj, path: PathLocation, updater: (value: T) => any): TObj;
+    }
+
+    interface UpdateWith {
+        <T, TObj>(obj: TObj, path: PathLocation, updater: (value: T) => any, customizer?: (nsValue: T, key: string, nsObject: TObj) => any): TObj;
+    }
+
     interface ToPairs {
         <T>(obj: { [index: number]: T }): [number, T][];
         <T>(obj: { [index: string]: T }): [string, T][];
@@ -121,6 +129,7 @@ interface IStatic {
     defaults: Types.Assign;
     defaultsDeep: Types.Assign;
     extend: Types.Assign;
+    extendWith: Types.AssignWith;
     findKey: Types.FindKey;
     findLastKey: Types.FindKey;
     forIn: Types.ForIn;
@@ -133,10 +142,12 @@ interface IStatic {
     has: Types.Has;
     hasIn: Types.Has;
     invert<TResult>(obj: Object): TResult;
+    invertBy: Types.InvertBy;
     invoke: Types.Invoke;
     keys: Types.Keys;
     keysIn: Types.Keys;
     mapKeys: Types.MapKeys;
+    mapValues: Types.MapValues;
     merge: Types.Assign;
     mergeWith: Types.AssignWith;
     omit: Types.Omit;
@@ -150,6 +161,8 @@ interface IStatic {
     toPairsIn: Types.ToPairs;
     transform: Types.Transform;
     unset: Types.Unset;
+    update: Types.Update;
+    updateWith: Types.UpdateWith;
     values: Types.Values;
     valuesIn: Types.Values;
 }

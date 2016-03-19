@@ -1,4 +1,4 @@
-namespace Types {
+declare namespace Types {
     interface ArrayPassThrough {
         <T>(array: ArrayLike<T>): T[];
     }
@@ -199,13 +199,15 @@ interface IStatic {
     pull: Types.ArrayArgs;
     pullAll: Types.PullAll;
     pullAt: Types.PullAt;
+    pullAllBy: Types.PullAllBy;
     remove: Types.Remove;
     reverse: Types.ArrayPassThrough;
     slice: Types.Slice;
     sortedIndex: Types.SortedIndex;
     sortedIndexOf: Types.SortedIndex;
-    sortedLastIndexOf: Types.SortedIndex;
     sortedIndexBy: Types.SortedIndexBy;
+    sortedLastIndex: Types.SortedIndex;
+    sortedLastIndexOf: Types.SortedIndex;
     sortedLastIndexBy: Types.SortedIndexBy;
     sortedUniq: Types.ArrayPassThrough;
     sortedUniqBy: Types.UniqBy;
