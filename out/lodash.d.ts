@@ -275,6 +275,10 @@ namespace Types {
         <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
     }
 
+    interface PullAllWith {
+        <T>(array: ArrayLike<T>, values: ArrayLike<T>, comparator?: (valueA: T, valueB: T) => boolean): T[];
+    }
+
     interface PullAt {
         <T>(array: ArrayLike<T>, ...indexes: (number | ArrayLike<number>)[]): T[];
     }
@@ -381,6 +385,7 @@ interface IStatic {
     lastIndexOf: Types.IndexOf;
     pull: Types.ArrayArgs;
     pullAll: Types.PullAll;
+    pullAllWith: Types.PullAllWith;
     pullAt: Types.PullAt;
     pullAllBy: Types.PullAllBy;
     remove: Types.Remove;
