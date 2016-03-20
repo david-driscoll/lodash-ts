@@ -649,7 +649,7 @@ interface IStatic {
     some: Types.ByBooleanPredicate;
     sortBy: Types.SortBy;
 }
-delcare namespace Types {
+namespace Types {
     interface Identity {
         <T>(value: T, ...args: any[]): T;
     }
