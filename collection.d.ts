@@ -35,6 +35,12 @@ declare namespace Types {
         <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>): TResult[];
     }
 
+    interface FlatMapDepth {
+        <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>, depth?: number) => TResult[]>): TResult[];
+        <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>, depth?: number): TResult[];
+        <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>, depth?: number): TResult[];
+    }
+
     interface ForEach {
         <T>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => boolean | void>): ArrayLike<T>;
         <T>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
@@ -112,6 +118,8 @@ interface IStatic {
     find: Types.ResultPredicate;
     findLast: Types.ResultPredicate;
     flatMap: Types.FlatMap;
+    flatMapDeep: Types.FlatMap;
+    flatMapDepth: Types.FlatMapDepth;
     forEach: Types.ForEach;
     forEachRight: Types.ForEach;
     groupBy: Types.GroupBy;

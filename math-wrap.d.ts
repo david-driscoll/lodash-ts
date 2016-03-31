@@ -1,29 +1,33 @@
 declare namespace Types.Wrap {
-    type Max<T> = () => T;
-    interface MaxBy<T, TWrapper> {
-        (): TWrapper;
-        (iteratee: (value: T) => number): TWrapper;
-        (iteratee: PathLocation): TWrapper;
-        (iteratee: any): TWrapper;
+    namespace Math {
+        type Aggregation<T> = () => T;
+        interface AggregationBy<T, TWrapper> {
+            (): TWrapper;
+            (iteratee: (value: T) => number): TWrapper;
+            (iteratee: PathLocation): TWrapper;
+            (iteratee: any): TWrapper;
+        }
     }
 
     interface ImplicitWrapper<T, TWrapper> {
-        max: Max<number>;
-        mean: Max<number>;
-        min: Max<number>;
-        sum: Max<number>;
-        maxBy: MaxBy<T, T>;
-        minBy: MaxBy<T, T>;
-        sumBy: MaxBy<T, T>;
+        max: Math.Aggregation<number>;
+        mean: Math.Aggregation<number>;
+        min: Math.Aggregation<number>;
+        sum: Math.Aggregation<number>;
+        maxBy: Math.AggregationBy<T, T>;
+        meanBy: Math.AggregationBy<T, T>;
+        minBy: Math.AggregationBy<T, T>;
+        sumBy: Math.AggregationBy<T, T>;
     }
 
     interface ExplicitWrapper<T, TWrapper> {
-        max: Max<ExplicitValue1<number>>;
-        mean: Max<ExplicitValue1<number>>;
-        min: Max<ExplicitValue1<number>>;
-        sum: Max<ExplicitValue1<number>>;
-        maxBy: MaxBy<T, ExplicitValue1<T>>;
-        minBy: MaxBy<T, ExplicitValue1<T>>;
-        sumBy: MaxBy<T, ExplicitValue1<T>>;
+        max: Math.Aggregation<ExplicitValue1<number>>;
+        mean: Math.Aggregation<ExplicitValue1<number>>;
+        min: Math.Aggregation<ExplicitValue1<number>>;
+        sum: Math.Aggregation<ExplicitValue1<number>>;
+        maxBy: Math.AggregationBy<T, ExplicitValue1<T>>;
+        menaBy: Math.AggregationBy<T, ExplicitValue1<T>>;
+        minBy: Math.AggregationBy<T, ExplicitValue1<T>>;
+        sumBy: Math.AggregationBy<T, ExplicitValue1<T>>;
     }
 }

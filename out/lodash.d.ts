@@ -460,6 +460,8 @@ namespace Types.Wrap {
         find(iteratee?: ArrayPredicate<T>): T;
         findLast(iteratee?: ArrayPredicate<T>): T;
         flatMap<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ImplicitArray1<TResult>;
+        flatMapDeep<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ImplicitArray1<TResult>;
+        flatMapDepth<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>, depth?: number): ImplicitArray1<TResult>;
         includes(value: T, fromIndex?: number): boolean;
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ImplicitArray1<TResult>;
         keyBy(iteratee?: ValuePredicate<T>): ImplicitValue1<{ [index: string]: T; }>;
@@ -481,6 +483,8 @@ namespace Types.Wrap {
         find(iteratee?: ArrayPredicate<T>): ExplicitValue1<T>;
         findLast(iteratee?: ArrayPredicate<T>): ExplicitValue1<T>;
         flatMap<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ExplicitArray1<TResult>;
+        flatMapDeep<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ExplicitArray1<TResult>;
+        flatMapDepth<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>, depth?: number): ExplicitArray1<TResult>;
         includes(value: T, fromIndex?: number): ExplicitValue1<boolean>;
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ExplicitArray1<TResult>;
         keyBy(iteratee?: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T; }>;
@@ -551,6 +555,12 @@ namespace Types {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult[]>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>): TResult[];
         <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>): TResult[];
+    }
+
+    interface FlatMapDepth {
+        <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>, depth?: number) => TResult[]>): TResult[];
+        <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>, depth?: number): TResult[];
+        <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>, depth?: number): TResult[];
     }
 
     interface ForEach {
@@ -630,6 +640,8 @@ interface IStatic {
     find: Types.ResultPredicate;
     findLast: Types.ResultPredicate;
     flatMap: Types.FlatMap;
+    flatMapDeep: Types.FlatMap;
+    flatMapDepth: Types.FlatMapDepth;
     forEach: Types.ForEach;
     forEachRight: Types.ForEach;
     groupBy: Types.GroupBy;
@@ -1134,59 +1146,68 @@ interface IStatic {
     toString(value: any): string
 }
 namespace Types.Wrap {
-    type Max<T> = () => T;
-    interface MaxBy<T, TWrapper> {
-        (): TWrapper;
-        (iteratee: (value: T) => number): TWrapper;
-        (iteratee: PathLocation): TWrapper;
-        (iteratee: any): TWrapper;
+    namespace Math {
+        type Aggregation<T> = () => T;
+        interface AggregationBy<T, TWrapper> {
+            (): TWrapper;
+            (iteratee: (value: T) => number): TWrapper;
+            (iteratee: PathLocation): TWrapper;
+            (iteratee: any): TWrapper;
+        }
     }
 
     interface ImplicitWrapper<T, TWrapper> {
-        max: Max<number>;
-        mean: Max<number>;
-        min: Max<number>;
-        sum: Max<number>;
-        maxBy: MaxBy<T, T>;
-        minBy: MaxBy<T, T>;
-        sumBy: MaxBy<T, T>;
+        max: Math.Aggregation<number>;
+        mean: Math.Aggregation<number>;
+        min: Math.Aggregation<number>;
+        sum: Math.Aggregation<number>;
+        maxBy: Math.AggregationBy<T, T>;
+        meanBy: Math.AggregationBy<T, T>;
+        minBy: Math.AggregationBy<T, T>;
+        sumBy: Math.AggregationBy<T, T>;
     }
 
     interface ExplicitWrapper<T, TWrapper> {
-        max: Max<ExplicitValue1<number>>;
-        mean: Max<ExplicitValue1<number>>;
-        min: Max<ExplicitValue1<number>>;
-        sum: Max<ExplicitValue1<number>>;
-        maxBy: MaxBy<T, ExplicitValue1<T>>;
-        minBy: MaxBy<T, ExplicitValue1<T>>;
-        sumBy: MaxBy<T, ExplicitValue1<T>>;
+        max: Math.Aggregation<ExplicitValue1<number>>;
+        mean: Math.Aggregation<ExplicitValue1<number>>;
+        min: Math.Aggregation<ExplicitValue1<number>>;
+        sum: Math.Aggregation<ExplicitValue1<number>>;
+        maxBy: Math.AggregationBy<T, ExplicitValue1<T>>;
+        menaBy: Math.AggregationBy<T, ExplicitValue1<T>>;
+        minBy: Math.AggregationBy<T, ExplicitValue1<T>>;
+        sumBy: Math.AggregationBy<T, ExplicitValue1<T>>;
     }
 }
 namespace Types {
-    type Add = (augend: number, addend: number) => number;
-    type Max = (array: number[]) => number;
-    type Ceil = (n: number, precision?: number) => number;
-    interface MaxBy {
-        <T>(array: T[]): T;
-        <T>(array: T[], iteratee: (value: T) => number): T;
-        <T>(array: T[], iteratee: PathLocation): T;
-        <T>(array: T[], iteratee: any): T;
+    namespace Math {
+        type Operation = (augend: number, addend: number) => number;
+        type Aggregation = (array: number[]) => number;
+        type Rounding = (n: number, precision?: number) => number;
+        interface AggregationBy {
+            <T>(array: T[]): T;
+            <T>(array: T[], iteratee: (value: T) => number): T;
+            <T>(array: T[], iteratee: PathLocation): T;
+            <T>(array: T[], iteratee: any): T;
+        }
     }
 }
 
 interface IStatic {
-    add: Types.Add;
-    ceil: Types.Ceil;
-    floor: Types.Ceil;
-    max: Types.Max;
-    maxBy: Types.MaxBy;
-    mean: Types.Max;
-    min: Types.Max;
-    minBy: Types.MaxBy;
-    round: Types.Ceil;
-    subtract: Types.Add;
-    sum: Types.Max;
-    sumBy: Types.MaxBy;
+    add: Types.Math.Operation;
+    ceil: Types.Math.Rounding;
+    divide: Types.Math.Operation;
+    floor: Types.Math.Rounding;
+    max: Types.Math.Aggregation;
+    maxBy: Types.Math.AggregationBy;
+    mean: Types.Math.Aggregation;
+    meanBy: Types.Math.AggregationBy;
+    min: Types.Math.Aggregation;
+    minBy: Types.Math.AggregationBy;
+    multiply: Types.Math.Operation;
+    round: Types.Math.Rounding;
+    subtract: Types.Math.Operation;
+    sum: Types.Math.Aggregation;
+    sumBy: Types.Math.AggregationBy;
     clamp(num: number, upper: number): number
     clamp(num: number, lower: number, upper: number): number
     inRange(num: number, end: number): boolean
@@ -1323,6 +1344,8 @@ interface IStatic {
     create<TResult>(prototype: any, properties?: any): TResult;
     defaults: Types.Assign;
     defaultsDeep: Types.Assign;
+    entires: Types.ToPairs;
+    entiresIn: Types.ToPairs;
     extend: Types.Assign;
     extendWith: Types.AssignWith;
     findKey: Types.FindKey;

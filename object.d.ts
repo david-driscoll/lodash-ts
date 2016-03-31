@@ -128,6 +128,8 @@ interface IStatic {
     create<TResult>(prototype: any, properties?: any): TResult;
     defaults: Types.Assign;
     defaultsDeep: Types.Assign;
+    entires: Types.ToPairs;
+    entiresIn: Types.ToPairs;
     extend: Types.Assign;
     extendWith: Types.AssignWith;
     findKey: Types.FindKey;

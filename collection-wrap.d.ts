@@ -37,6 +37,8 @@ declare namespace Types.Wrap {
         find(iteratee?: ArrayPredicate<T>): T;
         findLast(iteratee?: ArrayPredicate<T>): T;
         flatMap<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ImplicitArray1<TResult>;
+        flatMapDeep<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ImplicitArray1<TResult>;
+        flatMapDepth<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>, depth?: number): ImplicitArray1<TResult>;
         includes(value: T, fromIndex?: number): boolean;
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ImplicitArray1<TResult>;
         keyBy(iteratee?: ValuePredicate<T>): ImplicitValue1<{ [index: string]: T; }>;
@@ -58,6 +60,8 @@ declare namespace Types.Wrap {
         find(iteratee?: ArrayPredicate<T>): ExplicitValue1<T>;
         findLast(iteratee?: ArrayPredicate<T>): ExplicitValue1<T>;
         flatMap<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ExplicitArray1<TResult>;
+        flatMapDeep<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ExplicitArray1<TResult>;
+        flatMapDepth<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>, depth?: number): ExplicitArray1<TResult>;
         includes(value: T, fromIndex?: number): ExplicitValue1<boolean>;
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ExplicitArray1<TResult>;
         keyBy(iteratee?: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T; }>;

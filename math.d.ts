@@ -1,28 +1,33 @@
 declare namespace Types {
-    type Add = (augend: number, addend: number) => number;
-    type Max = (array: number[]) => number;
-    type Ceil = (n: number, precision?: number) => number;
-    interface MaxBy {
-        <T>(array: T[]): T;
-        <T>(array: T[], iteratee: (value: T) => number): T;
-        <T>(array: T[], iteratee: PathLocation): T;
-        <T>(array: T[], iteratee: any): T;
+    namespace Math {
+        type Operation = (augend: number, addend: number) => number;
+        type Aggregation = (array: number[]) => number;
+        type Rounding = (n: number, precision?: number) => number;
+        interface AggregationBy {
+            <T>(array: T[]): T;
+            <T>(array: T[], iteratee: (value: T) => number): T;
+            <T>(array: T[], iteratee: PathLocation): T;
+            <T>(array: T[], iteratee: any): T;
+        }
     }
 }
 
 interface IStatic {
-    add: Types.Add;
-    ceil: Types.Ceil;
-    floor: Types.Ceil;
-    max: Types.Max;
-    maxBy: Types.MaxBy;
-    mean: Types.Max;
-    min: Types.Max;
-    minBy: Types.MaxBy;
-    round: Types.Ceil;
-    subtract: Types.Add;
-    sum: Types.Max;
-    sumBy: Types.MaxBy;
+    add: Types.Math.Operation;
+    ceil: Types.Math.Rounding;
+    divide: Types.Math.Operation;
+    floor: Types.Math.Rounding;
+    max: Types.Math.Aggregation;
+    maxBy: Types.Math.AggregationBy;
+    mean: Types.Math.Aggregation;
+    meanBy: Types.Math.AggregationBy;
+    min: Types.Math.Aggregation;
+    minBy: Types.Math.AggregationBy;
+    multiply: Types.Math.Operation;
+    round: Types.Math.Rounding;
+    subtract: Types.Math.Operation;
+    sum: Types.Math.Aggregation;
+    sumBy: Types.Math.AggregationBy;
     clamp(num: number, upper: number): number
     clamp(num: number, lower: number, upper: number): number
     inRange(num: number, end: number): boolean
