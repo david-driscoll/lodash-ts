@@ -105,6 +105,7 @@ declare namespace Types {
     }
 
     interface Bind {
+        <TResult>(func: () => TResult, thisArg: any): () => TResult;
         <T, TResult>(func: (t1: T) => TResult, thisArg: any): (t1: T) => TResult;
         <T, TResult>(func: (t1: T) => TResult, thisArg: any, t1: T): () => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, thisArg: any): (t1: T, t2: T2) => TResult;
