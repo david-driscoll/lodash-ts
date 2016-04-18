@@ -104,7 +104,7 @@ declare namespace Types {
     }
 
     interface Transform {
-        <T, TObj, TAcc>(obj: TObj, iteratee?: Iteratee<(acc: TAcc, value: any, key: string, obj: TObj) => any>): TAcc;
+        <T, TObj, TAcc>(obj: TObj, iteratee?: Iteratee<(acc: TAcc, value: any, key: string, obj: TObj) => any>, acc?: TAcc): TAcc;
     }
 
     interface Unset {
