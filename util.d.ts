@@ -78,63 +78,63 @@ declare namespace Types {
 }
 
 interface IStatic {
-    attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error
-    attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error
-    attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error
-    attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error
-    attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error
-    attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error
+    attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error;
+    attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error;
+    attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error;
+    attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error;
+    attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error;
+    attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error;
 
-    bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T
+    bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T;
 
-    cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult
+    cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult;
 
     conforms<U, T extends { [index: string]: (obj: U) => boolean }>(arg: T): (arg: U) => boolean;
 
-    constant<T>(value: T): () => T
+    constant<T>(value: T): () => T;
 
     flow: Types.Flow;
     flowRight: Types.Flow;
 
-    identity<T>(value: T): T
+    identity<T>(value: T): T;
 
     iteratee: Types.IterateeMethod;
 
-    matches<T, O>(obj: T): (obj: O) => boolean
-    matchesProperty<O>(path: Types.PathLocation, value: any): (obj: O) => boolean
+    matches<T, O>(obj: T): (obj: O) => boolean;
+    matchesProperty<O>(path: Types.PathLocation, value: any): (obj: O) => boolean;
 
     method: Types.Method;
 
     methodOf: Types.MethodOf;
 
-    mixin<TObject, TSource>(obj: TObject, source: TSource, options?: { chain?: boolean }): TObject & TSource
-    mixin<TSource>(source: TSource, options?: { chain?: boolean }): IStatic & TSource
+    mixin<TObject, TSource>(obj: TObject, source: TSource, options?: { chain?: boolean }): TObject & TSource;
+    mixin<TSource>(source: TSource, options?: { chain?: boolean }): IStatic & TSource;
 
-    noConflict(): IStatic
+    noConflict(): IStatic;
 
-    noop(...args: any[]): void
+    noop(...args: any[]): void;
 
-    nthArg<TResult>(num?: number): TResult
+    nthArg<TResult>(num?: number): TResult;
 
     over: Types.Over;
 
     overEvery: Types.OverEveryORSome;
     overSome: Types.OverEveryORSome;
 
-    property<TResult>(path: Types.PathLocation): (object: any) => TResult
-    propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult
+    property<TResult>(path: Types.PathLocation): (object: any) => TResult;
+    propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult;
 
     range: Types.Range;
     rangeRight: Types.Range;
 
-    runInContext(context?: any): IStatic
+    runInContext(context?: any): IStatic;
 
-    times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[]
-    times(n: number): number[]
+    times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[];
+    times(n: number): number[];
 
-    toPath(value: string): string[]
+    toPath(value: string): string[];
 
-    uniqueId(prefix?: string): string
+    uniqueId(prefix?: string): string;
 
-    now(): number
+    now(): number;
 }

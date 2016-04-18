@@ -1095,56 +1095,56 @@ interface IStatic {
     gte: Types.Comparison;
     lt: Types.Comparison;
     lte: Types.Comparison;
-    isArguments(value: any): value is IArguments
-    isArray(value: any): value is any[]
-    isArray<T>(value: any): value is T[]
-    isArrayBuffer(value: any): value is ArrayBuffer
-    isArrayLike(value: any): value is ArrayLike<any>
-    isArrayLike<T>(value: any): value is ArrayLike<T>
-    isArrayLikeObject(value: any): value is ArrayLike<any>
-    isArrayLikeObject<T>(value: any): value is ArrayLike<T> & Object
-    isBoolean(value: any): value is boolean | Boolean
+    isArguments(value: any): value is IArguments;
+    isArray(value: any): value is any[];
+    isArray<T>(value: any): value is T[];
+    isArrayBuffer(value: any): value is ArrayBuffer;
+    isArrayLike(value: any): value is ArrayLike<any>;
+    isArrayLike<T>(value: any): value is ArrayLike<T>;
+    isArrayLikeObject(value: any): value is ArrayLike<any>;
+    isArrayLikeObject<T>(value: any): value is ArrayLike<T> & Object;
+    isBoolean(value: any): value is boolean | Boolean;
     isBuffer(value: any): boolean // buffer signature?
-    isDate(value: any): value is Date
-    isElement<T extends Element>(value: any): value is T
-    isEmpty(value: any): boolean
+    isDate(value: any): value is Date;
+    isElement<T extends Element>(value: any): value is T;
+    isEmpty(value: any): boolean;
     isEqual: Types.Comparison;
-    isEqualWith<T>(a: T, b: T, customizer: (valueA: any, valueB: any, key: string, a: T, b: T, stack: any) => any): boolean
-    isError<T extends Error>(value: any): value is T
-    isFinite(value: number): boolean
-    isFunction<T extends Function>(value: any): value is T
-    isInteger(value: number): boolean
-    isLength(value: number): boolean
-    isMap<K, V>(value: any): value is Map<K, V>
-    isMatch<T extends R, R>(value: T, match: R): boolean
-    isMatchWith<T, R>(value: T, source: R, customizer: (valueA: any, valueB: any, key: string, a: T, b: R) => any): boolean
-    isNaN(value: number): boolean
-    isNative<T extends Function>(value: T): boolean
-    isNil(value: any): boolean
-    isNull(value: any): boolean
-    isNumber(value: any): value is number
-    isObject<T extends Object>(value: any): value is T
-    isObjectLike<T extends Object>(value: any): value is T
-    isPlainObject<T extends Object>(value: any): value is T
-    isRegExp(value: any): value is RegExp
-    isSafeInteger(value: number): boolean
-    isSet<T>(value: any): value is Set<T>
-    isString(value: any): value is string
-    isSymbol(value: any): value is Symbol
-    isTypedArray(value: any): boolean
-    isUndefined(value: any): boolean
-    isWeakMap<K, V>(value: any): value is WeakMap<K, V>
-    isWeakSet<T>(value: any): value is WeakSet<T>
-    toArray<T>(value: { [index: string]: T }): T[]
-    toArray(value: string): string[]
-    toArray<T>(value: T[]): T[]
-    toArray<T>(value: any): T[]
-    toInteger(value: number | string): number
-    toLength(value: number): number
-    toNumber(value: any): number
-    toPlainObject<T extends Object>(value: any): T
-    toSafeInteger(value: number | string): number
-    toString(value: any): string
+    isEqualWith<T>(a: T, b: T, customizer: (valueA: any, valueB: any, key: string, a: T, b: T, stack: any) => any): boolean;
+    isError<T extends Error>(value: any): value is T;
+    isFinite(value: number): boolean;
+    isFunction<T extends Function>(value: any): value is T;
+    isInteger(value: number): boolean;
+    isLength(value: number): boolean;
+    isMap<K, V>(value: any): value is Map<K, V>;
+    isMatch<T extends R, R>(value: T, match: R): boolean;
+    isMatchWith<T, R>(value: T, source: R, customizer: (valueA: any, valueB: any, key: string, a: T, b: R) => any): boolean;
+    isNaN(value: number): boolean;
+    isNative<T extends Function>(value: T): boolean;
+    isNil(value: any): boolean;
+    isNull(value: any): boolean;
+    isNumber(value: any): value is number;
+    isObject<T extends Object>(value: any): value is T;
+    isObjectLike<T extends Object>(value: any): value is T;
+    isPlainObject<T extends Object>(value: any): value is T;
+    isRegExp(value: any): value is RegExp;
+    isSafeInteger(value: number): boolean;
+    isSet<T>(value: any): value is Set<T>;
+    isString(value: any): value is string;
+    isSymbol(value: any): value is Symbol;
+    isTypedArray(value: any): boolean;
+    isUndefined(value: any): boolean;
+    isWeakMap<K, V>(value: any): value is WeakMap<K, V>;
+    isWeakSet<T>(value: any): value is WeakSet<T>;
+    toArray<T>(value: { [index: string]: T }): T[];
+    toArray(value: string): string[];
+    toArray<T>(value: ArrayLike<T> | Iterable<T> | Iterator<T>): T[];
+    toArray<T>(value: any): T[];
+    toInteger(value: number | string): number;
+    toLength(value: number): number;
+    toNumber(value: any): number;
+    toPlainObject<T extends Object>(value: any): T;
+    toSafeInteger(value: number | string): number;
+    toString(value: any): string;
 }
 namespace Types.Wrap {
     namespace Math {
@@ -1527,65 +1527,65 @@ namespace Types {
 }
 
 interface IStatic {
-    attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error
-    attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error
-    attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error
-    attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error
-    attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error
-    attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error
+    attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error;
+    attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error;
+    attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error;
+    attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error;
+    attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error;
+    attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error;
 
-    bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T
+    bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T;
 
-    cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult
+    cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult;
 
     conforms<U, T extends { [index: string]: (obj: U) => boolean }>(arg: T): (arg: U) => boolean;
 
-    constant<T>(value: T): () => T
+    constant<T>(value: T): () => T;
 
     flow: Types.Flow;
     flowRight: Types.Flow;
 
-    identity<T>(value: T): T
+    identity<T>(value: T): T;
 
     iteratee: Types.IterateeMethod;
 
-    matches<T, O>(obj: T): (obj: O) => boolean
-    matchesProperty<O>(path: Types.PathLocation, value: any): (obj: O) => boolean
+    matches<T, O>(obj: T): (obj: O) => boolean;
+    matchesProperty<O>(path: Types.PathLocation, value: any): (obj: O) => boolean;
 
     method: Types.Method;
 
     methodOf: Types.MethodOf;
 
-    mixin<TObject, TSource>(obj: TObject, source: TSource, options?: { chain?: boolean }): TObject & TSource
-    mixin<TSource>(source: TSource, options?: { chain?: boolean }): IStatic & TSource
+    mixin<TObject, TSource>(obj: TObject, source: TSource, options?: { chain?: boolean }): TObject & TSource;
+    mixin<TSource>(source: TSource, options?: { chain?: boolean }): IStatic & TSource;
 
-    noConflict(): IStatic
+    noConflict(): IStatic;
 
-    noop(...args: any[]): void
+    noop(...args: any[]): void;
 
-    nthArg<TResult>(num?: number): TResult
+    nthArg<TResult>(num?: number): TResult;
 
     over: Types.Over;
 
     overEvery: Types.OverEveryORSome;
     overSome: Types.OverEveryORSome;
 
-    property<TResult>(path: Types.PathLocation): (object: any) => TResult
-    propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult
+    property<TResult>(path: Types.PathLocation): (object: any) => TResult;
+    propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult;
 
     range: Types.Range;
     rangeRight: Types.Range;
 
-    runInContext(context?: any): IStatic
+    runInContext(context?: any): IStatic;
 
-    times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[]
-    times(n: number): number[]
+    times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[];
+    times(n: number): number[];
 
-    toPath(value: string): string[]
+    toPath(value: string): string[];
 
-    uniqueId(prefix?: string): string
+    uniqueId(prefix?: string): string;
 
-    now(): number
+    now(): number;
 }
 namespace Types {
     interface Tap {
