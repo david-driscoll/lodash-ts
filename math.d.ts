@@ -5,9 +5,8 @@ declare namespace Types {
         type Rounding = (n: number, precision?: number) => number;
         interface AggregationBy {
             <T>(array: T[]): T;
-            <T>(array: T[], iteratee: (value: T) => number): T;
+            <T>(array: T[], iteratee: Iteratee<(value: T) => number>): T;
             <T>(array: T[], iteratee: PathLocation): T;
-            <T>(array: T[], iteratee: any): T;
         }
     }
 }

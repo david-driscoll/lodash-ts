@@ -1151,9 +1151,8 @@ namespace Types.Wrap {
         type Aggregation<T> = () => T;
         interface AggregationBy<T, TWrapper> {
             (): TWrapper;
-            (iteratee: (value: T) => number): TWrapper;
+            (iteratee: Iteratee<(value: T) => number>): TWrapper;
             (iteratee: PathLocation): TWrapper;
-            (iteratee: any): TWrapper;
         }
     }
 
@@ -1186,9 +1185,8 @@ namespace Types {
         type Rounding = (n: number, precision?: number) => number;
         interface AggregationBy {
             <T>(array: T[]): T;
-            <T>(array: T[], iteratee: (value: T) => number): T;
+            <T>(array: T[], iteratee: Iteratee<(value: T) => number>): T;
             <T>(array: T[], iteratee: PathLocation): T;
-            <T>(array: T[], iteratee: any): T;
         }
     }
 }
