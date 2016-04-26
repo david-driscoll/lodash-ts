@@ -204,6 +204,7 @@ interface IStatic {
     join: Types.Join;
     last: Types.ArrayValueThrough;
     lastIndexOf: Types.IndexOf;
+    nth: Types.Nth;
     pull: Types.ArrayArgs;
     pullAll: Types.PullAll;
     pullAllWith: Types.PullAllWith;
