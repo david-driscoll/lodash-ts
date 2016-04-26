@@ -53,6 +53,10 @@ declare namespace Types.Wrap {
         (value: T, start?: number, end?: number): TWrapper;
     }
 
+    interface Nth<T, TWrapper> {
+        (index?: number): T;
+    }
+
     interface PullAll<T, TWrapper> {
         (values: ArrayLike<T>, iteratee?: ValuePredicate<T>): TWrapper;
     }
@@ -107,6 +111,7 @@ declare namespace Types.Wrap {
         intersection: Difference<T, TWrapper>;
         intersectionBy: DifferenceBy<T, TWrapper>;
         intersectionWith: DifferenceWith<T, TWrapper>;
+        nth: Nth<T, TWrapper>;
         pull: ArrayArgs<T, TWrapper>;
         pullAll: PullAll<T, TWrapper>;
         pullAt: PullAt<T, TWrapper>;

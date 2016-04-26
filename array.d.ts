@@ -88,6 +88,10 @@ declare namespace Types {
         <T>(array: ArrayLike<T>, value: T, fromIndex?: number): number;
     }
 
+    interface Nth {
+        <T>(array: ArrayLike<T>, index?: number): T;
+    }
+
     interface PullAll {
         <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
     }
