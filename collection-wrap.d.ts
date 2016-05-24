@@ -34,8 +34,8 @@ declare namespace Types.Wrap {
         countBy(iteratee: ValuePredicate<T>): ImplicitValue1<{ [index: string]: number; }>;
         every(iteratee?: ArrayPredicate<T>): boolean;
         filter(iteratee?: ArrayPredicate<T>): TWrapper;
-        find(iteratee?: ArrayPredicate<T>): T;
-        findLast(iteratee?: ArrayPredicate<T>): T;
+        find(iteratee?: ArrayPredicate<T>, fromIndex?: number): T;
+        findLast(iteratee?: ArrayPredicate<T>, fromIndex?: number): T;
         flatMap<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ImplicitArray1<TResult>;
         flatMapDeep<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ImplicitArray1<TResult>;
         flatMapDepth<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>, depth?: number): ImplicitArray1<TResult>;

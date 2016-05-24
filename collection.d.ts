@@ -23,10 +23,10 @@ declare namespace Types {
         <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
     }
 
-    interface ResultPredicate {
-        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): T;
-        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): T;
-        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): T;
+    interface FindPredicate {
+        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): T;
+        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>, fromIndex?: number): T;
+        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>, fromIndex?: number): T;
     }
 
     interface FlatMap {
@@ -62,7 +62,7 @@ declare namespace Types {
         <T>(collection: ArrayLike<T> | _Obj<T>, iteratee?: ValuePredicate<T>): { [index: string]: T; };
     }
 
-    interface Map {
+    interface _Map {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
         <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
@@ -115,8 +115,8 @@ interface IStatic {
     eachRight: Types.ForEach;
     every: Types.ByBooleanPredicate;
     filter: Types.ByArrayPredicate;
-    find: Types.ResultPredicate;
-    findLast: Types.ResultPredicate;
+    find: Types.FindPredicate;
+    findLast: Types.FindPredicate;
     flatMap: Types.FlatMap;
     flatMapDeep: Types.FlatMap;
     flatMapDepth: Types.FlatMapDepth;
@@ -126,7 +126,7 @@ interface IStatic {
     includes: Types.Includes;
     invokeMap: Types.InvokeMap;
     keyBy: Types.KeyBy;
-    map: Types.Map;
+    map: Types._Map;
     orderBy: Types.OrderBy;
     partition: Types.Partition;
     reduce: Types.Reduce;

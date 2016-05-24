@@ -81,7 +81,7 @@ declare namespace Types {
         <T, TResult>(obj: any, predicate?: Iteratee<(value: T, key: string) => boolean>): TResult;
     }
 
-    interface Set {
+    interface _Set {
         <T, TObj>(obj: TObj, path: PathLocation, value: T): TObj;
     }
 
@@ -100,6 +100,8 @@ declare namespace Types {
     interface ToPairs {
         <T>(obj: { [index: number]: T }): [number, T][];
         <T>(obj: { [index: string]: T }): [string, T][];
+        <K, V>(map: Map<K, V>): [K, V][];
+        <V>(set: Set<V>): [number, V][];
         <T>(obj: any): [string, T][];
     }
 
@@ -157,7 +159,7 @@ interface IStatic {
     pick: Types.Omit;
     pickBy: Types.OmitBy;
     result: Types.Get;
-    set: Types.Set;
+    set: Types._Set;
     setWith: Types.SetWith;
     toPairs: Types.ToPairs;
     toPairsIn: Types.ToPairs;

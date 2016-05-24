@@ -81,7 +81,7 @@ declare namespace Types {
     }
 
     interface FindIndex {
-        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): number;
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): number;
     }
 
     interface IndexOf {

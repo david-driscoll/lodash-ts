@@ -150,8 +150,8 @@ declare namespace Types.Wrap {
         flatten<TResult>(): ImplicitArray1<TResult>;
         flattenDeep<TResult>(): ImplicitArray1<TResult>;
         flattenDepth<T>(depth?: number): ImplicitArray1<T>;
-        findIndex(predicate?: ArrayPredicate<T>): number;
-        findLastIndex(predicate?: ArrayPredicate<T>): number;
+        findIndex(predicate?: ArrayPredicate<T>, fromIndex?: number): number;
+        findLastIndex(predicate?: ArrayPredicate<T>, fromIndex?: number): number;
         join(separator?: string): string;
         indexOf(value: T, fromIndex?: number): number;
         lastIndexOf(value: T, fromIndex?: number): number;

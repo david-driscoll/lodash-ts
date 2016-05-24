@@ -137,4 +137,15 @@ interface IStatic {
     uniqueId(prefix?: string): string;
 
     now(): number;
+
+    stubArray(): any[];
+    stubArray<T>(): T[];
+
+    stubFalse(): boolean;
+    stubTrue(): boolean;
+
+    stubObject(): {};
+    stubObject<T extends Object>(): T;
+
+    stubString(): "";
 }

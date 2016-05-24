@@ -150,8 +150,8 @@ namespace Types.Wrap {
         flatten<TResult>(): ImplicitArray1<TResult>;
         flattenDeep<TResult>(): ImplicitArray1<TResult>;
         flattenDepth<T>(depth?: number): ImplicitArray1<T>;
-        findIndex(predicate?: ArrayPredicate<T>): number;
-        findLastIndex(predicate?: ArrayPredicate<T>): number;
+        findIndex(predicate?: ArrayPredicate<T>, fromIndex?: number): number;
+        findLastIndex(predicate?: ArrayPredicate<T>, fromIndex?: number): number;
         join(separator?: string): string;
         indexOf(value: T, fromIndex?: number): number;
         lastIndexOf(value: T, fromIndex?: number): number;
@@ -269,7 +269,7 @@ namespace Types {
     }
 
     interface FindIndex {
-        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): number;
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): number;
     }
 
     interface IndexOf {
@@ -467,8 +467,8 @@ namespace Types.Wrap {
         countBy(iteratee: ValuePredicate<T>): ImplicitValue1<{ [index: string]: number; }>;
         every(iteratee?: ArrayPredicate<T>): boolean;
         filter(iteratee?: ArrayPredicate<T>): TWrapper;
-        find(iteratee?: ArrayPredicate<T>): T;
-        findLast(iteratee?: ArrayPredicate<T>): T;
+        find(iteratee?: ArrayPredicate<T>, fromIndex?: number): T;
+        findLast(iteratee?: ArrayPredicate<T>, fromIndex?: number): T;
         flatMap<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ImplicitArray1<TResult>;
         flatMapDeep<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>): ImplicitArray1<TResult>;
         flatMapDepth<TResult>(iteratee?: Iteratee<(value: T, index: number) => TResult[]>, depth?: number): ImplicitArray1<TResult>;
@@ -555,10 +555,10 @@ namespace Types {
         <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
     }
 
-    interface ResultPredicate {
-        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): T;
-        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): T;
-        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): T;
+    interface FindPredicate {
+        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): T;
+        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>, fromIndex?: number): T;
+        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>, fromIndex?: number): T;
     }
 
     interface FlatMap {
@@ -594,7 +594,7 @@ namespace Types {
         <T>(collection: ArrayLike<T> | _Obj<T>, iteratee?: ValuePredicate<T>): { [index: string]: T; };
     }
 
-    interface Map {
+    interface _Map {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
         <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
@@ -647,8 +647,8 @@ interface IStatic {
     eachRight: Types.ForEach;
     every: Types.ByBooleanPredicate;
     filter: Types.ByArrayPredicate;
-    find: Types.ResultPredicate;
-    findLast: Types.ResultPredicate;
+    find: Types.FindPredicate;
+    findLast: Types.FindPredicate;
     flatMap: Types.FlatMap;
     flatMapDeep: Types.FlatMap;
     flatMapDepth: Types.FlatMapDepth;
@@ -658,7 +658,7 @@ interface IStatic {
     includes: Types.Includes;
     invokeMap: Types.InvokeMap;
     keyBy: Types.KeyBy;
-    map: Types.Map;
+    map: Types._Map;
     orderBy: Types.OrderBy;
     partition: Types.Partition;
     reduce: Types.Reduce;
@@ -1150,6 +1150,7 @@ interface IStatic {
     toArray<T>(value: ArrayLike<T> | Iterable<T> | Iterator<T>): T[];
     toArray<T>(value: any): T[];
     toInteger(value: number | string): number;
+    toFinite(value: number | string): number;
     toLength(value: number): number;
     toNumber(value: any): number;
     toPlainObject<T extends Object>(value: any): T;
@@ -1306,7 +1307,7 @@ namespace Types {
         <T, TResult>(obj: any, predicate?: Iteratee<(value: T, key: string) => boolean>): TResult;
     }
 
-    interface Set {
+    interface _Set {
         <T, TObj>(obj: TObj, path: PathLocation, value: T): TObj;
     }
 
@@ -1325,6 +1326,8 @@ namespace Types {
     interface ToPairs {
         <T>(obj: { [index: number]: T }): [number, T][];
         <T>(obj: { [index: string]: T }): [string, T][];
+        <K, V>(map: Map<K, V>): [K, V][];
+        <V>(set: Set<V>): [number, V][];
         <T>(obj: any): [string, T][];
     }
 
@@ -1382,7 +1385,7 @@ interface IStatic {
     pick: Types.Omit;
     pickBy: Types.OmitBy;
     result: Types.Get;
-    set: Types.Set;
+    set: Types._Set;
     setWith: Types.SetWith;
     toPairs: Types.ToPairs;
     toPairsIn: Types.ToPairs;
@@ -1594,6 +1597,17 @@ interface IStatic {
     uniqueId(prefix?: string): string;
 
     now(): number;
+
+    stubArray(): any[];
+    stubArray<T>(): T[];
+
+    stubFalse(): boolean;
+    stubTrue(): boolean;
+
+    stubObject(): {};
+    stubObject<T extends Object>(): T;
+
+    stubString(): "";
 }
 namespace Types {
     interface Tap {

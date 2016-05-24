@@ -74,6 +74,7 @@ interface IStatic {
     toArray<T>(value: ArrayLike<T> | Iterable<T> | Iterator<T>): T[];
     toArray<T>(value: any): T[];
     toInteger(value: number | string): number;
+    toFinite(value: number | string): number;
     toLength(value: number): number;
     toNumber(value: any): number;
     toPlainObject<T extends Object>(value: any): T;
