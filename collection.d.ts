@@ -42,6 +42,7 @@ declare namespace Types {
     }
 
     interface ForEach {
+        <T>(collection: Array<T>, iteratee?: Iteratee<(value: T, index: number, collection: Array<T>) => boolean | void>): Array<T>;
         <T>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => boolean | void>): ArrayLike<T>;
         <T>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
         <T>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;

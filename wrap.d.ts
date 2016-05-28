@@ -1,5 +1,6 @@
 declare namespace Types {
     interface Tap {
+        <T>(array: Array<T>, interceptor: (value: T) => void): Array<T>;
         <T>(array: ArrayLike<T>, interceptor: (value: T) => void): ArrayLike<T>;
     }
 

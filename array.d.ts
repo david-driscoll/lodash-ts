@@ -77,6 +77,7 @@ declare namespace Types {
     }
 
     interface Fill {
+        <T>(array: Array<T>, value: T, start?: number, end?: number): Array<T>;
         <T>(array: ArrayLike<T>, value: T, start?: number, end?: number): ArrayLike<T>;
     }
 
@@ -109,6 +110,7 @@ declare namespace Types {
     }
 
     interface Remove {
+        <T>(array: Array<T>, predicate?: ArrayPredicate<T, Array<T>>): Array<T>;
         <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): ArrayLike<T>;
     }
 

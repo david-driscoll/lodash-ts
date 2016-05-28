@@ -265,6 +265,7 @@ namespace Types {
     }
 
     interface Fill {
+        <T>(array: Array<T>, value: T, start?: number, end?: number): Array<T>;
         <T>(array: ArrayLike<T>, value: T, start?: number, end?: number): ArrayLike<T>;
     }
 
@@ -297,6 +298,7 @@ namespace Types {
     }
 
     interface Remove {
+        <T>(array: Array<T>, predicate?: ArrayPredicate<T, Array<T>>): Array<T>;
         <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): ArrayLike<T>;
     }
 
@@ -574,6 +576,7 @@ namespace Types {
     }
 
     interface ForEach {
+        <T>(collection: Array<T>, iteratee?: Iteratee<(value: T, index: number, collection: Array<T>) => boolean | void>): Array<T>;
         <T>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => boolean | void>): ArrayLike<T>;
         <T>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
         <T>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
@@ -1611,6 +1614,7 @@ interface IStatic {
 }
 namespace Types {
     interface Tap {
+        <T>(array: Array<T>, interceptor: (value: T) => void): Array<T>;
         <T>(array: ArrayLike<T>, interceptor: (value: T) => void): ArrayLike<T>;
     }
 
