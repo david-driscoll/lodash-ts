@@ -104,9 +104,12 @@ declare namespace Types {
     }
 
     interface SortBy {
-        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): T[];
-        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): T[];
-        <T>(collection: any, iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): T[];
+        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>[]): T[];
+        <T>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T>[]): T[];
+        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>[]): T[];
+        <T>(collection: _Obj<T>, ...iteratees: ValuePredicate<T>[]): T[];
+        <T>(collection: any, iteratee?: ValuePredicate<T>[]): T[];
+        <T>(collection: any, ...iteratees: ValuePredicate<T>[]): T[];
     }
 }
 

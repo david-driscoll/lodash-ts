@@ -8,7 +8,13 @@ declare namespace Types.Wrap {
     }
 
     interface OrderBy<T, TWrapper> {
-        (iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        (iteratee?: ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        (iteratee1: ValuePredicate<T>, orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>, iteratee3: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>, iteratee3: ValuePredicate<T>, iteratee4: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>, iteratee3: ValuePredicate<T>, iteratee4: ValuePredicate<T>, iteratee5: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>, iteratee3: ValuePredicate<T>, iteratee4: ValuePredicate<T>, iteratee5: ValuePredicate<T>, iteratee6: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
     }
 
     interface Shuffle<TWrapper> {
@@ -16,7 +22,8 @@ declare namespace Types.Wrap {
     }
 
     interface SortBy<T, TWrapper> {
-        (iteratee?: ValuePredicate<T> | ValuePredicate<T>[]): TWrapper;
+        (iteratee?: ValuePredicate<T>[]): TWrapper;
+        (...iteratees: ValuePredicate<T>[]): TWrapper;
     }
 
     interface ArrayWrapper<T, TWrapper> {
