@@ -692,7 +692,7 @@ namespace Types {
     type Iteratee<T extends Function> = string | Object | T;
     type PathLocation = string | string[];
 
-    type _Obj<T> = { [index: string]: T; };
+    type _Obj<T> = { [index: string]: T; } | { [index: number]: T; };
     type ArrayPredicate<T, TArray extends ArrayLike<T>> = Iteratee<(value: T, index: number, collection: TArray) => boolean>;
     type AccumulatorArrayPredicate<T, TArray extends ArrayLike<T>, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: number, collection: TArray) => TAcc>;
 
