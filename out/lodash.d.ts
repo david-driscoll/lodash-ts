@@ -1473,10 +1473,6 @@ interface IStatic {
     upperFirst: Types.StringMethod;
     words(str?: string, pattern?: string | RegExp): string[]
 }
-/// <reference path="./out/lodash.d.ts" />
-
-
-_([1, 2, 3])
 namespace Types {
     interface Flow {
         <T, V>(func?: (t1: T) => V, ...funcs: ((value: V) => V)[]): V;
