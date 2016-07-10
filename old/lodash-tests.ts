@@ -1460,7 +1460,7 @@ module TestSlice {
 
 // _.sortedIndex
 module TestSortedIndex {
-    type SampleType = {a: number; b: string; c: boolean;};
+   export type SampleType = {a: number; b: string; c: boolean;};
 
     let array: SampleType[];
     let list: ArrayLike<SampleType>;
@@ -1502,7 +1502,7 @@ module TestSortedIndex {
 
 // _.sortedIndexBy
 module TestSortedIndexBy {
-    type SampleType = {a: number; b: string; c: boolean;};
+   export type SampleType = {a: number; b: string; c: boolean;};
 
     let array: SampleType[];
     let list: ArrayLike<SampleType>;
@@ -1563,7 +1563,7 @@ module TestSortedIndexBy {
 
 // _.sortedLastIndex
 module TestSortedLastIndex {
-    type SampleType = {a: number; b: string; c: boolean;};
+   export type SampleType = {a: number; b: string; c: boolean;};
 
     let array: SampleType[];
     let list: ArrayLike<SampleType>;
@@ -1603,7 +1603,7 @@ module TestSortedLastIndex {
 
 // _.sortedLastIndexBy
 module TestSortedLastIndexBy {
-    type SampleType = {a: number; b: string; c: boolean;};
+   export type SampleType = {a: number; b: string; c: boolean;};
 
     let array: SampleType[];
     let list: ArrayLike<SampleType>;
@@ -2101,7 +2101,7 @@ namespace TestUnionBy {
 
 // _.uniq
 module TestUniq {
-    type SampleObject = {a: number; b: string; c: boolean};
+   export type SampleObject = {a: number; b: string; c: boolean};
 
     let array: SampleObject[];
     let list: ArrayLike<SampleObject>;
@@ -2151,7 +2151,7 @@ module TestUniq {
 
 // _.uniqBy
 module TestUniqBy {
-    type SampleObject = {a: number; b: string; c: boolean};
+   export type SampleObject = {a: number; b: string; c: boolean};
 
     let array: SampleObject[];
     let list: ArrayLike<SampleObject>;
@@ -2225,7 +2225,7 @@ module TestUniqBy {
 
 // _.sortedUniq
 module TestSortedUniq {
-    type SampleObject = {a: number; b: string; c: boolean};
+   export type SampleObject = {a: number; b: string; c: boolean};
 
     let array: SampleObject[];
     let list: ArrayLike<SampleObject>;
@@ -2269,7 +2269,7 @@ module TestSortedUniq {
 
 // _.sortedUniqBy
 module TestSortedUniqBy {
-    type SampleObject = {a: number; b: string; c: boolean};
+   export type SampleObject = {a: number; b: string; c: boolean};
 
     let array: SampleObject[];
     let list: ArrayLike<SampleObject>;
@@ -2805,7 +2805,7 @@ module TestTap {
 
 // _.thru
 module TestThru {
-    interface Interceptor<T> {
+    export interface Interceptor<T> {
         (value: T): T;
     }
 
@@ -3573,7 +3573,7 @@ module TestEachRight {
 
 // _.every
 namespace TestEvery {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let array: SampleObject[];
     let list: ArrayLike<SampleObject>;
@@ -4015,7 +4015,7 @@ module TestForEachRight {
 
 // _.groupBy
 module TestGroupBy {
-    type SampleType = {a: number; b: string; c: boolean;};
+   export type SampleType = {a: number; b: string; c: boolean;};
 
     let array: SampleType[];
     let list: ArrayLike<SampleType>;
@@ -4164,7 +4164,7 @@ module TestGroupBy {
 
 // _.includes
 module TestIncludes {
-    type SampleType = {a: string; b: number; c: boolean;};
+   export type SampleType = {a: string; b: number; c: boolean;};
 
     let array: SampleType[];
     let list: ArrayLike<SampleType>;
@@ -4210,7 +4210,7 @@ module TestIncludes {
 
 // _.keyBy
 module TestKeyBy {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let array: SampleObject[];
     let list: ArrayLike<SampleObject>;
@@ -4523,7 +4523,7 @@ result = <{a: number}[][]>_({0: {a: 1}, 1: {a: 2}}).partition<{a: number}>('a', 
 // TODO
 // _.map with iteratee shorthand
 // module TestMapInsteadOfPluck {
-//     interface SampleObject {
+//     export interface SampleObject {
 //         d: {b: TResult}[];
 //     }
 //
@@ -4768,7 +4768,7 @@ module TestShuffle {
 
 // _.size
 module TestSize {
-    type SampleType = {a: string; b: number; c: boolean;};
+   export type SampleType = {a: string; b: number; c: boolean;};
 
     let array: SampleType[];
     let list: ArrayLike<SampleType>;
@@ -4800,7 +4800,7 @@ module TestSize {
 
 // _.some
 namespace TestSome {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let array: SampleObject[];
     let list: ArrayLike<SampleObject>;
@@ -4968,7 +4968,7 @@ result = <IFoodOrganic[]>_(foodsOrganic).sortBy('organic', (food) => food.name, 
 
 // _.orderBy
 module TestorderBy {
-    type SampleObject = {a: number; b: string; c: boolean};
+   export type SampleObject = {a: number; b: string; c: boolean};
 
     let array: SampleObject[];
     let list: ArrayLike<SampleObject>;
@@ -5084,7 +5084,7 @@ module TestNow {
  *************/
 // _.after
 module TestAfter {
-    interface Func {
+    export interface Func {
         (a: string, b: number): boolean;
     }
 
@@ -5111,7 +5111,7 @@ module TestAfter {
 
 // _.ary
 module TestAry {
-    type SampleFunc = (a: number, b: string) => boolean;
+   export type SampleFunc = (a: number, b: string) => boolean;
 
     let func: SampleFunc;
 
@@ -5141,7 +5141,7 @@ module TestAry {
 
 // _.before
 module TestBefore {
-    interface Func {
+    export interface Func {
         (a: string, b: number): boolean;
     }
 
@@ -5168,12 +5168,12 @@ module TestBefore {
 
 // _.bind
 module TestBind {
-    type SampleFunc = (a: number, b: string) => boolean;
+   export type SampleFunc = (a: number, b: string) => boolean;
 
     let func: SampleFunc
 
     {
-        type SampleResult = (a: number, b: string) => boolean;
+       export type SampleResult = (a: number, b: string) => boolean;
 
         let result: SampleResult;
 
@@ -5182,7 +5182,7 @@ module TestBind {
     }
 
     {
-        type SampleResult = (b: string) => boolean;
+       export type SampleResult = (b: string) => boolean;
 
         let result: SampleResult;
 
@@ -5191,7 +5191,7 @@ module TestBind {
     }
 
     {
-        type SampleResult = () => boolean;
+       export type SampleResult = () => boolean;
 
         let result: SampleResult;
 
@@ -5200,7 +5200,7 @@ module TestBind {
     }
 
     {
-        type SampleResult = (a: number, b: string) => boolean;
+       export type SampleResult = (a: number, b: string) => boolean;
 
         let result: _.LoDashImplicitObjectWrapper<SampleResult>;
 
@@ -5208,7 +5208,7 @@ module TestBind {
     }
 
     {
-        type SampleResult = (b: string) => boolean;
+       export type SampleResult = (b: string) => boolean;
 
         let result: _.LoDashImplicitObjectWrapper<SampleResult>;
 
@@ -5216,7 +5216,7 @@ module TestBind {
     }
 
     {
-        type SampleResult = () => boolean;
+       export type SampleResult = () => boolean;
 
         let result: _.LoDashImplicitObjectWrapper<SampleResult>;
 
@@ -5224,7 +5224,7 @@ module TestBind {
     }
 
     {
-        type SampleResult = (a: number, b: string) => boolean;
+       export type SampleResult = (a: number, b: string) => boolean;
 
         let result: _.LoDashExplicitObjectWrapper<SampleResult>;
 
@@ -5232,7 +5232,7 @@ module TestBind {
     }
 
     {
-        type SampleResult = (b: string) => boolean;
+       export type SampleResult = (b: string) => boolean;
 
         let result: _.LoDashExplicitObjectWrapper<SampleResult>;
 
@@ -5240,7 +5240,7 @@ module TestBind {
     }
 
     {
-        type SampleResult = () => boolean;
+       export type SampleResult = () => boolean;
 
         let result: _.LoDashExplicitObjectWrapper<SampleResult>;
 
@@ -5250,7 +5250,7 @@ module TestBind {
 
 // _.bindAll
 module TestBindAll {
-    interface SampleObject {
+    export interface SampleObject {
         a: Function;
         b: Function;
         c: Function;
@@ -5293,7 +5293,7 @@ module TestBindKey {
     }
 
     {
-        type SampleResult = (a: number, b: string) => boolean;
+       export type SampleResult = (a: number, b: string) => boolean;
 
         let result: SampleResult;
 
@@ -5302,7 +5302,7 @@ module TestBindKey {
     }
 
     {
-        type SampleResult = (b: string) => boolean;
+       export type SampleResult = (b: string) => boolean;
 
         let result: SampleResult;
 
@@ -5311,7 +5311,7 @@ module TestBindKey {
     }
 
     {
-        type SampleResult = () => boolean;
+       export type SampleResult = () => boolean;
 
         let result: SampleResult;
 
@@ -5320,7 +5320,7 @@ module TestBindKey {
     }
 
     {
-        type SampleResult = (a: number, b: string) => boolean;
+       export type SampleResult = (a: number, b: string) => boolean;
 
         let result: _.LoDashImplicitObjectWrapper<SampleResult>;
 
@@ -5328,7 +5328,7 @@ module TestBindKey {
     }
 
     {
-        type SampleResult = (b: string) => boolean;
+       export type SampleResult = (b: string) => boolean;
 
         let result: _.LoDashImplicitObjectWrapper<SampleResult>;
 
@@ -5336,7 +5336,7 @@ module TestBindKey {
     }
 
     {
-        type SampleResult = () => boolean;
+       export type SampleResult = () => boolean;
 
         let result: _.LoDashImplicitObjectWrapper<SampleResult>;
 
@@ -5344,7 +5344,7 @@ module TestBindKey {
     }
 
     {
-        type SampleResult = (a: number, b: string) => boolean;
+       export type SampleResult = (a: number, b: string) => boolean;
 
         let result: _.LoDashExplicitObjectWrapper<SampleResult>;
 
@@ -5352,7 +5352,7 @@ module TestBindKey {
     }
 
     {
-        type SampleResult = (b: string) => boolean;
+       export type SampleResult = (b: string) => boolean;
 
         let result: _.LoDashExplicitObjectWrapper<SampleResult>;
 
@@ -5360,7 +5360,7 @@ module TestBindKey {
     }
 
     {
-        type SampleResult = () => boolean;
+       export type SampleResult = () => boolean;
 
         let result: _.LoDashExplicitObjectWrapper<SampleResult>;
 
@@ -5426,17 +5426,17 @@ curryResult9 = _.curryRight(testCurry2);
 
 // _.debounce
 module TestDebounce {
-    interface SampleFunc {
+    export interface SampleFunc {
         (n: number, s: string): boolean;
     }
 
-    interface Options {
+    export interface Options {
         leading?: boolean;
         maxWait?: number;
         trailing?: boolean;
     }
 
-    interface ResultFunc {
+    export interface ResultFunc {
         (n: number, s: string): boolean;
         cancel(): void;
     }
@@ -5471,7 +5471,7 @@ module TestDebounce {
 
 // _.defer
 module TestDefer {
-    type SampleFunc = (a: number, b: string) => boolean;
+   export type SampleFunc = (a: number, b: string) => boolean;
 
     let func: SampleFunc;
 
@@ -5505,7 +5505,7 @@ module TestDefer {
 
 // _.delay
 module TestDelay {
-    type SampleFunc = (a: number, b: string) => boolean;
+   export type SampleFunc = (a: number, b: string) => boolean;
 
     let func: SampleFunc;
 
@@ -5536,7 +5536,7 @@ module TestDelay {
 
 // _.flip
 module TestFlip {
-    interface Func {
+    export interface Func {
         (a: number, b: string): boolean;
     }
 
@@ -5625,7 +5625,7 @@ module TestFlowRight {
 namespace TestMemoize {
     var testMemoizedFunction: _.MemoizedFunction;
     var cache = <_.MapCache>testMemoizedFunction.cache;
-    interface TestMemoizedResultFn extends _.MemoizedFunction {
+    export interface TestMemoizedResultFn extends _.MemoizedFunction {
         (a1: string, a2: number): boolean;
     }
     var testMemoizeFn = (a1: string, a2: number) => a1.length > a2;
@@ -5647,8 +5647,8 @@ namespace TestMemoize {
 
 // _.overArgs
 module TestOverArgs {
-    type Func1 = (a: boolean) => boolean;
-    type Func2 = (a: boolean, b: boolean) => boolean;
+   export type Func1 = (a: boolean) => boolean;
+   export type Func2 = (a: boolean, b: boolean) => boolean;
 
     let func1: Func1;
     let func2: Func2;
@@ -5701,11 +5701,11 @@ module TestOverArgs {
 
 // _.negate
 module TestNegate {
-    interface PredicateFn {
+    export interface PredicateFn {
         (a1: number, a2: number): boolean;
     }
 
-    interface ResultFn {
+    export interface ResultFn {
         (a1: number, a2: number): boolean;
     }
 
@@ -5735,7 +5735,7 @@ module TestNegate {
 
 // _.once
 module TestOnce {
-    interface Func {
+    export interface Func {
         (a: number, b: string): boolean;
     }
 
@@ -5786,8 +5786,8 @@ result = <string[]>(_(testReargFn).rearg<TestReargResultFn>([2, 0, 1]).value())(
 
 // _.rest
 module TestRest {
-    type Func = (a: string, b: number[]) => boolean;
-    type ResultFunc = (a: string, ...b: number[]) => boolean;
+   export type Func = (a: string, b: number[]) => boolean;
+   export type ResultFunc = (a: string, ...b: number[]) => boolean;
 
     let func: Func;
 
@@ -5818,8 +5818,8 @@ module TestRest {
 
 //_.spread
 module TestSpread {
-    type SampleFunc = (args: (number|string)[]) => boolean;
-    type SampleResult = (a: number, b: string) => boolean;
+   export type SampleFunc = (args: (number|string)[]) => boolean;
+   export type SampleResult = (a: number, b: string) => boolean;
 
     let func: SampleFunc;
 
@@ -5845,16 +5845,16 @@ module TestSpread {
 
 // _.throttle
 module TestThrottle {
-    interface SampleFunc {
+    export interface SampleFunc {
         (n: number, s: string): boolean;
     }
 
-    interface Options {
+    export interface Options {
         leading?: boolean;
         trailing?: boolean;
     }
 
-    interface ResultFunc {
+    export interface ResultFunc {
         (n: number, s: string): boolean;
         cancel(): void;
     }
@@ -5889,7 +5889,7 @@ module TestThrottle {
 
 // _.unary
 module TestUnary {
-    interface Func {
+    export interface Func {
         (a: number, b: string): boolean;
     }
 
@@ -5916,11 +5916,11 @@ module TestUnary {
 
 // _.wrap
 module TestWrap {
-    type SampleValue = {a: number; b: string; c: boolean}
-    type SampleResult = (arg2: number, arg3: string) => boolean;
+   export type SampleValue = {a: number; b: string; c: boolean}
+   export type SampleResult = (arg2: number, arg3: string) => boolean;
 
     {
-        type SampleWrapper = (arg1: SampleValue, arg2: number, arg3: string) => boolean;
+       export type SampleWrapper = (arg1: SampleValue, arg2: number, arg3: string) => boolean;
 
         let value: SampleValue;
         let wrapper: SampleWrapper;
@@ -5932,7 +5932,7 @@ module TestWrap {
     }
 
     {
-        type SampleWrapper = (arg1: number, arg2: number, arg3: string) => boolean;
+       export type SampleWrapper = (arg1: number, arg2: number, arg3: string) => boolean;
 
         let value: number;
         let wrapper: SampleWrapper;
@@ -5943,7 +5943,7 @@ module TestWrap {
     }
 
     {
-        type SampleWrapper = (arg1: number[], arg2: number, arg3: string) => boolean;
+       export type SampleWrapper = (arg1: number[], arg2: number, arg3: string) => boolean;
 
         let value: number[];
         let wrapper: SampleWrapper;
@@ -5954,7 +5954,7 @@ module TestWrap {
     }
 
     {
-        type SampleWrapper = (arg1: SampleValue, arg2: number, arg3: string) => boolean;
+       export type SampleWrapper = (arg1: SampleValue, arg2: number, arg3: string) => boolean;
 
         let value: SampleValue;
         let wrapper: SampleWrapper;
@@ -5965,7 +5965,7 @@ module TestWrap {
     }
 
     {
-        type SampleWrapper = (arg1: number, arg2: number, arg3: string) => boolean;
+       export type SampleWrapper = (arg1: number, arg2: number, arg3: string) => boolean;
 
         let value: number;
         let wrapper: SampleWrapper;
@@ -5976,7 +5976,7 @@ module TestWrap {
     }
 
     {
-        type SampleWrapper = (arg1: number[], arg2: number, arg3: string) => boolean;
+       export type SampleWrapper = (arg1: number[], arg2: number, arg3: string) => boolean;
 
         let value: number[];
         let wrapper: SampleWrapper;
@@ -5987,7 +5987,7 @@ module TestWrap {
     }
 
     {
-        type SampleWrapper = (arg1: SampleValue, arg2: number, arg3: string) => boolean;
+       export type SampleWrapper = (arg1: SampleValue, arg2: number, arg3: string) => boolean;
 
         let value: SampleValue;
         let wrapper: SampleWrapper;
@@ -7505,12 +7505,12 @@ module TestRandom {
 
 // _.assign
 module TestAssign {
-    interface Obj {a: string};
-    interface S1 {a: number};
-    interface S2 {b: number};
-    interface S3 {c: number};
-    interface S4 {d: number};
-    interface S5 {e: number};
+    export interface Obj {a: string};
+    export interface S1 {a: number};
+    export interface S2 {b: number};
+    export interface S3 {c: number};
+    export interface S4 {d: number};
+    export interface S5 {e: number};
 
     let obj: Obj;
     let s1: S1;
@@ -7632,12 +7632,12 @@ module TestAssign {
 
 // _.assignWith
 module TestAssignWith {
-    interface Obj {a: string};
-    interface S1 {a: number};
-    interface S2 {b: number};
-    interface S3 {c: number};
-    interface S4 {d: number};
-    interface S5 {e: number};
+    export interface Obj {a: string};
+    export interface S1 {a: number};
+    export interface S2 {b: number};
+    export interface S3 {c: number};
+    export interface S4 {d: number};
+    export interface S5 {e: number};
 
     let obj: Obj;
     let s1: S1;
@@ -7744,12 +7744,12 @@ module TestAssignWith {
 
 // _.assignIn
 module TestAssignIn {
-    interface Obj {a: string};
-    interface S1 {a: number};
-    interface S2 {b: number};
-    interface S3 {c: number};
-    interface S4 {d: number};
-    interface S5 {e: number};
+    export interface Obj {a: string};
+    export interface S1 {a: number};
+    export interface S2 {b: number};
+    export interface S3 {c: number};
+    export interface S4 {d: number};
+    export interface S5 {e: number};
 
     let obj: Obj;
     let s1: S1;
@@ -7871,12 +7871,12 @@ module TestAssignIn {
 
 // _.assignInWith
 module TestAssignInWith {
-    interface Obj {a: string};
-    interface S1 {a: number};
-    interface S2 {b: number};
-    interface S3 {c: number};
-    interface S4 {d: number};
-    interface S5 {e: number};
+    export interface Obj {a: string};
+    export interface S1 {a: number};
+    export interface S2 {b: number};
+    export interface S3 {c: number};
+    export interface S4 {d: number};
+    export interface S5 {e: number};
 
     let obj: Obj;
     let s1: S1;
@@ -7983,8 +7983,8 @@ module TestAssignInWith {
 
 // _.create
 module TestCreate {
-    type SampleProto = {a: number};
-    type SampleProps = {b: string};
+   export type SampleProto = {a: number};
+   export type SampleProps = {b: string};
 
     let prototype: SampleProto;
     let properties: SampleProps;
@@ -8013,12 +8013,12 @@ module TestCreate {
 
 // _.defaults
 module TestDefaults {
-    interface Obj {a: string};
-    interface S1 {a: number};
-    interface S2 {b: number};
-    interface S3 {c: number};
-    interface S4 {d: number};
-    interface S5 {e: number};
+    export interface Obj {a: string};
+    export interface S1 {a: number};
+    export interface S2 {b: number};
+    export interface S3 {c: number};
+    export interface S4 {d: number};
+    export interface S5 {e: number};
 
     let obj: Obj;
     let s1: S1;
@@ -8150,12 +8150,12 @@ result = <DefaultsDeepResult>_(TestDefaultsDeepObject).defaultsDeep<DefaultsDeep
 
 // _.extend
 module TestExtend {
-    type Obj = {a: string};
-    type S1 = {a: number};
-    type S2 = {b: number};
-    type S3 = {c: number};
-    type S4 = {d: number};
-    type S5 = {e: number};
+   export type Obj = {a: string};
+   export type S1 = {a: number};
+   export type S2 = {b: number};
+   export type S3 = {c: number};
+   export type S4 = {d: number};
+   export type S5 = {e: number};
 
     let obj: Obj;
     let s1: S1;
@@ -8437,7 +8437,7 @@ module TestFindLastKey {
 
 // _.forIn
 module TestForIn {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let dictionary: { [index: string]: number };
     let dictionaryIterator: (value: number, key: string, collection: { [index: string]: number }) => any;
@@ -8480,7 +8480,7 @@ module TestForIn {
 
 // _.forInRight
 module TestForInRight {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let dictionary: { [index: string]: number };
     let dictionaryIterator: (value: number, key: string, collection: { [index: string]: number }) => any;
@@ -8523,7 +8523,7 @@ module TestForInRight {
 
 // _.forOwn
 module TestForOwn {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let dictionary: { [index: string]: number };
     let dictionaryIterator: (value: number, key: string, collection: { [index: string]: number }) => any;
@@ -8566,7 +8566,7 @@ module TestForOwn {
 
 // _.forOwnRight
 module TestForOwnRight {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let dictionary: { [index: string]: number };
     let dictionaryIterator: (value: number, key: string, collection: { [index: string]: number }) => any;
@@ -8609,7 +8609,7 @@ module TestForOwnRight {
 
 // _.functions
 module TestFunctions {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let object: SampleObject;
 
@@ -8634,7 +8634,7 @@ module TestFunctions {
 
 // _.functionsIn
 module TestFunctionsIn {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let object: SampleObject;
 
@@ -8674,7 +8674,7 @@ result = <number>_.get<number>({ 'a': [{ 'b': { 'c': 3 } }] }, 'a[0].b.c');
 
 // _.has
 module TestHas {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let object: SampleObject;
 
@@ -8704,7 +8704,7 @@ module TestHas {
 
 // _.hasIn
 module TestHasIn {
-    type SampleObject = {a: number; b: string; c: boolean;};
+   export type SampleObject = {a: number; b: string; c: boolean;};
 
     let object: SampleObject;
 
@@ -8892,13 +8892,13 @@ module TestMapKeys {
 
 // _.merge
 module TestMerge {
-    type InitialValue = { a : number };
-    type MergingValue = { b : string };
+   export type InitialValue = { a : number };
+   export type MergingValue = { b : string };
 
     var initialValue  = { a : 1 };
     var mergingValue  = { b : "hi" };
 
-    type ExpectedResult = { a: number, b: string };
+   export type ExpectedResult = { a: number, b: string };
     let result: ExpectedResult;
 
     // Test for basic merging
@@ -8915,16 +8915,16 @@ module TestMerge {
     result = _.merge<ExpectedResult>(initialValue, {}, {}, {}, {}, mergingValue);
 
 
-    type ComplicatedExpectedType = { a: number, b: string, c: {}, d: number[], e: boolean };
+   export type ComplicatedExpectedType = { a: number, b: string, c: {}, d: number[], e: boolean };
 
     var complicatedResult: ComplicatedExpectedType = _.merge({ a: 1 },
                                                              { b: "string" },
                                                              { c: {} },
                                                              { d: [1] },
                                                              { e: true });
-    // Test for type overriding
+    // Test forexport type overriding
 
-    type ExpectedTypeAfterOverriding = { a: boolean };
+   export type ExpectedTypeAfterOverriding = { a: boolean };
 
     var overriddenResult: ExpectedTypeAfterOverriding = _.merge({ a: 1 },
                                                                 { a: "string" },
@@ -8952,7 +8952,7 @@ module TestMerge {
                                                                        { d: [1] },
                                                                        { e: true }).value();
 
-    // Test for type overriding with chaining
+    // Test forexport type overriding with chaining
 
     var overriddenResult: ExpectedTypeAfterOverriding = _({ a: 1 }).merge({ a: "string" },
                                                                           { a: {} },
@@ -8983,13 +8983,13 @@ module TestMerge {
 
 // _.mergeWith
 module TestMergeWith {
-    type InitialValue = { a : number };
-    type MergingValue = { b : string };
+   export type InitialValue = { a : number };
+   export type MergingValue = { b : string };
 
     var initialValue  = { a : 1 };
     var mergingValue  = { b : "hi" };
 
-    type ExpectedResult = { a: number, b: string };
+   export type ExpectedResult = { a: number, b: string };
     let result: ExpectedResult;
 
     let customizer: (value: any, srcValue: any, key?: string, object?: InitialValue, source?: MergingValue) => any;
@@ -9136,8 +9136,8 @@ module TestPickBy {
 
 // _.set
 module TestSet {
-    type SampleObject = {a: {}};
-    type SampleResult = {a: {b: number[]}};
+   export type SampleObject = {a: {}};
+   export type SampleResult = {a: {b: number[]}};
 
     let object: SampleObject;
     let value: number;
@@ -9178,8 +9178,8 @@ module TestSet {
 
 // _.setWith
 module TestSetWith {
-    type SampleObject = {a: {}};
-    type SampleResult = {a: {b: number[]}};
+   export type SampleObject = {a: {}};
+   export type SampleResult = {a: {b: number[]}};
 
     let object: SampleObject;
     let value: number;
@@ -9383,7 +9383,7 @@ module TestTransform {
 
 // _.unset
 namespace TestUnset {
-    type SampleObject = {a: {b: string; c: boolean}};
+   export type SampleObject = {a: {b: string; c: boolean}};
 
     let object: SampleObject;
 
@@ -9851,7 +9851,7 @@ namespace TestStartsWith {
 
 // _.template
 namespace TestTemplate {
-    interface TemplateExecutor {
+    export interface TemplateExecutor {
         (obj?: Object): string;
         source: string;
     }
@@ -10414,8 +10414,8 @@ module TestMethod {
 
 // _.methodOf
 module TestMethodOf {
-    type SampleObject = {a: {b: () => TResult}[]};
-    type ResultFn = (path: _.StringRepresentable|_.StringRepresentable[]) => TResult;
+   export type SampleObject = {a: {b: () => TResult}[]};
+   export type ResultFn = (path: _.StringRepresentable|_.StringRepresentable[]) => TResult;
 
     let object: SampleObject;
 
@@ -10523,7 +10523,7 @@ module TestNoop {
 }
 
 namespace TestNthArg {
-    type SampleFunc = (...args: any[]) => any;
+   export type SampleFunc = (...args: any[]) => any;
 
     {
         let result: SampleFunc;
@@ -10637,7 +10637,7 @@ namespace TestOverSome {
 
 // _.property
 module TestProperty {
-    interface SampleObject {
+    export interface SampleObject {
         a: {
             b: number[];
         }
@@ -10667,7 +10667,7 @@ module TestProperty {
 
 // _.propertyOf
 module TestPropertyOf {
-    interface SampleObject {
+    export interface SampleObject {
         a: {
             b: number[];
         }

@@ -1,10 +1,10 @@
 namespace Types {
-    type StringMethod = (str?: string) => string;
-    type WithStringMethod = (str?: string, target?: string, position?: number) => boolean;
-    type PadStringMethod = (str?: string, length?: number, chars?: string) => string;
-    type TrimStringMethod = (str?: string, chars?: string) => string;
+   export type StringMethod = (str?: string) => string;
+   export type WithStringMethod = (str?: string, target?: string, position?: number) => boolean;
+   export type PadStringMethod = (str?: string, length?: number, chars?: string) => string;
+   export type TrimStringMethod = (str?: string, chars?: string) => string;
 
-    interface TemplateSettings {
+    export interface TemplateSettings {
         escape?: RegExp;
         evaluate?: RegExp;
         imports?: { [index: string]: any; };
@@ -12,11 +12,11 @@ namespace Types {
         variable?: string;
     }
 
-    interface TemplateOptions extends TemplateSettings {
+    export interface TemplateOptions extends TemplateSettings {
         sourceURL?: string;
     }
 
-    interface TruncateOptions {
+    export interface TruncateOptions {
         length?: number;
         omission?: string;
         separator?: string | RegExp;

@@ -1,109 +1,109 @@
 namespace Types {
-    interface CountBy {
+    export interface CountBy {
         <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
         <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
         <T>(collection: any, iteratee: ValuePredicate<T>): { [index: string]: number; };
     }
 
-    interface GroupBy {
+    export interface GroupBy {
         <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
         <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
         <T>(collection: any, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
     }
 
-    interface ByBooleanPredicate {
+    export interface ByBooleanPredicate {
         <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): boolean;
         <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): boolean;
         <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): boolean;
     }
 
-    interface ByArrayPredicate {
+    export interface ByArrayPredicate {
         <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): T[];
         <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
         <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
     }
 
-    interface FindPredicate {
+    export interface FindPredicate {
         <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): T;
         <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>, fromIndex?: number): T;
         <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>, fromIndex?: number): T;
     }
 
-    interface FlatMap {
+    export interface FlatMap {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult[]>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>): TResult[];
         <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>): TResult[];
     }
 
-    interface FlatMapDepth {
+    export interface FlatMapDepth {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>, depth?: number) => TResult[]>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>, depth?: number): TResult[];
         <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>, depth?: number): TResult[];
     }
 
-    interface ForEach {
+    export interface ForEach {
         <T>(collection: Array<T>, iteratee?: Iteratee<(value: T, index: number, collection: Array<T>) => boolean | void>): Array<T>;
         <T>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => boolean | void>): ArrayLike<T>;
         <T>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
         <T>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
     }
 
-    interface Includes {
+    export interface Includes {
         (collection: string, value: string, fromIndex?: number): boolean;
         <T>(collection: ArrayLike<T>, value: T, fromIndex?: number): boolean;
         <T>(collection: _Obj<T>, value: any, fromIndex?: number): boolean;
         <T>(collection: any, value: any, fromIndex?: number): boolean;
     }
 
-    interface InvokeMap {
+    export interface InvokeMap {
         <TResult>(collection: ArrayLike<any> | _Obj<any>, path: PathLocation | Function, ...args: any[]): TResult[];
     }
 
-    interface KeyBy {
+    export interface KeyBy {
         <T>(collection: ArrayLike<T> | _Obj<T>, iteratee?: ValuePredicate<T>): { [index: string]: T; };
     }
 
-    interface _Map {
+    export interface _Map {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
         <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
     }
 
-    interface OrderBy {
+    export interface OrderBy {
         <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
         <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
         <T>(collection: any, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
     }
 
-    interface Partition {
+    export interface Partition {
         <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
         <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
         <T>(collection: any, iteratee?: ValuePredicate<T>): [T[], T[]];
     }
 
-    interface Reduce {
+    export interface Reduce {
         <T, TAcc>(collection: ArrayLike<T>, iteratee?: AccumulatorArrayPredicate<T, ArrayLike<T>, TAcc>, acc?: TAcc): TAcc;
         <T, TAcc>(collection: _Obj<T>, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc>, acc?: TAcc): TAcc;
         <T, TAcc>(collection: any, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc>, acc?: TAcc): TAcc;
     }
 
-    interface Sample {
+    export interface Sample {
         <T>(collection: ArrayLike<T> | _Obj<T>): T;
     }
 
-    interface SampleSize {
+    export interface SampleSize {
         <T>(collection: ArrayLike<T> | _Obj<T>, n?: number): T[];
     }
 
-    interface Shuffle {
+    export interface Shuffle {
         <T>(collection: ArrayLike<T> | _Obj<T>): T[];
     }
 
-    interface Size {
+    export interface Size {
         <T>(collection: ArrayLike<T> | _Obj<T>): number;
     }
 
-    interface SortBy {
+    export interface SortBy {
         <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>[]): T[];
         <T>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T>[]): T[];
         <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>[]): T[];

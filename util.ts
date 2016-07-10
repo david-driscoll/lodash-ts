@@ -1,5 +1,5 @@
 namespace Types {
-    interface Flow {
+    export interface Flow {
         <T, V>(func?: (t1: T) => V, ...funcs: ((value: V) => V)[]): V;
         <T, T2, V>(func?: (t1: T, t2: T2) => V, ...funcs: ((value: V) => V)[]): V;
         <T, T2, T3, V>(func?: (t1: T, t2: T2, t3: T3) => V, ...funcs: ((value: V) => V)[]): V;
@@ -10,14 +10,14 @@ namespace Types {
         <V>(funcs: ((value: V) => V)[]): V;
     }
 
-    interface IterateeMethod {
+    export interface IterateeMethod {
         <T extends Function>(func: T): T;
         <TResult>(value: string): (object: any) => TResult;
         (func: Object): (object: any) => boolean;
         (): Identity;
     }
 
-    interface Over {
+    export interface Over {
         <TResult>(s1: string): (object: any) => [string];
         <TResult>(s1: string, s2: string): (object: any) => [string, string];
         <TResult>(s1: string, s2: string, s3: string): (object: any) => [string, string, string];
@@ -39,7 +39,7 @@ namespace Types {
         <TResult>(funcs: string[]): (object: any) => TResult[];
     }
 
-    interface OverEveryORSome {
+    export interface OverEveryORSome {
         <T>(...funcs: ((t1: T) => boolean)[]): (t1: T) => boolean;
         <T, T2>(...funcs: ((t1: T, t2: T2) => boolean)[]): (t1: T, t2: T2) => boolean;
         <T, T2, T3>(...funcs: ((t1: T, t2: T2, t3: T3) => boolean)[]): (t1: T, t2: T2, t3: T3) => boolean;
@@ -53,12 +53,12 @@ namespace Types {
         (funcs: any[]): (object: any) => boolean;
     }
 
-    interface Range {
+    export interface Range {
         (start: number, end: number, step?: number): number[];
         (end: number, step?: number): number[];
     }
 
-    interface Method {
+    export interface Method {
         <T, TResult>(path: PathLocation, t1: T): (obj: any) => TResult;
         <T, T2, TResult>(path: PathLocation, t1: T, t2: T2): (obj: any) => TResult;
         <T, T2, T3, TResult>(path: PathLocation, t1: T, t2: T2, t3: T3): (obj: any) => TResult;
@@ -67,7 +67,7 @@ namespace Types {
         <TResult>(path: PathLocation, ...args: any[]): (obj: any) => TResult;
     }
 
-    interface MethodOf {
+    export interface MethodOf {
         <T, TResult>(obj: any, t1: T): (path: PathLocation) => TResult;
         <T, T2, TResult>(obj: any, t1: T, t2: T2): (path: PathLocation) => TResult;
         <T, T2, T3, TResult>(obj: any, t1: T, t2: T2, t3: T3): (path: PathLocation) => TResult;

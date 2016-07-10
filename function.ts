@@ -1,32 +1,34 @@
-type MemoizedFunction = { cache: {
-    delete(key: string): boolean;
-    get(key: string): any;
-    has(key: string): boolean;
-    set(key: string, value: any): any;
-} };
+type MemoizedFunction = {
+    cache: {
+        delete(key: string): boolean;
+        get(key: string): any;
+        has(key: string): boolean;
+        set(key: string, value: any): any;
+    }
+};
 
 namespace Types {
-    type AfterMethod = <T extends Function>(num: number, func: T) => T;
-    type ReturnMethod = <T extends Function>(func: T) => T;
-    interface PH {
+    export type AfterMethod = <T extends Function>(num: number, func: T) => T;
+    export type ReturnMethod = <T extends Function>(func: T) => T;
+    export interface PH {
         _placeholder: any;
     }
-    interface ReplacementPlaceholder {
+    export interface ReplacementPlaceholder {
         placeholder: PH;
     }
 
-    interface DebounceOptions {
+    export interface DebounceOptions {
         leading?: boolean;
         maxWait?: number;
         trailing?: boolean;
     }
 
-    interface ThrottleOptions {
+    export interface ThrottleOptions {
         leading?: boolean;
         trailing?: boolean;
     }
 
-    interface Defer {
+    export interface Defer {
         <T>(func: (t1: T) => any, t1: T): number;
         <T, T2>(func: (t1: T, t2: T2) => any, t1: T, t2: T2): number;
         <T, T2, T3>(func: (t1: T, t2: T2, t3: T3) => any, t1: T, t2: T2, t3: T3): number;
@@ -35,7 +37,7 @@ namespace Types {
         <T extends Function>(func: T, ...args: any[]): number;
     }
 
-    interface Delay {
+    export interface Delay {
         <T>(func: (t1: T) => any, wait: number, t1: T): number;
         <T, T2>(func: (t1: T, t2: T2) => any, wait: number, t1: T, t2: T2): number;
         <T, T2, T3>(func: (t1: T, t2: T2, t3: T3) => any, wait: number, t1: T, t2: T2, t3: T3): number;
@@ -44,7 +46,7 @@ namespace Types {
         <T extends Function>(func: T, wait?: number, ...args: any[]): number;
     }
 
-    interface Flip {
+    export interface Flip {
         <T, TResult>(func: (t1: T) => TResult): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t2: T2, t1: T) => TResult;
         <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t3: T3, t2: T2, t1: T) => TResult;
@@ -53,7 +55,7 @@ namespace Types {
         <TResult extends Function>(func: Function): TResult;
     }
 
-    interface Memoize {
+    export interface Memoize {
         Cache: {
             delete(key: string): boolean;
             get(key: string): any;
@@ -63,7 +65,7 @@ namespace Types {
         <T extends Function>(func: T, resolver?: Function): T & MemoizedFunction;
     }
 
-    interface Negate {
+    export interface Negate {
         <T, TResult>(func: (t1: T) => TResult): (t1: T) => boolean;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t1: T, t2: T2) => boolean;
         <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t1: T, t2: T2, t3: T3) => boolean;
@@ -72,7 +74,7 @@ namespace Types {
         (func: (...args: any[]) => any): (...args: any[]) => boolean;
     }
 
-    interface OverArgs {
+    export interface OverArgs {
         <T, TResult>(func: (t1: T) => TResult, t1: (t1: T) => T): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: (t1: T) => T, t2: (t2: T2) => T2): (t1: T, t2: T2) => TResult;
         <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: (t1: T) => T, t2: (t2: T2) => T2, t3: (t3: T3) => T3): (t1: T, t2: T2, t3: T3) => TResult;
@@ -81,7 +83,7 @@ namespace Types {
         <T extends Function>(func: T, ...args: any[]): T;
     }
 
-    interface Rest {
+    export interface Rest {
         <T, TArg, TResult>(func: (t1: T, args: TArg[]) => TResult): (t1: T, ...args: TArg[]) => TResult;
         <T, T2, TArg, TResult>(func: (t1: T, t2: T2, args: TArg[]) => TResult): (t1: T, t2: T2, ...args: TArg[]) => TResult;
         <T, T2, T3, TArg, TResult>(func: (t1: T, t2: T2, t3: T3, args: TArg[]) => TResult): (t1: T, t2: T2, t3: T3, ...args: TArg[]) => TResult;
@@ -90,12 +92,12 @@ namespace Types {
         <T extends Function>(func: Function, start?: number): T;
     }
 
-    interface Spread {
+    export interface Spread {
         <T, TResult>(func: (args: T[]) => TResult): (...args: T[]) => TResult;
         <T extends Function>(func: Function, start?: number): T;
     }
 
-    interface Unary {
+    export interface Unary {
         <T, TResult>(func: (t1: T) => TResult): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t1: T) => TResult;
         <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t1: T) => TResult;
@@ -104,7 +106,7 @@ namespace Types {
         <TResult extends Function>(func: Function): TResult;
     }
 
-    interface Bind {
+    export interface Bind {
         <TResult>(func: () => TResult, thisArg: any): () => TResult;
         <T, TResult>(func: (t1: T) => TResult, thisArg: any): (t1: T) => TResult;
         <T, TResult>(func: (t1: T) => TResult, thisArg: any, t1: T): () => TResult;
@@ -170,7 +172,7 @@ namespace Types {
         <TResult extends Function>(func: Function, thisArg: any, ...args: any[]): TResult;
     }
 
-    interface Partial {
+    export interface Partial {
         <T, TResult>(func: (t1: T) => TResult, t1: T): () => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: PH, t2: T2): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T): (t2: T2) => TResult;
@@ -231,7 +233,7 @@ namespace Types {
         <TResult extends Function>(func: Function, ...args: any[]): TResult;
     }
 
-    interface PartialRight {
+    export interface PartialRight {
         <T, TResult>(func: (t1: T) => TResult, t1: T): () => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t2: PH, t1: T): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t2: T2): (t1: T) => TResult;
@@ -292,25 +294,25 @@ namespace Types {
         <TResult extends Function>(func: Function, ...args: any[]): TResult;
     }
 
-    interface CurriedFunction1<T1, R> {
+    export interface CurriedFunction1<T1, R> {
         (): CurriedFunction1<T1, R>;
         (t1: T1): R;
     }
 
-    interface CurriedFunction2<T1, T2, R> {
+    export interface CurriedFunction2<T1, T2, R> {
         (): CurriedFunction2<T1, T2, R>;
         (t1: T1): CurriedFunction1<T2, R>;
         (t1: T1, t2: T2): R;
     }
 
-    interface CurriedFunction3<T1, T2, T3, R> {
+    export interface CurriedFunction3<T1, T2, T3, R> {
         (): CurriedFunction3<T1, T2, T3, R>;
         (t1: T1): CurriedFunction2<T2, T3, R>;
         (t1: T1, t2: T2): CurriedFunction1<T3, R>;
         (t1: T1, t2: T2, t3: T3): R;
     }
 
-    interface CurriedFunction4<T1, T2, T3, T4, R> {
+    export interface CurriedFunction4<T1, T2, T3, T4, R> {
         (): CurriedFunction4<T1, T2, T3, T4, R>;
         (t1: T1): CurriedFunction3<T2, T3, T4, R>;
         (t1: T1, t2: T2): CurriedFunction2<T3, T4, R>;
@@ -318,7 +320,7 @@ namespace Types {
         (t1: T1, t2: T2, t3: T3, t4: T4): R;
     }
 
-    interface CurriedFunction5<T1, T2, T3, T4, T5, R> {
+    export interface CurriedFunction5<T1, T2, T3, T4, T5, R> {
         (): CurriedFunction5<T1, T2, T3, T4, T5, R>;
         (t1: T1): CurriedFunction4<T2, T3, T4, T5, R>;
         (t1: T1, t2: T2): CurriedFunction3<T3, T4, T5, R>;
@@ -327,7 +329,7 @@ namespace Types {
         (t1: T1, t2: T2, t3: T3, t4: T4, t5: T5): R;
     }
 
-    interface Curry {
+    export interface Curry {
         <T1, R>(func: (t1: T1) => R): CurriedFunction1<T1, R>;
         <T1, T2, R>(func: (t1: T1, t2: T2) => R): CurriedFunction2<T1, T2, R>;
         <T1, T2, T3, R>(func: (t1: T1, t2: T2, t3: T3) => R): CurriedFunction3<T1, T2, T3, R>;
@@ -336,7 +338,7 @@ namespace Types {
         <TResult extends Function>(func: Function, arity?: number): TResult;
     }
 
-    interface CurryRight {
+    export interface CurryRight {
         <T1, R>(func: (t1: T1) => R): CurriedFunction1<T1, R>;
         <T1, T2, R>(func: (t1: T1, t2: T2) => R): CurriedFunction2<T2, T1, R>;
         <T1, T2, T3, R>(func: (t1: T1, t2: T2, t3: T3) => R): CurriedFunction3<T3, T2, T1, R>;
@@ -345,7 +347,7 @@ namespace Types {
         <TResult extends Function>(func: Function, arity?: number): TResult;
     }
 
-    interface Rearg {
+    export interface Rearg {
         <TResult extends Function>(func: Function, indexes: number[]): TResult;
         <TResult extends Function>(func: Function, ...indexes: number[]): TResult;
     }

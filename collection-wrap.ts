@@ -1,13 +1,13 @@
 namespace Types.Wrap {
-    interface ForEach<T, TWrapper> {
+    export interface ForEach<T, TWrapper> {
         (iteratee?: Iteratee<(value: T, index: number) => boolean | void>): TWrapper;
     }
 
-    interface ForEachObject<T, TWrapper> {
+    export interface ForEachObject<T, TWrapper> {
         (iteratee?: Iteratee<(value: T, index: string) => boolean | void>): TWrapper;
     }
 
-    interface OrderBy<T, TWrapper> {
+    export interface OrderBy<T, TWrapper> {
         (iteratee?: ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
         (iteratee1: ValuePredicate<T>, orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
         (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
@@ -17,16 +17,16 @@ namespace Types.Wrap {
         (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>, iteratee3: ValuePredicate<T>, iteratee4: ValuePredicate<T>, iteratee5: ValuePredicate<T>, iteratee6: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
     }
 
-    interface Shuffle<TWrapper> {
+    export interface Shuffle<TWrapper> {
         (): TWrapper;
     }
 
-    interface SortBy<T, TWrapper> {
+    export interface SortBy<T, TWrapper> {
         (iteratee?: ValuePredicate<T>[]): TWrapper;
         (...iteratees: ValuePredicate<T>[]): TWrapper;
     }
 
-    interface ArrayWrapper<T, TWrapper> {
+    export interface ArrayWrapper<T, TWrapper> {
         forEach: ForEach<T, TWrapper>;
         forEachRight: ForEach<T, TWrapper>;
         each: ForEach<T, TWrapper>;
@@ -37,7 +37,7 @@ namespace Types.Wrap {
         sortBy: SortBy<T, TWrapper>;
     }
 
-    interface ImplicitWrapper<T, TWrapper> {
+    export interface ImplicitWrapper<T, TWrapper> {
         countBy(iteratee: ValuePredicate<T>): ImplicitValue1<{ [index: string]: number; }>;
         every(iteratee?: ArrayPredicate<T>): boolean;
         filter(iteratee?: ArrayPredicate<T>): TWrapper;
@@ -60,7 +60,7 @@ namespace Types.Wrap {
         some(iteratee?: ArrayPredicate<T>): boolean;
     }
 
-    interface ExplicitWrapper<T, TWrapper> {
+    export interface ExplicitWrapper<T, TWrapper> {
         countBy(iteratee: ValuePredicate<T>): ExplicitValue1<{ [index: string]: number; }>;
         every(iteratee?: ArrayPredicate<T>): ExplicitValue1<boolean>;
         filter(iteratee?: ArrayPredicate<T>): TWrapper;
@@ -83,21 +83,21 @@ namespace Types.Wrap {
         some(iteratee?: ArrayPredicate<T>): ExplicitValue1<boolean>;
     }
 
-    interface ObjectWrapper<T, TObj extends { [index: string]: T }, TWrapper> {
+    export interface ObjectWrapper<T, TObj extends { [index: string]: T }, TWrapper> {
         forEach: ForEachObject<T, TWrapper>;
         forEachRight: ForEachObject<T, TWrapper>;
         each: ForEachObject<T, TWrapper>;
         eachRight: ForEachObject<T, TWrapper>;
     }
 
-    interface ImplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ImplicitObject<T, TObj, TWrapper>> {
+    export interface ImplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ImplicitObject<T, TObj, TWrapper>> {
         orderBy: OrderBy<T, ImplicitArray1<T>>;
         shuffle: Shuffle<ImplicitArray1<T>>;
         sampleSize(n?: number): ImplicitArray1<T>;
         sortBy: SortBy<T, ImplicitArray1<T>>;
     }
 
-    interface ExplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ExplicitObject<T, TObj, TWrapper>> {
+    export interface ExplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ExplicitObject<T, TObj, TWrapper>> {
         orderBy: OrderBy<T, ExplicitArray1<T>>;
         shuffle: Shuffle<ExplicitArray1<T>>;
         sampleSize(n?: number): ExplicitArray1<T>;

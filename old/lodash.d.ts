@@ -1,4 +1,4 @@
-// // Type definitions for Lo-Dash
+// //export type definitions for Lo-Dash
 // // Project: http://lodash.com/
 // // Definitions by: Brian Zengel <https://github.com/bczengel>, Ilya Mochalov <https://github.com/chrootsu>
 // // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -239,7 +239,7 @@
 // declare var _: _.LoDashStatic;
 
 // declare module _ {
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //         * Creates a lodash object which wraps the given value to enable intuitive method chaining.
 //         *
@@ -295,7 +295,7 @@
 //     * By default, the template delimiters used by Lo-Dash are similar to those in embedded Ruby
 //     * (ERB). Change the following template settings to use alternative delimiters.
 //     **/
-//     interface TemplateSettings {
+//     export interface TemplateSettings {
 //         /**
 //         * The "escape" delimiter.
 //         **/
@@ -325,7 +325,7 @@
 //     /**
 //      * Creates a cache object to store key/value pairs.
 //      */
-//     interface MapCache {
+//     export interface MapCache {
 //         /**
 //          * Removes `key` and its value from the cache.
 //          * @param key The key of the value to remove.
@@ -356,25 +356,25 @@
 //         set(key: string, value: any): _.Dictionary<any>;
 //     }
 
-//     interface LoDashWrapperBase<T, TWrapper> { }
+//     export interface LoDashWrapperBase<T, TWrapper> { }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> extends LoDashWrapperBase<T, TWrapper> { }
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> extends LoDashWrapperBase<T, TWrapper> { }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> extends LoDashWrapperBase<T, TWrapper> { }
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> extends LoDashWrapperBase<T, TWrapper> { }
 
-//     interface LoDashImplicitWrapper<T> extends LoDashImplicitWrapperBase<T, LoDashImplicitWrapper<T>> { }
+//     export interface LoDashImplicitWrapper<T> extends LoDashImplicitWrapperBase<T, LoDashImplicitWrapper<T>> { }
 
-//     interface LoDashExplicitWrapper<T> extends LoDashExplicitWrapperBase<T, LoDashExplicitWrapper<T>> { }
+//     export interface LoDashExplicitWrapper<T> extends LoDashExplicitWrapperBase<T, LoDashExplicitWrapper<T>> { }
 
-//     interface LoDashImplicitStringWrapper extends LoDashImplicitWrapper<string> { }
+//     export interface LoDashImplicitStringWrapper extends LoDashImplicitWrapper<string> { }
 
-//     interface LoDashExplicitStringWrapper extends LoDashExplicitWrapper<string> { }
+//     export interface LoDashExplicitStringWrapper extends LoDashExplicitWrapper<string> { }
 
-//     interface LoDashImplicitObjectWrapper<T> extends LoDashImplicitWrapperBase<T, LoDashImplicitObjectWrapper<T>> { }
+//     export interface LoDashImplicitObjectWrapper<T> extends LoDashImplicitWrapperBase<T, LoDashImplicitObjectWrapper<T>> { }
 
-//     interface LoDashExplicitObjectWrapper<T> extends LoDashExplicitWrapperBase<T, LoDashExplicitObjectWrapper<T>> { }
+//     export interface LoDashExplicitObjectWrapper<T> extends LoDashExplicitWrapperBase<T, LoDashExplicitObjectWrapper<T>> { }
 
-//     interface LoDashImplicitArrayWrapper<T> extends LoDashImplicitWrapperBase<T[], LoDashImplicitArrayWrapper<T>> {
+//     export interface LoDashImplicitArrayWrapper<T> extends LoDashImplicitWrapperBase<T[], LoDashImplicitArrayWrapper<T>> {
 //         pop(): T;
 //         push(...items: T[]): LoDashImplicitArrayWrapper<T>;
 //         shift(): T;
@@ -384,113 +384,113 @@
 //         unshift(...items: T[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> extends LoDashExplicitWrapperBase<T[], LoDashExplicitArrayWrapper<T>> { }
+//     export interface LoDashExplicitArrayWrapper<T> extends LoDashExplicitWrapperBase<T[], LoDashExplicitArrayWrapper<T>> { }
 
-//     interface LoDashImplicitNumberArrayWrapper extends LoDashImplicitArrayWrapper<number> { }
+//     export interface LoDashImplicitNumberArrayWrapper extends LoDashImplicitArrayWrapper<number> { }
 
-//     interface LoDashExplicitNumberArrayWrapper extends LoDashExplicitArrayWrapper<number> { }
+//     export interface LoDashExplicitNumberArrayWrapper extends LoDashExplicitArrayWrapper<number> { }
 
-//     interface LoDashImplicitReturnArrayWrapper<T> {
+//     export interface LoDashImplicitReturnArrayWrapper<T> {
 //         <TResult>(): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashImplicitArrayReturnArrayWrapper<T> extends LoDashImplicitReturnArrayWrapper<T> {
+//     export interface LoDashImplicitArrayReturnArrayWrapper<T> extends LoDashImplicitReturnArrayWrapper<T> {
 //         (): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitReturnArrayWrapper<T> {
+//     export interface LoDashExplicitReturnArrayWrapper<T> {
 //         <TResult>(): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitArrayReturnArrayWrapper<T> extends LoDashExplicitReturnArrayWrapper<T> {
+//     export interface LoDashExplicitArrayReturnArrayWrapper<T> extends LoDashExplicitReturnArrayWrapper<T> {
 //         (): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         (): LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectReturnWrapper<T> extends LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectReturnWrapper<T> extends LoDashImplicitObjectWrapper<T> {
 //         <TResult>(): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         (): LoDashExplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectReturnWrapper<T> extends LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectReturnWrapper<T> extends LoDashExplicitObjectWrapper<T> {
 //         <TResult>(): LoDashExplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashImplicitObjectToArrayWrapper<T> {
+//     export interface LoDashImplicitObjectToArrayWrapper<T> {
 //         <TResult>(): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashInOutArrayStatic {
+//     export interface LoDashInOutArrayStatic {
 //         <T>(array: T[] | List<T>): T[];
 //     }
 
-//     interface LoDashArrayArgsStatic {
+//     export interface LoDashArrayArgsStatic {
 //         <T>(array: T[] | List<T>, ...args: T[]): T[];
 //     }
 
-//     interface LoDashStaticInOutArrayArgs {
+//     export interface LoDashStaticInOutArrayArgs {
 //         <T>(...arrays: (T[] | List<T>)[]): T[];
 //     }
 
-//     interface LoDashStaticInOutArrayArrayArgs {
+//     export interface LoDashStaticInOutArrayArrayArgs {
 //         <T>(...arrays: (T[] | List<T>)[]): T[][];
 //     }
 
-//     interface LoDashImplicitInOutArrayArgsArrayWrapper<T> {
+//     export interface LoDashImplicitInOutArrayArgsArrayWrapper<T> {
 //         (...arrays: (T[] | List<T>)[]): LoDashImplicitArrayWrapper<T>;
 //         <TResult>(...arrays: (TResult[] | List<TResult>)[]): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashImplicitInOutArrayArgsObjectWrapper<T> {
+//     export interface LoDashImplicitInOutArrayArgsObjectWrapper<T> {
 //         <TResult>(...arrays: (TResult[] | List<TResult>)[]): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitInOutArrayArgsArrayWrapper<T> {
+//     export interface LoDashExplicitInOutArrayArgsArrayWrapper<T> {
 //         (...arrays: (T[] | List<T>)[]): LoDashExplicitArrayWrapper<T>;
 //         <TResult>(...arrays: (TResult[] | List<TResult>)[]): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitInOutArrayArgsObjectWrapper<T> {
+//     export interface LoDashExplicitInOutArrayArgsObjectWrapper<T> {
 //         <TResult>(...arrays: (TResult[] | List<TResult>)[]): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashArrayPredicateStatic {
+//     export interface LoDashArrayPredicateStatic {
 //         <T>(array: List<T>, predicate?: ListIterator<T, boolean>): T[];
 //         <T>(array: List<T>, predicate?: string): T[];
 //         <W extends {}, T>(array: List<T>, predicate?: W): T[];
 //     }
 
-//     interface LoDashArrayPredicateExplicitArrayWrapper<T> {
+//     export interface LoDashArrayPredicateExplicitArrayWrapper<T> {
 //         (predicate?: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<T>;
 //         (predicate?: string): LoDashExplicitArrayWrapper<T>;
 //         <W>(predicate?: W): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashArrayPredicateExplicitObjectWrapper<T> {
+//     export interface LoDashArrayPredicateExplicitObjectWrapper<T> {
 //         <TResult>(predicate?: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<TResult>;
 //         <TResult>(predicate?: string): LoDashExplicitArrayWrapper<TResult>;
 //         <W, TResult>(predicate?: W): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashArrayPredicateImplicitArrayWrapper<T> {
+//     export interface LoDashArrayPredicateImplicitArrayWrapper<T> {
 //         (predicate?: ListIterator<T, boolean>): LoDashImplicitArrayWrapper<T>;
 //         (predicate?: string): LoDashImplicitArrayWrapper<T>;
 //         <W>(predicate?: W): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashArrayPredicateImplicitObjectWrapper<T> {
+//     export interface LoDashArrayPredicateImplicitObjectWrapper<T> {
 //         <TResult>(predicate?: ListIterator<T, boolean>): LoDashImplicitArrayWrapper<TResult>;
 //         <TResult>(predicate?: string): LoDashImplicitArrayWrapper<TResult>;
 //         <W, TResult>(predicate?: W): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashCollectionPredicateStatic {
+//     export interface LoDashCollectionPredicateStatic {
 //         <T>(collection: List<T>, predicate?: ListIterator<T, boolean>): T[];
 //         <T>(collection: Dictionary<T>, predicate?: DictionaryIterator<T, boolean>): T[];
 //         <T>(collection: string, predicate?: StringIterator<boolean>): string[];
@@ -498,39 +498,39 @@
 //         <W extends {}, T>(collection: List<T> | Dictionary<T>, predicate: W): T[];
 //     }
 
-//     interface LoDashCollectionExplicitWrapper<T> {
+//     export interface LoDashCollectionExplicitWrapper<T> {
 //         (predicate?: StringIterator<boolean>): LoDashExplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashCollectionPredicateExplicitArrayWrapper<T> {
+//     export interface LoDashCollectionPredicateExplicitArrayWrapper<T> {
 //         (predicate: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<T>;
 //         (predicate: string): LoDashExplicitArrayWrapper<T>;
 //         <W>(predicate: W): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashCollectionPredicateExplicitObjectWrapper<T> {
+//     export interface LoDashCollectionPredicateExplicitObjectWrapper<T> {
 //         <T>(predicate: ListIterator<T, boolean> | DictionaryIterator<T, boolean>): LoDashExplicitArrayWrapper<T>;
 //         <T>(predicate: string): LoDashExplicitArrayWrapper<T>;
 //         <W, T>(predicate: W): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashCollectionImplicitWrapper<T> {
+//     export interface LoDashCollectionImplicitWrapper<T> {
 //         (predicate?: StringIterator<boolean>): LoDashImplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashCollectionPredicateImplicitArrayWrapper<T> {
+//     export interface LoDashCollectionPredicateImplicitArrayWrapper<T> {
 //         (predicate: ListIterator<T, boolean>): LoDashImplicitArrayWrapper<T>;
 //         (predicate: string): LoDashImplicitArrayWrapper<T>;
 //         <W>(predicate: W): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashCollectionPredicateImplicitObjectWrapper<T> {
+//     export interface LoDashCollectionPredicateImplicitObjectWrapper<T> {
 //         <T>(predicate: ListIterator<T, boolean> | DictionaryIterator<T, boolean>): LoDashImplicitArrayWrapper<T>;
 //         <T>(predicate: string): LoDashImplicitArrayWrapper<T>;
 //         <W, T>(predicate: W): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashBooleanPredicateStatic {
+//     export interface LoDashBooleanPredicateStatic {
 //         <T>(collection: List<T>, predicate?: ListIterator<T, boolean>): boolean;
 //         <T>(collection: Dictionary<T>, predicate?: DictionaryIterator<T, boolean>): boolean;
 //         <T>(collection: NumericDictionary<T>, predicate?: NumericDictionaryIterator<T, boolean>): boolean;
@@ -538,39 +538,39 @@
 //         <TObject extends {}, T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, predicate?: TObject): boolean;
 //     }
 
-//     interface LoDashBooleanPredicateExplicitArrayWrapper<T> {
+//     export interface LoDashBooleanPredicateExplicitArrayWrapper<T> {
 //         (predicate?: ListIterator<T, boolean> | NumericDictionaryIterator<T, boolean>): LoDashExplicitWrapper<boolean>;
 //         (predicate?: string | any[]): LoDashExplicitWrapper<boolean>;
 //         <TObject extends {}>(predicate?: TObject): LoDashExplicitWrapper<boolean>;
 //     }
 
-//     interface LoDashBooleanPredicateExplicitObjectWrapper<T> {
+//     export interface LoDashBooleanPredicateExplicitObjectWrapper<T> {
 //         <TResult>(predicate?: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<TResult>;
 //         <TResult>(predicate?: string): LoDashExplicitArrayWrapper<TResult>;
 //         <W, TResult>(predicate?: W): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashBooleanPredicateImplicitWrapper<T> {
+//     export interface LoDashBooleanPredicateImplicitWrapper<T> {
 //         <TResult>(predicate?: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean> | NumericDictionaryIterator<T, boolean>): LoDashExplicitWrapper<boolean>;
 //         every(predicate?: string | any[]): LoDashExplicitWrapper<boolean>;
 //         every<TObject extends {}>(predicate?: TObject): LoDashExplicitWrapper<boolean>;
 //     }
 
-//     interface LoDashBooleanPredicateImplicitObjectWrapper<T> {
+//     export interface LoDashBooleanPredicateImplicitObjectWrapper<T> {
 //         <TResult>(predicate?: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean> | NumericDictionaryIterator<T, boolean>): boolean;
 //         every(predicate?: string | any[]): boolean;
 //         every<TObject extends {}>(predicate?: TObject): boolean;
 //     }
 
-//     interface LoDashArrayNumberStatic {
+//     export interface LoDashArrayNumberStatic {
 //         <T>(array: List<T>, n?: number): T[];
 //     }
 
-//     interface LoDashArrayNumberImplicitWrapper<T> {
+//     export interface LoDashArrayNumberImplicitWrapper<T> {
 //         (n?: number): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashArrayNumberExplicitWrapper<T> {
+//     export interface LoDashArrayNumberExplicitWrapper<T> {
 //         (n?: number): LoDashImplicitArrayWrapper<T>;
 //     }
 
@@ -579,7 +579,7 @@
 //      *********/
 
 //     //_.chunk
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of elements split into groups the length of size. If collection can’t be split evenly, the
 //          * final chunk will be the remaining elements.
@@ -591,28 +591,28 @@
 //         chunk<T>(array: List<T>, size?: number): T[][];
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.chunk
 //          */
 //         chunk(size?: number): LoDashImplicitArrayWrapper<T[]>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.chunk
 //          */
 //         chunk<TResult>(size?: number): LoDashImplicitArrayWrapper<TResult[]>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.chunk
 //          */
 //         chunk(size?: number): LoDashExplicitArrayWrapper<T[]>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.chunk
 //          */
@@ -620,7 +620,7 @@
 //     }
 
 //     //_.compact
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array with all falsey values removed. The values false, null, 0, "", undefined, and NaN are
 //          * falsey.
@@ -631,28 +631,28 @@
 //         compact<T>(array?: List<T>): T[];
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.compact
 //          */
 //         compact: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.compact
 //          */
 //         compact<TResult>(): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.compact
 //          */
 //         compact: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.compact
 //          */
@@ -660,7 +660,7 @@
 //     }
 
 //     //_.concat DUMMY
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a new array concatenating `array` with any additional arrays
 //          * and/or values.
@@ -686,7 +686,7 @@
 //     }
 
 //     //_.difference
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of unique array values not included in the other provided arrays using SameValueZero for
 //          * equality comparisons.
@@ -698,28 +698,28 @@
 //         difference: LoDashStaticInOutArrayArgs;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.difference
 //          */
 //         difference: LoDashImplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.difference
 //          */
 //         difference: LoDashImplicitInOutArrayArgsObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.difference
 //          */
 //         difference: LoDashExplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.difference
 //          */
@@ -727,7 +727,7 @@
 //     }
 
 //     //_.differenceBy
-//     interface DifferenceByStatic {
+//     export interface DifferenceByStatic {
 //         <T>(array: T[] | List<T>, values?: T[] | List<T>, iteratee?: ((value: T) => any) | string): T[];
 //         <T, W extends Object>(array: T[] | List<T>, values?: T[] | List<T>, iteratee?: W): T[];
 //         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee?: ((value: T) => any) | string): T[];
@@ -741,7 +741,7 @@
 //         <T>(array: T[] | List<T>, ...values: any[]): T[];
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.difference except that it accepts iteratee which is invoked for each element of array
 //          * and values to generate the criterion by which uniqueness is computed. The iteratee is invoked with one
@@ -755,7 +755,7 @@
 //         differenceBy: DifferenceByStatic;
 //     }
 
-//     interface DifferenceByImplicitWrapper<T> {
+//     export interface DifferenceByImplicitWrapper<T> {
 //         (values?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
 //         <W extends Object>(values?: T[] | List<T>, iteratee?: W): LoDashImplicitArrayWrapper<T>;
 //         (values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
@@ -769,21 +769,21 @@
 //         (...values: any[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.differenceBy
 //          */
 //         differenceBy: DifferenceByImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.differenceBy
 //          */
 //         differenceBy: DifferenceByImplicitWrapper<T>;
 //     }
 
-//     interface DifferenceByExplicitWrapper<T> {
+//     export interface DifferenceByExplicitWrapper<T> {
 //         (values?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
 //         <W extends Object>(values?: T[] | List<T>, iteratee?: W): LoDashExplicitArrayWrapper<T>;
 //         (values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
@@ -797,22 +797,22 @@
 //         (...values: any[]): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.differenceBy
 //          */
 //         differenceBy: DifferenceByExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.differenceBy
 //          */
 //         differenceBy: DifferenceByExplicitWrapper<T>;
 //     }
 
-//     //_.differenceWith	
-//     interface DifferenceWithStatic {
+//     //_.differenceWith
+//     export interface DifferenceWithStatic {
 //         <T>(array: T[] | List<T>, values?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
 //         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
 //         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
@@ -821,7 +821,7 @@
 //         <T>(array: T[] | List<T>, ...values: any[]): T[];
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.difference except that it accepts iteratee which is invoked for each element of array
 //          * and values to generate the criterion by which uniqueness is computed. The iteratee is invoked with one
@@ -835,7 +835,7 @@
 //         differenceWith: DifferenceWithStatic;
 //     }
 
-//     interface DifferenceWithImplicitWrapper<T> {
+//     export interface DifferenceWithImplicitWrapper<T> {
 //         (values?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashImplicitArrayWrapper<T>;
 //         (values1?: T[] | List<T>, values2?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashImplicitArrayWrapper<T>;
 //         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashImplicitArrayWrapper<T>;
@@ -844,21 +844,21 @@
 //         (...values: any[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.differenceWith
 //          */
 //         differenceWith: DifferenceWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.differenceWith
 //          */
 //         differenceWith: DifferenceWithImplicitWrapper<T>;
 //     }
 
-//     interface DifferenceWithExplicitWrapper<T> {
+//     export interface DifferenceWithExplicitWrapper<T> {
 //         (values?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashExplicitArrayWrapper<T>;
 //         (values1?: T[] | List<T>, values2?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashExplicitArrayWrapper<T>;
 //         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashExplicitArrayWrapper<T>;
@@ -867,14 +867,14 @@
 //         (...values: any[]): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.differenceBy
 //          */
 //         differenceWith: DifferenceWithExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.differenceBy
 //          */
@@ -882,11 +882,11 @@
 //     }
 
 //     //_.drop
-//     interface DropStatic {
+//     export interface DropStatic {
 //         <T>(array: T[] | List<T>, n?: number): T[];
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a slice of array with n elements dropped from the beginning.
 //          *
@@ -897,36 +897,36 @@
 //         drop: DropStatic;
 //     }
 
-//     interface DropImplicitWrapper<T> {
+//     export interface DropImplicitWrapper<T> {
 //         (n?: number): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.drop
 //          */
 //         drop: DropImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.drop
 //          */
 //         drop: DropImplicitWrapper<T>;
 //     }
 
-//     interface DropExplicitWrapper<T> {
+//     export interface DropExplicitWrapper<T> {
 //         (n?: number): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.drop
 //          */
 //         drop: DropExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.drop
 //          */
@@ -934,7 +934,7 @@
 //     }
 
 //     //_.dropRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a slice of array with n elements dropped from the end.
 //          *
@@ -945,28 +945,28 @@
 //         dropRight: DropStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.dropRight
 //          */
 //         dropRight: DropImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.dropRight
 //          */
 //         dropRight: DropImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.dropRight
 //          */
 //         dropRight: DropExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.dropRight
 //          */
@@ -974,13 +974,13 @@
 //     }
 
 //     //_.dropRightWhile
-//     interface DropWhileStatic {
+//     export interface DropWhileStatic {
 //         <TValue>(array: List<TValue>, predicate?: ListIterator<TValue, boolean>): TValue[];
 //         <TValue>(array: List<TValue>, predicate?: string): TValue[];
 //         <TWhere, TValue>(array: List<TValue>, predicate?: TWhere): TValue[];
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a slice of array excluding elements dropped from the end. Elements are dropped until predicate
 //          * returns falsey. The predicate is bound to thisArg and invoked with three arguments: (value, index, array).
@@ -1002,24 +1002,24 @@
 //         dropRightWhile: DropWhileStatic;
 //     }
 
-//     interface DropWhileImplicitWrapper<T> {
+//     export interface DropWhileImplicitWrapper<T> {
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.dropRightWhile
 //          */
 //         dropRightWhile: DropWhileImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.dropRightWhile
 //          */
 //         dropRightWhile: DropWhileImplicitWrapper<T>;
 //     }
 
-//     interface DropWhileExplictWrapper<T> {
+//     export interface DropWhileExplictWrapper<T> {
 //         (predicate?: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<T>;
 
 //         (predicate?: string): LoDashExplicitArrayWrapper<T>;
@@ -1027,14 +1027,14 @@
 //         <TWhere>(predicate?: TWhere): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.dropRightWhile
 //          */
 //         dropRightWhile: DropWhileExplictWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.dropRightWhile
 //          */
@@ -1042,7 +1042,7 @@
 //     }
 
 //     //_.dropWhile
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a slice of array excluding elements dropped from the beginning. Elements are dropped until predicate
 //          * returns falsey. The predicate is bound to thisArg and invoked with three arguments: (value, index, array).
@@ -1064,28 +1064,28 @@
 //         dropWhile: DropWhileStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.dropWhile
 //          */
 //         dropWhile: DropWhileImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.dropWhile
 //          */
 //         dropWhile: DropWhileImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.dropWhile
 //          */
 //         dropWhile: DropWhileExplictWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.dropWhile
 //          */
@@ -1093,7 +1093,7 @@
 //     }
 
 //     //_.fill
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Fills elements of array with value from start up to, but not including, end.
 //          *
@@ -1113,28 +1113,28 @@
 //         fill<T>(array: List<any>, value: T, start?: number, end?: number): List<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.fill
 //          */
 //         fill<T>(value: T, start?: number, end?: number): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.fill
 //          */
 //         fill<T>(value: T, start?: number, end?: number): LoDashImplicitObjectWrapper<List<T>>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.fill
 //          */
 //         fill<T>(value: T, start?: number, end?: number): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.fill
 //          */
@@ -1142,13 +1142,13 @@
 //     }
 
 //     //_.findIndex
-//     interface FindIndexStatic {
+//     export interface FindIndexStatic {
 //         <T>(array: List<T>, predicate?: ListIterator<T, boolean>): number;
 //         <T>(array: List<T>, predicate?: string): number;
 //         <W, T>(array: List<T>, predicate?: W): number;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.find except that it returns the index of the first element predicate returns truthy
 //          * for instead of the element itself.
@@ -1170,40 +1170,40 @@
 //         findIndex: FindIndexStatic;
 //     }
 
-//     interface FindIndexImplicitWrapper<T> {
+//     export interface FindIndexImplicitWrapper<T> {
 //         (predicate?: ListIterator<T, boolean>): number;
 //         (predicate?: string): number;
 //         <W>(predicate?: W): number;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.findIndex
 //          */
 //         findIndex: FindIndexImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.findIndex
 //          */
 //         findIndex: FindIndexImplicitWrapper<T>;
 //     }
 
-//     interface FindIndexExplicitWrapper<T> {
+//     export interface FindIndexExplicitWrapper<T> {
 //         (predicate?: ListIterator<T, boolean>): LoDashExplicitWrapper<number>;
 //         (predicate?: string): LoDashExplicitWrapper<number>;
 //         <W>(predicate?: W): LoDashExplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.findIndex
 //          */
 //         findIndex: FindIndexExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.findIndex
 //          */
@@ -1211,7 +1211,7 @@
 //     }
 
 //     //_.findLastIndex
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.findIndex except that it iterates over elements of collection from right to left.
 //          *
@@ -1232,28 +1232,28 @@
 //         findLastIndex: FindIndexStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.findLastIndex
 //          */
 //         findLastIndex: FindIndexImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.findLastIndex
 //          */
 //         findLastIndex: FindIndexImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.findLastIndex
 //          */
 //         findLastIndex: FindIndexExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.findLastIndex
 //          */
@@ -1261,55 +1261,55 @@
 //     }
 
 //     //_.first
-//     interface HeadStatic {
+//     export interface HeadStatic {
 //         <T>(array: List<T>): T;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 // 		/**
 //          * @see _.head
 //          */
 //         first: HeadStatic;
 //     }
 
-//     interface HeadImplicitArrayWrapper<T> {
+//     export interface HeadImplicitArrayWrapper<T> {
 //         (): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.head
 //          */
 //         first: HeadImplicitArrayWrapper<T>;
 //     }
 
-//     interface HeadImplicitObjectWrapper<T> {
+//     export interface HeadImplicitObjectWrapper<T> {
 //         <TResult>(): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.head
 //          */
 //         first: HeadImplicitObjectWrapper<T>;
 //     }
 
-//     interface HeadExplicitArrayWrapper<T> {
+//     export interface HeadExplicitArrayWrapper<T> {
 //         (): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.head
 //          */
 //         first: HeadExplicitArrayWrapper<T>;
 //     }
 
-//     interface HeadExplicitObjectWrapper<T> {
+//     export interface HeadExplicitObjectWrapper<T> {
 //         <TResult>(): LoDashExplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.head
 //          */
@@ -1317,7 +1317,7 @@
 //     }
 
 //     //_.flatMap DUMMY
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of flattened values by running each element in `array`
 //          * through `iteratee` and concating its result to the other mapped values.
@@ -1341,16 +1341,16 @@
 //         flatMap(array: any[] | List<any>, ...values: any[]): any[];
 //     }
 
-//     interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
-//     interface ListOfRecursiveArraysOrValues<T> extends List<T | RecursiveArray<T>> { }
+//     export interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
+//     export interface ListOfRecursiveArraysOrValues<T> extends List<T | RecursiveArray<T>> { }
 
 //     //_.flatten
-//     interface FlattenStatic {
+//     export interface FlattenStatic {
 //         <T>(array: List<T | T[]>): T[];
 //         <T>(array: ListOfRecursiveArraysOrValues<T>): RecursiveArray<T>;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Flattens a nested array. If isDeep is true the array is recursively flattened, otherwise it’s only
 //          * flattened a single level.
@@ -1362,50 +1362,50 @@
 //         flatten: FlattenStatic;
 //     }
 
-//     interface FlattenImplicitWrapper<T> {
+//     export interface FlattenImplicitWrapper<T> {
 //         <TResult>(): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.flatten
 //          */
 //         flatten: FlattenImplicitWrapper<string>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.flatten
 //          */
 //         flatten: FlattenImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.flatten
 //          */
 //         flatten: FlattenImplicitWrapper<T>;
 //     }
 
-//     interface FlattenExplicitWrapper<T> {
+//     export interface FlattenExplicitWrapper<T> {
 //         <TResult>(): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.flatten
 //          */
 //         flatten: FlattenExplicitWrapper<string>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.flatten
 //          */
 //         flatten: FlattenExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.flatten
 //          */
@@ -1413,11 +1413,11 @@
 //     }
 
 //     //_.flattenDeep
-//     interface FlattenDeepStatic {
+//     export interface FlattenDeepStatic {
 //         <T>(array: ListOfRecursiveArraysOrValues<T>): T[];
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Recursively flattens a nested array.
 //          *
@@ -1427,50 +1427,50 @@
 //         flattenDeep: FlattenDeepStatic;
 //     }
 
-//     interface FlattenDeepImplicitWrapper<T> {
+//     export interface FlattenDeepImplicitWrapper<T> {
 //         (): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.flattenDeep
 //          */
 //         flattenDeep: FlattenDeepImplicitWrapper<string>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.flattenDeep
 //          */
 //         flattenDeep: FlattenDeepImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.flattenDeep
 //          */
 //         flattenDeep: FlattenDeepImplicitWrapper<T>;
 //     }
 
-//     interface FlattenDeepExplicitWrapper<T> {
+//     export interface FlattenDeepExplicitWrapper<T> {
 //         (): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.flattenDeep
 //          */
 //         flattenDeep: FlattenDeepExplicitWrapper<string>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.flattenDeep
 //          */
 //         flattenDeep: FlattenDeepImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.flattenDeep
 //          */
@@ -1478,7 +1478,7 @@
 //     }
 
 //     //_.fromPairs DUMMY
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * The inverse of `_.toPairs`; this method returns an object composed
 //          * from key-value `pairs`.
@@ -1497,7 +1497,7 @@
 //     }
 
 //     //_.head
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Gets the first element of array.
 //          *
@@ -1509,28 +1509,28 @@
 //         head: HeadStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.first
 //          */
 //         head: HeadImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.first
 //          */
 //         head: HeadImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.first
 //          */
 //         head: HeadExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.first
 //          */
@@ -1538,7 +1538,7 @@
 //     }
 
 //     //_.indexOf
-//     interface IndexOfStatic {
+//     export interface IndexOfStatic {
 //         <T>(
 //             array: List<T>,
 //             value: T,
@@ -1546,7 +1546,7 @@
 //         ): number;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Gets the index at which the first occurrence of `value` is found in `array`
 //          * using [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
@@ -1573,44 +1573,44 @@
 //         indexOf: IndexOfStatic;
 //     }
 
-//     interface IndexOfImplicitArrayWrapper<T> {
+//     export interface IndexOfImplicitArrayWrapper<T> {
 //         (value: T, fromIndex?: boolean | number): number;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.indexOf
 //          */
 //         indexOf: IndexOfImplicitArrayWrapper<T>;
 //     }
 
-//     interface IndexOfImplicitObjectWrapper<T> {
+//     export interface IndexOfImplicitObjectWrapper<T> {
 //         <TValue>(value: TValue, fromIndex?: boolean | number): number;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.indexOf
 //          */
 //         indexOf: IndexOfImplicitObjectWrapper<T>;
 //     }
 
-//     interface IndexOfExplicitArrayWrapper<T> {
+//     export interface IndexOfExplicitArrayWrapper<T> {
 //         (value: T, fromIndex?: boolean | number): LoDashExplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.indexOf
 //          */
 //         indexOf: IndexOfExplicitArrayWrapper<T>;
 //     }
 
-//     interface IndexOfExplictObjectWrapperSiganture<T> {
+//     export interface IndexOfExplictObjectWrapperSiganture<T> {
 //         <TValue>(value: TValue, fromIndex?: boolean | number): LoDashExplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.indexOf
 //          */
@@ -1618,7 +1618,7 @@
 //     }
 
 //     //_.intersectionBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.intersection` except that it accepts `iteratee`
 //          * which is invoked for each element of each `arrays` to generate the criterion
@@ -1642,28 +1642,28 @@
 //         intersectionBy: DifferenceByStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.intersectionBy
 //          */
 //         intersectionBy: DifferenceByImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.intersectionBy
 //          */
 //         intersectionBy: DifferenceByImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.intersectionBy
 //          */
 //         intersectionBy: DifferenceByExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.intersectionBy
 //          */
@@ -1671,7 +1671,7 @@
 //     }
 
 //     //_.intersectionWith
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.intersection` except that it accepts `comparator`
 //          * which is invoked to compare elements of `arrays`. The comparator is invoked
@@ -1694,28 +1694,28 @@
 //         intersectionWith: DifferenceWithStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.intersectionWith
 //          */
 //         intersectionWith: DifferenceWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.intersectionWith
 //          */
 //         intersectionWith: DifferenceWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.intersectionWith
 //          */
 //         intersectionWith: DifferenceWithExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.intersectionWith
 //          */
@@ -1723,7 +1723,7 @@
 //     }
 
 //     //_.join
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts all elements in `array` into a string separated by `separator`.
 //          *
@@ -1734,42 +1734,42 @@
 //         join(array: List<any>, separator?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.join
 //          */
 //         join(separator?: string): string;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.join
 //          */
 //         join(separator?: string): string;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.join
 //          */
 //         join(separator?: string): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.join
 //          */
 //         join(separator?: string): LoDashExplicitWrapper<string>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.join
 //          */
 //         join(separator?: string): LoDashExplicitWrapper<string>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.join
 //          */
@@ -1777,7 +1777,7 @@
 //     }
 
 //     //_.pullAll DUMMY
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.pull` except that it accepts an array of values to remove.
 //          *
@@ -1801,7 +1801,7 @@
 //     }
 
 //     //_.pullAllBy DUMMY
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.pullAll` except that it accepts `iteratee` which is
 //          * invoked for each element of `array` and `values` to to generate the criterion
@@ -1828,7 +1828,7 @@
 //     }
 
 //     //_.reverse DUMMY
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Reverses `array` so that the first element becomes the last, the second
 //          * element becomes the second to last, and so on.
@@ -1853,7 +1853,7 @@
 //     }
 
 //     //_.sortedIndexOf
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.indexOf` except that it performs a binary
 //          * search on a sorted `array`.
@@ -1872,28 +1872,28 @@
 //         sortedIndexOf: IndexOfStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedIndexOf
 //          */
 //         sortedIndexOf: IndexOfImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedIndexOf
 //          */
 //         sortedIndexOf: IndexOfImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedIndexOf
 //          */
 //         sortedIndexOf: IndexOfExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedIndexOf
 //          */
@@ -1901,7 +1901,7 @@
 //     }
 
 //     //_.initial
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Gets all but the last element of array.
 //          *
@@ -1911,32 +1911,32 @@
 //         initial: LoDashInOutArrayStatic;
 //     }
 
-//     interface InOutArrayImplicityArrayWrapper<T> {
+//     export interface InOutArrayImplicityArrayWrapper<T> {
 //         (): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.initial
 //          */
 //         initial: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.initial
 //          */
 //         initial: LoDashImplicitReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.initial
 //          */
 //         initial: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.initial
 //          */
@@ -1944,7 +1944,7 @@
 //     }
 
 //     //_.intersection
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of unique values that are included in all of the provided arrays using SameValueZero for
 //          * equality comparisons.
@@ -1955,28 +1955,28 @@
 //         intersection: LoDashStaticInOutArrayArgs;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.intersection
 //          */
 //         intersection: LoDashImplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.intersection
 //          */
 //         intersection: LoDashImplicitInOutArrayArgsObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.intersection
 //          */
 //         intersection: LoDashExplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.intersection
 //          */
@@ -1984,7 +1984,7 @@
 //     }
 
 //     //_.last
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Gets the last element of array.
 //          *
@@ -1994,28 +1994,28 @@
 //         last: HeadStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.last
 //          */
 //         last: HeadImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.last
 //          */
 //         last: HeadImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.last
 //          */
 //         last: HeadExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.last
 //          */
@@ -2023,7 +2023,7 @@
 //     }
 
 //     //_.lastIndexOf
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.indexOf except that it iterates over elements of array from right to left.
 //          *
@@ -2035,28 +2035,28 @@
 //         lastIndexOf: IndexOfStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.lastIndexOf
 //          */
 //         lastIndexOf: IndexOfImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.lastIndexOf
 //          */
 //         lastIndexOf: IndexOfImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.lastIndexOf
 //          */
 //         lastIndexOf: IndexOfExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.lastIndexOf
 //          */
@@ -2064,7 +2064,7 @@
 //     }
 
 //     //_.pull
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Removes all provided values from array using SameValueZero for equality comparisons.
 //          *
@@ -2077,28 +2077,28 @@
 //         pull: LoDashArrayArgsStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.pull
 //          */
 //         pull: LoDashImplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.pull
 //          */
 //         pull: LoDashImplicitInOutArrayArgsObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.pull
 //          */
 //         pull: LoDashExplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.pull
 //          */
@@ -2106,11 +2106,11 @@
 //     }
 
 //     //_.pullAt
-//     interface PullAtStatic {
+//     export interface PullAtStatic {
 //         <T>(array: List<T>, ...indexes: (number | number[])[]): T[];
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Removes elements from array corresponding to the given indexes and returns an array of the removed elements.
 //          * Indexes may be specified as an array of indexes or as individual arguments.
@@ -2124,36 +2124,36 @@
 //         pullAt: PullAtStatic;
 //     }
 
-//     interface PullAtImplicitWrapper<T> {
+//     export interface PullAtImplicitWrapper<T> {
 //         (...indexes: (number | number[])[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.pullAt
 //          */
 //         pullAt: PullAtImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.pullAt
 //          */
 //         pullAt: PullAtImplicitWrapper<T>;
 //     }
 
-//     interface PullAtExplicitWrapper<T> {
+//     export interface PullAtExplicitWrapper<T> {
 //         (...indexes: (number | number[])[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.pullAt
 //          */
 //         pullAt: PullAtExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.pullAt
 //          */
@@ -2161,7 +2161,7 @@
 //     }
 
 //     //_.remove
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Removes all elements from array that predicate returns truthy for and returns an array of the removed
 //          * elements. The predicate is bound to thisArg and invoked with three arguments: (value, index, array).
@@ -2185,28 +2185,28 @@
 //         remove: LoDashArrayPredicateStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.remove
 //          */
 //         remove: LoDashArrayPredicateImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.remove
 //          */
 //         remove: LoDashArrayPredicateImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.remove
 //          */
 //         remove: LoDashArrayPredicateExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.remove
 //          */
@@ -2214,7 +2214,7 @@
 //     }
 
 //     //_.tail
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Gets all but the first element of array.
 //          *
@@ -2226,28 +2226,28 @@
 //         tail: LoDashInOutArrayStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.tail
 //          */
 //         tail: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.tail
 //          */
 //         tail: LoDashImplicitReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.tail
 //          */
 //         tail: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.tail
 //          */
@@ -2255,7 +2255,7 @@
 //     }
 
 //     //_.slice
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a slice of array from start up to, but not including, end.
 //          *
@@ -2267,14 +2267,14 @@
 //         slice<T>(array: T[], start?: number, end?: number): T[];
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.slice
 //          */
 //         slice(start?: number, end?: number): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.slice
 //          */
@@ -2282,11 +2282,11 @@
 //     }
 
 //     //_.sortedIndex
-//     interface SortedIndexStatic {
+//     export interface SortedIndexStatic {
 //         <T, TSort>(array: List<T>, value: T): number;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Uses a binary search to determine the lowest index at which `value` should
 //          * be inserted into `array` in order to maintain its sort order.
@@ -2308,58 +2308,58 @@
 //         sortedIndex: SortedIndexStatic;
 //     }
 
-//     interface SortedIndexImplicitStringWrapper<T> {
+//     export interface SortedIndexImplicitStringWrapper<T> {
 //         (value: string): number;
 //     }
 
-//     interface SortedIndexImplicitWrapper<T> {
+//     export interface SortedIndexImplicitWrapper<T> {
 //         (value: T): number;
 //     }
 
-//     interface SortedIndexExplicitStringWrapper<T> {
+//     export interface SortedIndexExplicitStringWrapper<T> {
 //         (value: string): number;
 //     }
 
-//     interface SortedIndexExplicitWrapper<T> {
+//     export interface SortedIndexExplicitWrapper<T> {
 //         (value: T): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.sortedIndex
 //          */
 //         sortedIndex: SortedIndexImplicitStringWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedIndex
 //          */
 //         sortedIndex: SortedIndexImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedIndex
 //          */
 //         sortedIndex: SortedIndexImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.sortedIndex
 //          */
 //         sortedIndex: SortedIndexExplicitStringWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedIndex
 //          */
 //         sortedIndex: SortedIndexExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedIndex
 //          */
@@ -2367,14 +2367,14 @@
 //     }
 
 //     //_.sortedIndexBy
-//     interface SortedIndexByStatic {
+//     export interface SortedIndexByStatic {
 //         <T, TSort>(array: List<T>, value: T, iteratee: (x: T) => TSort): number;
 //         <T>(array: List<T>, value: T, iteratee: string): number;
 //         <W, T>(array: List<T>, value: T, iteratee: W): number;
 //         <T>(array: List<T>, value: T, iteratee: Object): number;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.sortedIndex` except that it accepts `iteratee`
 //          * which is invoked for `value` and each element of `array` to compute their
@@ -2401,17 +2401,17 @@
 //         sortedIndexBy: SortedIndexByStatic;
 //     }
 
-//     interface SortedIndexByImplicitWrapper<T> {
+//     export interface SortedIndexByImplicitWrapper<T> {
 //         <TSort>(value: string, iteratee: (x: string) => TSort): number;
 //     }
 
-//     interface SortedIndexByImplicitArrayWrapper<T> {
+//     export interface SortedIndexByImplicitArrayWrapper<T> {
 //         <TSort>(value: T, iteratee: (x: T) => TSort): number;
 //         (value: T, iteratee: string): number;
 //         <W>(value: T, iteratee: W): number;
 //     }
 
-//     interface SortedIndexByImplicitObjectWrapper<T> {
+//     export interface SortedIndexByImplicitObjectWrapper<T> {
 //         <T, TSort>(value: T, iteratee: (x: T) => TSort): number;
 //         <T>(value: T, iteratee: (x: T) => any): number;
 //         <T>(value: T, iteratee: string): number;
@@ -2419,38 +2419,38 @@
 //         <T>(value: T, iteratee: Object): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.sortedIndexBy
 //          */
 //         sortedIndexBy: SortedIndexByImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedIndexBy
 //          */
 //         sortedIndexBy: SortedIndexByImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedIndexBy
 //          */
 //         sortedIndexBy: SortedIndexByImplicitObjectWrapper<T>;
 //     }
 
-//     interface SortedIndexByExplicitWrapper<T> {
+//     export interface SortedIndexByExplicitWrapper<T> {
 //         <TSort>(value: string, iteratee: (x: string) => TSort): number;
 //     }
 
-//     interface SortedIndexByExplicitArrayWrapper<T> {
+//     export interface SortedIndexByExplicitArrayWrapper<T> {
 //         <TSort>(value: T, iteratee: (x: T) => TSort): number;
 //         (value: T, iteratee: string): number;
 //         <W>(value: T, iteratee: W): number;
 //     }
 
-//     interface SortedIndexByExplicitObjectWrapper<T> {
+//     export interface SortedIndexByExplicitObjectWrapper<T> {
 //         <T, TSort>(value: T, iteratee: (x: T) => TSort): number;
 //         <T>(value: T, iteratee: (x: T) => any): number;
 //         <T>(value: T, iteratee: string): number;
@@ -2458,21 +2458,21 @@
 //         <T>(value: T, iteratee: Object): number;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.sortedIndexBy
 //          */
 //         sortedIndexBy: SortedIndexByExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedIndexBy
 //          */
 //         sortedIndexBy: SortedIndexByExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedIndexBy
 //          */
@@ -2480,7 +2480,7 @@
 //     }
 
 //     //_.sortedLastIndex
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.sortedIndex` except that it returns the highest
 //          * index at which `value` should be inserted into `array` in order to
@@ -2500,42 +2500,42 @@
 //         sortedLastIndex: SortedIndexStatic;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndex
 //          */
 //         sortedLastIndex: SortedIndexImplicitStringWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndex
 //          */
 //         sortedLastIndex: SortedIndexImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndex
 //          */
 //         sortedLastIndex: SortedIndexImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndex
 //          */
 //         sortedLastIndex: SortedIndexExplicitStringWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndex
 //          */
 //         sortedLastIndex: SortedIndexExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndex
 //          */
@@ -2543,7 +2543,7 @@
 //     }
 
 //     //_.sortedLastIndexBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.sortedLastIndex` except that it accepts `iteratee`
 //          * which is invoked for `value` and each element of `array` to compute their
@@ -2565,42 +2565,42 @@
 //         sortedLastIndexBy: SortedIndexByStatic;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndexBy
 //          */
 //         sortedLastIndexBy: SortedIndexByImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndexBy
 //          */
 //         sortedLastIndexBy: SortedIndexByImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndexBy
 //          */
 //         sortedLastIndexBy: SortedIndexByImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndexBy
 //          */
 //         sortedLastIndexBy: SortedIndexByExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndexBy
 //          */
 //         sortedLastIndexBy: SortedIndexByExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndexBy
 //          */
@@ -2608,7 +2608,7 @@
 //     }
 
 //     //_.sortedLastIndexOf
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.lastIndexOf` except that it performs a binary
 //          * search on a sorted `array`.
@@ -2627,36 +2627,36 @@
 //         sortedLastIndexOf: IndexOfStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndexOf
 //          */
 //         sortedLastIndexOf: IndexOfImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndexOf
 //          */
 //         sortedLastIndexOf: IndexOfImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndexOf
 //          */
 //         sortedLastIndexOf: IndexOfExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedLastIndexOf
 //          */
 //         sortedLastIndexOf: IndexOfExplictObjectWrapperSiganture<T>;
 //     }
 
-//     //_.take	
-//     interface LoDashStatic {
+//     //_.take
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a slice of array with n elements taken from the beginning.
 //          *
@@ -2667,28 +2667,28 @@
 //         take: LoDashArrayNumberStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.take
 //          */
 //         take: LoDashArrayNumberImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.take
 //          */
 //         take: LoDashArrayNumberImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.take
 //          */
 //         take: LoDashArrayNumberExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.take
 //          */
@@ -2696,7 +2696,7 @@
 //     }
 
 //     //_.takeRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a slice of array with n elements taken from the end.
 //          *
@@ -2707,28 +2707,28 @@
 //         takeRight: LoDashArrayNumberStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.takeRight
 //          */
 //         takeRight: LoDashArrayNumberImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.takeRight
 //          */
 //         takeRight: LoDashArrayNumberImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.takeRight
 //          */
 //         takeRight: LoDashArrayNumberExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.takeRight
 //          */
@@ -2736,7 +2736,7 @@
 //     }
 
 //     //_.takeRightWhile
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a slice of array with elements taken from the end. Elements are taken until predicate returns
 //          * falsey. The predicate is bound to thisArg and invoked with three arguments: (value, index, array).
@@ -2758,28 +2758,28 @@
 //         takeRightWhile: LoDashArrayPredicateStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.takeRightWhile
 //          */
 //         takeRightWhile: LoDashArrayPredicateImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.takeRightWhile
 //          */
 //         takeRightWhile: LoDashArrayPredicateImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.takeRightWhile
 //          */
 //         takeRightWhile: LoDashArrayPredicateExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.takeRightWhile
 //          */
@@ -2787,7 +2787,7 @@
 //     }
 
 //     //_.takeWhile
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a slice of array with elements taken from the beginning. Elements are taken until predicate returns
 //          * falsey. The predicate is bound to thisArg and invoked with three arguments: (value, index, array).
@@ -2809,28 +2809,28 @@
 //         takeWhile: LoDashArrayPredicateStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.takeWhile
 //          */
 //         takeWhile: LoDashArrayPredicateImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.takeWhile
 //          */
 //         takeWhile: LoDashArrayPredicateImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.takeWhile
 //          */
 //         takeWhile: LoDashArrayPredicateExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.takeWhile
 //          */
@@ -2838,7 +2838,7 @@
 //     }
 
 //     //_.union
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of unique values, in order, from all of the provided arrays using SameValueZero for
 //          * equality comparisons.
@@ -2849,28 +2849,28 @@
 //         union: LoDashStaticInOutArrayArgs;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.union
 //          */
 //         union: LoDashImplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.union
 //          */
 //         union: LoDashImplicitInOutArrayArgsObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.union
 //          */
 //         union: LoDashExplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.union
 //          */
@@ -2878,7 +2878,7 @@
 //     }
 
 //     //_.unionBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.union` except that it accepts `iteratee` which is
 //          * invoked for each element of each `arrays` to generate the criterion by which
@@ -2891,28 +2891,28 @@
 //         unionBy: DifferenceByStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.unionBy
 //          */
 //         unionBy: DifferenceByImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unionBy
 //          */
 //         unionBy: DifferenceByImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.unionBy
 //          */
 //         unionBy: DifferenceByExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unionBy
 //          */
@@ -2920,7 +2920,7 @@
 //     }
 
 //     //_.uniq
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a duplicate-free version of an array, using
 //          * [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
@@ -2940,42 +2940,42 @@
 //         uniq: LoDashInOutArrayStatic;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.uniq
 //          */
 //         uniq: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.uniq
 //          */
 //         uniq: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.uniq
 //          */
 //         uniq: LoDashImplicitReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.uniq
 //          */
 //         uniq: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.uniq
 //          */
 //         uniq: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.uniq
 //          */
@@ -2983,7 +2983,7 @@
 //     }
 
 //     //_.uniqBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.uniq` except that it accepts `iteratee` which is
 //          * invoked for each element in `array` to generate the criterion by which
@@ -3007,42 +3007,42 @@
 //         uniqBy: LoDashArrayPredicateStatic;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.uniqBy
 //          */
 //         uniqBy: LoDashArrayPredicateImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.uniqBy
 //          */
 //         uniqBy: LoDashArrayPredicateImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.uniqBy
 //          */
 //         uniqBy: LoDashArrayPredicateImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.uniqBy
 //          */
 //         uniqBy: LoDashArrayPredicateExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.uniqBy
 //          */
 //         uniqBy: LoDashArrayPredicateExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.uniqBy
 //          */
@@ -3050,7 +3050,7 @@
 //     }
 
 //     //_.sortedUniq
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.uniq` except that it's designed and optimized
 //          * for sorted arrays.
@@ -3068,42 +3068,42 @@
 //         sortedUniq: LoDashInOutArrayStatic;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.sortedUniq
 //          */
 //         sortedUniq: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedUniq
 //          */
 //         sortedUniq: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedUniq
 //          */
 //         sortedUniq: LoDashImplicitReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.sortedUniq
 //          */
 //         sortedUniq: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedUniq
 //          */
 //         sortedUniq: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedUniq
 //          */
@@ -3111,7 +3111,7 @@
 //     }
 
 //     //_.sortedUniqBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.uniqBy` except that it's designed and optimized
 //          * for sorted arrays.
@@ -3130,42 +3130,42 @@
 //         sortedUniqBy: LoDashArrayPredicateStatic;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.sortedUniqBy
 //          */
 //         sortedUniqBy: LoDashArrayPredicateImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedUniqBy
 //          */
 //         sortedUniqBy: LoDashArrayPredicateImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedUniqBy
 //          */
 //         sortedUniqBy: LoDashArrayPredicateImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.sortedUniqBy
 //          */
 //         sortedUniqBy: LoDashArrayPredicateExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortedUniqBy
 //          */
 //         sortedUniqBy: LoDashArrayPredicateExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortedUniqBy
 //          */
@@ -3173,7 +3173,7 @@
 //     }
 
 //     //_.unionWith
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.union` except that it accepts `comparator` which
 //          * is invoked to compare elements of `arrays`. The comparator is invoked
@@ -3196,28 +3196,28 @@
 //         unionWith: DifferenceWithStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.unionWith
 //          */
 //         unionWith: DifferenceWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unionWith
 //          */
 //         unionWith: DifferenceWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.unionWith
 //          */
 //         unionWith: DifferenceWithExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unionWith
 //          */
@@ -3225,7 +3225,7 @@
 //     }
 
 //     //_.uniqWith
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.uniq` except that it accepts `comparator` which
 //          * is invoked to compare elements of `array`. The comparator is invoked with
@@ -3247,28 +3247,28 @@
 //         uniqWith: DifferenceWithStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.uniqWith
 //          */
 //         uniqWith: DifferenceWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.uniqWith
 //          */
 //         uniqWith: DifferenceWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.uniqWith
 //          */
 //         uniqWith: DifferenceWithExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.uniqWith
 //          */
@@ -3276,11 +3276,11 @@
 //     }
 
 //     //_.unzip
-//     interface UnzipStatic {
+//     export interface UnzipStatic {
 //         <T>(array: List<List<T>>): T[][];
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.zip except that it accepts an array of grouped elements and creates an array
 //          * regrouping the elements to their pre-zip configuration.
@@ -3291,36 +3291,36 @@
 //         unzip: UnzipStatic;
 //     }
 
-//     interface UnzipImplicitWrapper<T> {
+//     export interface UnzipImplicitWrapper<T> {
 //         <T>(): LoDashImplicitArrayWrapper<T[]>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.unzip
 //          */
 //         unzip: UnzipImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unzip
 //          */
 //         unzip: UnzipImplicitWrapper<T>;
 //     }
 
-//     interface UnzipExplicitWrapper<T> {
+//     export interface UnzipExplicitWrapper<T> {
 //         <T>(): LoDashExplicitArrayWrapper<T[]>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.unzip
 //          */
 //         unzip: UnzipExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unzip
 //          */
@@ -3328,11 +3328,11 @@
 //     }
 
 //     //_.unzipWith
-//     interface UnzipWithStatic {
+//     export interface UnzipWithStatic {
 //         <TArray, TResult>(array: List<List<TArray>>, iteratee?: MemoIterator<TArray, TResult>): TResult[];
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.unzip except that it accepts an iteratee to specify how regrouped values should be
 //          * combined. The iteratee is bound to thisArg and invoked with four arguments: (accumulator, value, index,
@@ -3346,36 +3346,36 @@
 //         unzipWith: UnzipWithStatic;
 //     }
 
-//     interface UnzipWithImplicitWrapper<T> {
+//     export interface UnzipWithImplicitWrapper<T> {
 //         <TArr, TResult>(iteratee?: MemoIterator<TArr, TResult>): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.unzipWith
 //          */
 //         unzipWith: UnzipWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unzipWith
 //          */
 //         unzipWith: UnzipWithImplicitWrapper<T>;
 //     }
 
-//     interface UnzipWithExplicitWrapper<T> {
+//     export interface UnzipWithExplicitWrapper<T> {
 //         <TArr, TResult>(iteratee?: MemoIterator<TArr, TResult>): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.unzipWith
 //          */
 //         unzipWith: UnzipWithExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unzipWith
 //          */
@@ -3383,7 +3383,7 @@
 //     }
 
 //     //_.without
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array excluding all provided values using SameValueZero for equality comparisons.
 //          *
@@ -3394,28 +3394,28 @@
 //         without: LoDashArrayArgsStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.without
 //          */
 //         without: LoDashImplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.without
 //          */
 //         without: LoDashImplicitInOutArrayArgsObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.without
 //          */
 //         without: LoDashExplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.without
 //          */
@@ -3423,7 +3423,7 @@
 //     }
 
 //     //_.xor
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of unique values that is the symmetric difference of the provided arrays.
 //          *
@@ -3433,28 +3433,28 @@
 //         xor: LoDashStaticInOutArrayArgs;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.xor
 //          */
 //         xor: LoDashImplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.xor
 //          */
 //         xor: LoDashImplicitInOutArrayArgsObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.xor
 //          */
 //         xor: LoDashExplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.xor
 //          */
@@ -3462,7 +3462,7 @@
 //     }
 
 //     //_.xorBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.xor` except that it accepts `iteratee` which is
 //          * invoked for each element of each `arrays` to generate the criterion by which
@@ -3486,28 +3486,28 @@
 //         xorBy: LoDashArrayArgsStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.xorBy
 //          */
 //         xorBy: LoDashImplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.xorBy
 //          */
 //         xorBy: LoDashImplicitInOutArrayArgsObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.xorBy
 //          */
 //         xorBy: LoDashExplicitInOutArrayArgsArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.xorBy
 //          */
@@ -3515,7 +3515,7 @@
 //     }
 
 //     //_.xorWith
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.xor` except that it accepts `comparator` which is
 //          * invoked to compare elements of `arrays`. The comparator is invoked with
@@ -3538,28 +3538,28 @@
 //         xorWith: DifferenceWithStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.xorWith
 //          */
 //         xorWith: DifferenceWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.xorWith
 //          */
 //         xorWith: DifferenceWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.xorWith
 //          */
 //         xorWith: DifferenceWithExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.xorWith
 //          */
@@ -3567,7 +3567,7 @@
 //     }
 
 //     //_.zip
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of grouped elements, the first of which contains the first elements of the given arrays,
 //          * the second of which contains the second elements of the given arrays, and so on.
@@ -3578,44 +3578,44 @@
 //         zip: LoDashStaticInOutArrayArrayArgs;
 //     }
 
-//     interface ZipImplicitArrayWrapper<T> {
+//     export interface ZipImplicitArrayWrapper<T> {
 //         (...arrays: List<T>[]): LoDashImplicitArrayWrapper<T[]>;
 //     }
 
-//     interface ZipImplicitObjectWrapper<T> {
+//     export interface ZipImplicitObjectWrapper<T> {
 //         <T>(...arrays: List<T>[]): LoDashImplicitArrayWrapper<T[]>;
 //     }
 
-//     interface ZipExplicitArrayWrapper<T> {
+//     export interface ZipExplicitArrayWrapper<T> {
 //         (...arrays: List<T>[]): LoDashExplicitArrayWrapper<T[]>;
 //     }
 
-//     interface ZipExplicitObjectWrapper<T> {
+//     export interface ZipExplicitObjectWrapper<T> {
 //         <T>(...arrays: List<T>[]): LoDashExplicitArrayWrapper<T[]>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.zip
 //          */
 //         zip: ZipImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.zip
 //          */
 //         zip: ZipImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.zip
 //          */
 //         zip: ZipExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.zip
 //          */
@@ -3623,7 +3623,7 @@
 //     }
 
 //     //_.zipObject
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * The inverse of _.pairs; this method returns an object composed from arrays of property names and values.
 //          * Provide either a single two dimensional array, e.g. [[key1, value1], [key2, value2]] or two arrays, one of
@@ -3641,24 +3641,7 @@
 //         zipObject(props: List<StringRepresentable> | List<List<any>>, values?: List<any>): _.Dictionary<any>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
-//         /**
-//          * @see _.zipObject
-//          */
-//         zipObject<TValues, TResult extends {}>(values?: List<TValues>): _.LoDashImplicitObjectWrapper<TResult>;
-
-//         /**
-//          * @see _.zipObject
-//          */
-//         zipObject<TResult extends {}>(values?: List<any>): _.LoDashImplicitObjectWrapper<TResult>;
-        
-//         /**
-//          * @see _.zipObject
-//          */
-//         zipObject(values?: List<any>): _.LoDashImplicitObjectWrapper<_.Dictionary<any>>;
-//     }
-
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.zipObject
 //          */
@@ -3675,7 +3658,24 @@
 //         zipObject(values?: List<any>): _.LoDashImplicitObjectWrapper<_.Dictionary<any>>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
+//         /**
+//          * @see _.zipObject
+//          */
+//         zipObject<TValues, TResult extends {}>(values?: List<TValues>): _.LoDashImplicitObjectWrapper<TResult>;
+
+//         /**
+//          * @see _.zipObject
+//          */
+//         zipObject<TResult extends {}>(values?: List<any>): _.LoDashImplicitObjectWrapper<TResult>;
+
+//         /**
+//          * @see _.zipObject
+//          */
+//         zipObject(values?: List<any>): _.LoDashImplicitObjectWrapper<_.Dictionary<any>>;
+//     }
+
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.zipObject
 //          */
@@ -3692,7 +3692,7 @@
 //         zipObject(values?: List<any>): _.LoDashExplicitObjectWrapper<_.Dictionary<any>>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.zipObject
 //          */
@@ -3710,7 +3710,7 @@
 //     }
 
 //     //_.zipWith DUMMY
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.zip except that it accepts an iteratee to specify how grouped values should be
 //          * combined. The iteratee is bound to thisArg and invoked with four arguments: (accumulator, value, index,
@@ -3728,7 +3728,7 @@
 //      *********/
 
 //     //_.chain
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a lodash object that wraps value with explicit method chaining enabled.
 //          *
@@ -3743,28 +3743,28 @@
 //         chain(value: any): LoDashExplicitWrapper<any>;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.chain
 //          */
 //         chain(): LoDashExplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.chain
 //          */
 //         chain: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.chain
 //          */
 //         chain: LoDashExplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.chain
 //          */
@@ -3772,7 +3772,7 @@
 //     }
 
 //     //_.tap
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method invokes interceptor and returns value. The interceptor is bound to thisArg and invoked with one
 //          * argument; (value). The purpose of this method is to "tap into" a method chain in order to perform operations
@@ -3786,14 +3786,14 @@
 //         tap<T>(value: T, interceptor: (value: T) => void): T;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.tap
 //          */
 //         tap(interceptor: (value: T) => void): TWrapper;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.tap
 //          */
@@ -3801,7 +3801,7 @@
 //     }
 
 //     //_.thru
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.tap except that it returns the result of interceptor.
 //          *
@@ -3813,7 +3813,7 @@
 //         thru<T, TResult>(value: T, interceptor: (value: T) => TResult): TResult;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.thru
 //          */
@@ -3840,7 +3840,7 @@
 //         thru<TResult>(interceptor: (value: T) => TResult[]): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.thru
 //          */
@@ -3868,7 +3868,7 @@
 //     }
 
 //     //_.prototype.commit
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * Executes the chained sequence and returns the wrapped result.
 //          *
@@ -3877,7 +3877,7 @@
 //         commit(): TWrapper;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.commit
 //          */
@@ -3885,7 +3885,7 @@
 //     }
 
 //     //_.prototype.concat
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * Creates a new array joining a wrapped array with any additional arrays and/or values.
 //          *
@@ -3900,7 +3900,7 @@
 //         concat(...items: Array<T | Array<T>>): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.concat
 //          */
@@ -3913,7 +3913,7 @@
 //     }
 
 //     //_.prototype.plant
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * Creates a clone of the chained sequence planting value as the wrapped value.
 //          * @param value The value to plant as the wrapped value.
@@ -3952,7 +3952,7 @@
 //         plant(value: any): LoDashImplicitWrapper<any>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.plant
 //          */
@@ -3990,7 +3990,7 @@
 //     }
 
 //     //_.prototype.reverse
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * Reverses the wrapped array so the first element becomes the last, the second element becomes the second to
 //          * last, and so on.
@@ -4002,7 +4002,7 @@
 //         reverse: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.reverse
 //          */
@@ -4010,7 +4010,7 @@
 //     }
 
 //     //_.prototype.toJSON
-//     interface LoDashWrapperBase<T, TWrapper> {
+//     export interface LoDashWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.value
 //          */
@@ -4018,7 +4018,7 @@
 //     }
 
 //     //_.prototype.toString
-//     interface LoDashWrapperBase<T, TWrapper> {
+//     export interface LoDashWrapperBase<T, TWrapper> {
 //         /**
 //          * Produces the result of coercing the unwrapped value to a string.
 //          *
@@ -4028,7 +4028,7 @@
 //     }
 
 //     //_.prototype.value
-//     interface LoDashWrapperBase<T, TWrapper> {
+//     export interface LoDashWrapperBase<T, TWrapper> {
 //         /**
 //          * Executes the chained sequence to extract the unwrapped value.
 //          *
@@ -4040,7 +4040,7 @@
 //     }
 
 //     //_.valueOf
-//     interface LoDashWrapperBase<T, TWrapper> {
+//     export interface LoDashWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.value
 //          */
@@ -4052,7 +4052,7 @@
 //      **************/
 
 //     //_.at
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of elements corresponding to the given keys, or indexes, of collection. Keys may be
 //          * specified as individual arguments or as arrays of keys.
@@ -4064,28 +4064,28 @@
 //         at<T>(collection: List<T> | Dictionary<T>, ...props: (number | string | (number | string)[])[]): T[];
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.at
 //          */
 //         at(...props: (number | string | (number | string)[])[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.at
 //          */
 //         at<T>(...props: (number | string | (number | string)[])[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.at
 //          */
 //         at(...props: (number | string | (number | string)[])[]): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.at
 //          */
@@ -4093,7 +4093,7 @@
 //     }
 
 //     //_.countBy
-//     interface CountByStatic {
+//     export interface CountByStatic {
 //         <T>(collection: List<T>, iteratee?: ListIterator<T, any>): Dictionary<number>;
 //         <T>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, any>): Dictionary<number>;
 //         <T>(collection: NumericDictionary<T>, iteratee?: NumericDictionaryIterator<T, any>): Dictionary<number>;
@@ -4102,7 +4102,7 @@
 //         <T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, iteratee?: Object): Dictionary<number>;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an object composed of keys generated from the results of running each element of collection through
 //          * iteratee. The corresponding value of each key is the number of times the key was returned by iteratee. The
@@ -4126,74 +4126,74 @@
 //         countBy: CountByStatic;
 //     }
 
-//     interface CountByImplicitWrapper<T> {
+//     export interface CountByImplicitWrapper<T> {
 //         (iteratee?: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<number>>;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.countBy
 //          */
 //         countBy: CountByImplicitWrapper<T>;
 //     }
 
-//     interface CountByImplicitArrayWrapper<T> {
+//     export interface CountByImplicitArrayWrapper<T> {
 //         (iteratee?: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<number>>;
 //         (iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<number>>;
 //         <W>(iteratee?: W): LoDashImplicitObjectWrapper<Dictionary<number>>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.countBy
 //          */
 //         countBy: CountByImplicitArrayWrapper<T>;
 //     }
 
-//     interface CountByImplicitObjectWrapper<T> {
+//     export interface CountByImplicitObjectWrapper<T> {
 //         (iteratee?: ListIterator<T, any> | DictionaryIterator<T, any> | NumericDictionaryIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<number>>;
 //         (iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<number>>;
 //         <W>(iteratee?: W): LoDashImplicitObjectWrapper<Dictionary<number>>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.countBy
 //          */
 //         countBy: CountByImplicitObjectWrapper<T>;
 //     }
 
-//     interface CountByExplicitWrapper<T> {
+//     export interface CountByExplicitWrapper<T> {
 //         (iteratee?: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<number>>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.countBy
 //          */
 //         countBy: CountByExplicitWrapper<T>;
 //     }
 
-//     interface CountByExplicitArrayWrapper<T> {
+//     export interface CountByExplicitArrayWrapper<T> {
 //         (iteratee?: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<number>>;
 //         (iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<number>>;
 //         <W>(iteratee?: W): LoDashExplicitObjectWrapper<Dictionary<number>>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.countBy
 //          */
 //         countBy: CountByExplicitArrayWrapper<T>;
 //     }
 
-//     interface CountByExplicitObjectWrapper<T> {
+//     export interface CountByExplicitObjectWrapper<T> {
 //         (iteratee?: ListIterator<T, any> | DictionaryIterator<T, any> | NumericDictionaryIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<number>>;
 //         (iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<number>>;
 //         <W>(iteratee?: W): LoDashExplicitObjectWrapper<Dictionary<number>>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.countBy
 //          */
@@ -4201,7 +4201,7 @@
 //     }
 
 //     //_.each
-//     interface ForEachStatic {
+//     export interface ForEachStatic {
 //         <T>(collection: T[], iteratee?: ListIterator<T, any>): T[];
 //         <T>(collection: List<T>, iteratee?: ListIterator<T, any>): List<T>;
 //         <T>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, any>): Dictionary<T>;
@@ -4209,73 +4209,73 @@
 //         <T extends {}, TValue>(collection: T, iteratee?: ObjectIterator<TValue, any>): T;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * @see _.forEach
 //          */
 //         each: ForEachStatic;
 //     }
 
-//     interface ForEachImplicitWrapper<T> {
+//     export interface ForEachImplicitWrapper<T> {
 //         (iteratee: ListIterator<string, any>): LoDashImplicitWrapper<string>;
 //     }
 
-//     interface ForEachImplicitArrayWrapper<T> {
+//     export interface ForEachImplicitArrayWrapper<T> {
 //         (iteratee: ListIterator<T, any>): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface ForEachImplicitObjectWrapper<T> {
+//     export interface ForEachImplicitObjectWrapper<T> {
 //         <TValue>(iteratee?: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface ForEachExplicitWrapper<T> {
+//     export interface ForEachExplicitWrapper<T> {
 //         (iteratee: ListIterator<string, any>): LoDashExplicitWrapper<string>;
 //     }
 
-//     interface ForEachExplicitArrayWrapper<T> {
+//     export interface ForEachExplicitArrayWrapper<T> {
 //         (iteratee: ListIterator<T, any>): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface ForEachExplicitObjectWrapper<T> {
+//     export interface ForEachExplicitObjectWrapper<T> {
 //         <TValue>(iteratee?: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashExplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
 //         each: ForEachImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
 //         each: ForEachImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
 //         each: ForEachImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
 //         each: ForEachExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
 //         each: ForEachExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
@@ -4283,49 +4283,49 @@
 //     }
 
 //     //_.eachRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         eachRight: ForEachStatic;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         eachRight: ForEachImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         eachRight: ForEachImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         eachRight: ForEachImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         eachRight: ForEachExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         eachRight: ForEachExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
@@ -4333,7 +4333,7 @@
 //     }
 
 //     //_.every
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if predicate returns truthy for all elements of collection. Iteration is stopped once predicate
 //          * returns falsey. The predicate is invoked with three arguments: (value, index|key, collection).
@@ -4345,28 +4345,28 @@
 //         every: LoDashBooleanPredicateStatic;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.every
 //          */
 //         every: LoDashBooleanPredicateImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.every
 //          */
 //         every: LoDashBooleanPredicateImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.every
 //          */
 //         every: LoDashBooleanPredicateExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.every
 //          */
@@ -4374,7 +4374,7 @@
 //     }
 
 //     //_.filter
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Iterates over elements of collection, returning an array of all elements predicate returns truthy for. The
 //          * predicate is bound to thisArg and invoked with three arguments: (value, index|key, collection).
@@ -4396,42 +4396,42 @@
 //         filter: LoDashCollectionPredicateStatic;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.filter
 //          */
 //         filter: LoDashCollectionImplicitWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.filter
 //          */
 //         filter: LoDashCollectionPredicateImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.filter
 //          */
 //         filter: LoDashCollectionPredicateImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.filter
 //          */
 //         filter: LoDashCollectionExplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.filter
 //          */
 //         filter: LoDashCollectionPredicateExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.filter
 //          */
@@ -4439,7 +4439,7 @@
 //     }
 
 //     //_.find
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Iterates over elements of collection, returning the first element predicate returns truthy for.
 //          * The predicate is bound to thisArg and invoked with three arguments: (value, index|key, collection).
@@ -4476,12 +4476,12 @@
 //         find<TObject extends {}, T>(collection: List<T> | Dictionary<T>, predicate?: TObject): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.find
 //          */
 //         find(predicate?: ListIterator<T, boolean>): T;
-        
+
 //         /**
 //          * @see _.find
 //          */
@@ -4493,7 +4493,7 @@
 //         find<TObject extends {}>(predicate?: TObject): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.find
 //          */
@@ -4510,7 +4510,7 @@
 //     }
 
 //     //_.findLast
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //         * This method is like _.find except that it iterates over elements of a collection from
 //         * right to left.
@@ -4568,7 +4568,7 @@
 //         findLast<T>(collection: Dictionary<T>, pluckValue: string): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //         * @see _.findLast
 //         */
@@ -4587,7 +4587,7 @@
 //     }
 
 //     //_.forEach
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Iterates over elements of collection invoking iteratee for each element. The iteratee is bound to thisArg
 //          * and invoked with three arguments:
@@ -4625,42 +4625,42 @@
 //         forEach<T extends {}, TValue>(collection: T, iteratee?: ObjectIterator<TValue, any>): T;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
 //         forEach(iteratee: ListIterator<string, any>): LoDashImplicitWrapper<string>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
 //         forEach(iteratee: ListIterator<T, any>): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
 //         forEach<TValue>(iteratee?: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
 //         forEach(iteratee: ListIterator<string, any>): LoDashExplicitWrapper<string>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
 //         forEach(iteratee: ListIterator<T, any>): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forEach
 //          */
@@ -4668,7 +4668,7 @@
 //     }
 
 //     //_.forEachRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.forEach except that it iterates over elements of collection from right to left.
 //          *
@@ -4701,42 +4701,42 @@
 //         forEachRight<T extends {}, TValue>(collection: T, iteratee?: ObjectIterator<TValue, any>): T;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         forEachRight(iteratee: ListIterator<string, any>): LoDashImplicitWrapper<string>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         forEachRight(iteratee: ListIterator<T, any>): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         forEachRight<TValue>(iteratee?: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         forEachRight(iteratee: ListIterator<string, any>): LoDashExplicitWrapper<string>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
 //         forEachRight(iteratee: ListIterator<T, any>): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forEachRight
 //          */
@@ -4744,7 +4744,7 @@
 //     }
 
 //     //_.groupBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an object composed of keys generated from the results of running each element of collection through
 //          * iteratee. The corresponding value of each key is an array of the elements responsible for generating the
@@ -4803,14 +4803,14 @@
 //         groupBy<T>(collection: List<T> | Dictionary<T>, iteratee?: Object): Dictionary<T[]>;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
 //         groupBy<TKey>(iteratee?: ListIterator<T, TKey>): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
@@ -4827,7 +4827,7 @@
 //         groupBy<TWhere>(iteratee?: TWhere): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
@@ -4859,14 +4859,14 @@
 //         groupBy<T>(iteratee?: Object): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
 //         groupBy<TKey>(iteratee?: ListIterator<T, TKey>): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
@@ -4883,7 +4883,7 @@
 //         groupBy<TWhere>(iteratee?: TWhere): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
@@ -4916,7 +4916,7 @@
 //     }
 
 //     //_.includes
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if target is in collection using SameValueZero for equality comparisons. If fromIndex is negative,
 //          * it’s used as the offset from the end of collection.
@@ -4934,42 +4934,42 @@
 //         includes(collection: string, target: string, fromIndex?: number): boolean;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.includes
 //          */
 //         includes(target: T, fromIndex?: number): boolean;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.includes
 //          */
 //         includes<TValue>(target: TValue, fromIndex?: number): boolean;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.includes
 //          */
 //         includes(target: string, fromIndex?: number): boolean;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.includes
 //          */
 //         includes(target: T, fromIndex?: number): LoDashExplicitWrapper<boolean>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.includes
 //          */
 //         includes<TValue>(target: TValue, fromIndex?: number): LoDashExplicitWrapper<boolean>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.includes
 //          */
@@ -4977,7 +4977,7 @@
 //     }
 
 //     //_.keyBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an object composed of keys generated from the results of running each element of collection through
 //          * iteratee. The corresponding value of each key is the last element responsible for generating the key. The
@@ -5027,14 +5027,14 @@
 //         keyBy<T>(collection: List<T> | NumericDictionary<T> | Dictionary<T>, iteratee?: Object): Dictionary<T>;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
 //         keyBy(iteratee?: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<T>>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
@@ -5051,7 +5051,7 @@
 //         keyBy<W extends Object>(iteratee?: W): LoDashImplicitObjectWrapper<Dictionary<T>>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
@@ -5073,14 +5073,14 @@
 //         keyBy<T>(iteratee?: Object): LoDashImplicitObjectWrapper<Dictionary<T>>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
 //         keyBy(iteratee?: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<T>>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
@@ -5097,7 +5097,7 @@
 //         keyBy<W extends Object>(iteratee?: W): LoDashExplicitObjectWrapper<Dictionary<T>>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
@@ -5107,7 +5107,7 @@
 //          * @see _.keyBy
 //          */
 //         keyBy<T>(iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<T>>;
-        
+
 //         /**
 //          * @see _.keyBy
 //          */
@@ -5120,7 +5120,7 @@
 //     }
 
 //     //_.invokeMap
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //         * Invokes the method named by methodName on each element in the collection returning
 //         * an array of the results of each invoked method. Additional arguments will be provided
@@ -5168,19 +5168,7 @@
 //         invokeMap<TResult>(collection: Dictionary<{}>, method: (...args: any[]) => TResult, ...args: any[]): TResult[];
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
-//         /**
-//         * @see _.invokeMap
-//         **/
-//         invokeMap<TResult>(methodName: string, ...args: any[]): LoDashImplicitArrayWrapper<TResult>;
-        
-//         /**
-//         * @see _.invokeMap
-//         **/
-//         invokeMap<TResult>(method: (...args: any[]) => TResult, ...args: any[]): LoDashImplicitArrayWrapper<TResult>;
-//     }
-
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //         * @see _.invokeMap
 //         **/
@@ -5192,7 +5180,19 @@
 //         invokeMap<TResult>(method: (...args: any[]) => TResult, ...args: any[]): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
+//         /**
+//         * @see _.invokeMap
+//         **/
+//         invokeMap<TResult>(methodName: string, ...args: any[]): LoDashImplicitArrayWrapper<TResult>;
+
+//         /**
+//         * @see _.invokeMap
+//         **/
+//         invokeMap<TResult>(method: (...args: any[]) => TResult, ...args: any[]): LoDashImplicitArrayWrapper<TResult>;
+//     }
+
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //         * @see _.invokeMap
 //         **/
@@ -5204,7 +5204,7 @@
 //         invokeMap<TResult>(method: (...args: any[]) => TResult, ...args: any[]): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //         * @see _.invokeMap
 //         **/
@@ -5217,7 +5217,7 @@
 //     }
 
 //     //_.map
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of values by running each element in collection through iteratee. The iteratee is bound to
 //          * thisArg and invoked with three arguments: (value, index|key, collection).
@@ -5262,12 +5262,12 @@
 //         map<T, TObject extends {}>(collection: List<T> | Dictionary<T>, iteratee?: TObject): boolean[];
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.map
 //          */
 //         map<TResult>(iteratee?: ListIterator<T, TResult>): LoDashImplicitArrayWrapper<TResult>;
-        
+
 //         /**
 //          * @see _.map
 //          */
@@ -5279,7 +5279,7 @@
 //         map<TObject extends {}>(iteratee?: TObject): LoDashImplicitArrayWrapper<boolean>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.map
 //          */
@@ -5296,7 +5296,7 @@
 //         map<TObject extends {}>(iteratee?: TObject): LoDashImplicitArrayWrapper<boolean>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.map
 //          */
@@ -5313,7 +5313,7 @@
 //         map<TObject extends {}>(iteratee?: TObject): LoDashExplicitArrayWrapper<boolean>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.map
 //          */
@@ -5331,7 +5331,7 @@
 //     }
 
 //     //_.partition
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //         * Creates an array of elements split into two groups, the first of which contains elements predicate returns truthy for,
 //         * while the second of which contains elements predicate returns falsey for.
@@ -5389,14 +5389,14 @@
 //         partition<T>(collection: Dictionary<T>, pluckValue: string): T[][];
 //     }
 
-//     interface LoDashImplicitStringWrapper {
+//     export interface LoDashImplicitStringWrapper {
 //         /**
 //          * @see _.partition
 //          */
 //         partition(callback: ListIterator<string, boolean>): LoDashImplicitArrayWrapper<string[]>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.partition
 //          */
@@ -5415,7 +5415,7 @@
 //         partition(pluckValue: string): LoDashImplicitArrayWrapper<T[]>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.partition
 //          */
@@ -5443,7 +5443,7 @@
 //     }
 
 //     //_.reduce
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //         * Reduces a collection to a value which is the accumulated result of running each
 //         * element in the collection through the callback, where each successive callback execution
@@ -5485,7 +5485,7 @@
 
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //        * @see _.reduce
 //        **/
@@ -5497,7 +5497,7 @@
 //         reduce<TResult>(callback: MemoIterator<T, TResult>): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //        * @see _.reduce
 //        **/
@@ -5510,7 +5510,7 @@
 //     }
 
 //     //_.reduceRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //         * This method is like _.reduce except that it iterates over elements of a collection from
 //         * right to left.
@@ -5531,7 +5531,7 @@
 //         * @see _.reduceRight
 //         **/
 //         reduceRight<T, TResult>(collection: Dictionary<T>, callback: MemoIterator<T, TResult>, accumulator: TResult): TResult;
-            
+
 //         /**
 //         * @see _.reduceRight
 //         **/
@@ -5549,7 +5549,7 @@
 //     }
 
 //     //_.reject
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * The opposite of _.filter; this method returns the elements of collection that predicate does not return
 //          * truthy for.
@@ -5582,14 +5582,14 @@
 //         reject<W extends {}, T>(collection: List<T> | Dictionary<T>, predicate: W): T[];
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.reject
 //          */
 //         reject(predicate?: StringIterator<boolean>): LoDashImplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.reject
 //          */
@@ -5606,7 +5606,7 @@
 //         reject<W>(predicate: W): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.reject
 //          */
@@ -5623,14 +5623,14 @@
 //         reject<W, T>(predicate: W): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.reject
 //          */
 //         reject(predicate?: StringIterator<boolean>): LoDashExplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.reject
 //          */
@@ -5647,7 +5647,7 @@
 //         reject<W>(predicate: W): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.reject
 //          */
@@ -5665,7 +5665,7 @@
 //     }
 
 //     //_.sample
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Gets a random element from `collection`.
 //          *
@@ -5692,7 +5692,7 @@
 //         sample<T>(collection: Dictionary<T>): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sample
 //          **/
@@ -5700,7 +5700,7 @@
 //     }
 
 //     //_.sampleSize
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Gets `n` random elements from `collection`.
 //          *
@@ -5728,7 +5728,7 @@
 //         sampleSize<T>(collection: Dictionary<T>, n: number): T[];
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sampleSize
 //          **/
@@ -5741,7 +5741,7 @@
 //     }
 
 //     //_.shuffle
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of shuffled values, using a version of the Fisher-Yates shuffle.
 //          *
@@ -5756,42 +5756,42 @@
 //         shuffle(collection: string): string[];
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.shuffle
 //          */
 //         shuffle(): LoDashImplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.shuffle
 //          */
 //         shuffle: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.shuffle
 //          */
 //         shuffle: LoDashImplicitReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.shuffle
 //          */
 //         shuffle(): LoDashExplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.shuffle
 //          */
 //         shuffle: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.shuffle
 //          */
@@ -5799,7 +5799,7 @@
 //     }
 
 //     //_.size
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Gets the size of collection by returning its length for array-like values or the number of own enumerable
 //          * properties for objects.
@@ -5815,42 +5815,42 @@
 //         size(collection: string): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.size
 //          */
 //         size(): number;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.size
 //          */
 //         size(): number;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.size
 //          */
 //         size(): number;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.size
 //          */
 //         size(): LoDashExplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.size
 //          */
 //         size(): LoDashExplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.size
 //          */
@@ -5858,7 +5858,7 @@
 //     }
 
 //     //_.some
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if predicate returns truthy for any element of collection. Iteration is stopped once predicate
 //          * returns truthy. The predicate is invoked with three arguments: (value, index|key, collection).
@@ -5890,7 +5890,7 @@
 //         some<TObject extends {}, T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, predicate?: TObject): boolean;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.some
 //          */
@@ -5907,7 +5907,7 @@
 //         some<TObject extends {}>(predicate?: TObject): boolean;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.some
 //          */
@@ -5924,7 +5924,7 @@
 //         some<TObject extends {}>(predicate?: TObject): boolean;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.some
 //          */
@@ -5941,7 +5941,7 @@
 //         some<TObject extends {}>(predicate?: TObject): LoDashExplicitWrapper<boolean>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.some
 //          */
@@ -5959,7 +5959,7 @@
 //     }
 
 //     //_.sortBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of elements, sorted in ascending order by the results of
 //          * running each element in a collection through each iteratee. This method
@@ -6019,14 +6019,14 @@
 //          * @see _.sortBy
 //          */
 //         sortBy<T>(collection: (Array<T> | List<T>), iteratees: (ListIterator<T, any> | string | Object)[]): T[];
-        
+
 //         /**
 //          * @see _.sortBy
 //          */
 //         sortBy<T>(collection: (Array<T> | List<T>), ...iteratees: (ListIterator<T, boolean> | Object | string)[]): T[];
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortBy
 //          */
@@ -6058,7 +6058,7 @@
 //         sortBy(iteratees: (ListIterator<T, any> | string | Object)[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortBy
 //          */
@@ -6082,7 +6082,7 @@
 //         sortBy<T>(): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sortBy
 //          */
@@ -6104,7 +6104,7 @@
 //         sortBy(): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sortBy
 //          */
@@ -6129,7 +6129,7 @@
 //     }
 
 //     //_.orderBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.sortBy` except that it allows specifying the sort
 //          * orders of the iteratees to sort by. If `orders` is unspecified, all values
@@ -6185,26 +6185,26 @@
 //         orderBy<T>(collection: Dictionary<T>, iteratees: DictionaryIterator<T, any> | string | Object | (DictionaryIterator<T, any> | string | Object)[], orders?: boolean | string | (boolean | string)[]): T[];
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.orderBy
 //          */
 //         orderBy(iteratees: ListIterator<T, any> | string | (ListIterator<T, any> | string)[], orders?: boolean | string | (boolean | string)[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.orderBy
 //          */
 //         orderBy<W extends Object>(iteratees: ListIterator<T, any> | string | W | (ListIterator<T, any> | string | W)[], orders?: boolean | string | (boolean | string)[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.orderBy
 //          */
 //         orderBy<W extends Object, T>(iteratees: ListIterator<T, any> | string | W | (ListIterator<T, any> | string | W)[], orders?: boolean | string | (boolean | string)[]): LoDashImplicitArrayWrapper<T>;
-        
+
 //         /**
 //          * @see _.orderBy
 //          */
@@ -6231,21 +6231,21 @@
 //         orderBy<T>(iteratees: DictionaryIterator<T, any> | string | Object | (DictionaryIterator<T, any> | string | Object)[], orders?: boolean | string | (boolean | string)[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.orderBy
 //          */
 //         orderBy(iteratees: ListIterator<T, any> | string | (ListIterator<T, any> | string)[], orders?: boolean | string | (boolean | string)[]): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.orderBy
 //          */
 //         orderBy<W extends Object>(iteratees: ListIterator<T, any> | string | W | (ListIterator<T, any> | string | W)[], orders?: boolean | string | (boolean | string)[]): LoDashExplicitArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.orderBy
 //          */
@@ -6282,7 +6282,7 @@
 //      ********/
 
 //     //_.now
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Gets the number of milliseconds that have elapsed since the Unix epoch (1 January 1970 00:00:00 UTC).
 //          *
@@ -6291,14 +6291,14 @@
 //         now(): number;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.now
 //          */
 //         now(): number;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.now
 //          */
@@ -6310,7 +6310,7 @@
 //      *************/
 
 //     //_.after
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * The opposite of _.before; this method creates a function that invokes func once it’s called n or more times.
 //          *
@@ -6321,14 +6321,14 @@
 //         after<TFunc extends Function>(n: number, func: TFunc): TFunc;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //         * @see _.after
 //         **/
 //         after<TFunc extends Function>(func: TFunc): LoDashImplicitObjectWrapper<TFunc>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.after
 //          **/
@@ -6336,7 +6336,7 @@
 //     }
 
 //     //_.ary
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that accepts up to n arguments ignoring any additional arguments.
 //          *
@@ -6349,14 +6349,14 @@
 //         ary<T extends Function, TResult extends Function>(func: T, n?: number): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.ary
 //          */
 //         ary<TResult extends Function>(n?: number): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.ary
 //          */
@@ -6364,7 +6364,7 @@
 //     }
 
 //     //_.before
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that invokes func, with the this binding and arguments of the created function, while
 //          * it’s called less than n times. Subsequent calls to the created function return the result of the last func
@@ -6377,14 +6377,14 @@
 //         before<TFunc extends Function>(n: number, func: TFunc): TFunc;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.before
 //          **/
 //         before<TFunc extends Function>(func: TFunc): LoDashImplicitObjectWrapper<TFunc>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.before
 //          **/
@@ -6392,13 +6392,13 @@
 //     }
 
 //     //_.bind
-//     interface FunctionBind {
+//     export interface FunctionBind {
 //         placeholder: any;
 //         <T extends Function, TResult extends Function>(func: T, ...partials: any[]): TResult;
 //         <TResult extends Function>(func: Function, ...partials: any[]): TResult;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that invokes func with the this binding of thisArg and prepends any additional _.bind
 //          * arguments to those provided to the bound function.
@@ -6416,14 +6416,14 @@
 //         bind: FunctionBind;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.bind
 //          */
 //         bind<TResult extends Function>(...partials: any[]): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.bind
 //          */
@@ -6431,7 +6431,7 @@
 //     }
 
 //     //_.bindAll
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Binds methods of an object to the object itself, overwriting the existing method. Method names may be
 //          * specified as individual arguments or as arrays of method names. If no method names are provided all
@@ -6447,14 +6447,14 @@
 //         bindAll<T>(object: T, ...methodNames: (string | string[])[]): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.bindAll
 //          */
 //         bindAll(...methodNames: (string | string[])[]): LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.bindAll
 //          */
@@ -6462,13 +6462,13 @@
 //     }
 
 //     //_.bindKey
-//     interface FunctionBindKey {
+//     export interface FunctionBindKey {
 //         placeholder: any;
 //         <T extends Object, TResult extends Function>(object: T, key: any, ...partials: any[]): TResult;
 //         <TResult extends Function>(object: Object, key: any, ...partials: any[]): TResult;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that invokes the method at object[key] and prepends any additional _.bindKey arguments
 //          * to those provided to the bound function.
@@ -6487,14 +6487,14 @@
 //         bindKey: FunctionBindKey;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.bindKey
 //          */
 //         bindKey<TResult extends Function>(key: any, ...partials: any[]): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.bindKey
 //          */
@@ -6502,7 +6502,7 @@
 //     }
 
 //     //_.createCallback
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //         * Produces a callback bound to an optional thisArg. If func is a property name the created
 //         * callback will return the property value for a given element. If func is an object the created
@@ -6521,14 +6521,14 @@
 //         createCallback(func: Dictionary<any>, argCount?: number): () => boolean;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //         * @see _.createCallback
 //         **/
 //         createCallback(argCount?: number): LoDashImplicitObjectWrapper<() => any>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //         * @see _.createCallback
 //         **/
@@ -6536,7 +6536,7 @@
 //     }
 
 //     //_.curry
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that accepts one or more arguments of func that when called either invokes func returning
 //          * its result, if all func arguments have been provided, or returns a function that accepts one or more of the
@@ -6588,25 +6588,25 @@
 //         curry<TResult extends Function>(func: Function, arity?: number): TResult;
 //     }
 
-//     interface CurriedFunction1<T1, R> {
+//     export interface CurriedFunction1<T1, R> {
 //         (): CurriedFunction1<T1, R>;
 //         (t1: T1): R;
 //     }
 
-//     interface CurriedFunction2<T1, T2, R> {
+//     export interface CurriedFunction2<T1, T2, R> {
 //         (): CurriedFunction2<T1, T2, R>;
 //         (t1: T1): CurriedFunction1<T2, R>;
 //         (t1: T1, t2: T2): R;
 //     }
 
-//     interface CurriedFunction3<T1, T2, T3, R> {
+//     export interface CurriedFunction3<T1, T2, T3, R> {
 //         (): CurriedFunction3<T1, T2, T3, R>;
 //         (t1: T1): CurriedFunction2<T2, T3, R>;
 //         (t1: T1, t2: T2): CurriedFunction1<T3, R>;
 //         (t1: T1, t2: T2, t3: T3): R;
 //     }
 
-//     interface CurriedFunction4<T1, T2, T3, T4, R> {
+//     export interface CurriedFunction4<T1, T2, T3, T4, R> {
 //         (): CurriedFunction4<T1, T2, T3, T4, R>;
 //         (t1: T1): CurriedFunction3<T2, T3, T4, R>;
 //         (t1: T1, t2: T2): CurriedFunction2<T3, T4, R>;
@@ -6614,7 +6614,7 @@
 //         (t1: T1, t2: T2, t3: T3, t4: T4): R;
 //     }
 
-//     interface CurriedFunction5<T1, T2, T3, T4, T5, R> {
+//     export interface CurriedFunction5<T1, T2, T3, T4, T5, R> {
 //         (): CurriedFunction5<T1, T2, T3, T4, T5, R>;
 //         (t1: T1): CurriedFunction4<T2, T3, T4, T5, R>;
 //         (t1: T1, t2: T2): CurriedFunction3<T3, T4, T5, R>;
@@ -6623,7 +6623,7 @@
 //         (t1: T1, t2: T2, t3: T3, t4: T4, t5: T5): R;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //         * @see _.curry
 //         **/
@@ -6631,7 +6631,7 @@
 //     }
 
 //     //_.curryRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.curry except that arguments are applied to func in the manner of _.partialRight
 //          * instead of _.partial.
@@ -6677,7 +6677,7 @@
 //         curryRight<TResult extends Function>(func: Function, arity?: number): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.curryRight
 //          **/
@@ -6685,7 +6685,7 @@
 //     }
 
 //     //_.debounce
-//     interface DebounceSettings {
+//     export interface DebounceSettings {
 //         /**
 //          * Specify invoking on the leading edge of the timeout.
 //          */
@@ -6702,7 +6702,7 @@
 //         trailing?: boolean;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a debounced function that delays invoking func until after wait milliseconds have elapsed since
 //          * the last time the debounced function was invoked. The debounced function comes with a cancel method to
@@ -6726,14 +6726,14 @@
 //         debounce<T extends Function>(func: T, wait?: number, options?: DebounceSettings): T & Cancelable;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.debounce
 //          */
 //         debounce(wait?: number, options?: DebounceSettings): LoDashImplicitObjectWrapper<T & Cancelable>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.debounce
 //          */
@@ -6741,7 +6741,7 @@
 //     }
 
 //     //_.defer
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Defers invoking the func until the current call stack has cleared. Any additional arguments are provided to
 //          * func when it’s invoked.
@@ -6753,14 +6753,14 @@
 //         defer<T extends Function>(func: T, ...args: any[]): number;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.defer
 //          */
 //         defer(...args: any[]): LoDashImplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.defer
 //          */
@@ -6768,7 +6768,7 @@
 //     }
 
 //     //_.delay
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Invokes func after wait milliseconds. Any additional arguments are provided to func when it’s invoked.
 //          *
@@ -6780,21 +6780,21 @@
 //         delay<T extends Function>(func: T, wait: number, ...args: any[]): number;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.delay
 //          */
 //         delay(wait: number, ...args: any[]): LoDashImplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.delay
 //          */
 //         delay(wait: number, ...args: any[]): LoDashExplicitWrapper<number>;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that invokes `func` with arguments reversed.
 //          *
@@ -6815,14 +6815,14 @@
 //         flip<T extends Function>(func: T): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.flip
 //          */
 //         flip: LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.flip
 //          */
@@ -6830,7 +6830,7 @@
 //     }
 
 //     //_.flow
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that returns the result of invoking the provided functions with the this binding of the
 //          * created function, where each successive invocation is supplied the return value of the previous.
@@ -6841,14 +6841,14 @@
 //         flow<TResult extends Function>(...funcs: Function[]): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.flow
 //          */
 //         flow<TResult extends Function>(...funcs: Function[]): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.flow
 //          */
@@ -6856,7 +6856,7 @@
 //     }
 
 //     //_.flowRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.flow except that it creates a function that invokes the provided functions from right
 //          * to left.
@@ -6867,14 +6867,14 @@
 //         flowRight<TResult extends Function>(...funcs: Function[]): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.flowRight
 //          */
 //         flowRight<TResult extends Function>(...funcs: Function[]): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.flowRight
 //          */
@@ -6883,11 +6883,11 @@
 
 
 //     //_.memoize
-//     interface MemoizedFunction extends Function {
+//     export interface MemoizedFunction extends Function {
 //         cache: MapCache;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that memoizes the result of func. If resolver is provided it determines the cache key for
 //          * storing the result based on the arguments provided to the memoized function. By default, the first argument
@@ -6903,7 +6903,7 @@
 //         }
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.memoize
 //          */
@@ -6911,7 +6911,7 @@
 //     }
 
 //     //_.overArgs (was _.modArgs)
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that runs each argument through a corresponding transform function.
 //          *
@@ -6928,7 +6928,7 @@
 //         overArgs<T extends Function, TResult extends Function>(func: T, transforms: Function[]): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.overArgs
 //          */
@@ -6940,7 +6940,7 @@
 //         overArgs<TResult extends Function>(transforms: Function[]): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.overArgs
 //          */
@@ -6953,7 +6953,7 @@
 //     }
 
 //     //_.negate
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that negates the result of the predicate func. The func predicate is invoked with
 //          * the this binding and arguments of the created function.
@@ -6969,7 +6969,7 @@
 //         negate<T extends Function, TResult extends Function>(predicate: T): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.negate
 //          */
@@ -6981,7 +6981,7 @@
 //         negate<TResult extends Function>(): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.negate
 //          */
@@ -6994,7 +6994,7 @@
 //     }
 
 //     //_.once
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that is restricted to invoking func once. Repeat calls to the function return the value
 //          * of the first call. The func is invoked with the this binding and arguments of the created function.
@@ -7005,14 +7005,14 @@
 //         once<T extends Function>(func: T): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.once
 //          */
 //         once: LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.once
 //          */
@@ -7020,7 +7020,7 @@
 //     }
 
 //     //_.partial
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //         * Creates a function that, when called, invokes func with any additional partial arguments
 //         * prepended to those provided to the new function. This method is similar to _.bind except
@@ -7032,25 +7032,25 @@
 //         partial: Partial;
 //     }
 
-//     type PH = LoDashStatic;
+//    export type PH = LoDashStatic;
 
-//     interface Function0<R> {
+//     export interface Function0<R> {
 //         (): R;
 //     }
-//     interface Function1<T1, R> {
+//     export interface Function1<T1, R> {
 //         (t1: T1): R;
 //     }
-//     interface Function2<T1, T2, R> {
+//     export interface Function2<T1, T2, R> {
 //         (t1: T1, t2: T2): R;
 //     }
-//     interface Function3<T1, T2, T3, R> {
+//     export interface Function3<T1, T2, T3, R> {
 //         (t1: T1, t2: T2, t3: T3): R;
 //     }
-//     interface Function4<T1, T2, T3, T4, R> {
+//     export interface Function4<T1, T2, T3, T4, R> {
 //         (t1: T1, t2: T2, t3: T3, t4: T4): R;
 //     }
 
-//     interface Partial {
+//     export interface Partial {
 //         // arity 0
 //         <R>(func: Function0<R>): Function0<R>;
 //         // arity 1
@@ -7092,7 +7092,7 @@
 //     }
 
 //     //_.partialRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //         * This method is like _.partial except that partial arguments are appended to those provided
 //         * to the new function.
@@ -7103,7 +7103,7 @@
 //         partialRight: PartialRight
 //     }
 
-//     interface PartialRight {
+//     export interface PartialRight {
 //         // arity 0
 //         <R>(func: Function0<R>): Function0<R>;
 //         // arity 1
@@ -7145,7 +7145,7 @@
 //     }
 
 //     //_.rearg
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that invokes func with arguments arranged according to the specified indexes where the
 //          * argument value at the first index is provided as the first argument, the argument value at the second index
@@ -7162,7 +7162,7 @@
 //         rearg<TResult extends Function>(func: Function, ...indexes: number[]): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.rearg
 //          */
@@ -7175,7 +7175,7 @@
 //     }
 
 //     //_.rest
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that invokes func with the this binding of the created function and arguments from start
 //          * and beyond provided as an array.
@@ -7194,14 +7194,14 @@
 //         rest<TResult extends Function, TFunc extends Function>(func: TFunc, start?: number): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.rest
 //          */
 //         rest<TResult extends Function>(start?: number): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.rest
 //          */
@@ -7209,7 +7209,7 @@
 //     }
 
 //     //_.spread
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that invokes func with the this binding of the created function and an array of arguments
 //          * much like Function#apply.
@@ -7227,14 +7227,14 @@
 //         spread<T extends Function>(func: Function): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.spread
 //          */
 //         spread<T extends Function>(): LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.spread
 //          */
@@ -7242,7 +7242,7 @@
 //     }
 
 //     //_.throttle
-//     interface ThrottleSettings {
+//     export interface ThrottleSettings {
 //         /**
 //          * If you'd like to disable the leading-edge call, pass this as false.
 //          */
@@ -7254,7 +7254,7 @@
 //         trailing?: boolean;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a throttled function that only invokes func at most once per every wait milliseconds. The throttled
 //          * function comes with a cancel method to cancel delayed invocations. Provide an options object to indicate
@@ -7274,14 +7274,14 @@
 //         throttle<T extends Function>(func: T, wait?: number, options?: ThrottleSettings): T & Cancelable;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.throttle
 //          */
 //         throttle(wait?: number, options?: ThrottleSettings): LoDashImplicitObjectWrapper<T & Cancelable>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.throttle
 //          */
@@ -7289,7 +7289,7 @@
 //     }
 
 //     //_.unary
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that accepts up to one argument, ignoring any
 //          * additional arguments.
@@ -7307,14 +7307,14 @@
 //         unary<T extends Function>(func: T): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unary
 //          */
 //         unary: LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unary
 //          */
@@ -7322,7 +7322,7 @@
 //     }
 
 //     //_.wrap
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that provides value to the wrapper function as its first argument. Any additional
 //          * arguments provided to the function are appended to those provided to the wrapper function. The wrapper is
@@ -7345,7 +7345,7 @@
 //         wrap<R extends Function>(value: any, wrapper: Function): R;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.wrap
 //          */
@@ -7357,7 +7357,7 @@
 //         wrap<R extends Function>(wrapper: Function): LoDashImplicitObjectWrapper<R>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.wrap
 //          */
@@ -7369,7 +7369,7 @@
 //         wrap<R extends Function>(wrapper: Function): LoDashImplicitObjectWrapper<R>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.wrap
 //          */
@@ -7381,7 +7381,7 @@
 //         wrap<R extends Function>(wrapper: Function): LoDashImplicitObjectWrapper<R>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.wrap
 //          */
@@ -7393,7 +7393,7 @@
 //         wrap<R extends Function>(wrapper: Function): LoDashExplicitObjectWrapper<R>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.wrap
 //          */
@@ -7405,7 +7405,7 @@
 //         wrap<R extends Function>(wrapper: Function): LoDashExplicitObjectWrapper<R>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.wrap
 //          */
@@ -7422,7 +7422,7 @@
 //      ********/
 
 //     //_.clone
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a shallow clone of `value`.
 //          *
@@ -7450,14 +7450,14 @@
 //         clone<T>(value: T): T;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.clone
 //          */
 //         clone(): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 
 //         /**
 //          * @see _.clone
@@ -7465,7 +7465,7 @@
 //         clone(): T[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.clone
 //          */
@@ -7473,7 +7473,7 @@
 //     }
 
 //     //_.cloneDeep
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.clone` except that it recursively clones `value`.
 //          *
@@ -7493,21 +7493,21 @@
 //         cloneDeep<T>(value: T): T;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.cloneDeep
 //          */
 //         cloneDeep(): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.cloneDeep
 //          */
 //         cloneDeep(): T[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.cloneDeep
 //          */
@@ -7515,7 +7515,7 @@
 //     }
 
 //     //_.cloneWith
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a shallow clone of `value`.
 //          *
@@ -7543,14 +7543,14 @@
 //         clone<T>(value: T, customizer: (value: any) => any): T;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.clone
 //          */
 //         clone(customizer: (value: any) => any): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 
 //         /**
 //          * @see _.clone
@@ -7558,7 +7558,7 @@
 //         clone(customizer: (value: any) => any): T[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.clone
 //          */
@@ -7566,7 +7566,7 @@
 //     }
 
 //     //_.cloneDeepWith
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a deep clone of value. If customizer is provided it’s invoked to produce the cloned values. If
 //          * customizer returns undefined cloning is handled by the method instead. The customizer is bound to thisArg
@@ -7582,21 +7582,21 @@
 //         cloneDeep<T>(value: T, customizer: (value: any) => any): T;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.cloneDeep
 //          */
 //         cloneDeep(customizer: (value: any) => any): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.cloneDeep
 //          */
 //         cloneDeep(customizer: (value: any) => any): T[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.cloneDeep
 //          */
@@ -7604,7 +7604,7 @@
 //     }
 
 //     //_.eq
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Performs a [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
 //          * comparison between two values to determine if they are equivalent.
@@ -7638,14 +7638,14 @@
 //         eq(value: any, other: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isEqual
 //          */
 //         eq(other: any): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isEqual
 //          */
@@ -7653,7 +7653,7 @@
 //     }
 
 //     //_.gt
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is greater than other.
 //          *
@@ -7664,14 +7664,14 @@
 //         gt(value: any, other: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.gt
 //          */
 //         gt(other: any): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.gt
 //          */
@@ -7679,7 +7679,7 @@
 //     }
 
 //     //_.gte
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is greater than or equal to other.
 //          *
@@ -7690,14 +7690,14 @@
 //         gte(value: any, other: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.gte
 //          */
 //         gte(other: any): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.gte
 //          */
@@ -7705,7 +7705,7 @@
 //     }
 
 //     //_.isArguments
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is classified as an arguments object.
 //          *
@@ -7715,14 +7715,14 @@
 //         isArguments(value?: any): value is IArguments;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isArguments
 //          */
 //         isArguments(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isArguments
 //          */
@@ -7730,7 +7730,7 @@
 //     }
 
 //     //_.isArray
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is classified as an Array object.
 //          * @param value The value to check.
@@ -7740,14 +7740,14 @@
 //         isArray<T>(value?: any): value is T[];
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isArray
 //          */
 //         isArray(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isArray
 //          */
@@ -7755,7 +7755,7 @@
 //     }
 
 //     //_.isArrayLike
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if `value` is array-like. A value is considered array-like if it's
 //          * not a function and has a `value.length` that's an integer greater than or
@@ -7784,14 +7784,14 @@
 //         isArrayLike<T>(value?: any): value is T[];
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isArrayLike
 //          */
 //         isArrayLike(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isArrayLike
 //          */
@@ -7799,7 +7799,7 @@
 //     }
 
 //     //_.isArrayLikeObject
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.isArrayLike` except that it also checks if `value`
 //          * is an object.
@@ -7827,14 +7827,14 @@
 //         isArrayLikeObject<T>(value?: any): value is T[];
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isArrayLikeObject
 //          */
 //         isArrayLikeObject(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isArrayLikeObject
 //          */
@@ -7842,7 +7842,7 @@
 //     }
 
 //     //_.isBoolean
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is classified as a boolean primitive or object.
 //          *
@@ -7852,14 +7852,14 @@
 //         isBoolean(value?: any): value is boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isBoolean
 //          */
 //         isBoolean(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isBoolean
 //          */
@@ -7867,7 +7867,7 @@
 //     }
 
 //     //_.isDate
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is classified as a Date object.
 //          * @param value The value to check.
@@ -7877,14 +7877,14 @@
 //         isDate(value?: any): value is Date;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isDate
 //          */
 //         isDate(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isDate
 //          */
@@ -7892,7 +7892,7 @@
 //     }
 
 //     //_.isElement
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is a DOM element.
 //          *
@@ -7902,14 +7902,14 @@
 //         isElement(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isElement
 //          */
 //         isElement(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isElement
 //          */
@@ -7917,7 +7917,7 @@
 //     }
 
 //     //_.isEmpty
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is empty. A value is considered empty unless it’s an arguments object, array, string, or
 //          * jQuery-like collection with a length greater than 0 or an object with own enumerable properties.
@@ -7928,14 +7928,14 @@
 //         isEmpty(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isEmpty
 //          */
 //         isEmpty(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isEmpty
 //          */
@@ -7943,7 +7943,7 @@
 //     }
 
 //     //_.isEqual
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Performs a deep comparison between two values to determine if they are
 //          * equivalent.
@@ -7974,14 +7974,14 @@
 //         isEqual(value: any, other: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isEqual
 //          */
 //         isEqual(other: any): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isEqual
 //          */
@@ -7989,11 +7989,11 @@
 //     }
 
 //     // _.isEqualWith
-//     interface IsEqualCustomizer {
+//     export interface IsEqualCustomizer {
 //         (value: any, other: any, indexOrKey?: number | string): boolean;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.isEqual` except that it accepts `customizer` which is
 //          * invoked to compare values. If `customizer` returns `undefined` comparisons are
@@ -8028,14 +8028,14 @@
 //         isEqualWith(value: any, other: any, customizer: IsEqualCustomizer): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isEqualWith
 //          */
 //         isEqualWith(other: any, customizer: IsEqualCustomizer): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isEqualWith
 //          */
@@ -8043,7 +8043,7 @@
 //     }
 
 //     //_.isError
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is an Error, EvalError, RangeError, ReferenceError, SyntaxError, TypeError, or URIError
 //          * object.
@@ -8054,14 +8054,14 @@
 //         isError(value: any): value is Error;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isError
 //          */
 //         isError(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isError
 //          */
@@ -8069,7 +8069,7 @@
 //     }
 
 //     //_.isFinite
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is a finite primitive number.
 //          *
@@ -8081,14 +8081,14 @@
 //         isFinite(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isFinite
 //          */
 //         isFinite(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isFinite
 //          */
@@ -8096,7 +8096,7 @@
 //     }
 
 //     //_.isFunction
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is classified as a Function object.
 //          *
@@ -8106,14 +8106,14 @@
 //         isFunction(value?: any): value is Function;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isFunction
 //          */
 //         isFunction(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isFunction
 //          */
@@ -8121,7 +8121,7 @@
 //     }
 
 //     //_.isInteger
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if `value` is an integer.
 //          *
@@ -8149,14 +8149,14 @@
 //         isInteger(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isInteger
 //          */
 //         isInteger(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isInteger
 //          */
@@ -8164,7 +8164,7 @@
 //     }
 
 //     //_.isLength
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if `value` is a valid array-like length.
 //          *
@@ -8192,14 +8192,14 @@
 //         isLength(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isLength
 //          */
 //         isLength(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isLength
 //          */
@@ -8207,11 +8207,11 @@
 //     }
 
 //     //_.isMatch
-//     interface isMatchCustomizer {
+//     export interface isMatchCustomizer {
 //         (value: any, other: any, indexOrKey?: number | string): boolean;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Performs a deep comparison between `object` and `source` to determine if
 //          * `object` contains equivalent property values.
@@ -8237,7 +8237,7 @@
 //         isMatch(object: Object, source: Object): boolean;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.isMatch
 //          */
@@ -8245,11 +8245,11 @@
 //     }
 
 //     //_.isMatchWith
-//     interface isMatchWithCustomizer {
+//     export interface isMatchWithCustomizer {
 //         (value: any, other: any, indexOrKey?: number | string): boolean;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.isMatch` except that it accepts `customizer` which
 //          * is invoked to compare values. If `customizer` returns `undefined` comparisons
@@ -8284,7 +8284,7 @@
 //         isMatchWith(object: Object, source: Object, customizer: isMatchWithCustomizer): boolean;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.isMatchWith
 //          */
@@ -8292,7 +8292,7 @@
 //     }
 
 //     //_.isNaN
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is NaN.
 //          *
@@ -8304,14 +8304,14 @@
 //         isNaN(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isNaN
 //          */
 //         isNaN(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.isNaN
 //          */
@@ -8319,7 +8319,7 @@
 //     }
 
 //     //_.isNative
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is a native function.
 //          * @param value The value to check.
@@ -8329,14 +8329,14 @@
 //         isNative(value: any): value is Function;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isNative
 //          */
 //         isNative(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isNative
 //          */
@@ -8344,7 +8344,7 @@
 //     }
 
 //     //_.isNil
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if `value` is `null` or `undefined`.
 //          *
@@ -8367,14 +8367,14 @@
 //         isNil(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isNil
 //          */
 //         isNil(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isNil
 //          */
@@ -8382,7 +8382,7 @@
 //     }
 
 //     //_.isNull
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is null.
 //          *
@@ -8392,14 +8392,14 @@
 //         isNull(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isNull
 //          */
 //         isNull(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isNull
 //          */
@@ -8407,7 +8407,7 @@
 //     }
 
 //     //_.isNumber
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is classified as a Number primitive or object.
 //          *
@@ -8419,14 +8419,14 @@
 //         isNumber(value?: any): value is number;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isNumber
 //          */
 //         isNumber(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isNumber
 //          */
@@ -8434,9 +8434,9 @@
 //     }
 
 //     //_.isObject
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
-//          * Checks if value is the language type of Object. (e.g. arrays, functions, objects, regexes, new Number(0),
+//          * Checks if value is the languageexport type of Object. (e.g. arrays, functions, objects, regexes, new Number(0),
 //          * and new String(''))
 //          *
 //          * @param value The value to check.
@@ -8445,14 +8445,14 @@
 //         isObject(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isObject
 //          */
 //         isObject(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isObject
 //          */
@@ -8460,7 +8460,7 @@
 //     }
 
 //     //_.isObjectLike
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if `value` is object-like. A value is object-like if it's not `null`
 //          * and has a `typeof` result of "object".
@@ -8487,14 +8487,14 @@
 //         isObjectLike(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isObjectLike
 //          */
 //         isObjectLike(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isObjectLike
 //          */
@@ -8502,7 +8502,7 @@
 //     }
 
 //     //_.isPlainObject
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is a plain object, that is, an object created by the Object constructor or one with a
 //          * [[Prototype]] of null.
@@ -8515,14 +8515,14 @@
 //         isPlainObject(value?: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isPlainObject
 //          */
 //         isPlainObject(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isPlainObject
 //          */
@@ -8530,7 +8530,7 @@
 //     }
 
 //     //_.isRegExp
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is classified as a RegExp object.
 //          * @param value The value to check.
@@ -8540,14 +8540,14 @@
 //         isRegExp(value?: any): value is RegExp;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isRegExp
 //          */
 //         isRegExp(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isRegExp
 //          */
@@ -8555,7 +8555,7 @@
 //     }
 
 //     //_.isSafeInteger
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if `value` is a safe integer. An integer is safe if it's an IEEE-754
 //          * double precision number which isn't the result of a rounded unsafe integer.
@@ -8584,14 +8584,14 @@
 //         isSafeInteger(value: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isSafeInteger
 //          */
 //         isSafeInteger(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isSafeInteger
 //          */
@@ -8599,7 +8599,7 @@
 //     }
 
 //     //_.isString
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is classified as a String primitive or object.
 //          *
@@ -8609,14 +8609,14 @@
 //         isString(value?: any): value is string;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isString
 //          */
 //         isString(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isString
 //          */
@@ -8624,7 +8624,7 @@
 //     }
 
 //     //_.isSymbol
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if `value` is classified as a `Symbol` primitive or object.
 //          *
@@ -8644,14 +8644,14 @@
 //         isSymbol(value: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isSymbol
 //          */
 //         isSymbol(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isSymbol
 //          */
@@ -8659,7 +8659,7 @@
 //     }
 
 //     //_.isTypedArray
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is classified as a typed array.
 //          *
@@ -8669,14 +8669,14 @@
 //         isTypedArray(value: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isTypedArray
 //          */
 //         isTypedArray(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isTypedArray
 //          */
@@ -8684,7 +8684,7 @@
 //     }
 
 //     //_.isUndefined
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is undefined.
 //          *
@@ -8694,14 +8694,14 @@
 //         isUndefined(value: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isUndefined
 //          */
 //         isUndefined(): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * see _.isUndefined
 //          */
@@ -8709,7 +8709,7 @@
 //     }
 
 //     //_.lt
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is less than other.
 //          *
@@ -8720,14 +8720,14 @@
 //         lt(value: any, other: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.lt
 //          */
 //         lt(other: any): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.lt
 //          */
@@ -8735,7 +8735,7 @@
 //     }
 
 //     //_.lte
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if value is less than or equal to other.
 //          *
@@ -8746,14 +8746,14 @@
 //         lte(value: any, other: any): boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.lte
 //          */
 //         lte(other: any): boolean;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.lte
 //          */
@@ -8761,7 +8761,7 @@
 //     }
 
 //     //_.toArray
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts value to an array.
 //          *
@@ -8781,42 +8781,42 @@
 //         toArray<TResult>(value?: any): TResult[];
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.toArray
 //          */
 //         toArray<TResult>(): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.toArray
 //          */
 //         toArray: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.toArray
 //          */
 //         toArray<TResult>(): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.toArray
 //          */
 //         toArray<TResult>(): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.toArray
 //          */
 //         toArray: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.toArray
 //          */
@@ -8824,7 +8824,7 @@
 //     }
 
 //     //_.toPlainObject
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts value to a plain object flattening inherited enumerable properties of value to own properties
 //          * of the plain object.
@@ -8835,7 +8835,7 @@
 //         toPlainObject<TResult extends {}>(value?: any): TResult;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toPlainObject
 //          */
@@ -8843,7 +8843,7 @@
 //     }
 
 //     //_.toInteger
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts `value` to an integer.
 //          *
@@ -8871,14 +8871,14 @@
 //         toInteger(value: any): number;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toInteger
 //          */
 //         toInteger(): LoDashImplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toInteger
 //          */
@@ -8886,7 +8886,7 @@
 //     }
 
 //     //_.toLength
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts `value` to an integer suitable for use as the length of an
 //          * array-like object.
@@ -8915,14 +8915,14 @@
 //         toLength(value: any): number;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toLength
 //          */
 //         toLength(): LoDashImplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toLength
 //          */
@@ -8930,7 +8930,7 @@
 //     }
 
 //     //_.toNumber
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts `value` to a number.
 //          *
@@ -8956,14 +8956,14 @@
 //         toNumber(value: any): number;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toNumber
 //          */
 //         toNumber(): LoDashImplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toNumber
 //          */
@@ -8971,7 +8971,7 @@
 //     }
 
 //     //_.toSafeInteger
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts `value` to a safe integer. A safe integer can be compared and
 //          * represented correctly.
@@ -8998,14 +8998,14 @@
 //         toSafeInteger(value: any): number;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toSafeInteger
 //          */
 //         toSafeInteger(): LoDashImplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toSafeInteger
 //          */
@@ -9013,7 +9013,7 @@
 //     }
 
 //     //_.toString DUMMY
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts `value` to a string if it's not one. An empty string is returned
 //          * for `null` and `undefined` values. The sign of `-0` is preserved.
@@ -9042,7 +9042,7 @@
 //      ********/
 
 //     //_.add
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Adds two numbers.
 //          *
@@ -9053,14 +9053,14 @@
 //         add(augend: number, addend: number): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.add
 //          */
 //         add(addend: number): number;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.add
 //          */
@@ -9068,7 +9068,7 @@
 //     }
 
 //     //_.ceil
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Calculates n rounded up to precision.
 //          *
@@ -9079,14 +9079,14 @@
 //         ceil(n: number, precision?: number): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.ceil
 //          */
 //         ceil(precision?: number): number;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.ceil
 //          */
@@ -9094,7 +9094,7 @@
 //     }
 
 //     //_.floor
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Calculates n rounded down to precision.
 //          *
@@ -9105,14 +9105,14 @@
 //         floor(n: number, precision?: number): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.floor
 //          */
 //         floor(precision?: number): number;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.floor
 //          */
@@ -9120,7 +9120,7 @@
 //     }
 
 //     //_.max
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Computes the maximum value of `array`. If `array` is empty or falsey
 //          * `undefined` is returned.
@@ -9134,14 +9134,14 @@
 //         max<T>(collection: List<T>): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.max
 //          */
 //         max(): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.max
 //          */
@@ -9149,7 +9149,7 @@
 //     }
 
 //     //_.maxBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.max` except that it accepts `iteratee` which is
 //          * invoked for each element in `array` to generate the criterion by which
@@ -9190,7 +9190,7 @@
 //         maxBy<TObject extends {}, T>(collection: List<T> | Dictionary<T>, whereValue?: TObject): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.maxBy
 //          */
@@ -9207,7 +9207,7 @@
 //         maxBy<TObject extends {}>(whereValue?: TObject): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.maxBy
 //          */
@@ -9225,7 +9225,7 @@
 //     }
 
 //     //_.mean
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Computes the mean of the values in `array`.
 //          *
@@ -9242,7 +9242,7 @@
 //         mean<T>(collection: List<T>): number;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.mean
 //          */
@@ -9255,7 +9255,7 @@
 //     }
 
 //     //_.min
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Computes the minimum value of `array`. If `array` is empty or falsey
 //          * `undefined` is returned.
@@ -9269,14 +9269,14 @@
 //         min<T>(collection: List<T>): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.min
 //          */
 //         min(): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.min
 //          */
@@ -9284,7 +9284,7 @@
 //     }
 
 //     //_.minBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.min` except that it accepts `iteratee` which is
 //          * invoked for each element in `array` to generate the criterion by which
@@ -9325,7 +9325,7 @@
 //         minBy<TObject extends {}, T>(collection: List<T> | Dictionary<T>, whereValue?: TObject): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.minBy
 //          */
@@ -9342,12 +9342,12 @@
 //         minBy<TObject extends {}>(whereValue?: TObject): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.minBy
 //          */
 //         minBy<T>(iteratee?: ListIterator<T, any> | DictionaryIterator<T, any>): T;
-        
+
 //         /**
 //          * @see _.minBy
 //          */
@@ -9360,7 +9360,7 @@
 //     }
 
 //     //_.round
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Calculates n rounded to precision.
 //          *
@@ -9371,14 +9371,14 @@
 //         round(n: number, precision?: number): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.round
 //          */
 //         round(precision?: number): number;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.round
 //          */
@@ -9386,7 +9386,7 @@
 //     }
 
 //     //_.sum
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Computes the sum of the values in `array`.
 //          *
@@ -9408,14 +9408,14 @@
 //         sum(collection: List<number> | Dictionary<number>): number;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sum
 //          */
 //         sum(): number;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sum
 //          **/
@@ -9427,14 +9427,14 @@
 //         sum(): number;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sum
 //          */
 //         sum(): LoDashExplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sum
 //          */
@@ -9447,7 +9447,7 @@
 //     }
 
 //     //_.sumBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.sum` except that it accepts `iteratee` which is
 //          * invoked for each element in `array` to generate the value to be summed.
@@ -9493,7 +9493,7 @@
 //         sumBy(collection: List<number> | Dictionary<number>): number;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sumBy
 //          */
@@ -9510,7 +9510,7 @@
 //         sumBy(): number;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sumBy
 //          **/
@@ -9527,7 +9527,7 @@
 //         sumBy(): number;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.sumBy
 //          */
@@ -9544,7 +9544,7 @@
 //         sumBy(): LoDashExplicitWrapper<number>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.sumBy
 //          */
@@ -9568,7 +9568,7 @@
 //      **********/
 
 //     //_.subtract
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Subtract two numbers.
 //          *
@@ -9586,14 +9586,14 @@
 //         subtract(minuend: number, subtrahend: number): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.subtract
 //          */
 //         subtract(subtrahend: number): number;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.subtract
 //          */
@@ -9601,7 +9601,7 @@
 //     }
 
 //     //_.clamp
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Clamps `number` within the inclusive `lower` and `upper` bounds.
 //          *
@@ -9623,14 +9623,14 @@
 //         clamp(number: number, lower: number, upper: number): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.clamp
 //          */
 //         clamp(lower: number, upper: number): number;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.clamp
 //          */
@@ -9638,7 +9638,7 @@
 //     }
 
 //     //_.inRange
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if n is between start and up to but not including, end. If end is not specified it’s set to start
 //          * with start then set to 0.
@@ -9656,7 +9656,7 @@
 //         inRange(n: number, end: number): boolean;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.inRange
 //          */
@@ -9668,7 +9668,7 @@
 //         inRange(end: number): boolean;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.inRange
 //          */
@@ -9681,7 +9681,7 @@
 //     }
 
 //     //_.random
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Produces a random number between min and max (inclusive). If only one argument is provided a number between
 //          * 0 and the given number is returned. If floating is true, or either min or max are floats, a floating-point
@@ -9705,7 +9705,7 @@
 //         random(floating?: boolean): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.random
 //          */
@@ -9717,7 +9717,7 @@
 //         random(floating?: boolean): number;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.random
 //          */
@@ -9734,7 +9734,7 @@
 //      **********/
 
 //     //_.assign
-//     interface AssignStatic {
+//     export interface AssignStatic {
 //         <TObject extends {}, TSource extends {}>(object: TObject, source: TSource): TObject & TSource;
 
 //         <TObject extends {}, TSource1 extends {}, TSource2 extends {}>(object: TObject, source1: TSource1, source2: TSource2): TObject & TSource1 & TSource2;
@@ -9747,7 +9747,7 @@
 //         <TResult extends {}>(...otherArgs: any[]): TResult;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 // 		/**
 //          * Assigns own enumerable properties of source objects to the destination
 //          * object. Source objects are applied from left to right. Subsequent sources
@@ -9781,7 +9781,7 @@
 //         assign: AssignStatic;
 //     }
 
-//     interface AssignImplicitWrapperSiganture<T> {
+//     export interface AssignImplicitWrapperSiganture<T> {
 //         <TSource extends {}>(source: TSource): LoDashImplicitObjectWrapper<T & TSource>;
 
 //         <TSource1 extends {}, TSource2 extends {}>(source1: TSource1, source2: TSource2): LoDashImplicitObjectWrapper<T & TSource1 & TSource2>;
@@ -9795,14 +9795,14 @@
 //         (): LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 // 		/**
 //          * @see _.assign
 //          */
 //         assign: AssignImplicitWrapperSiganture<T>;
 //     }
 
-//     interface AssignExplicitWrapperSiganture<T> {
+//     export interface AssignExplicitWrapperSiganture<T> {
 //         <TSource extends {}>(source: TSource): LoDashExplicitObjectWrapper<T & TSource>;
 //         <TSource1 extends {}, TSource2 extends {}>(source1: TSource1, source2: TSource2): LoDashExplicitObjectWrapper<T & TSource1 & TSource2>;
 
@@ -9815,7 +9815,7 @@
 //         <TResult extends {}>(...otherArgs: any[]): LoDashExplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.assign
 //          */
@@ -9823,11 +9823,11 @@
 //     }
 
 //     //_.assignWith
-//     interface AssignCustomizer {
+//     export interface AssignCustomizer {
 //         (objectValue: any, sourceValue: any, key?: string, object?: {}, source?: {}): any;
 //     }
 
-//     interface AssignWithStatic {
+//     export interface AssignWithStatic {
 //         <TObject extends {}, TSource extends {}, TResult extends {}>(object: TObject, source: TSource, customizer: AssignCustomizer): TResult;
 
 //         <TObject extends {}, TSource1 extends {}, TSource2 extends {}, TResult extends {}>(object: TObject, source1: TSource1, source2: TSource2, customizer: AssignCustomizer): TResult;
@@ -9843,7 +9843,7 @@
 //         ): TResult;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.assign` except that it accepts `customizer` which
 //          * is invoked to produce the assigned values. If `customizer` returns `undefined`
@@ -9873,7 +9873,7 @@
 //         assignWith: AssignWithStatic;
 //     }
 
-//     interface AssignWithImplicitWrapper<T> {
+//     export interface AssignWithImplicitWrapper<T> {
 //         <TSource extends {}, TResult extends {}>(source: TSource, customizer: AssignCustomizer): LoDashImplicitObjectWrapper<TResult>;
 
 //         <TSource1 extends {}, TSource2 extends {}, TResult extends {}>(source1: TSource1, source2: TSource2, customizer: AssignCustomizer): LoDashImplicitObjectWrapper<TResult>;
@@ -9887,14 +9887,14 @@
 //         <TResult extends {}>(...otherArgs: any[]): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 // 		/**
 //          * @see assignWith
 //          */
 //         assignWith: AssignWithImplicitWrapper<T>;
 //     }
 
-//     interface AssignWithExplicitWrapper<T> {
+//     export interface AssignWithExplicitWrapper<T> {
 //         <TSource extends {}, TResult extends {}>(source: TSource, customizer: AssignCustomizer): LoDashExplicitObjectWrapper<TResult>;
 
 //         <TSource1 extends {}, TSource2 extends {}, TResult extends {}>(source1: TSource1, source2: TSource2, customizer: AssignCustomizer): LoDashExplicitObjectWrapper<TResult>;
@@ -9908,7 +9908,7 @@
 //         <TResult extends {}>(...otherArgs: any[]): LoDashExplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 // 		/**
 //          * @see assignWith
 //          */
@@ -9916,7 +9916,7 @@
 //     }
 
 //     //_.assignIn
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.assign` except that it iterates over own and
 //          * inherited source properties.
@@ -9949,14 +9949,14 @@
 //         assignIn: AssignStatic;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see assignIn
 //          */
 //         assignIn: AssignImplicitWrapperSiganture<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see assignIn
 //          */
@@ -9964,11 +9964,11 @@
 //     }
 
 //     //_.assignInWith
-//     interface AssignCustomizer {
+//     export interface AssignCustomizer {
 //         (objectValue: any, sourceValue: any, key?: string, object?: {}, source?: {}): any;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.assignIn` except that it accepts `customizer` which
 //          * is invoked to produce the assigned values. If `customizer` returns `undefined`
@@ -9999,14 +9999,14 @@
 //         assignInWith: AssignWithStatic;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see assignInWith
 //          */
 //         assignInWith: AssignWithImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see assignInWith
 //          */
@@ -10014,7 +10014,7 @@
 //     }
 
 //     //_.create
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an object that inherits from the given prototype object. If a properties object is provided its own
 //          * enumerable properties are assigned to the created object.
@@ -10026,14 +10026,14 @@
 //         create<T extends Object, U extends Object>(prototype: T, properties?: U): T & U;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.create
 //          */
 //         create<U extends Object>(properties?: U): LoDashImplicitObjectWrapper<T & U>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.create
 //          */
@@ -10041,7 +10041,7 @@
 //     }
 
 //     //_.defaults
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Assigns own enumerable properties of source object(s) to the destination object for all destination
 //          * properties that resolve to undefined. Once a property is set, additional values of the same property are
@@ -10056,14 +10056,14 @@
 //         defaults: AssignStatic;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see defaults
 //          */
 //         defaults: AssignImplicitWrapperSiganture<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see defaults
 //          */
@@ -10071,7 +10071,7 @@
 //     }
 
 //     //_.defaultsDeep
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.defaults except that it recursively assigns default properties.
 //          * @param object The destination object.
@@ -10081,14 +10081,14 @@
 //         defaultsDeep: AssignStatic;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see defaultsDeep
 //          */
 //         defaultsDeep: AssignImplicitWrapperSiganture<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see defaultsDeep
 //          */
@@ -10096,21 +10096,21 @@
 //     }
 
 //     //_.extend
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 // 		/**
 //          * @see assign
 //          */
 //         extend: AssignStatic;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see assign
 //          */
 //         extend: AssignImplicitWrapperSiganture<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see assign
 //          */
@@ -10118,7 +10118,7 @@
 //     }
 
 //     //_.findKey
-//     interface FindKeyStatic {
+//     export interface FindKeyStatic {
 //         <TValues, TObject>(object: TObject, predicate?: DictionaryIterator<TValues, boolean>): string;
 
 //         <TObject>(object: TObject, predicate?: ObjectIterator<any, boolean>): string;
@@ -10128,7 +10128,7 @@
 //         <TWhere extends Dictionary<any>, TObject>(object: TObject, predicate?: TWhere): string;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.find except that it returns the key of the first element predicate returns truthy for
 //          * instead of the element itself.
@@ -10150,7 +10150,7 @@
 //         findKey: FindKeyStatic;
 //     }
 
-//     interface FindKeyImplicitWrapper<T> {
+//     export interface FindKeyImplicitWrapper<T> {
 //         <TValues>(predicate?: DictionaryIterator<TValues, boolean>): string;
 
 //         (predicate?: ObjectIterator<any, boolean>): string;
@@ -10160,14 +10160,14 @@
 //         <TWhere extends Dictionary<any>>(predicate?: TWhere): string;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.findKey
 //          */
 //         findKey: FindKeyImplicitWrapper<T>;
 //     }
 
-//     interface FindKeyExplicitWrapper<T> {
+//     export interface FindKeyExplicitWrapper<T> {
 //         <TValues>(predicate?: DictionaryIterator<TValues, boolean>): LoDashExplicitWrapper<string>;
 //         (predicate?: ObjectIterator<any, boolean>): LoDashExplicitWrapper<string>;
 
@@ -10176,7 +10176,7 @@
 //         <TWhere extends Dictionary<any>>(predicate?: TWhere): LoDashExplicitWrapper<string>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.findKey
 //          */
@@ -10184,7 +10184,7 @@
 //     }
 
 //     //_.findLastKey
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.findKey except that it iterates over elements of a collection in the opposite order.
 //          *
@@ -10205,28 +10205,28 @@
 //         findLastKey: FindKeyStatic;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.findLastKey
 //          */
 //         findLastKey: FindKeyImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.findLastKey
 //          */
 //         findLastKey: FindKeyExplicitWrapper<T>;
 //     }
-	
+
 //     //_.forIn
-//     interface ForStatic {
+//     export interface ForStatic {
 //         <T>(object: Dictionary<T>, iteratee?: DictionaryIterator<T, any>): Dictionary<T>;
 
 //         <T extends {}>(object: T, iteratee?: ObjectIterator<any, any>): T;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Iterates over own and inherited enumerable properties of an object invoking iteratee for each property. The
 //          * iteratee is bound to thisArg and invoked with three arguments: (value, key, object). Iteratee functions may
@@ -10240,22 +10240,22 @@
 //         forIn: ForStatic;
 //     }
 
-//     interface ForImplicitWrapper<T> {
+//     export interface ForImplicitWrapper<T> {
 //         <TValue>(iteratee?: DictionaryIterator<TValue, any>): _.LoDashImplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forIn
 //          */
 //         forIn: ForImplicitWrapper<T>;
 //     }
 
-//     interface ForExplicitWrapper<T> {
+//     export interface ForExplicitWrapper<T> {
 //         <TValue>(iteratee?: DictionaryIterator<TValue, any>): _.LoDashExplicitObjectWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forIn
 //          */
@@ -10263,7 +10263,7 @@
 //     }
 
 //     //_.forInRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.forIn except that it iterates over properties of object in the opposite order.
 //          *
@@ -10275,14 +10275,14 @@
 //         forInRight: ForStatic;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forInRight
 //          */
 //         forInRight: ForImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forInRight
 //          */
@@ -10290,7 +10290,7 @@
 //     }
 
 //     //_.forOwn
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Iterates over own enumerable properties of an object invoking iteratee for each property. The iteratee is
 //          * bound to thisArg and invoked with three arguments: (value, key, object). Iteratee functions may exit
@@ -10304,14 +10304,14 @@
 //         forOwn: ForStatic;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forOwn
 //          */
 //         forOwn: ForImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forOwn
 //          */
@@ -10319,7 +10319,7 @@
 //     }
 
 //     //_.forOwnRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.forOwn except that it iterates over properties of object in the opposite order.
 //          *
@@ -10331,14 +10331,14 @@
 //         forOwnRight: ForStatic;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forOwnRight
 //          */
 //         forOwnRight: ForImplicitWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.forOwnRight
 //          */
@@ -10346,7 +10346,7 @@
 //     }
 
 //     //_.functions
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of function property names from own enumerable properties
 //          * of `object`.
@@ -10371,14 +10371,14 @@
 //         functions<T extends {}>(object: any): string[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.functions
 //          */
 //         functions(): _.LoDashImplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.functions
 //          */
@@ -10386,7 +10386,7 @@
 //     }
 
 //     //_.functionsIn
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of function property names from own and inherited
 //          * enumerable properties of `object`.
@@ -10411,14 +10411,14 @@
 //         functionsIn<T extends {}>(object: any): string[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.functionsIn
 //          */
 //         functionsIn(): _.LoDashImplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.functionsIn
 //          */
@@ -10426,7 +10426,7 @@
 //     }
 
 //     //_.get
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Gets the property value at path of object. If the resolved
 //          * value is undefined the defaultValue is used in its place.
@@ -10438,7 +10438,7 @@
 //         get<TResult>(object: Object, path: string | number | boolean | Array<string | number | boolean>, defaultValue?: TResult): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.get
 //          **/
@@ -10446,7 +10446,7 @@
 //     }
 
 //     //_.has
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if `path` is a direct property of `object`.
 //          *
@@ -10476,14 +10476,14 @@
 //         has<T extends {}>(object: T, path: StringRepresentable | StringRepresentable[]): boolean;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.has
 //          */
 //         has(path: StringRepresentable | StringRepresentable[]): boolean;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.has
 //          */
@@ -10491,7 +10491,7 @@
 //     }
 
 //     //_.hasIn
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if `path` is a direct or inherited property of `object`.
 //          *
@@ -10520,14 +10520,14 @@
 //         hasIn<T extends {}>(object: T, path: StringRepresentable | StringRepresentable[]): boolean;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.hasIn
 //          */
 //         hasIn(path: StringRepresentable | StringRepresentable[]): boolean;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.hasIn
 //          */
@@ -10535,7 +10535,7 @@
 //     }
 
 //     //_.invert
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an object composed of the inverted keys and values of object. If object contains duplicate values,
 //          * subsequent values overwrite property assignments of previous values unless multiValue is true.
@@ -10552,14 +10552,14 @@
 //         invert<TResult extends {}>(object: Object, multiValue?: boolean): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.invert
 //          */
 //         invert<TResult extends {}>(multiValue?: boolean): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.invert
 //          */
@@ -10567,7 +10567,7 @@
 //     }
 
 //     //_.keys
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of the own enumerable property names of object.
 //          *
@@ -10579,14 +10579,14 @@
 //         keys(object?: any): string[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.keys
 //          */
 //         keys(): LoDashImplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.keys
 //          */
@@ -10594,7 +10594,7 @@
 //     }
 
 //     //_.keysIn
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of the own and inherited enumerable property names of object.
 //          *
@@ -10606,14 +10606,14 @@
 //         keysIn(object?: any): string[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.keysIn
 //          */
 //         keysIn(): LoDashImplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.keysIn
 //          */
@@ -10621,7 +10621,7 @@
 //     }
 
 //     //_.mapKeys
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * The opposite of _.mapValues; this method creates an object with the same values as object and keys generated
 //          * by running each own enumerable property of object through iteratee.
@@ -10649,7 +10649,7 @@
 //         mapKeys<T>(object: List<T> | Dictionary<T>, iteratee?: string): Dictionary<T>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.mapKeys
 //          */
@@ -10666,7 +10666,7 @@
 //         mapKeys(iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<T>>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.mapKeys
 //          */
@@ -10683,7 +10683,7 @@
 //         mapKeys<TResult>(iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.mapKeys
 //          */
@@ -10700,7 +10700,7 @@
 //         mapKeys(iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<T>>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.mapKeys
 //          */
@@ -10718,7 +10718,7 @@
 //     }
 
 //     //_.mapValues
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //         * Creates an object with the same keys as object and values generated by running each own
 //         * enumerable property of object through iteratee. The iteratee function is bound to thisArg
@@ -10744,38 +10744,38 @@
 //         mapValues<T>(obj: T, callback: ObjectIterator<any, any>): T;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.mapValues
-//          * TValue is the type of the property values of T.
-//          * TResult is the type output by the ObjectIterator function
+//          * TValue is theexport type of the property values of T.
+//          * TResult is theexport type output by the ObjectIterator function
 //          */
 //         mapValues<TValue, TResult>(callback: ObjectIterator<TValue, TResult>): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
 
 //         /**
 //          * @see _.mapValues
-//          * TResult is the type of the property specified by pluck.
+//          * TResult is theexport type of the property specified by pluck.
 //          * T should be a Dictionary<Dictionary<TResult>>
 //          */
 //         mapValues<TResult>(pluck: string): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
 
 //         /**
 //          * @see _.mapValues
-//          * TResult is the type of the properties on the object specified by pluck.
+//          * TResult is theexport type of the properties on the object specified by pluck.
 //          * T should be a Dictionary<Dictionary<Dictionary<TResult>>>
 //          */
 //         mapValues<TResult>(pluck: string, where: Dictionary<TResult>): LoDashImplicitArrayWrapper<Dictionary<boolean>>;
 
 //         /**
 //          * @see _.mapValues
-//          * TResult is the type of the properties of each object in the values of T
+//          * TResult is theexport type of the properties of each object in the values of T
 //          * T should be a Dictionary<Dictionary<TResult>>
 //          */
 //         mapValues<TResult>(where: Dictionary<TResult>): LoDashImplicitArrayWrapper<boolean>;
 //     }
 
 //     //_.merge
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Recursively merges own and inherited enumerable properties of source
 //          * objects into the destination object, skipping source properties that resolve
@@ -10828,7 +10828,7 @@
 //         merge<TResult>(object: any, ...otherArgs: any[]): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.merge
 //          */
@@ -10855,7 +10855,7 @@
 //         merge<TResult>(...otherArgs: any[]): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.merge
 //          */
@@ -10882,11 +10882,11 @@
 //     }
 
 //     //_.mergeWith
-//     interface MergeWithCustomizer {
+//     export interface MergeWithCustomizer {
 //         (value: any, srcValue: any, key?: string, object?: Object, source?: Object): any;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.merge` except that it accepts `customizer` which
 //          * is invoked to produce the merged values of the destination and source
@@ -10945,7 +10945,7 @@
 //         mergeWith<TResult>(object: any, ...otherArgs: any[]): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.mergeWith
 //          */
@@ -10973,7 +10973,7 @@
 //     }
 
 //     //_.omit
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * The opposite of `_.pick`; this method creates an object composed of the
 //          * own and inherited enumerable properties of `object` that are not omitted.
@@ -10996,7 +10996,7 @@
 //         omit<TResult extends {}, T extends {}>(object: T, ...predicate: (StringRepresentable | StringRepresentable[])[]): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 
 //         /**
 //          * @see _.omit
@@ -11004,7 +11004,7 @@
 //         omit<TResult extends {}>(...predicate: (StringRepresentable | StringRepresentable[])[]): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 
 //         /**
 //          * @see _.omit
@@ -11013,7 +11013,7 @@
 //     }
 
 //     //_.omitBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * The opposite of `_.pickBy`; this method creates an object composed of the
 //          * own and inherited enumerable properties of `object` that `predicate`
@@ -11035,14 +11035,14 @@
 //         omitBy<TResult extends {}, T extends {}>(object: T, predicate: ObjectIterator<any, boolean>): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.omitBy
 //          */
 //         omitBy<TResult extends {}>(predicate: ObjectIterator<any, boolean>): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.omitBy
 //          */
@@ -11050,7 +11050,7 @@
 //     }
 
 //     //_.pick
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an object composed of the picked `object` properties.
 //          *
@@ -11071,14 +11071,14 @@
 //         pick<TResult extends {}, T extends {}>(object: T, ...predicate: (StringRepresentable | StringRepresentable[])[]): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.pick
 //          */
 //         pick<TResult extends {}>(...predicate: (StringRepresentable | StringRepresentable[])[]): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.pick
 //          */
@@ -11086,7 +11086,7 @@
 //     }
 
 //     //_.pickBy
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an object composed of the `object` properties `predicate` returns
 //          * truthy for. The predicate is invoked with one argument: (value).
@@ -11107,14 +11107,14 @@
 //         pickBy<TResult extends {}, T extends {}>(object: T, predicate: ObjectIterator<any, boolean>): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.pickBy
 //          */
 //         pickBy<TResult extends {}>(predicate: ObjectIterator<any, boolean>): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.pickBy
 //          */
@@ -11122,7 +11122,7 @@
 //     }
 
 //     //_.result
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.get except that if the resolved value is a function it’s invoked with the this binding
 //          * of its parent object and its result is returned.
@@ -11135,7 +11135,7 @@
 //         result<TObject, TResult>(object: TObject, path: number | string | boolean | Array<number | string | boolean>, defaultValue?: TResult): TResult;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.result
 //          */
@@ -11143,7 +11143,7 @@
 //     }
 
 //     //_.set
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Sets the value at path of object. If a portion of path doesn’t exist it’s created. Arrays are created for
 //          * missing index properties while objects are created for all other missing properties. Use _.setWith to
@@ -11167,7 +11167,7 @@
 //         set<O, V, TResult>(object: O, path: StringRepresentable | StringRepresentable[], value: V): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.set
 //          */
@@ -11179,7 +11179,7 @@
 //         set<V, TResult>(path: StringRepresentable | StringRepresentable[], value: V): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.set
 //          */
@@ -11192,11 +11192,11 @@
 //     }
 
 //     //_.setWith
-//     interface SetWithCustomizer<T> {
+//     export interface SetWithCustomizer<T> {
 //         (nsValue: any, key: string, nsObject: T): any;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like _.set except that it accepts customizer which is invoked to produce the objects of
 //          * path. If customizer returns undefined path creation is handled by the method instead. The customizer is
@@ -11221,7 +11221,7 @@
 //         setWith<O, V, TResult>(object: O, path: StringRepresentable | StringRepresentable[], value: V, customizer?: SetWithCustomizer<O>): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.setWith
 //          */
@@ -11233,7 +11233,7 @@
 //         setWith<V, TResult>(path: StringRepresentable | StringRepresentable[], value: V, customizer?: SetWithCustomizer<T>): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.setWith
 //          */
@@ -11246,7 +11246,7 @@
 //     }
 
 //     //_.toPairs
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of own enumerable key-value pairs for object.
 //          *
@@ -11258,14 +11258,14 @@
 //         toPairs<T extends {}, TResult>(object?: T): TResult[][];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.toPairs
 //          */
 //         toPairs<TResult>(): LoDashImplicitArrayWrapper<TResult[]>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.toPairs
 //          */
@@ -11273,7 +11273,7 @@
 //     }
 
 //     //_.toPairsIn
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of own and inherited enumerable key-value pairs for object.
 //          *
@@ -11285,14 +11285,14 @@
 //         toPairsIn<T extends {}, TResult>(object?: T): TResult[][];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.toPairsIn
 //          */
 //         toPairsIn<TResult>(): LoDashImplicitArrayWrapper<TResult[]>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.toPairsIn
 //          */
@@ -11300,7 +11300,7 @@
 //     }
 
 //     //_.transform
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * An alternative to _.reduce; this method transforms object to a new accumulator object which is the result of
 //          * running each of its own enumerable properties through iteratee, with each invocation potentially mutating
@@ -11331,7 +11331,7 @@
 //         transform<T, TResult>(object: Dictionary<T>, iteratee?: MemoVoidDictionaryIterator<T, TResult[]>, accumulator?: TResult[]): TResult[];
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.transform
 //          */
@@ -11343,7 +11343,7 @@
 //         transform<TResult>(iteratee?: MemoVoidArrayIterator<T, Dictionary<TResult>>, accumulator?: Dictionary<TResult>): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.transform
 //          */
@@ -11356,7 +11356,7 @@
 //     }
 
 //     //_.unset
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Removes the property at path of object.
 //          *
@@ -11369,14 +11369,14 @@
 //         unset<T>(object: T, path: StringRepresentable | StringRepresentable[]): boolean;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unset
 //          */
 //         unset(path: StringRepresentable | StringRepresentable[]): LoDashImplicitWrapper<boolean>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.unset
 //          */
@@ -11384,7 +11384,7 @@
 //     }
 
 //     //_.values
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of the own enumerable property values of object.
 //          *
@@ -11394,14 +11394,14 @@
 //         values<T>(object?: any): T[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.values
 //          */
 //         values: LoDashExplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.values
 //          */
@@ -11409,7 +11409,7 @@
 //     }
 
 //     //_.valuesIn
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of the own and inherited enumerable property values of object.
 //          *
@@ -11419,14 +11419,14 @@
 //         valuesIn<T>(object?: any): T[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.valuesIn
 //          */
 //         valuesIn: LoDashImplicitArrayReturnArrayWrapper<T>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.valuesIn
 //          */
@@ -11438,7 +11438,7 @@
 //      **********/
 
 //     //_.camelCase
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts string to camel case.
 //          *
@@ -11448,14 +11448,14 @@
 //         camelCase(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.camelCase
 //          */
 //         camelCase(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.camelCase
 //          */
@@ -11463,7 +11463,7 @@
 //     }
 
 //     //_.capitalize
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts the first character of string to upper case and the remaining to lower case.
 //          *
@@ -11473,14 +11473,14 @@
 //         capitalize(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.capitalize
 //          */
 //         capitalize(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.capitalize
 //          */
@@ -11488,7 +11488,7 @@
 //     }
 
 //     //_.deburr
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Deburrs string by converting latin-1 supplementary letters to basic latin letters and removing combining
 //          * diacritical marks.
@@ -11499,14 +11499,14 @@
 //         deburr(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.deburr
 //          */
 //         deburr(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.deburr
 //          */
@@ -11514,7 +11514,7 @@
 //     }
 
 //     //_.endsWith
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if string ends with the given target string.
 //          *
@@ -11526,14 +11526,14 @@
 //         endsWith(string?: string, target?: string, position?: number): boolean;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.endsWith
 //          */
 //         endsWith(target?: string, position?: number): boolean;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.endsWith
 //          */
@@ -11541,7 +11541,7 @@
 //     }
 
 //     // _.escape
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts the characters "&", "<", ">", '"', "'", and "`" in string to their corresponding HTML entities.
 //          *
@@ -11562,14 +11562,14 @@
 //         escape(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.escape
 //          */
 //         escape(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.escape
 //          */
@@ -11577,7 +11577,7 @@
 //     }
 
 //     // _.escapeRegExp
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Escapes the RegExp special characters "^", "$", "\", ".", "*", "+", "?", "(", ")", "[", "]",
 //          * "{", "}", and "|" in string.
@@ -11588,14 +11588,14 @@
 //         escapeRegExp(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.escapeRegExp
 //          */
 //         escapeRegExp(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.escapeRegExp
 //          */
@@ -11603,7 +11603,7 @@
 //     }
 
 //     //_.kebabCase
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts string to kebab case.
 //          *
@@ -11613,14 +11613,14 @@
 //         kebabCase(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.kebabCase
 //          */
 //         kebabCase(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.kebabCase
 //          */
@@ -11628,7 +11628,7 @@
 //     }
 
 //     //_.lowerCase
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts `string`, as space separated words, to lower case.
 //          *
@@ -11638,14 +11638,14 @@
 //         lowerCase(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.lowerCase
 //          */
 //         lowerCase(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.lowerCase
 //          */
@@ -11653,7 +11653,7 @@
 //     }
 
 //     //_.lowerFirst
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts the first character of `string` to lower case.
 //          *
@@ -11663,14 +11663,14 @@
 //         lowerFirst(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.lowerFirst
 //          */
 //         lowerFirst(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.lowerFirst
 //          */
@@ -11678,7 +11678,7 @@
 //     }
 
 //     //_.pad
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Pads string on the left and right sides if it’s shorter than length. Padding characters are truncated if
 //          * they can’t be evenly divided by length.
@@ -11691,14 +11691,14 @@
 //         pad(string?: string, length?: number, chars?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.pad
 //          */
 //         pad(length?: number, chars?: string): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.pad
 //          */
@@ -11706,7 +11706,7 @@
 //     }
 
 //     //_.padEnd
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Pads string on the right side if it’s shorter than length. Padding characters are truncated if they exceed
 //          * length.
@@ -11719,14 +11719,14 @@
 //         padEnd(string?: string, length?: number, chars?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.padEnd
 //          */
 //         padEnd(length?: number, chars?: string): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.padEnd
 //          */
@@ -11734,7 +11734,7 @@
 //     }
 
 //     //_.padStart
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Pads string on the left side if it’s shorter than length. Padding characters are truncated if they exceed
 //          * length.
@@ -11747,14 +11747,14 @@
 //         padStart(string?: string, length?: number, chars?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.padStart
 //          */
 //         padStart(length?: number, chars?: string): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.padStart
 //          */
@@ -11762,7 +11762,7 @@
 //     }
 
 //     //_.parseInt
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts string to an integer of the specified radix. If radix is undefined or 0, a radix of 10 is used
 //          * unless value is a hexadecimal, in which case a radix of 16 is used.
@@ -11776,14 +11776,14 @@
 //         parseInt(string: string, radix?: number): number;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.parseInt
 //          */
 //         parseInt(radix?: number): number;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.parseInt
 //          */
@@ -11791,7 +11791,7 @@
 //     }
 
 //     //_.repeat
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Repeats the given string n times.
 //          *
@@ -11802,14 +11802,14 @@
 //         repeat(string?: string, n?: number): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.repeat
 //          */
 //         repeat(n?: number): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.repeat
 //          */
@@ -11817,7 +11817,7 @@
 //     }
 
 //     //_.replace
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Replaces matches for pattern in string with replacement.
 //          *
@@ -11836,7 +11836,7 @@
 //         replace(pattern?: RegExp | string, replacement?: Function | string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.replace
 //          */
@@ -11848,7 +11848,7 @@
 //         replace(replacement?: Function | string): string;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.replace
 //          */
@@ -11860,7 +11860,7 @@
 //         replace(replacement?: Function | string): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.replace
 //          */
@@ -11872,7 +11872,7 @@
 //         replace(replacement?: Function | string): LoDashExplicitWrapper<string>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.replace
 //          */
@@ -11885,7 +11885,7 @@
 //     }
 
 //     //_.snakeCase
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts string to snake case.
 //          *
@@ -11895,14 +11895,14 @@
 //         snakeCase(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.snakeCase
 //          */
 //         snakeCase(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.snakeCase
 //          */
@@ -11910,7 +11910,7 @@
 //     }
 
 //     //_.split
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Splits string by separator.
 //          *
@@ -11924,14 +11924,14 @@
 //         split(string: string, separator?: RegExp | string, limit?: number): string[];
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.split
 //          */
 //         split(separator?: RegExp | string, limit?: number): LoDashImplicitArrayWrapper<string>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.split
 //          */
@@ -11939,7 +11939,7 @@
 //     }
 
 //     //_.startCase
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts string to start case.
 //          *
@@ -11949,14 +11949,14 @@
 //         startCase(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.startCase
 //          */
 //         startCase(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.startCase
 //          */
@@ -11964,7 +11964,7 @@
 //     }
 
 //     //_.startsWith
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Checks if string starts with the given target string.
 //          *
@@ -11976,14 +11976,14 @@
 //         startsWith(string?: string, target?: string, position?: number): boolean;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.startsWith
 //          */
 //         startsWith(target?: string, position?: number): boolean;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.startsWith
 //          */
@@ -11991,19 +11991,19 @@
 //     }
 
 //     //_.template
-//     interface TemplateOptions extends TemplateSettings {
+//     export interface TemplateOptions extends TemplateSettings {
 //         /**
 //          * The sourceURL of the template's compiled source.
 //          */
 //         sourceURL?: string;
 //     }
 
-//     interface TemplateExecutor {
+//     export interface TemplateExecutor {
 //         (data?: Object): string;
 //         source: string;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a compiled template function that can interpolate data properties in "interpolate" delimiters,
 //          * HTML-escape interpolated data properties in "escape" delimiters, and execute JavaScript in "evaluate"
@@ -12033,14 +12033,14 @@
 //         template(string: string, options?: TemplateOptions): TemplateExecutor;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.template
 //          */
 //         template(options?: TemplateOptions): TemplateExecutor;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.template
 //          */
@@ -12048,7 +12048,7 @@
 //     }
 
 //     //_.toLower
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts `string`, as a whole, to lower case.
 //          *
@@ -12058,14 +12058,14 @@
 //         toLower(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.toLower
 //          */
 //         toLower(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.toLower
 //          */
@@ -12073,7 +12073,7 @@
 //     }
 
 //     //_.toUpper
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts `string`, as a whole, to upper case.
 //          *
@@ -12083,14 +12083,14 @@
 //         toUpper(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.toUpper
 //          */
 //         toUpper(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.toUpper
 //          */
@@ -12098,7 +12098,7 @@
 //     }
 
 //     //_.trim
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Removes leading and trailing whitespace or specified characters from string.
 //          *
@@ -12109,14 +12109,14 @@
 //         trim(string?: string, chars?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.trim
 //          */
 //         trim(chars?: string): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.trim
 //          */
@@ -12124,7 +12124,7 @@
 //     }
 
 //     //_.trimEnd
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Removes trailing whitespace or specified characters from string.
 //          *
@@ -12135,14 +12135,14 @@
 //         trimEnd(string?: string, chars?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.trimEnd
 //          */
 //         trimEnd(chars?: string): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.trimEnd
 //          */
@@ -12150,7 +12150,7 @@
 //     }
 
 //     //_.trimStart
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Removes leading whitespace or specified characters from string.
 //          *
@@ -12161,14 +12161,14 @@
 //         trimStart(string?: string, chars?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.trimStart
 //          */
 //         trimStart(chars?: string): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.trimStart
 //          */
@@ -12176,7 +12176,7 @@
 //     }
 
 //     //_.truncate
-//     interface TruncateOptions {
+//     export interface TruncateOptions {
 //         /** The maximum string length. */
 //         length?: number;
 //         /** The string to indicate text is omitted. */
@@ -12185,7 +12185,7 @@
 //         separator?: string | RegExp;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Truncates string if it’s longer than the given maximum string length. The last characters of the truncated
 //          * string are replaced with the omission string which defaults to "…".
@@ -12197,14 +12197,14 @@
 //         truncate(string?: string, options?: TruncateOptions): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.truncate
 //          */
 //         truncate(options?: TruncateOptions): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.truncate
 //          */
@@ -12212,7 +12212,7 @@
 //     }
 
 //     //_.unescape
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * The inverse of _.escape; this method converts the HTML entities &amp;, &lt;, &gt;, &quot;, &#39;, and &#96;
 //          * in string to their corresponding characters.
@@ -12226,14 +12226,14 @@
 //         unescape(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.unescape
 //          */
 //         unescape(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.unescape
 //          */
@@ -12241,7 +12241,7 @@
 //     }
 
 //     //_.upperCase
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts `string`, as space separated words, to upper case.
 //          *
@@ -12251,14 +12251,14 @@
 //         upperCase(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.upperCase
 //          */
 //         upperCase(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.upperCase
 //          */
@@ -12266,7 +12266,7 @@
 //     }
 
 //     //_.upperFirst
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts the first character of `string` to upper case.
 //          *
@@ -12276,14 +12276,14 @@
 //         upperFirst(string?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.upperFirst
 //          */
 //         upperFirst(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.upperFirst
 //          */
@@ -12291,7 +12291,7 @@
 //     }
 
 //     //_.words
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Splits `string` into an array of its words.
 //          *
@@ -12302,14 +12302,14 @@
 //         words(string?: string, pattern?: string | RegExp): string[];
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.words
 //          */
 //         words(pattern?: string | RegExp): string[];
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.words
 //          */
@@ -12321,7 +12321,7 @@
 //      ***********/
 
 //     //_.attempt
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Attempts to invoke func, returning either the result or the caught error object. Any additional arguments
 //          * are provided to func when it’s invoked.
@@ -12332,14 +12332,14 @@
 //         attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.attempt
 //          */
 //         attempt<TResult>(...args: any[]): TResult | Error;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.attempt
 //          */
@@ -12347,7 +12347,7 @@
 //     }
 
 //     //_.constant
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that returns value.
 //          *
@@ -12357,14 +12357,14 @@
 //         constant<T>(value: T): () => T;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.constant
 //          */
 //         constant<TResult>(): LoDashImplicitObjectWrapper<() => TResult>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.constant
 //          */
@@ -12372,7 +12372,7 @@
 //     }
 
 //     //_.identity
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method returns the first argument provided to it.
 //          * @param value Any value.
@@ -12381,21 +12381,21 @@
 //         identity<T>(value?: T): T;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.identity
 //          */
 //         identity(): T;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.identity
 //          */
 //         identity(): T[];
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.identity
 //          */
@@ -12403,7 +12403,7 @@
 //     }
 
 //     //_.iteratee
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that invokes `func` with the arguments of the created
 //          * function. If `func` is a property name the created callback returns the
@@ -12434,7 +12434,7 @@
 //          * // => [{ 'user': 'fred', 'age': 40 }]
 //          */
 //         iteratee<TResult>(func: Function): (...args: any[]) => TResult;
-        
+
 //         /**
 //          * @see _.iteratee
 //          */
@@ -12451,14 +12451,14 @@
 //         iteratee<TResult>(): (value: TResult) => TResult;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.iteratee
 //          */
 //         iteratee<TResult>(): LoDashImplicitObjectWrapper<(object: any) => TResult>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.iteratee
 //          */
@@ -12470,14 +12470,14 @@
 //         iteratee<TResult>(): LoDashImplicitObjectWrapper<(...args: any[]) => TResult>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.iteratee
 //          */
 //         iteratee<TResult>(): LoDashExplicitObjectWrapper<(object: any) => TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.iteratee
 //          */
@@ -12490,7 +12490,7 @@
 //     }
 
 //     //_.matches
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that performs a deep comparison between a given object and source, returning true if the
 //          * given object has equivalent property values, else false.
@@ -12510,14 +12510,14 @@
 //         matches<T, V>(source: T): (value: V) => boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.matches
 //          */
 //         matches<V>(): LoDashImplicitObjectWrapper<(value: V) => boolean>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.matches
 //          */
@@ -12525,7 +12525,7 @@
 //     }
 
 //     //_.matchesProperty
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that compares the property value of path on a given object to value.
 //          *
@@ -12544,7 +12544,7 @@
 //         matchesProperty<T, V>(path: StringRepresentable | StringRepresentable[], srcValue: T): (value: V) => boolean;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.matchesProperty
 //          */
@@ -12556,7 +12556,7 @@
 //         matchesProperty<SrcValue, Value>(srcValue: SrcValue): LoDashImplicitObjectWrapper<(value: Value) => boolean>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.matchesProperty
 //          */
@@ -12569,7 +12569,7 @@
 //     }
 
 //     //_.method
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that invokes the method at path on a given object. Any additional arguments are provided
 //          * to the invoked method.
@@ -12586,7 +12586,7 @@
 //         method<TResult>(path: string | StringRepresentable[], ...args: any[]): (object: any) => TResult;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.method
 //          */
@@ -12598,7 +12598,7 @@
 //         method<TResult>(...args: any[]): LoDashImplicitObjectWrapper<(object: any) => TResult>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.method
 //          */
@@ -12610,7 +12610,7 @@
 //         method<TResult>(...args: any[]): LoDashImplicitObjectWrapper<(object: any) => TResult>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.method
 //          */
@@ -12622,7 +12622,7 @@
 //         method<TResult>(...args: any[]): LoDashExplicitObjectWrapper<(object: any) => TResult>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.method
 //          */
@@ -12635,7 +12635,7 @@
 //     }
 
 //     //_.methodOf
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * The opposite of _.method; this method creates a function that invokes the method at a given path on object.
 //          * Any additional arguments are provided to the invoked method.
@@ -12652,14 +12652,14 @@
 //         methodOf<TResult>(object: {}, ...args: any[]): (path: StringRepresentable | StringRepresentable[]) => TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.methodOf
 //          */
 //         methodOf<TResult>(...args: any[]): LoDashImplicitObjectWrapper<(path: StringRepresentable | StringRepresentable[]) => TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.methodOf
 //          */
@@ -12667,11 +12667,11 @@
 //     }
 
 //     //_.mixin
-//     interface MixinOptions {
+//     export interface MixinOptions {
 //         chain?: boolean;
 //     }
 
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Adds all own enumerable function properties of a source object to the destination object. If object is a
 //          * function then methods are added to its prototype as well.
@@ -12693,7 +12693,7 @@
 //         mixin<TResult>(source: Dictionary<Function>, options?: MixinOptions): TResult;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.mixin
 //          */
@@ -12705,7 +12705,7 @@
 //         mixin<TResult>(options?: MixinOptions): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.mixin
 //          */
@@ -12718,7 +12718,7 @@
 //     }
 
 //     //_.noConflict
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Reverts the _ variable to its previous value and returns a reference to the lodash function.
 //          *
@@ -12727,7 +12727,7 @@
 //         noConflict(): typeof _;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.noConflict
 //          */
@@ -12735,7 +12735,7 @@
 //     }
 
 //     //_.noop
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * A no-operation function that returns undefined regardless of the arguments it receives.
 //          *
@@ -12744,14 +12744,14 @@
 //         noop(...args: any[]): void;
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.noop
 //          */
 //         noop(...args: any[]): void;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.noop
 //          */
@@ -12759,7 +12759,7 @@
 //     }
 
 //     //_.nthArg
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that returns its nth argument.
 //          *
@@ -12769,14 +12769,14 @@
 //         nthArg<TResult extends Function>(n?: number): TResult;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.nthArg
 //          */
 //         nthArg<TResult extends Function>(): LoDashImplicitObjectWrapper<TResult>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.nthArg
 //          */
@@ -12784,7 +12784,7 @@
 //     }
 
 //     //_.over
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that invokes iteratees with the arguments provided to the created function and returns
 //          * their results.
@@ -12795,28 +12795,28 @@
 //         over<TResult>(...iteratees: (Function | Function[])[]): (...args: any[]) => TResult[];
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.over
 //          */
 //         over<TResult>(...iteratees: (Function | Function[])[]): LoDashImplicitObjectWrapper<(...args: any[]) => TResult[]>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.over
 //          */
 //         over<TResult>(...iteratees: (Function | Function[])[]): LoDashImplicitObjectWrapper<(...args: any[]) => TResult[]>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.over
 //          */
 //         over<TResult>(...iteratees: (Function | Function[])[]): LoDashExplicitObjectWrapper<(...args: any[]) => TResult[]>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.over
 //          */
@@ -12824,7 +12824,7 @@
 //     }
 
 //     //_.overEvery
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that checks if all of the predicates return truthy when invoked with the arguments
 //          * provided to the created function.
@@ -12835,28 +12835,28 @@
 //         overEvery(...predicates: (Function | Function[])[]): (...args: any[]) => boolean;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.overEvery
 //          */
 //         overEvery(...predicates: (Function | Function[])[]): LoDashImplicitObjectWrapper<(...args: any[]) => boolean>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.overEvery
 //          */
 //         overEvery(...predicates: (Function | Function[])[]): LoDashImplicitObjectWrapper<(...args: any[]) => boolean>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.overEvery
 //          */
 //         overEvery(...predicates: (Function | Function[])[]): LoDashExplicitObjectWrapper<(...args: any[]) => boolean>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.overEvery
 //          */
@@ -12864,7 +12864,7 @@
 //     }
 
 //     //_.overSome
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that checks if any of the predicates return truthy when invoked with the arguments
 //          * provided to the created function.
@@ -12875,28 +12875,28 @@
 //         overSome(...predicates: (Function | Function[])[]): (...args: any[]) => boolean;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.overSome
 //          */
 //         overSome(...predicates: (Function | Function[])[]): LoDashImplicitObjectWrapper<(...args: any[]) => boolean>;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.overSome
 //          */
 //         overSome(...predicates: (Function | Function[])[]): LoDashImplicitObjectWrapper<(...args: any[]) => boolean>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.overSome
 //          */
 //         overSome(...predicates: (Function | Function[])[]): LoDashExplicitObjectWrapper<(...args: any[]) => boolean>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.overSome
 //          */
@@ -12904,7 +12904,7 @@
 //     }
 
 //     //_.property
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates a function that returns the property value at path on a given object.
 //          *
@@ -12914,28 +12914,28 @@
 //         property<TObj, TResult>(path: StringRepresentable | StringRepresentable[]): (obj: TObj) => TResult;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.property
 //          */
 //         property<TObj, TResult>(): LoDashImplicitObjectWrapper<(obj: TObj) => TResult>;
 //     }
 
-//     interface LoDashImplicitArrayWrapper<T> {
+//     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.property
 //          */
 //         property<TObj, TResult>(): LoDashImplicitObjectWrapper<(obj: TObj) => TResult>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.property
 //          */
 //         property<TObj, TResult>(): LoDashExplicitObjectWrapper<(obj: TObj) => TResult>;
 //     }
 
-//     interface LoDashExplicitArrayWrapper<T> {
+//     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.property
 //          */
@@ -12943,7 +12943,7 @@
 //     }
 
 //     //_.propertyOf
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * The opposite of _.property; this method creates a function that returns the property value at a given path
 //          * on object.
@@ -12954,14 +12954,14 @@
 //         propertyOf<T extends {}>(object: T): (path: string | string[]) => any;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.propertyOf
 //          */
 //         propertyOf(): LoDashImplicitObjectWrapper<(path: string | string[]) => any>;
 //     }
 
-//     interface LoDashExplicitObjectWrapper<T> {
+//     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.propertyOf
 //          */
@@ -12969,7 +12969,7 @@
 //     }
 
 //     //_.range
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Creates an array of numbers (positive and/or negative) progressing from start up to, but not including, end.
 //          * If end is not specified it’s set to start with start then set to 0. If end is less than start a zero-length
@@ -12988,14 +12988,14 @@
 //         range(end: number, step?: number): number[];
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.range
 //          */
 //         range(end?: number, step?: number): LoDashImplicitArrayWrapper<number>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.range
 //          */
@@ -13003,7 +13003,7 @@
 //     }
 
 //     //_.rangeRight
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * This method is like `_.range` except that it populates values in
 //          * descending order.
@@ -13046,14 +13046,14 @@
 //         rangeRight(end: number, step?: number): number[];
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.rangeRight
 //          */
 //         rangeRight(end?: number, step?: number): LoDashImplicitArrayWrapper<number>;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.rangeRight
 //          */
@@ -13061,7 +13061,7 @@
 //     }
 
 //     //_.runInContext
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Create a new pristine lodash function using the given context object.
 //          *
@@ -13071,7 +13071,7 @@
 //         runInContext(context?: Object): typeof _;
 //     }
 
-//     interface LoDashImplicitObjectWrapper<T> {
+//     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.runInContext
 //          */
@@ -13079,7 +13079,7 @@
 //     }
 
 //     //_.times
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Invokes the iteratee function n times, returning an array of the results of each invocation. The iteratee
 //          * is invoked with one argument; (index).
@@ -13096,7 +13096,7 @@
 //         times(n: number): number[];
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.times
 //          */
@@ -13108,7 +13108,7 @@
 //         times(): number[];
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.times
 //          */
@@ -13121,7 +13121,7 @@
 //     }
 
 //     //_.toPath
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Converts `value` to a property path array.
 //          *
@@ -13150,14 +13150,14 @@
 //         toPath(value: any): string[];
 //     }
 
-//     interface LoDashImplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashImplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toPath
 //          */
 //         toPath(): LoDashImplicitWrapper<string[]>;
 //     }
 
-//     interface LoDashExplicitWrapperBase<T, TWrapper> {
+//     export interface LoDashExplicitWrapperBase<T, TWrapper> {
 //         /**
 //          * @see _.toPath
 //          */
@@ -13165,7 +13165,7 @@
 //     }
 
 //     //_.uniqueId
-//     interface LoDashStatic {
+//     export interface LoDashStatic {
 //         /**
 //          * Generates a unique ID. If prefix is provided the ID is appended to it.
 //          *
@@ -13175,75 +13175,75 @@
 //         uniqueId(prefix?: string): string;
 //     }
 
-//     interface LoDashImplicitWrapper<T> {
+//     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.uniqueId
 //          */
 //         uniqueId(): string;
 //     }
 
-//     interface LoDashExplicitWrapper<T> {
+//     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.uniqueId
 //          */
 //         uniqueId(): LoDashExplicitWrapper<string>;
 //     }
 
-//     interface ListIterator<T, TResult> {
+//     export interface ListIterator<T, TResult> {
 //         (value: T, index: number, collection: List<T>): TResult;
 //     }
 
-//     interface DictionaryIterator<T, TResult> {
+//     export interface DictionaryIterator<T, TResult> {
 //         (value: T, key?: string, collection?: Dictionary<T>): TResult;
 //     }
 
-//     interface NumericDictionaryIterator<T, TResult> {
+//     export interface NumericDictionaryIterator<T, TResult> {
 //         (value: T, key?: number, collection?: Dictionary<T>): TResult;
 //     }
 
-//     interface ObjectIterator<T, TResult> {
+//     export interface ObjectIterator<T, TResult> {
 //         (element: T, key?: string, collection?: any): TResult;
 //     }
 
-//     interface StringIterator<TResult> {
+//     export interface StringIterator<TResult> {
 //         (char: string, index?: number, string?: string): TResult;
 //     }
 
-//     interface MemoVoidIterator<T, TResult> {
+//     export interface MemoVoidIterator<T, TResult> {
 //         (prev: TResult, curr: T, indexOrKey?: any, list?: T[]): void;
 //     }
-//     interface MemoIterator<T, TResult> {
+//     export interface MemoIterator<T, TResult> {
 //         (prev: TResult, curr: T, indexOrKey?: any, list?: T[]): TResult;
 //     }
 
-//     interface MemoVoidArrayIterator<T, TResult> {
+//     export interface MemoVoidArrayIterator<T, TResult> {
 //         (acc: TResult, curr: T, index?: number, arr?: T[]): void;
 //     }
-//     interface MemoVoidDictionaryIterator<T, TResult> {
+//     export interface MemoVoidDictionaryIterator<T, TResult> {
 //         (acc: TResult, curr: T, key?: string, dict?: Dictionary<T>): void;
 //     }
 
-//     //interface Collection<T> {}
+//     //export interface Collection<T> {}
 
-//     // Common interface between Arrays and jQuery objects
-//     interface List<T> {
+//     // Common export interface between Arrays and jQuery objects
+//     export interface List<T> {
 //         [index: number]: T;
 //         length: number;
 //     }
 
-//     interface Dictionary<T> {
+//     export interface Dictionary<T> {
 //         [index: string]: T;
 //     }
 
-//     interface NumericDictionary<T> {
+//     export interface NumericDictionary<T> {
 //         [index: number]: T;
 //     }
 
-//     interface StringRepresentable {
+//     export interface StringRepresentable {
 //         toString(): string;
 //     }
 
-//     interface Cancelable {
+//     export interface Cancelable {
 //         cancel(): void;
 //     }
 // }

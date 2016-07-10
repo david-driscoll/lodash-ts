@@ -1,5 +1,9 @@
 {
     "compilerOptions": {
         "target": "es6"
-    }
+    },
+    "exclude": [
+        "out",
+        "old"
+    ]
 }

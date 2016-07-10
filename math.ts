@@ -1,9 +1,9 @@
 namespace Types {
-    namespace Math {
-        type Operation = (augend: number, addend: number) => number;
-        type Aggregation = (array: number[]) => number;
-        type Rounding = (n: number, precision?: number) => number;
-        interface AggregationBy {
+    export namespace Math {
+       export type Operation = (augend: number, addend: number) => number;
+       export type Aggregation = (array: number[]) => number;
+       export type Rounding = (n: number, precision?: number) => number;
+        export interface AggregationBy {
             <T>(array: T[]): T;
             <T>(array: T[], iteratee: Iteratee<(value: T) => number>): T;
             <T>(array: T[], iteratee: PathLocation): T;

@@ -1,29 +1,29 @@
 namespace Types.Wrap {
-    interface ArrayPassThrough<TWrapper> {
+    export interface ArrayPassThrough<TWrapper> {
         (): TWrapper;
     }
 
-    interface ArrayArgs<T, TWrapper> {
+    export interface ArrayArgs<T, TWrapper> {
         (...args: T[]): TWrapper;
     }
 
-    interface ArrayArrayArg<T, TWrapper> {
+    export interface ArrayArrayArg<T, TWrapper> {
         (args: ArrayLike<T>): TWrapper;
     }
 
-    interface ArrayValueThrough<T> {
+    export interface ArrayValueThrough<T> {
         (): T;
     }
 
-    interface Concat<T, TWrapper> {
+    export interface Concat<T, TWrapper> {
         (...items: (T | T[])[]): TWrapper;
     }
 
-    interface Difference<T, TWrapper> {
+    export interface Difference<T, TWrapper> {
         (...values: ArrayLike<T>[]): TWrapper;
     }
 
-    interface DifferenceBy<T, TWrapper> {
+    export interface DifferenceBy<T, TWrapper> {
         (values?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): TWrapper;
@@ -32,7 +32,7 @@ namespace Types.Wrap {
         (...values: (ArrayLike<T> | Iteratee<(value: T) => any>)[]): TWrapper;
     }
 
-    interface DifferenceWith<T, TWrapper> {
+    export interface DifferenceWith<T, TWrapper> {
         (values?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): TWrapper;
@@ -41,62 +41,62 @@ namespace Types.Wrap {
         (...values: (ArrayLike<T> | ((arrVal: T, othVal: T) => boolean))[]): TWrapper;
     }
 
-    interface Drop<TWrapper> {
+    export interface Drop<TWrapper> {
         (num?: number): TWrapper;
     }
 
-    interface DropWhile<T, TWrapper> {
+    export interface DropWhile<T, TWrapper> {
         (predicate?: ArrayPredicate<T>): TWrapper;
     }
 
-    interface Fill<T, TWrapper> {
+    export interface Fill<T, TWrapper> {
         (value: T, start?: number, end?: number): TWrapper;
     }
 
-    interface Nth<T, TWrapper> {
+    export interface Nth<T, TWrapper> {
         (index?: number): T;
     }
 
-    interface PullAll<T, TWrapper> {
+    export interface PullAll<T, TWrapper> {
         (values: ArrayLike<T>, iteratee?: ValuePredicate<T>): TWrapper;
     }
 
-    interface PullAt<T, TWrapper> {
+    export interface PullAt<T, TWrapper> {
         (...indexes: (number | ArrayLike<number>)[]): TWrapper;
     }
 
-    interface PullAllBy<T, TWrapper> {
+    export interface PullAllBy<T, TWrapper> {
         (values: ArrayLike<T>, iteratee?: ValuePredicate<T>): TWrapper;
     }
 
-    interface Remove<T, TWrapper> {
+    export interface Remove<T, TWrapper> {
         (predicate?: ArrayPredicate<T>): TWrapper;
     }
 
-    interface Slice<T, TWrapper> {
+    export interface Slice<T, TWrapper> {
         (start?: number, end?: number): TWrapper;
     }
 
-    interface UniqBy<T, TWrapper> {
+    export interface UniqBy<T, TWrapper> {
         (iteratee?: ValuePredicate<T>): TWrapper;
     }
 
-    interface UniqWith<T, TWrapper> {
+    export interface UniqWith<T, TWrapper> {
         (comparator?: (valueA: T, valueB: T) => boolean): TWrapper;
     }
 
-    interface TakeWhile<T, TWrapper> {
+    export interface TakeWhile<T, TWrapper> {
         (predicate?: ArrayPredicate<T>): TWrapper;
     }
 
-    interface ZipWith<T, TWrapper> {
+    export interface ZipWith<T, TWrapper> {
         <TResult>(...arrays: (ArrayLike<any> | Iteratee<(...args: any[]) => TResult>)[]): TWrapper;
     }
 
-    interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
-    interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
+    export interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
+    export interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
 
-    interface ArrayWrapper<T, TWrapper> {
+    export interface ArrayWrapper<T, TWrapper> {
         compact: ArrayPassThrough<TWrapper>;
         concat: Concat<T, TWrapper>;
         difference: Difference<T, TWrapper>;
@@ -142,7 +142,7 @@ namespace Types.Wrap {
         // zipObjectDeep
     }
 
-    interface ImplicitArray<T, TWrapper extends ImplicitArray<T, TWrapper>> {
+    export interface ImplicitArray<T, TWrapper extends ImplicitArray<T, TWrapper>> {
         chunk(size?: number): ImplicitArray1<T[]>;
         first: ArrayValueThrough<T>;
         head: ArrayValueThrough<T>;
@@ -164,7 +164,7 @@ namespace Types.Wrap {
         zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee<(...args: any[]) => TResult>)[]): ImplicitArray1<TResult>;
     }
 
-    interface ExplicitArray<T, TWrapper extends ExplicitArray<T, TWrapper>> {
+    export interface ExplicitArray<T, TWrapper extends ExplicitArray<T, TWrapper>> {
         chunk(size?: number): ExplicitArray1<T[]>;
         first: ArrayValueThrough<ExplicitValue1<T>>;
         head: ArrayValueThrough<ExplicitValue1<T>>;

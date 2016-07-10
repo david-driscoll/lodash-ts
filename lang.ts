@@ -1,19 +1,19 @@
 namespace Types {
-    interface CastArray {
+    export interface CastArray {
         <T>(value: T[]): T[];
         <T>(value: T): T[];
     }
 
-    interface Clone {
+    export interface Clone {
         <T>(value: T): T;
     }
 
-    interface CloneWith {
+    export interface CloneWith {
         <T>(value: T): T;
         <T, TResult>(value: T, customizer: (value: any, key: string, object: T, stack: any) => any): TResult;
     }
 
-    interface Comparison {
+    export interface Comparison {
         <T>(a: T, b: T): boolean;
     }
 }

@@ -1,33 +1,33 @@
 namespace Types {
-    interface ArrayPassThrough {
+    export interface ArrayPassThrough {
         <T>(array: ArrayLike<T>): T[];
     }
 
-    interface ArrayArgs {
+    export interface ArrayArgs {
         <T>(array: ArrayLike<T>, ...args: T[]): T[];
     }
 
-    interface ArrayArrayArg {
+    export interface ArrayArrayArg {
         <T>(array: ArrayLike<T>, args: ArrayLike<T>): T[];
     }
 
-    interface ArrayValueThrough {
+    export interface ArrayValueThrough {
         <T>(array: ArrayLike<T>): T;
     }
 
-    interface Chunk {
+    export interface Chunk {
         <T>(array: ArrayLike<T>, size?: number): T[][];
     }
 
-    interface Concat {
+    export interface Concat {
         <T>(array: ArrayLike<T>, ...items: (T | T[])[]): T[];
     }
 
-    interface Difference {
+    export interface Difference {
         <T>(array: ArrayLike<T>, ...values: ArrayLike<T>[]): T[];
     }
 
-    interface DifferenceBy {
+    export interface DifferenceBy {
         <T>(array: ArrayLike<T>, values?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): T[];
         <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): T[];
         <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): T[];
@@ -36,7 +36,7 @@ namespace Types {
         <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | Iteratee<(value: T) => any>)[]): T[];
     }
 
-    interface DifferenceWith {
+    export interface DifferenceWith {
         <T>(array: ArrayLike<T>, values?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
         <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
         <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
@@ -45,96 +45,96 @@ namespace Types {
         <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | ((arrVal: T, othVal: T) => boolean))[]): T[];
     }
 
-    interface Drop {
+    export interface Drop {
         <T>(array: ArrayLike<T>, num?: number): T[];
     }
 
-    interface DropWhile {
+    export interface DropWhile {
         <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): T[];
     }
 
-    interface Flatten {
+    export interface Flatten {
         <T>(array: ArrayLike<T | ArrayLike<T>>): T[];
         <T>(array: RecursiveArrayLike<T>): RecursiveArray<T>;
         <TResult>(array: ArrayLike<any>): TResult[];
     }
 
-    interface FlattenDeep {
+    export interface FlattenDeep {
         <T>(array: ArrayLike<RecursiveArrayLike<T>>): T[];
     }
 
-    interface FlattenDepth {
+    export interface FlattenDepth {
         <T>(array: ArrayLike<any>, depth?: number): T[];
     }
 
-    interface FromPairs {
+    export interface FromPairs {
         <T>(array: ArrayLike<[number, T]>): { [index: number]: T; };
         <T>(array: ArrayLike<[any, T]>): { [index: string]: T; };
     }
 
-    interface Join {
+    export interface Join {
         <T>(array: ArrayLike<T>, separator?: string): string;
     }
 
-    interface Fill {
+    export interface Fill {
         <T>(array: Array<T>, value: T, start?: number, end?: number): Array<T>;
         <T>(array: ArrayLike<T>, value: T, start?: number, end?: number): ArrayLike<T>;
     }
 
-    interface FindIndex {
+    export interface FindIndex {
         <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): number;
     }
 
-    interface IndexOf {
+    export interface IndexOf {
         <T>(array: ArrayLike<T>, value: T, fromIndex?: number): number;
     }
 
-    interface Nth {
+    export interface Nth {
         <T>(array: ArrayLike<T>, index?: number): T;
     }
 
-    interface PullAll {
+    export interface PullAll {
         <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
     }
 
-    interface PullAllWith {
+    export interface PullAllWith {
         <T>(array: ArrayLike<T>, values: ArrayLike<T>, comparator?: (valueA: T, valueB: T) => boolean): T[];
     }
 
-    interface PullAt {
+    export interface PullAt {
         <T>(array: ArrayLike<T>, ...indexes: (number | ArrayLike<number>)[]): T[];
     }
 
-    interface PullAllBy {
+    export interface PullAllBy {
         <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
     }
 
-    interface Remove {
+    export interface Remove {
         <T>(array: Array<T>, predicate?: ArrayPredicate<T, Array<T>>): Array<T>;
         <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): ArrayLike<T>;
     }
 
-    interface Slice {
+    export interface Slice {
         <T>(array: ArrayLike<T>, start?: number, end?: number): T[];
     }
 
-    interface SortedIndex {
+    export interface SortedIndex {
         <T>(array: ArrayLike<T>, value: T): number;
     }
 
-    interface SortedIndexBy {
+    export interface SortedIndexBy {
         <T>(array: ArrayLike<T>, value: T, predicate?: ValuePredicate<T>): number;
     }
 
-    interface UniqBy {
+    export interface UniqBy {
         <T>(array: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
     }
 
-    interface UniqWith {
+    export interface UniqWith {
         <T>(array: ArrayLike<T>, comparator?: (valueA: T, valueB: T) => boolean): T[];
     }
 
-    interface Zip {
+    export interface Zip {
         <T>(t: ArrayLike<T>): [T][];
         <T, T2>(t: ArrayLike<T>, t2: ArrayLike<T2>): [T, T2][];
         <T, T2, T3>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>): [T, T2, T3][];
@@ -143,7 +143,7 @@ namespace Types {
         <TResult>(...arrays: ArrayLike<any>[]): TResult[];
     }
 
-    interface Unzip {
+    export interface Unzip {
         <T>(...arrays: [T][]): [T[]];
         <T, T2>(...arrays: [T, T2][]): [T[], T2[]];
         <T, T2, T3>(...arrays: [T, T2, T3][]): [T[], T2[], T3[]];
@@ -152,7 +152,7 @@ namespace Types {
         <TResult>(...arrays: ArrayLike<any>[]): TResult[];
     }
 
-    interface ZipWith {
+    export interface ZipWith {
         <T, TResult>(t: ArrayLike<T>, predicate?: Iteratee<(t: T) => TResult>): TResult[];
         <T, T2, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, predicate?: Iteratee<(t: T, t2: T2) => TResult>): TResult[];
         <T, T2, T3, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, predicate?: Iteratee<(t: T, t2: T2, t3: T3) => TResult>): TResult[];
@@ -161,7 +161,7 @@ namespace Types {
         <TResult>(...arrays: (ArrayLike<any> | Iteratee<(...args: any[]) => TResult>)[]): TResult[];
     }
 
-    interface UnzipWith {
+    export interface UnzipWith {
         <T, TResult>(...arrays: ([T] | Iteratee<(t: T) => TResult>)[]): TResult[];
         <T, T2, TResult>(...arrays: ([T, T2] | Iteratee<(t: T, t2: T2) => TResult>)[]): TResult[];
         <T, T2, T3, TResult>(...arrays: ([T, T2, T3] | Iteratee<(t: T, t2: T2, t3: T3) => TResult>)[]): TResult[];
@@ -170,12 +170,12 @@ namespace Types {
         <TResult>(...arrays: (ArrayLike<any> | Iteratee<(...args: any[]) => TResult>)[]): TResult[];
     }
 
-    interface ZipObject {
+    export interface ZipObject {
         <T, TResult extends _Obj<T>>(props?: string[], values?: ArrayLike<T>): TResult;
     }
 
-    interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
-    interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
+    export interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
+    export interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
 }
 
 interface IStatic {

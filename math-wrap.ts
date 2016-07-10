@@ -1,14 +1,14 @@
 namespace Types.Wrap {
-    namespace Math {
-        type Aggregation<T> = () => T;
-        interface AggregationBy<T, TWrapper> {
+    export namespace Math {
+       export type Aggregation<T> = () => T;
+        export interface AggregationBy<T, TWrapper> {
             (): TWrapper;
             (iteratee: Iteratee<(value: T) => number>): TWrapper;
             (iteratee: PathLocation): TWrapper;
         }
     }
 
-    interface ImplicitWrapper<T, TWrapper> {
+    export interface ImplicitWrapper<T, TWrapper> {
         max: Math.Aggregation<number>;
         mean: Math.Aggregation<number>;
         min: Math.Aggregation<number>;
@@ -19,7 +19,7 @@ namespace Types.Wrap {
         sumBy: Math.AggregationBy<T, T>;
     }
 
-    interface ExplicitWrapper<T, TWrapper> {
+    export interface ExplicitWrapper<T, TWrapper> {
         max: Math.Aggregation<ExplicitValue1<number>>;
         mean: Math.Aggregation<ExplicitValue1<number>>;
         min: Math.Aggregation<ExplicitValue1<number>>;

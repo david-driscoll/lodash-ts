@@ -1,29 +1,29 @@
 namespace Types.Wrap {
-    interface ArrayPassThrough<TWrapper> {
+    export interface ArrayPassThrough<TWrapper> {
         (): TWrapper;
     }
 
-    interface ArrayArgs<T, TWrapper> {
+    export interface ArrayArgs<T, TWrapper> {
         (...args: T[]): TWrapper;
     }
 
-    interface ArrayArrayArg<T, TWrapper> {
+    export interface ArrayArrayArg<T, TWrapper> {
         (args: ArrayLike<T>): TWrapper;
     }
 
-    interface ArrayValueThrough<T> {
+    export interface ArrayValueThrough<T> {
         (): T;
     }
 
-    interface Concat<T, TWrapper> {
+    export interface Concat<T, TWrapper> {
         (...items: (T | T[])[]): TWrapper;
     }
 
-    interface Difference<T, TWrapper> {
+    export interface Difference<T, TWrapper> {
         (...values: ArrayLike<T>[]): TWrapper;
     }
 
-    interface DifferenceBy<T, TWrapper> {
+    export interface DifferenceBy<T, TWrapper> {
         (values?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): TWrapper;
@@ -32,7 +32,7 @@ namespace Types.Wrap {
         (...values: (ArrayLike<T> | Iteratee<(value: T) => any>)[]): TWrapper;
     }
 
-    interface DifferenceWith<T, TWrapper> {
+    export interface DifferenceWith<T, TWrapper> {
         (values?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): TWrapper;
@@ -41,62 +41,62 @@ namespace Types.Wrap {
         (...values: (ArrayLike<T> | ((arrVal: T, othVal: T) => boolean))[]): TWrapper;
     }
 
-    interface Drop<TWrapper> {
+    export interface Drop<TWrapper> {
         (num?: number): TWrapper;
     }
 
-    interface DropWhile<T, TWrapper> {
+    export interface DropWhile<T, TWrapper> {
         (predicate?: ArrayPredicate<T>): TWrapper;
     }
 
-    interface Fill<T, TWrapper> {
+    export interface Fill<T, TWrapper> {
         (value: T, start?: number, end?: number): TWrapper;
     }
 
-    interface Nth<T, TWrapper> {
+    export interface Nth<T, TWrapper> {
         (index?: number): T;
     }
 
-    interface PullAll<T, TWrapper> {
+    export interface PullAll<T, TWrapper> {
         (values: ArrayLike<T>, iteratee?: ValuePredicate<T>): TWrapper;
     }
 
-    interface PullAt<T, TWrapper> {
+    export interface PullAt<T, TWrapper> {
         (...indexes: (number | ArrayLike<number>)[]): TWrapper;
     }
 
-    interface PullAllBy<T, TWrapper> {
+    export interface PullAllBy<T, TWrapper> {
         (values: ArrayLike<T>, iteratee?: ValuePredicate<T>): TWrapper;
     }
 
-    interface Remove<T, TWrapper> {
+    export interface Remove<T, TWrapper> {
         (predicate?: ArrayPredicate<T>): TWrapper;
     }
 
-    interface Slice<T, TWrapper> {
+    export interface Slice<T, TWrapper> {
         (start?: number, end?: number): TWrapper;
     }
 
-    interface UniqBy<T, TWrapper> {
+    export interface UniqBy<T, TWrapper> {
         (iteratee?: ValuePredicate<T>): TWrapper;
     }
 
-    interface UniqWith<T, TWrapper> {
+    export interface UniqWith<T, TWrapper> {
         (comparator?: (valueA: T, valueB: T) => boolean): TWrapper;
     }
 
-    interface TakeWhile<T, TWrapper> {
+    export interface TakeWhile<T, TWrapper> {
         (predicate?: ArrayPredicate<T>): TWrapper;
     }
 
-    interface ZipWith<T, TWrapper> {
+    export interface ZipWith<T, TWrapper> {
         <TResult>(...arrays: (ArrayLike<any> | Iteratee<(...args: any[]) => TResult>)[]): TWrapper;
     }
 
-    interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
-    interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
+    export interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
+    export interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
 
-    interface ArrayWrapper<T, TWrapper> {
+    export interface ArrayWrapper<T, TWrapper> {
         compact: ArrayPassThrough<TWrapper>;
         concat: Concat<T, TWrapper>;
         difference: Difference<T, TWrapper>;
@@ -142,7 +142,7 @@ namespace Types.Wrap {
         // zipObjectDeep
     }
 
-    interface ImplicitArray<T, TWrapper extends ImplicitArray<T, TWrapper>> {
+    export interface ImplicitArray<T, TWrapper extends ImplicitArray<T, TWrapper>> {
         chunk(size?: number): ImplicitArray1<T[]>;
         first: ArrayValueThrough<T>;
         head: ArrayValueThrough<T>;
@@ -164,7 +164,7 @@ namespace Types.Wrap {
         zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee<(...args: any[]) => TResult>)[]): ImplicitArray1<TResult>;
     }
 
-    interface ExplicitArray<T, TWrapper extends ExplicitArray<T, TWrapper>> {
+    export interface ExplicitArray<T, TWrapper extends ExplicitArray<T, TWrapper>> {
         chunk(size?: number): ExplicitArray1<T[]>;
         first: ArrayValueThrough<ExplicitValue1<T>>;
         head: ArrayValueThrough<ExplicitValue1<T>>;
@@ -187,35 +187,35 @@ namespace Types.Wrap {
     }
 }
 namespace Types {
-    interface ArrayPassThrough {
+    export interface ArrayPassThrough {
         <T>(array: ArrayLike<T>): T[];
     }
 
-    interface ArrayArgs {
+    export interface ArrayArgs {
         <T>(array: ArrayLike<T>, ...args: T[]): T[];
     }
 
-    interface ArrayArrayArg {
+    export interface ArrayArrayArg {
         <T>(array: ArrayLike<T>, args: ArrayLike<T>): T[];
     }
 
-    interface ArrayValueThrough {
+    export interface ArrayValueThrough {
         <T>(array: ArrayLike<T>): T;
     }
 
-    interface Chunk {
+    export interface Chunk {
         <T>(array: ArrayLike<T>, size?: number): T[][];
     }
 
-    interface Concat {
+    export interface Concat {
         <T>(array: ArrayLike<T>, ...items: (T | T[])[]): T[];
     }
 
-    interface Difference {
+    export interface Difference {
         <T>(array: ArrayLike<T>, ...values: ArrayLike<T>[]): T[];
     }
 
-    interface DifferenceBy {
+    export interface DifferenceBy {
         <T>(array: ArrayLike<T>, values?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): T[];
         <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): T[];
         <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: Iteratee<(value: T) => any>): T[];
@@ -224,7 +224,7 @@ namespace Types {
         <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | Iteratee<(value: T) => any>)[]): T[];
     }
 
-    interface DifferenceWith {
+    export interface DifferenceWith {
         <T>(array: ArrayLike<T>, values?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
         <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
         <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
@@ -233,96 +233,96 @@ namespace Types {
         <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | ((arrVal: T, othVal: T) => boolean))[]): T[];
     }
 
-    interface Drop {
+    export interface Drop {
         <T>(array: ArrayLike<T>, num?: number): T[];
     }
 
-    interface DropWhile {
+    export interface DropWhile {
         <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): T[];
     }
 
-    interface Flatten {
+    export interface Flatten {
         <T>(array: ArrayLike<T | ArrayLike<T>>): T[];
         <T>(array: RecursiveArrayLike<T>): RecursiveArray<T>;
         <TResult>(array: ArrayLike<any>): TResult[];
     }
 
-    interface FlattenDeep {
+    export interface FlattenDeep {
         <T>(array: ArrayLike<RecursiveArrayLike<T>>): T[];
     }
 
-    interface FlattenDepth {
+    export interface FlattenDepth {
         <T>(array: ArrayLike<any>, depth?: number): T[];
     }
 
-    interface FromPairs {
+    export interface FromPairs {
         <T>(array: ArrayLike<[number, T]>): { [index: number]: T; };
         <T>(array: ArrayLike<[any, T]>): { [index: string]: T; };
     }
 
-    interface Join {
+    export interface Join {
         <T>(array: ArrayLike<T>, separator?: string): string;
     }
 
-    interface Fill {
+    export interface Fill {
         <T>(array: Array<T>, value: T, start?: number, end?: number): Array<T>;
         <T>(array: ArrayLike<T>, value: T, start?: number, end?: number): ArrayLike<T>;
     }
 
-    interface FindIndex {
+    export interface FindIndex {
         <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): number;
     }
 
-    interface IndexOf {
+    export interface IndexOf {
         <T>(array: ArrayLike<T>, value: T, fromIndex?: number): number;
     }
 
-    interface Nth {
+    export interface Nth {
         <T>(array: ArrayLike<T>, index?: number): T;
     }
 
-    interface PullAll {
+    export interface PullAll {
         <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
     }
 
-    interface PullAllWith {
+    export interface PullAllWith {
         <T>(array: ArrayLike<T>, values: ArrayLike<T>, comparator?: (valueA: T, valueB: T) => boolean): T[];
     }
 
-    interface PullAt {
+    export interface PullAt {
         <T>(array: ArrayLike<T>, ...indexes: (number | ArrayLike<number>)[]): T[];
     }
 
-    interface PullAllBy {
+    export interface PullAllBy {
         <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
     }
 
-    interface Remove {
+    export interface Remove {
         <T>(array: Array<T>, predicate?: ArrayPredicate<T, Array<T>>): Array<T>;
         <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): ArrayLike<T>;
     }
 
-    interface Slice {
+    export interface Slice {
         <T>(array: ArrayLike<T>, start?: number, end?: number): T[];
     }
 
-    interface SortedIndex {
+    export interface SortedIndex {
         <T>(array: ArrayLike<T>, value: T): number;
     }
 
-    interface SortedIndexBy {
+    export interface SortedIndexBy {
         <T>(array: ArrayLike<T>, value: T, predicate?: ValuePredicate<T>): number;
     }
 
-    interface UniqBy {
+    export interface UniqBy {
         <T>(array: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
     }
 
-    interface UniqWith {
+    export interface UniqWith {
         <T>(array: ArrayLike<T>, comparator?: (valueA: T, valueB: T) => boolean): T[];
     }
 
-    interface Zip {
+    export interface Zip {
         <T>(t: ArrayLike<T>): [T][];
         <T, T2>(t: ArrayLike<T>, t2: ArrayLike<T2>): [T, T2][];
         <T, T2, T3>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>): [T, T2, T3][];
@@ -331,7 +331,7 @@ namespace Types {
         <TResult>(...arrays: ArrayLike<any>[]): TResult[];
     }
 
-    interface Unzip {
+    export interface Unzip {
         <T>(...arrays: [T][]): [T[]];
         <T, T2>(...arrays: [T, T2][]): [T[], T2[]];
         <T, T2, T3>(...arrays: [T, T2, T3][]): [T[], T2[], T3[]];
@@ -340,7 +340,7 @@ namespace Types {
         <TResult>(...arrays: ArrayLike<any>[]): TResult[];
     }
 
-    interface ZipWith {
+    export interface ZipWith {
         <T, TResult>(t: ArrayLike<T>, predicate?: Iteratee<(t: T) => TResult>): TResult[];
         <T, T2, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, predicate?: Iteratee<(t: T, t2: T2) => TResult>): TResult[];
         <T, T2, T3, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, predicate?: Iteratee<(t: T, t2: T2, t3: T3) => TResult>): TResult[];
@@ -349,7 +349,7 @@ namespace Types {
         <TResult>(...arrays: (ArrayLike<any> | Iteratee<(...args: any[]) => TResult>)[]): TResult[];
     }
 
-    interface UnzipWith {
+    export interface UnzipWith {
         <T, TResult>(...arrays: ([T] | Iteratee<(t: T) => TResult>)[]): TResult[];
         <T, T2, TResult>(...arrays: ([T, T2] | Iteratee<(t: T, t2: T2) => TResult>)[]): TResult[];
         <T, T2, T3, TResult>(...arrays: ([T, T2, T3] | Iteratee<(t: T, t2: T2, t3: T3) => TResult>)[]): TResult[];
@@ -358,12 +358,12 @@ namespace Types {
         <TResult>(...arrays: (ArrayLike<any> | Iteratee<(...args: any[]) => TResult>)[]): TResult[];
     }
 
-    interface ZipObject {
+    export interface ZipObject {
         <T, TResult extends _Obj<T>>(props?: string[], values?: ArrayLike<T>): TResult;
     }
 
-    interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
-    interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
+    export interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
+    export interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> { }
 }
 
 interface IStatic {
@@ -434,15 +434,15 @@ interface IStatic {
     zipObjectDeep: Types.ZipObject;
 }
 namespace Types.Wrap {
-    interface ForEach<T, TWrapper> {
+    export interface ForEach<T, TWrapper> {
         (iteratee?: Iteratee<(value: T, index: number) => boolean | void>): TWrapper;
     }
 
-    interface ForEachObject<T, TWrapper> {
+    export interface ForEachObject<T, TWrapper> {
         (iteratee?: Iteratee<(value: T, index: string) => boolean | void>): TWrapper;
     }
 
-    interface OrderBy<T, TWrapper> {
+    export interface OrderBy<T, TWrapper> {
         (iteratee?: ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
         (iteratee1: ValuePredicate<T>, orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
         (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
@@ -452,16 +452,16 @@ namespace Types.Wrap {
         (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>, iteratee3: ValuePredicate<T>, iteratee4: ValuePredicate<T>, iteratee5: ValuePredicate<T>, iteratee6: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
     }
 
-    interface Shuffle<TWrapper> {
+    export interface Shuffle<TWrapper> {
         (): TWrapper;
     }
 
-    interface SortBy<T, TWrapper> {
+    export interface SortBy<T, TWrapper> {
         (iteratee?: ValuePredicate<T>[]): TWrapper;
         (...iteratees: ValuePredicate<T>[]): TWrapper;
     }
 
-    interface ArrayWrapper<T, TWrapper> {
+    export interface ArrayWrapper<T, TWrapper> {
         forEach: ForEach<T, TWrapper>;
         forEachRight: ForEach<T, TWrapper>;
         each: ForEach<T, TWrapper>;
@@ -472,7 +472,7 @@ namespace Types.Wrap {
         sortBy: SortBy<T, TWrapper>;
     }
 
-    interface ImplicitWrapper<T, TWrapper> {
+    export interface ImplicitWrapper<T, TWrapper> {
         countBy(iteratee: ValuePredicate<T>): ImplicitValue1<{ [index: string]: number; }>;
         every(iteratee?: ArrayPredicate<T>): boolean;
         filter(iteratee?: ArrayPredicate<T>): TWrapper;
@@ -495,7 +495,7 @@ namespace Types.Wrap {
         some(iteratee?: ArrayPredicate<T>): boolean;
     }
 
-    interface ExplicitWrapper<T, TWrapper> {
+    export interface ExplicitWrapper<T, TWrapper> {
         countBy(iteratee: ValuePredicate<T>): ExplicitValue1<{ [index: string]: number; }>;
         every(iteratee?: ArrayPredicate<T>): ExplicitValue1<boolean>;
         filter(iteratee?: ArrayPredicate<T>): TWrapper;
@@ -518,21 +518,21 @@ namespace Types.Wrap {
         some(iteratee?: ArrayPredicate<T>): ExplicitValue1<boolean>;
     }
 
-    interface ObjectWrapper<T, TObj extends { [index: string]: T }, TWrapper> {
+    export interface ObjectWrapper<T, TObj extends { [index: string]: T }, TWrapper> {
         forEach: ForEachObject<T, TWrapper>;
         forEachRight: ForEachObject<T, TWrapper>;
         each: ForEachObject<T, TWrapper>;
         eachRight: ForEachObject<T, TWrapper>;
     }
 
-    interface ImplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ImplicitObject<T, TObj, TWrapper>> {
+    export interface ImplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ImplicitObject<T, TObj, TWrapper>> {
         orderBy: OrderBy<T, ImplicitArray1<T>>;
         shuffle: Shuffle<ImplicitArray1<T>>;
         sampleSize(n?: number): ImplicitArray1<T>;
         sortBy: SortBy<T, ImplicitArray1<T>>;
     }
 
-    interface ExplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ExplicitObject<T, TObj, TWrapper>> {
+    export interface ExplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ExplicitObject<T, TObj, TWrapper>> {
         orderBy: OrderBy<T, ExplicitArray1<T>>;
         shuffle: Shuffle<ExplicitArray1<T>>;
         sampleSize(n?: number): ExplicitArray1<T>;
@@ -540,111 +540,111 @@ namespace Types.Wrap {
     }
 }
 namespace Types {
-    interface CountBy {
+    export interface CountBy {
         <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
         <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
         <T>(collection: any, iteratee: ValuePredicate<T>): { [index: string]: number; };
     }
 
-    interface GroupBy {
+    export interface GroupBy {
         <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
         <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
         <T>(collection: any, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
     }
 
-    interface ByBooleanPredicate {
+    export interface ByBooleanPredicate {
         <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): boolean;
         <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): boolean;
         <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): boolean;
     }
 
-    interface ByArrayPredicate {
+    export interface ByArrayPredicate {
         <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): T[];
         <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
         <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
     }
 
-    interface FindPredicate {
+    export interface FindPredicate {
         <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): T;
         <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>, fromIndex?: number): T;
         <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>, fromIndex?: number): T;
     }
 
-    interface FlatMap {
+    export interface FlatMap {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult[]>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>): TResult[];
         <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>): TResult[];
     }
 
-    interface FlatMapDepth {
+    export interface FlatMapDepth {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>, depth?: number) => TResult[]>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>, depth?: number): TResult[];
         <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult[]>, depth?: number): TResult[];
     }
 
-    interface ForEach {
+    export interface ForEach {
         <T>(collection: Array<T>, iteratee?: Iteratee<(value: T, index: number, collection: Array<T>) => boolean | void>): Array<T>;
         <T>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => boolean | void>): ArrayLike<T>;
         <T>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
         <T>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
     }
 
-    interface Includes {
+    export interface Includes {
         (collection: string, value: string, fromIndex?: number): boolean;
         <T>(collection: ArrayLike<T>, value: T, fromIndex?: number): boolean;
         <T>(collection: _Obj<T>, value: any, fromIndex?: number): boolean;
         <T>(collection: any, value: any, fromIndex?: number): boolean;
     }
 
-    interface InvokeMap {
+    export interface InvokeMap {
         <TResult>(collection: ArrayLike<any> | _Obj<any>, path: PathLocation | Function, ...args: any[]): TResult[];
     }
 
-    interface KeyBy {
+    export interface KeyBy {
         <T>(collection: ArrayLike<T> | _Obj<T>, iteratee?: ValuePredicate<T>): { [index: string]: T; };
     }
 
-    interface _Map {
+    export interface _Map {
         <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee<(value: T, index: number, collection: ArrayLike<T>) => TResult>): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
         <T, TResult>(collection: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): TResult[];
     }
 
-    interface OrderBy {
+    export interface OrderBy {
         <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
         <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
         <T>(collection: any, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
     }
 
-    interface Partition {
+    export interface Partition {
         <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
         <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
         <T>(collection: any, iteratee?: ValuePredicate<T>): [T[], T[]];
     }
 
-    interface Reduce {
+    export interface Reduce {
         <T, TAcc>(collection: ArrayLike<T>, iteratee?: AccumulatorArrayPredicate<T, ArrayLike<T>, TAcc>, acc?: TAcc): TAcc;
         <T, TAcc>(collection: _Obj<T>, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc>, acc?: TAcc): TAcc;
         <T, TAcc>(collection: any, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc>, acc?: TAcc): TAcc;
     }
 
-    interface Sample {
+    export interface Sample {
         <T>(collection: ArrayLike<T> | _Obj<T>): T;
     }
 
-    interface SampleSize {
+    export interface SampleSize {
         <T>(collection: ArrayLike<T> | _Obj<T>, n?: number): T[];
     }
 
-    interface Shuffle {
+    export interface Shuffle {
         <T>(collection: ArrayLike<T> | _Obj<T>): T[];
     }
 
-    interface Size {
+    export interface Size {
         <T>(collection: ArrayLike<T> | _Obj<T>): number;
     }
 
-    interface SortBy {
+    export interface SortBy {
         <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>[]): T[];
         <T>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T>[]): T[];
         <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>[]): T[];
@@ -685,28 +685,28 @@ interface IStatic {
     sortBy: Types.SortBy;
 }
 namespace Types {
-    interface Identity {
+    export interface Identity {
         <T>(value: T, ...args: any[]): T;
     }
 
-    type Iteratee<T extends Function> = string | Object | T;
-    type PathLocation = string | string[];
+   export type Iteratee<T extends Function> = string | Object | T;
+   export type PathLocation = string | string[];
 
-    type _Obj<T> = { [index: string]: T; } | { [index: number]: T; };
-    type ArrayPredicate<T, TArray extends ArrayLike<T>> = Iteratee<(value: T, index: number, collection: TArray) => boolean>;
-    type AccumulatorArrayPredicate<T, TArray extends ArrayLike<T>, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: number, collection: TArray) => TAcc>;
+   export type _Obj<T> = { [index: string]: T; } | { [index: number]: T; };
+   export type ArrayPredicate<T, TArray extends ArrayLike<T>> = Iteratee<(value: T, index: number, collection: TArray) => boolean>;
+   export type AccumulatorArrayPredicate<T, TArray extends ArrayLike<T>, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: number, collection: TArray) => TAcc>;
 
-    type ObjectPredicate<T, TObj extends _Obj<T>> = Iteratee<(value: T, index: string, collection: TObj) => boolean>;
-    type AccumulatorObjectPredicate<T, TObj extends _Obj<T>, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: string, collection: TObj) => TAcc>;
+   export type ObjectPredicate<T, TObj extends _Obj<T>> = Iteratee<(value: T, index: string, collection: TObj) => boolean>;
+   export type AccumulatorObjectPredicate<T, TObj extends _Obj<T>, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: string, collection: TObj) => TAcc>;
 
-    type ValuePredicate<T> = Iteratee<(value: T) => string>;
+   export type ValuePredicate<T> = Iteratee<(value: T) => string>;
 
-    namespace Wrap {
-        type ArrayPredicate<T> = Iteratee<(value: T, index: number) => boolean>;
-        type AccumulatorArrayPredicate<T, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: number) => TAcc>;
+    export namespace Wrap {
+       export type ArrayPredicate<T> = Iteratee<(value: T, index: number) => boolean>;
+       export type AccumulatorArrayPredicate<T, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: number) => TAcc>;
 
-        type ObjectPredicate<T> = Iteratee<(value: T, index: string) => boolean>;
-        type AccumulatorObjectPredicate<T, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: string) => TAcc>;
+       export type ObjectPredicate<T> = Iteratee<(value: T, index: string) => boolean>;
+       export type AccumulatorObjectPredicate<T, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: string) => TAcc>;
     }
 }
 type MemoizedFunction = { cache: {
@@ -717,27 +717,27 @@ type MemoizedFunction = { cache: {
 } };
 
 namespace Types {
-    type AfterMethod = <T extends Function>(num: number, func: T) => T;
-    type ReturnMethod = <T extends Function>(func: T) => T;
-    interface PH {
+   export type AfterMethod = <T extends Function>(num: number, func: T) => T;
+   export type ReturnMethod = <T extends Function>(func: T) => T;
+    export interface PH {
         _placeholder: any;
     }
-    interface ReplacementPlaceholder {
+    export interface ReplacementPlaceholder {
         placeholder: PH;
     }
 
-    interface DebounceOptions {
+    export interface DebounceOptions {
         leading?: boolean;
         maxWait?: number;
         trailing?: boolean;
     }
 
-    interface ThrottleOptions {
+    export interface ThrottleOptions {
         leading?: boolean;
         trailing?: boolean;
     }
 
-    interface Defer {
+    export interface Defer {
         <T>(func: (t1: T) => any, t1: T): number;
         <T, T2>(func: (t1: T, t2: T2) => any, t1: T, t2: T2): number;
         <T, T2, T3>(func: (t1: T, t2: T2, t3: T3) => any, t1: T, t2: T2, t3: T3): number;
@@ -746,7 +746,7 @@ namespace Types {
         <T extends Function>(func: T, ...args: any[]): number;
     }
 
-    interface Delay {
+    export interface Delay {
         <T>(func: (t1: T) => any, wait: number, t1: T): number;
         <T, T2>(func: (t1: T, t2: T2) => any, wait: number, t1: T, t2: T2): number;
         <T, T2, T3>(func: (t1: T, t2: T2, t3: T3) => any, wait: number, t1: T, t2: T2, t3: T3): number;
@@ -755,7 +755,7 @@ namespace Types {
         <T extends Function>(func: T, wait?: number, ...args: any[]): number;
     }
 
-    interface Flip {
+    export interface Flip {
         <T, TResult>(func: (t1: T) => TResult): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t2: T2, t1: T) => TResult;
         <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t3: T3, t2: T2, t1: T) => TResult;
@@ -764,7 +764,7 @@ namespace Types {
         <TResult extends Function>(func: Function): TResult;
     }
 
-    interface Memoize {
+    export interface Memoize {
         Cache: {
             delete(key: string): boolean;
             get(key: string): any;
@@ -774,7 +774,7 @@ namespace Types {
         <T extends Function>(func: T, resolver?: Function): T & MemoizedFunction;
     }
 
-    interface Negate {
+    export interface Negate {
         <T, TResult>(func: (t1: T) => TResult): (t1: T) => boolean;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t1: T, t2: T2) => boolean;
         <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t1: T, t2: T2, t3: T3) => boolean;
@@ -783,7 +783,7 @@ namespace Types {
         (func: (...args: any[]) => any): (...args: any[]) => boolean;
     }
 
-    interface OverArgs {
+    export interface OverArgs {
         <T, TResult>(func: (t1: T) => TResult, t1: (t1: T) => T): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: (t1: T) => T, t2: (t2: T2) => T2): (t1: T, t2: T2) => TResult;
         <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: (t1: T) => T, t2: (t2: T2) => T2, t3: (t3: T3) => T3): (t1: T, t2: T2, t3: T3) => TResult;
@@ -792,7 +792,7 @@ namespace Types {
         <T extends Function>(func: T, ...args: any[]): T;
     }
 
-    interface Rest {
+    export interface Rest {
         <T, TArg, TResult>(func: (t1: T, args: TArg[]) => TResult): (t1: T, ...args: TArg[]) => TResult;
         <T, T2, TArg, TResult>(func: (t1: T, t2: T2, args: TArg[]) => TResult): (t1: T, t2: T2, ...args: TArg[]) => TResult;
         <T, T2, T3, TArg, TResult>(func: (t1: T, t2: T2, t3: T3, args: TArg[]) => TResult): (t1: T, t2: T2, t3: T3, ...args: TArg[]) => TResult;
@@ -801,12 +801,12 @@ namespace Types {
         <T extends Function>(func: Function, start?: number): T;
     }
 
-    interface Spread {
+    export interface Spread {
         <T, TResult>(func: (args: T[]) => TResult): (...args: T[]) => TResult;
         <T extends Function>(func: Function, start?: number): T;
     }
 
-    interface Unary {
+    export interface Unary {
         <T, TResult>(func: (t1: T) => TResult): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t1: T) => TResult;
         <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t1: T) => TResult;
@@ -815,7 +815,7 @@ namespace Types {
         <TResult extends Function>(func: Function): TResult;
     }
 
-    interface Bind {
+    export interface Bind {
         <TResult>(func: () => TResult, thisArg: any): () => TResult;
         <T, TResult>(func: (t1: T) => TResult, thisArg: any): (t1: T) => TResult;
         <T, TResult>(func: (t1: T) => TResult, thisArg: any, t1: T): () => TResult;
@@ -881,7 +881,7 @@ namespace Types {
         <TResult extends Function>(func: Function, thisArg: any, ...args: any[]): TResult;
     }
 
-    interface Partial {
+    export interface Partial {
         <T, TResult>(func: (t1: T) => TResult, t1: T): () => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: PH, t2: T2): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T): (t2: T2) => TResult;
@@ -942,7 +942,7 @@ namespace Types {
         <TResult extends Function>(func: Function, ...args: any[]): TResult;
     }
 
-    interface PartialRight {
+    export interface PartialRight {
         <T, TResult>(func: (t1: T) => TResult, t1: T): () => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t2: PH, t1: T): (t1: T) => TResult;
         <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t2: T2): (t1: T) => TResult;
@@ -1003,25 +1003,25 @@ namespace Types {
         <TResult extends Function>(func: Function, ...args: any[]): TResult;
     }
 
-    interface CurriedFunction1<T1, R> {
+    export interface CurriedFunction1<T1, R> {
         (): CurriedFunction1<T1, R>;
         (t1: T1): R;
     }
 
-    interface CurriedFunction2<T1, T2, R> {
+    export interface CurriedFunction2<T1, T2, R> {
         (): CurriedFunction2<T1, T2, R>;
         (t1: T1): CurriedFunction1<T2, R>;
         (t1: T1, t2: T2): R;
     }
 
-    interface CurriedFunction3<T1, T2, T3, R> {
+    export interface CurriedFunction3<T1, T2, T3, R> {
         (): CurriedFunction3<T1, T2, T3, R>;
         (t1: T1): CurriedFunction2<T2, T3, R>;
         (t1: T1, t2: T2): CurriedFunction1<T3, R>;
         (t1: T1, t2: T2, t3: T3): R;
     }
 
-    interface CurriedFunction4<T1, T2, T3, T4, R> {
+    export interface CurriedFunction4<T1, T2, T3, T4, R> {
         (): CurriedFunction4<T1, T2, T3, T4, R>;
         (t1: T1): CurriedFunction3<T2, T3, T4, R>;
         (t1: T1, t2: T2): CurriedFunction2<T3, T4, R>;
@@ -1029,7 +1029,7 @@ namespace Types {
         (t1: T1, t2: T2, t3: T3, t4: T4): R;
     }
 
-    interface CurriedFunction5<T1, T2, T3, T4, T5, R> {
+    export interface CurriedFunction5<T1, T2, T3, T4, T5, R> {
         (): CurriedFunction5<T1, T2, T3, T4, T5, R>;
         (t1: T1): CurriedFunction4<T2, T3, T4, T5, R>;
         (t1: T1, t2: T2): CurriedFunction3<T3, T4, T5, R>;
@@ -1038,7 +1038,7 @@ namespace Types {
         (t1: T1, t2: T2, t3: T3, t4: T4, t5: T5): R;
     }
 
-    interface Curry {
+    export interface Curry {
         <T1, R>(func: (t1: T1) => R): CurriedFunction1<T1, R>;
         <T1, T2, R>(func: (t1: T1, t2: T2) => R): CurriedFunction2<T1, T2, R>;
         <T1, T2, T3, R>(func: (t1: T1, t2: T2, t3: T3) => R): CurriedFunction3<T1, T2, T3, R>;
@@ -1047,7 +1047,7 @@ namespace Types {
         <TResult extends Function>(func: Function, arity?: number): TResult;
     }
 
-    interface CurryRight {
+    export interface CurryRight {
         <T1, R>(func: (t1: T1) => R): CurriedFunction1<T1, R>;
         <T1, T2, R>(func: (t1: T1, t2: T2) => R): CurriedFunction2<T2, T1, R>;
         <T1, T2, T3, R>(func: (t1: T1, t2: T2, t3: T3) => R): CurriedFunction3<T3, T2, T1, R>;
@@ -1056,7 +1056,7 @@ namespace Types {
         <TResult extends Function>(func: Function, arity?: number): TResult;
     }
 
-    interface Rearg {
+    export interface Rearg {
         <TResult extends Function>(func: Function, indexes: number[]): TResult;
         <TResult extends Function>(func: Function, ...indexes: number[]): TResult;
     }
@@ -1088,21 +1088,21 @@ interface IStatic {
     wrap<TResult>(value: any, wrapper: Function): TResult
 }
 namespace Types {
-    interface CastArray {
+    export interface CastArray {
         <T>(value: T[]): T[];
         <T>(value: T): T[];
     }
 
-    interface Clone {
+    export interface Clone {
         <T>(value: T): T;
     }
 
-    interface CloneWith {
+    export interface CloneWith {
         <T>(value: T): T;
         <T, TResult>(value: T, customizer: (value: any, key: string, object: T, stack: any) => any): TResult;
     }
 
-    interface Comparison {
+    export interface Comparison {
         <T>(a: T, b: T): boolean;
     }
 }
@@ -1171,16 +1171,16 @@ interface IStatic {
     toString(value: any): string;
 }
 namespace Types.Wrap {
-    namespace Math {
-        type Aggregation<T> = () => T;
-        interface AggregationBy<T, TWrapper> {
+    export namespace Math {
+       export type Aggregation<T> = () => T;
+        export interface AggregationBy<T, TWrapper> {
             (): TWrapper;
             (iteratee: Iteratee<(value: T) => number>): TWrapper;
             (iteratee: PathLocation): TWrapper;
         }
     }
 
-    interface ImplicitWrapper<T, TWrapper> {
+    export interface ImplicitWrapper<T, TWrapper> {
         max: Math.Aggregation<number>;
         mean: Math.Aggregation<number>;
         min: Math.Aggregation<number>;
@@ -1191,7 +1191,7 @@ namespace Types.Wrap {
         sumBy: Math.AggregationBy<T, T>;
     }
 
-    interface ExplicitWrapper<T, TWrapper> {
+    export interface ExplicitWrapper<T, TWrapper> {
         max: Math.Aggregation<ExplicitValue1<number>>;
         mean: Math.Aggregation<ExplicitValue1<number>>;
         min: Math.Aggregation<ExplicitValue1<number>>;
@@ -1203,11 +1203,11 @@ namespace Types.Wrap {
     }
 }
 namespace Types {
-    namespace Math {
-        type Operation = (augend: number, addend: number) => number;
-        type Aggregation = (array: number[]) => number;
-        type Rounding = (n: number, precision?: number) => number;
-        interface AggregationBy {
+    export namespace Math {
+       export type Operation = (augend: number, addend: number) => number;
+       export type Aggregation = (array: number[]) => number;
+       export type Rounding = (n: number, precision?: number) => number;
+        export interface AggregationBy {
             <T>(array: T[]): T;
             <T>(array: T[], iteratee: Iteratee<(value: T) => number>): T;
             <T>(array: T[], iteratee: PathLocation): T;
@@ -1238,7 +1238,7 @@ interface IStatic {
     random(lower?: number, upper?: number, floating?: boolean): number
 }
 namespace Types {
-    interface Assign {
+    export interface Assign {
         <TObject, TSource>(object: TObject, source: TSource): TObject & TSource;
         <TObject, TSource1, TSource2>(object: TObject, source1: TSource1, source2: TSource2): TObject & TSource1 & TSource2;
         <TObject, TSource1, TSource2, TSource3>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3): TObject & TSource1 & TSource2 & TSource3;
@@ -1247,9 +1247,9 @@ namespace Types {
         <TResult>(...otherArgs: any[]): TResult;
     }
 
-    type AssignCustomizer = (objectValue: any, sourceValue: any, key?: string, object?: {}, source?: {}) => any;
+   export type AssignCustomizer = (objectValue: any, sourceValue: any, key?: string, object?: {}, source?: {}) => any;
 
-    interface AssignWith {
+    export interface AssignWith {
         <TObject, TSource, TResult>(object: TObject, source: TSource, customizer: AssignCustomizer): TResult;
         <TObject, TSource1, TSource2, TResult>(object: TObject, source1: TSource1, source2: TSource2, customizer: AssignCustomizer): TResult;
         <TObject, TSource1, TSource2, TSource3, TResult>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, customizer: AssignCustomizer): TResult;
@@ -1258,85 +1258,85 @@ namespace Types {
         <TObject, TResult>(object: TObject, ...otherArgs: any[]): TResult;
     }
 
-    interface At {
+    export interface At {
         <TResult>(obj: { [index: string]: any; }, paths: PathLocation[]): TResult[];
         <TResult>(obj: { [index: string]: any; }, ...paths: PathLocation[]): TResult[];
         <TResult>(obj: { [index: number]: any; }, paths: (number | number[])[]): TResult[];
         <TResult>(obj: { [index: number]: any; }, ...paths: (number | number[])[]): TResult[];
     }
 
-    interface FindKey {
+    export interface FindKey {
         <T>(obj: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): string;
         <T>(obj: any, iteratee?: ObjectPredicate<T, _Obj<T>>): string;
     }
 
-    interface ForIn {
+    export interface ForIn {
         <T>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
         <T>(obj: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
     }
 
-    interface Functions {
+    export interface Functions {
         <TResult extends Function>(obj: _Obj<any>): TResult[];
     }
 
-    interface Get {
+    export interface Get {
         <TResult>(obj: any, path: PathLocation, defaultValue?: TResult): TResult;
     }
 
-    interface Has {
+    export interface Has {
         (obj: any, path: PathLocation): boolean;
     }
 
-    interface InvertBy {
+    export interface InvertBy {
         <T>(obj: { [index: string]: T }, iteratee?: ValuePredicate<T>): { [index: string]: string[]; };
         <T>(obj: { [index: number]: T }, iteratee?: ValuePredicate<T>): { [index: string]: number[]; };
         <T>(obj: any, iteratee?: ValuePredicate<T>): { [index: string]: number[]; };
     }
 
-    interface Invoke {
+    export interface Invoke {
         <TResult>(obj: any, path: PathLocation, ...args: any[]): TResult[];
     }
 
-    interface Keys {
+    export interface Keys {
         (obj: any): string[];
     }
 
-    interface MapKeys {
+    export interface MapKeys {
         <T>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => string>): _Obj<T>;
         <T>(obj: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => string>): _Obj<T>;
     }
 
-    interface MapValues {
+    export interface MapValues {
         <T, TResult>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): _Obj<Rest>;
     }
 
-    interface Omit {
+    export interface Omit {
         <TResult>(obj: Object, props?: string | string[]): TResult;
         <TResult>(obj: Object, ...props: string[]): TResult;
     }
 
-    interface OmitBy {
+    export interface OmitBy {
         <T, TResult>(obj: _Obj<T>, predicate?: Iteratee<(value: T, key: string) => boolean>): TResult;
         <T, TResult>(obj: any, predicate?: Iteratee<(value: T, key: string) => boolean>): TResult;
     }
 
-    interface _Set {
+    export interface _Set {
         <T, TObj>(obj: TObj, path: PathLocation, value: T): TObj;
     }
 
-    interface SetWith {
+    export interface SetWith {
         <T, TObj>(obj: TObj, path: PathLocation, value: T, customizer?: (nsValue: T, key: string, nsObject: TObj) => any): TObj;
     }
 
-    interface Update {
+    export interface Update {
         <T, TObj>(obj: TObj, path: PathLocation, updater: (value: T) => any): TObj;
     }
 
-    interface UpdateWith {
+    export interface UpdateWith {
         <T, TObj>(obj: TObj, path: PathLocation, updater: (value: T) => any, customizer?: (nsValue: T, key: string, nsObject: TObj) => any): TObj;
     }
 
-    interface ToPairs {
+    export interface ToPairs {
         <T>(obj: { [index: number]: T }): [number, T][];
         <T>(obj: { [index: string]: T }): [string, T][];
         <K, V>(map: Map<K, V>): [K, V][];
@@ -1344,15 +1344,15 @@ namespace Types {
         <T>(obj: any): [string, T][];
     }
 
-    interface Transform {
+    export interface Transform {
         <T, TObj, TAcc>(obj: TObj, iteratee?: Iteratee<(acc: TAcc, value: any, key: string, obj: TObj) => any>, acc?: TAcc): TAcc;
     }
 
-    interface Unset {
+    export interface Unset {
         (obj: any, path: PathLocation): boolean;
     }
 
-    interface Values {
+    export interface Values {
         <T>(obj: { [index: string]: T; }): T[];
         <T>(obj: { [index: number]: T; }): T[];
         <T>(obj: any): T[];
@@ -1410,12 +1410,12 @@ interface IStatic {
     valuesIn: Types.Values;
 }
 namespace Types {
-    type StringMethod = (str?: string) => string;
-    type WithStringMethod = (str?: string, target?: string, position?: number) => boolean;
-    type PadStringMethod = (str?: string, length?: number, chars?: string) => string;
-    type TrimStringMethod = (str?: string, chars?: string) => string;
+   export type StringMethod = (str?: string) => string;
+   export type WithStringMethod = (str?: string, target?: string, position?: number) => boolean;
+   export type PadStringMethod = (str?: string, length?: number, chars?: string) => string;
+   export type TrimStringMethod = (str?: string, chars?: string) => string;
 
-    interface TemplateSettings {
+    export interface TemplateSettings {
         escape?: RegExp;
         evaluate?: RegExp;
         imports?: { [index: string]: any; };
@@ -1423,11 +1423,11 @@ namespace Types {
         variable?: string;
     }
 
-    interface TemplateOptions extends TemplateSettings {
+    export interface TemplateOptions extends TemplateSettings {
         sourceURL?: string;
     }
 
-    interface TruncateOptions {
+    export interface TruncateOptions {
         length?: number;
         omission?: string;
         separator?: string | RegExp;
@@ -1472,7 +1472,7 @@ interface IStatic {
     words(str?: string, pattern?: string | RegExp): string[]
 }
 namespace Types {
-    interface Flow {
+    export interface Flow {
         <T, V>(func?: (t1: T) => V, ...funcs: ((value: V) => V)[]): V;
         <T, T2, V>(func?: (t1: T, t2: T2) => V, ...funcs: ((value: V) => V)[]): V;
         <T, T2, T3, V>(func?: (t1: T, t2: T2, t3: T3) => V, ...funcs: ((value: V) => V)[]): V;
@@ -1483,14 +1483,14 @@ namespace Types {
         <V>(funcs: ((value: V) => V)[]): V;
     }
 
-    interface IterateeMethod {
+    export interface IterateeMethod {
         <T extends Function>(func: T): T;
         <TResult>(value: string): (object: any) => TResult;
         (func: Object): (object: any) => boolean;
         (): Identity;
     }
 
-    interface Over {
+    export interface Over {
         <TResult>(s1: string): (object: any) => [string];
         <TResult>(s1: string, s2: string): (object: any) => [string, string];
         <TResult>(s1: string, s2: string, s3: string): (object: any) => [string, string, string];
@@ -1512,7 +1512,7 @@ namespace Types {
         <TResult>(funcs: string[]): (object: any) => TResult[];
     }
 
-    interface OverEveryORSome {
+    export interface OverEveryORSome {
         <T>(...funcs: ((t1: T) => boolean)[]): (t1: T) => boolean;
         <T, T2>(...funcs: ((t1: T, t2: T2) => boolean)[]): (t1: T, t2: T2) => boolean;
         <T, T2, T3>(...funcs: ((t1: T, t2: T2, t3: T3) => boolean)[]): (t1: T, t2: T2, t3: T3) => boolean;
@@ -1526,12 +1526,12 @@ namespace Types {
         (funcs: any[]): (object: any) => boolean;
     }
 
-    interface Range {
+    export interface Range {
         (start: number, end: number, step?: number): number[];
         (end: number, step?: number): number[];
     }
 
-    interface Method {
+    export interface Method {
         <T, TResult>(path: PathLocation, t1: T): (obj: any) => TResult;
         <T, T2, TResult>(path: PathLocation, t1: T, t2: T2): (obj: any) => TResult;
         <T, T2, T3, TResult>(path: PathLocation, t1: T, t2: T2, t3: T3): (obj: any) => TResult;
@@ -1540,7 +1540,7 @@ namespace Types {
         <TResult>(path: PathLocation, ...args: any[]): (obj: any) => TResult;
     }
 
-    interface MethodOf {
+    export interface MethodOf {
         <T, TResult>(obj: any, t1: T): (path: PathLocation) => TResult;
         <T, T2, TResult>(obj: any, t1: T, t2: T2): (path: PathLocation) => TResult;
         <T, T2, T3, TResult>(obj: any, t1: T, t2: T2, t3: T3): (path: PathLocation) => TResult;
@@ -1623,25 +1623,25 @@ interface IStatic {
     stubString(): "";
 }
 namespace Types {
-    interface Tap {
+    export interface Tap {
         <T>(array: Array<T>, interceptor: (value: T) => void): Array<T>;
         <T>(array: ArrayLike<T>, interceptor: (value: T) => void): ArrayLike<T>;
     }
 
-    interface Thru {
+    export interface Thru {
         <T, TResult>(array: ArrayLike<T>, interceptor: (value: T) => TResult): TResult;
     }
 
-    namespace Wrap {
-        interface Value<T> {
+    export namespace Wrap {
+        export interface Value<T> {
             (): T;
         }
 
-        interface BaseWrapper<T, TWrapper> { }
-        interface ImplicitWrapper<T, TWrapper> extends BaseWrapper<T, TWrapper> { }
-        interface ExplicitWrapper<T, TWrapper> extends BaseWrapper<T, TWrapper> { }
+        export interface BaseWrapper<T, TWrapper> { }
+        export interface ImplicitWrapper<T, TWrapper> extends BaseWrapper<T, TWrapper> { }
+        export interface ExplicitWrapper<T, TWrapper> extends BaseWrapper<T, TWrapper> { }
 
-        interface ArrayWrapper<T, TWrapper> extends BaseWrapper<T, TWrapper> {
+        export interface ArrayWrapper<T, TWrapper> extends BaseWrapper<T, TWrapper> {
             [Symbol.iterator](): IterableIterator<T>;
             next(): IteratorResult<T>;
             plant(array: T[]): TWrapper;
@@ -1651,22 +1651,22 @@ namespace Types {
             value: Value<T[]>;
         }
 
-        interface ImplicitArray<T, TWrapper extends ImplicitArray<T, TWrapper>> extends ArrayWrapper<T, TWrapper>, ImplicitWrapper<T, TWrapper> {
+        export interface ImplicitArray<T, TWrapper extends ImplicitArray<T, TWrapper>> extends ArrayWrapper<T, TWrapper>, ImplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
             chain(): ExplicitArray1<T>;
             thru<TResult>(interceptor: (value: T) => TResult): ImplicitArray1<TResult>;
         }
 
-        interface ImplicitArray1<T> extends ImplicitArray<T, ImplicitArray1<T>> { }
+        export interface ImplicitArray1<T> extends ImplicitArray<T, ImplicitArray1<T>> { }
 
-        interface ExplicitArray<T, TWrapper extends ExplicitArray<T, TWrapper>> extends ArrayWrapper<T, TWrapper>, ExplicitWrapper<T, TWrapper> {
+        export interface ExplicitArray<T, TWrapper extends ExplicitArray<T, TWrapper>> extends ArrayWrapper<T, TWrapper>, ExplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
             thru<TResult>(interceptor: (value: T) => TResult): ExplicitArray1<TResult>;
         }
 
-        interface ExplicitArray1<T> extends ExplicitArray<T, ExplicitArray1<T>> { }
+        export interface ExplicitArray1<T> extends ExplicitArray<T, ExplicitArray1<T>> { }
 
-        interface ObjectWrapper<T, TObj extends { [index: string]: T }, TWrapper> extends BaseWrapper<TObj, TWrapper> {
+        export interface ObjectWrapper<T, TObj extends { [index: string]: T }, TWrapper> extends BaseWrapper<TObj, TWrapper> {
             [Symbol.iterator](): IterableIterator<T>;
             next(): IteratorResult<T>;
             tap(interceptor: (value: T) => void): TWrapper;
@@ -1675,50 +1675,50 @@ namespace Types {
             value: Value<TObj>;
         }
 
-        interface ImplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ImplicitObject<T, TObj, TWrapper>> extends ObjectWrapper<T, TObj, TWrapper>, ImplicitWrapper<T, TWrapper> {
+        export interface ImplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ImplicitObject<T, TObj, TWrapper>> extends ObjectWrapper<T, TObj, TWrapper>, ImplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
             chain(): ExplicitObject1<T, TObj>;
             thru<TResult>(interceptor: (value: T) => TResult): ImplicitArray1<TResult>;
         }
 
-        interface ImplicitObject1<T, TObj extends { [index: string]: T }> extends ImplicitObject<T, TObj, ImplicitObject1<T, TObj>> { }
+        export interface ImplicitObject1<T, TObj extends { [index: string]: T }> extends ImplicitObject<T, TObj, ImplicitObject1<T, TObj>> { }
 
-        interface ExplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ExplicitObject<T, TObj, TWrapper>> extends ObjectWrapper<T, TObj, TWrapper>, ExplicitWrapper<T, TWrapper> {
+        export interface ExplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ExplicitObject<T, TObj, TWrapper>> extends ObjectWrapper<T, TObj, TWrapper>, ExplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
             thru<TResult>(interceptor: (value: T) => TResult): ExplicitArray1<TResult>;
         }
 
-        interface ExplicitObject1<T, TObj extends { [index: string]: T }> extends ExplicitObject<T, TObj, ExplicitObject1<T, TObj>> { }
+        export interface ExplicitObject1<T, TObj extends { [index: string]: T }> extends ExplicitObject<T, TObj, ExplicitObject1<T, TObj>> { }
 
-        interface ValueWrapper<T, TWrapper> {
+        export interface ValueWrapper<T, TWrapper> {
             tap(interceptor: (value: T) => void): TWrapper;
             toJSON: Value<T>;
             valueOf: Value<T>;
             value: Value<T>;
         }
 
-        interface ImplicitValue<T, TWrapper extends ImplicitValue<T, TWrapper>> extends ValueWrapper<T, TWrapper> {
+        export interface ImplicitValue<T, TWrapper extends ImplicitValue<T, TWrapper>> extends ValueWrapper<T, TWrapper> {
             commit(): TWrapper;
             thru<TResult>(interceptor: (value: T) => TResult): ImplicitValue1<TResult>;
         }
 
-        interface ImplicitValue1<T> extends ImplicitValue<T, ImplicitValue1<T>> { }
+        export interface ImplicitValue1<T> extends ImplicitValue<T, ImplicitValue1<T>> { }
 
-        interface ExplicitValue<T, TWrapper extends ExplicitValue<T, TWrapper>> extends ValueWrapper<T, TWrapper> {
+        export interface ExplicitValue<T, TWrapper extends ExplicitValue<T, TWrapper>> extends ValueWrapper<T, TWrapper> {
             commit(): TWrapper;
             thru<TResult>(interceptor: (value: T) => TResult): ExplicitValue1<TResult>;
         }
 
-        interface ExplicitValue1<T> extends ExplicitValue<T, ExplicitValue1<T>> { }
+        export interface ExplicitValue1<T> extends ExplicitValue<T, ExplicitValue1<T>> { }
 
-        interface StringWrapper extends ValueWrapper<string, StringWrapper> {
+        export interface StringWrapper extends ValueWrapper<string, StringWrapper> {
             tap(interceptor: (value: string) => void): StringWrapper;
             toJSON: Value<string>;
             valueOf: Value<string>;
             value: Value<string>;
         }
 
-        interface ExplicitString extends ExplicitValue<string, ExplicitString> { }
+        export interface ExplicitString extends ExplicitValue<string, ExplicitString> { }
     }
 }
 
