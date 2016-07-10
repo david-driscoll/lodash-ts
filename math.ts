@@ -5,7 +5,8 @@ namespace Types {
        export type Rounding = (n: number, precision?: number) => number;
         export interface AggregationBy {
             <T>(array: T[]): T;
-            <T>(array: T[], iteratee: Iteratee<(value: T) => number>): T;
+            <T>(array: T[], iteratee: (value: T) => number): T;
+            <T>(array: T[], iteratee: Iteratee): T;
             <T>(array: T[], iteratee: PathLocation): T;
         }
     }

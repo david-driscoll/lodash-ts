@@ -3,23 +3,23 @@ namespace Types {
         <T>(value: T, ...args: any[]): T;
     }
 
-   export type Iteratee<T extends Function> = string | Object | T;
+   export type Iteratee = string | Object;
    export type PathLocation = string | string[];
 
    export type _Obj<T> = { [index: string]: T; } | { [index: number]: T; };
-   export type ArrayPredicate<T, TArray extends ArrayLike<T>> = Iteratee<(value: T, index: number, collection: TArray) => boolean>;
-   export type AccumulatorArrayPredicate<T, TArray extends ArrayLike<T>, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: number, collection: TArray) => TAcc>;
+   /* Iteratee */ export type ArrayPredicate<T, TArray extends ArrayLike<T>> = (value: T, index: number, collection: TArray) => boolean;
+   /* Iteratee */ export type AccumulatorArrayPredicate<T, TArray extends ArrayLike<T>, TAcc> = (accumulator: TAcc, value: T, index: number, collection: TArray) => TAcc;
 
-   export type ObjectPredicate<T, TObj extends _Obj<T>> = Iteratee<(value: T, index: string, collection: TObj) => boolean>;
-   export type AccumulatorObjectPredicate<T, TObj extends _Obj<T>, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: string, collection: TObj) => TAcc>;
+   /* Iteratee */ export type ObjectPredicate<T, TObj extends _Obj<T>> = (value: T, index: string, collection: TObj) => boolean;
+   /* Iteratee */ export type AccumulatorObjectPredicate<T, TObj extends _Obj<T>, TAcc> = (accumulator: TAcc, value: T, index: string, collection: TObj) => TAcc;
 
-   export type ValuePredicate<T> = Iteratee<(value: T) => string>;
+   /* Iteratee */ export type ValuePredicate<T> = (value: T) => string;
 
    export namespace Wrap {
-       export type ArrayPredicate<T> = Iteratee<(value: T, index: number) => boolean>;
-       export type AccumulatorArrayPredicate<T, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: number) => TAcc>;
+       /* Iteratee */ export type ArrayPredicate<T> = (value: T, index: number) => boolean;
+       /* Iteratee */ export type AccumulatorArrayPredicate<T, TAcc> = (accumulator: TAcc, value: T, index: number) => TAcc;
 
-       export type ObjectPredicate<T> = Iteratee<(value: T, index: string) => boolean>;
-       export type AccumulatorObjectPredicate<T, TAcc> = Iteratee<(accumulator: TAcc, value: T, index: string) => TAcc>;
+       /* Iteratee */ export type ObjectPredicate<T> = (value: T, index: string) => boolean;
+       /* Iteratee */ export type AccumulatorObjectPredicate<T, TAcc> = (accumulator: TAcc, value: T, index: string) => TAcc;
     }
 }

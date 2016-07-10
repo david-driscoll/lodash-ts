@@ -3,7 +3,8 @@ namespace Types.Wrap {
        export type Aggregation<T> = () => T;
         export interface AggregationBy<T, TWrapper> {
             (): TWrapper;
-            (iteratee: Iteratee<(value: T) => number>): TWrapper;
+            (iteratee: Iteratee): TWrapper;
+            (iteratee: (value: T) => number): TWrapper;
             (iteratee: PathLocation): TWrapper;
         }
     }

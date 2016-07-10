@@ -28,12 +28,16 @@ namespace Types {
 
     export interface FindKey {
         <T>(obj: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): string;
+        <T>(obj: _Obj<T>, iteratee?:Iteratee): string;
         <T>(obj: any, iteratee?: ObjectPredicate<T, _Obj<T>>): string;
+        <T>(obj: any, iteratee?:Iteratee): string;
     }
 
     export interface ForIn {
-        <T>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
-        <T>(obj: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => boolean | void>): _Obj<T>;
+        <T>(obj: _Obj<T>, iteratee?: (value: T, index: string, collection: _Obj<T>) => boolean | void): _Obj<T>;
+        <T>(obj: _Obj<T>, iteratee?: Iteratee): _Obj<T>;
+        <T>(obj: any, iteratee?: (value: T, index: string, collection: _Obj<T>) => boolean | void): _Obj<T>;
+        <T>(obj: any, iteratee?: Iteratee): _Obj<T>;
     }
 
     export interface Functions {
@@ -63,12 +67,15 @@ namespace Types {
     }
 
     export interface MapKeys {
-        <T>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => string>): _Obj<T>;
-        <T>(obj: any, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => string>): _Obj<T>;
+        <T>(obj: _Obj<T>, iteratee?: (value: T, index: string, collection: _Obj<T>) => string): _Obj<T>;
+        <T>(obj: _Obj<T>, iteratee?: Iteratee): _Obj<T>;
+        <T>(obj: any, iteratee?: (value: T, index: string, collection: _Obj<T>) => string): _Obj<T>;
+        <T>(obj: any, iteratee?: Iteratee): _Obj<T>;
     }
 
     export interface MapValues {
-        <T, TResult>(obj: _Obj<T>, iteratee?: Iteratee<(value: T, index: string, collection: _Obj<T>) => TResult>): _Obj<Rest>;
+        <T, TResult>(obj: _Obj<T>, iteratee?: (value: T, index: string, collection: _Obj<T>) => TResult): _Obj<Rest>;
+        <T, TResult>(obj: _Obj<T>, iteratee?: Iteratee): _Obj<Rest>;
     }
 
     export interface Omit {
@@ -77,8 +84,10 @@ namespace Types {
     }
 
     export interface OmitBy {
-        <T, TResult>(obj: _Obj<T>, predicate?: Iteratee<(value: T, key: string) => boolean>): TResult;
-        <T, TResult>(obj: any, predicate?: Iteratee<(value: T, key: string) => boolean>): TResult;
+        <T, TResult>(obj: _Obj<T>, predicate?: (value: T, key: string) => boolean): TResult;
+        <T, TResult>(obj: _Obj<T>, predicate?: Iteratee): TResult;
+        <T, TResult>(obj: any, predicate?: (value: T, key: string) => boolean): TResult;
+        <T, TResult>(obj: any, predicate?: Iteratee): TResult;
     }
 
     export interface _Set {
@@ -106,7 +115,8 @@ namespace Types {
     }
 
     export interface Transform {
-        <T, TObj, TAcc>(obj: TObj, iteratee?: Iteratee<(acc: TAcc, value: any, key: string, obj: TObj) => any>, acc?: TAcc): TAcc;
+        <T, TObj, TAcc>(obj: TObj, iteratee?: (acc: TAcc, value: any, key: string, obj: TObj) => any, acc?: TAcc): TAcc;
+        <T, TObj, TAcc>(obj: TObj, iteratee?: Iteratee, acc?: TAcc): TAcc;
     }
 
     export interface Unset {
