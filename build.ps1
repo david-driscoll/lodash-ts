@@ -1,6 +1,6 @@
 mkdir -Force out
 $content = '';
-foreach ($item in Get-ChildItem *.d.ts | get-content) {
+foreach ($item in Get-ChildItem *.ts | get-content) {
     $content += "$item`n".
         Replace("declare namespace", "namespace").
         Replace("export ", "");
