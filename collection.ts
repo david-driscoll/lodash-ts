@@ -1,4 +1,4 @@
-declare namespace Types {
+namespace Types {
     interface CountBy {
         <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
         <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };

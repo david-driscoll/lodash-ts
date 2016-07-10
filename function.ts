@@ -5,7 +5,7 @@ type MemoizedFunction = { cache: {
     set(key: string, value: any): any;
 } };
 
-declare namespace Types {
+namespace Types {
     type AfterMethod = <T extends Function>(num: number, func: T) => T;
     type ReturnMethod = <T extends Function>(func: T) => T;
     interface PH {

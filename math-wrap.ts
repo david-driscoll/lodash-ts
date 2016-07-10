@@ -1,4 +1,4 @@
-declare namespace Types.Wrap {
+namespace Types.Wrap {
     namespace Math {
         type Aggregation<T> = () => T;
         interface AggregationBy<T, TWrapper> {

@@ -1,4 +1,4 @@
-declare namespace Types {
+namespace Types {
     interface ArrayPassThrough {
         <T>(array: ArrayLike<T>): T[];
     }

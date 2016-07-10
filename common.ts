@@ -1,4 +1,4 @@
-declare namespace Types {
+namespace Types {
     interface Identity {
         <T>(value: T, ...args: any[]): T;
     }

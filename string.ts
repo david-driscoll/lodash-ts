@@ -1,4 +1,4 @@
-declare namespace Types {
+namespace Types {
     type StringMethod = (str?: string) => string;
     type WithStringMethod = (str?: string, target?: string, position?: number) => boolean;
     type PadStringMethod = (str?: string, length?: number, chars?: string) => string;

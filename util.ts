@@ -1,4 +1,4 @@
-declare namespace Types {
+namespace Types {
     interface Flow {
         <T, V>(func?: (t1: T) => V, ...funcs: ((value: V) => V)[]): V;
         <T, T2, V>(func?: (t1: T, t2: T2) => V, ...funcs: ((value: V) => V)[]): V;

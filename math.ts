@@ -1,4 +1,4 @@
-declare namespace Types {
+namespace Types {
     namespace Math {
         type Operation = (augend: number, addend: number) => number;
         type Aggregation = (array: number[]) => number;
