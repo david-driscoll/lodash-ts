@@ -13,7 +13,7 @@ namespace Types {
    /* Iteratee */ export type ObjectPredicate<T, TObj extends _Obj<T>> = (value: T, index: string, collection: TObj) => boolean;
    /* Iteratee */ export type AccumulatorObjectPredicate<T, TObj extends _Obj<T>, TAcc> = (accumulator: TAcc, value: T, index: string, collection: TObj) => TAcc;
 
-   /* Iteratee */ export type ValuePredicate<T> = (value: T) => string;
+   /* Iteratee */ export type ValuePredicate<T, R> = (value: T) => R;
    /* Iteratee */ export type BooleanPredicate<T> = (value: T) => boolean;
 
    export namespace Wrap {

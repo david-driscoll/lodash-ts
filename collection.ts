@@ -1,14 +1,14 @@
 namespace Types {
     export interface CountBy {
-        <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
-        <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
-        <T>(collection: any, iteratee: ValuePredicate<T>): { [index: string]: number; };
+        <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>): { [index: string]: number; };
+        <T, R>(collection: _Obj<T>, iteratee: ValuePredicate<T, R>): { [index: string]: number; };
+        <T, R>(collection: any, iteratee: ValuePredicate<T, R>): { [index: string]: number; };
     }
 
     export interface GroupBy {
-        <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
-        <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
-        <T>(collection: any, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
+        <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>): { [index: string]: T[]; };
+        <T, R>(collection: _Obj<T>, iteratee: ValuePredicate<T, R>): { [index: string]: T[]; };
+        <T, R>(collection: any, iteratee: ValuePredicate<T, R>): { [index: string]: T[]; };
     }
 
     export interface ByBooleanPredicate {
@@ -79,7 +79,7 @@ namespace Types {
     }
 
     export interface KeyBy {
-        <T>(collection: ArrayLike<T> | _Obj<T>, iteratee?: ValuePredicate<T>): { [index: string]: T; };
+        <T, R>(collection: ArrayLike<T> | _Obj<T>, iteratee?: ValuePredicate<T, R>): { [index: string]: T; };
     }
 
     export interface _Map {
@@ -92,9 +92,9 @@ namespace Types {
     }
 
     export interface OrderBy {
-        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
-        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
-        <T>(collection: any, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T, R>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T, R> | ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T, R>(collection: _Obj<T>, iteratee?: ValuePredicate<T, R> | ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T, R>(collection: any, iteratee?: ValuePredicate<T, R> | ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
     }
 
     export interface Partition {
@@ -129,12 +129,12 @@ namespace Types {
     }
 
     export interface SortBy {
-        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>[]): T[];
-        <T>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T>[]): T[];
-        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>[]): T[];
-        <T>(collection: _Obj<T>, ...iteratees: ValuePredicate<T>[]): T[];
-        <T>(collection: any, iteratee?: ValuePredicate<T>[]): T[];
-        <T>(collection: any, ...iteratees: ValuePredicate<T>[]): T[];
+        <T, R>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T, R>[]): T[];
+        <T, R>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T, R>[]): T[];
+        <T, R>(collection: _Obj<T>, iteratee?: ValuePredicate<T, R>[]): T[];
+        <T, R>(collection: _Obj<T>, ...iteratees: ValuePredicate<T, R>[]): T[];
+        <T, R>(collection: any, iteratee?: ValuePredicate<T, R>[]): T[];
+        <T, R>(collection: any, ...iteratees: ValuePredicate<T, R>[]): T[];
     }
 }
 

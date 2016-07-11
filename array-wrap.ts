@@ -64,7 +64,8 @@ namespace Types.Wrap {
     }
 
     export interface PullAll<T, TWrapper> {
-        (values: ArrayLike<T>, iteratee?: ValuePredicate<T>): TWrapper;
+        (array: ArrayLike<T>, values: ArrayLike<T>): TWrapper;
+        (array: ArrayLike<T>, ...values: T[]): TWrapper;
     }
 
     export interface PullAt<T, TWrapper> {
@@ -72,7 +73,7 @@ namespace Types.Wrap {
     }
 
     export interface PullAllBy<T, TWrapper> {
-        (values: ArrayLike<T>, iteratee?: ValuePredicate<T>): TWrapper;
+        <R>(values: ArrayLike<T>, iteratee?: ValuePredicate<T, R>): TWrapper;
     }
 
     export interface Remove<T, TWrapper> {
@@ -85,7 +86,7 @@ namespace Types.Wrap {
     }
 
     export interface UniqBy<T, TWrapper> {
-        (iteratee?: ValuePredicate<T>): TWrapper;
+        <R>(iteratee?: ValuePredicate<T, R>): TWrapper;
     }
 
     export interface UniqWith<T, TWrapper> {
@@ -168,8 +169,8 @@ namespace Types.Wrap {
         sortedIndex(value: T): number;
         sortedIndexOf(value: T): number;
         sortedLastIndexOf(value: T): number;
-        sortedIndexBy(value: T, predicate?: ValuePredicate<T>): number;
-        sortedLastIndexBy(value: T, predicate?: ValuePredicate<T>): number;
+        sortedIndexBy<R>(value: T, predicate?: ValuePredicate<T, R>): number;
+        sortedLastIndexBy<R>(value: T, predicate?: ValuePredicate<T, R>): number;
         unzipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ImplicitArray1<TResult>;
         zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ImplicitArray1<TResult>;
     }
@@ -192,8 +193,8 @@ namespace Types.Wrap {
         sortedIndex(value: T): ExplicitValue1<number>;
         sortedIndexOf(value: T): ExplicitValue1<number>;
         sortedLastIndexOf(value: T): ExplicitValue1<number>;
-        sortedIndexBy(value: T, predicate?: ValuePredicate<T>): ExplicitValue1<number>;
-        sortedLastIndexBy(value: T, predicate?: ValuePredicate<T>): ExplicitValue1<number>;
+        sortedIndexBy<R>(value: T, predicate?: ValuePredicate<T, R>): ExplicitValue1<number>;
+        sortedLastIndexBy<R>(value: T, predicate?: ValuePredicate<T, R>): ExplicitValue1<number>;
         unzipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ExplicitArray1<TResult>;
         zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ExplicitArray1<TResult>;
     }

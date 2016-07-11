@@ -53,9 +53,9 @@ namespace Types {
     }
 
     export interface InvertBy {
-        <T>(obj: { [index: string]: T }, iteratee?: ValuePredicate<T>): { [index: string]: string[]; };
-        <T>(obj: { [index: number]: T }, iteratee?: ValuePredicate<T>): { [index: string]: number[]; };
-        <T>(obj: any, iteratee?: ValuePredicate<T>): { [index: string]: number[]; };
+        <T, R>(obj: { [index: string]: T }, iteratee?: ValuePredicate<T, R>): { [index: string]: string[]; };
+        <T, R>(obj: { [index: number]: T }, iteratee?: ValuePredicate<T, R>): { [index: string]: number[]; };
+        <T, R>(obj: any, iteratee?: ValuePredicate<T, R>): { [index: string]: number[]; };
     }
 
     export interface Invoke {

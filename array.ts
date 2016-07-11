@@ -101,7 +101,8 @@ namespace Types {
     }
 
     export interface PullAll {
-        <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
+        <T>(array: ArrayLike<T>, values: ArrayLike<T>): T[];
+        <T>(array: ArrayLike<T>, ...values: T[]): T[];
     }
 
     export interface PullAllWith {
@@ -113,7 +114,7 @@ namespace Types {
     }
 
     export interface PullAllBy {
-        <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
+        <T, R>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T, R>): T[];
     }
 
     export interface Remove {
@@ -132,11 +133,11 @@ namespace Types {
     }
 
     export interface SortedIndexBy {
-        <T>(array: ArrayLike<T>, value: T, predicate?: ValuePredicate<T>): number;
+        <T, R>(array: ArrayLike<T>, value: T, predicate?: ValuePredicate<T, R>): number;
     }
 
     export interface UniqBy {
-        <T>(array: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
+        <T, R>(array: ArrayLike<T>, iteratee?: ValuePredicate<T, R>): T[];
     }
 
     export interface UniqWith {

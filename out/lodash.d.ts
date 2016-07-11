@@ -64,7 +64,8 @@ namespace Types.Wrap {
     }
 
     interface PullAll<T, TWrapper> {
-        (values: ArrayLike<T>, iteratee?: ValuePredicate<T>): TWrapper;
+        (array: ArrayLike<T>, values: ArrayLike<T>): TWrapper;
+        (array: ArrayLike<T>, ...values: T[]): TWrapper;
     }
 
     interface PullAt<T, TWrapper> {
@@ -72,7 +73,7 @@ namespace Types.Wrap {
     }
 
     interface PullAllBy<T, TWrapper> {
-        (values: ArrayLike<T>, iteratee?: ValuePredicate<T>): TWrapper;
+        <R>(values: ArrayLike<T>, iteratee?: ValuePredicate<T, R>): TWrapper;
     }
 
     interface Remove<T, TWrapper> {
@@ -85,7 +86,7 @@ namespace Types.Wrap {
     }
 
     interface UniqBy<T, TWrapper> {
-        (iteratee?: ValuePredicate<T>): TWrapper;
+        <R>(iteratee?: ValuePredicate<T, R>): TWrapper;
     }
 
     interface UniqWith<T, TWrapper> {
@@ -168,8 +169,8 @@ namespace Types.Wrap {
         sortedIndex(value: T): number;
         sortedIndexOf(value: T): number;
         sortedLastIndexOf(value: T): number;
-        sortedIndexBy(value: T, predicate?: ValuePredicate<T>): number;
-        sortedLastIndexBy(value: T, predicate?: ValuePredicate<T>): number;
+        sortedIndexBy<R>(value: T, predicate?: ValuePredicate<T, R>): number;
+        sortedLastIndexBy<R>(value: T, predicate?: ValuePredicate<T, R>): number;
         unzipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ImplicitArray1<TResult>;
         zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ImplicitArray1<TResult>;
     }
@@ -192,8 +193,8 @@ namespace Types.Wrap {
         sortedIndex(value: T): ExplicitValue1<number>;
         sortedIndexOf(value: T): ExplicitValue1<number>;
         sortedLastIndexOf(value: T): ExplicitValue1<number>;
-        sortedIndexBy(value: T, predicate?: ValuePredicate<T>): ExplicitValue1<number>;
-        sortedLastIndexBy(value: T, predicate?: ValuePredicate<T>): ExplicitValue1<number>;
+        sortedIndexBy<R>(value: T, predicate?: ValuePredicate<T, R>): ExplicitValue1<number>;
+        sortedLastIndexBy<R>(value: T, predicate?: ValuePredicate<T, R>): ExplicitValue1<number>;
         unzipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ExplicitArray1<TResult>;
         zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ExplicitArray1<TResult>;
     }
@@ -301,7 +302,8 @@ namespace Types {
     }
 
     interface PullAll {
-        <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
+        <T>(array: ArrayLike<T>, values: ArrayLike<T>): T[];
+        <T>(array: ArrayLike<T>, ...values: T[]): T[];
     }
 
     interface PullAllWith {
@@ -313,7 +315,7 @@ namespace Types {
     }
 
     interface PullAllBy {
-        <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
+        <T, R>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee?: ValuePredicate<T, R>): T[];
     }
 
     interface Remove {
@@ -332,11 +334,11 @@ namespace Types {
     }
 
     interface SortedIndexBy {
-        <T>(array: ArrayLike<T>, value: T, predicate?: ValuePredicate<T>): number;
+        <T, R>(array: ArrayLike<T>, value: T, predicate?: ValuePredicate<T, R>): number;
     }
 
     interface UniqBy {
-        <T>(array: ArrayLike<T>, iteratee?: ValuePredicate<T>): T[];
+        <T, R>(array: ArrayLike<T>, iteratee?: ValuePredicate<T, R>): T[];
     }
 
     interface UniqWith {
@@ -471,13 +473,13 @@ namespace Types.Wrap {
     }
 
     interface OrderBy<T, TWrapper> {
-        (iteratee?: ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
-        (iteratee1: ValuePredicate<T>, orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
-        (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
-        (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>, iteratee3: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
-        (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>, iteratee3: ValuePredicate<T>, iteratee4: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
-        (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>, iteratee3: ValuePredicate<T>, iteratee4: ValuePredicate<T>, iteratee5: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
-        (iteratee1: ValuePredicate<T>, iteratee2: ValuePredicate<T>, iteratee3: ValuePredicate<T>, iteratee4: ValuePredicate<T>, iteratee5: ValuePredicate<T>, iteratee6: ValuePredicate<T>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        <R>(iteratee?: ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        <R>(iteratee1: ValuePredicate<T, R>, orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        <R>(iteratee1: ValuePredicate<T, R>, iteratee2: ValuePredicate<T, R>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        <R>(iteratee1: ValuePredicate<T, R>, iteratee2: ValuePredicate<T, R>, iteratee3: ValuePredicate<T, R>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        <R>(iteratee1: ValuePredicate<T, R>, iteratee2: ValuePredicate<T, R>, iteratee3: ValuePredicate<T, R>, iteratee4: ValuePredicate<T, R>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        <R>(iteratee1: ValuePredicate<T, R>, iteratee2: ValuePredicate<T, R>, iteratee3: ValuePredicate<T, R>, iteratee4: ValuePredicate<T, R>, iteratee5: ValuePredicate<T, R>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
+        <R>(iteratee1: ValuePredicate<T, R>, iteratee2: ValuePredicate<T, R>, iteratee3: ValuePredicate<T, R>, iteratee4: ValuePredicate<T, R>, iteratee5: ValuePredicate<T, R>, iteratee6: ValuePredicate<T, R>,  orders?: ("asc" | "desc") | ("asc" | "desc")[]): TWrapper;
     }
 
     interface Shuffle<TWrapper> {
@@ -485,8 +487,8 @@ namespace Types.Wrap {
     }
 
     interface SortBy<T, TWrapper> {
-        (iteratee?: ValuePredicate<T>[]): TWrapper;
-        (...iteratees: ValuePredicate<T>[]): TWrapper;
+        <R>(iteratee?: ValuePredicate<T, R>[]): TWrapper;
+        <R>(...iteratees: ValuePredicate<T, R>[]): TWrapper;
     }
 
     interface ArrayWrapper<T, TWrapper> {
@@ -501,7 +503,7 @@ namespace Types.Wrap {
     }
 
     interface ImplicitWrapper<T, TWrapper> {
-        countBy(iteratee: ValuePredicate<T>): ImplicitValue1<{ [index: string]: number; }>;
+        countBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: number; }>;
         every(iteratee?: ArrayPredicate<T>): boolean;
         every(iteratee?:Iteratee): boolean;
         filter(iteratee?: ArrayPredicate<T>): TWrapper;
@@ -518,10 +520,10 @@ namespace Types.Wrap {
         flatMapDepth<TResult>(iteratee?: Iteratee, depth?: number): ImplicitArray1<TResult>;
         includes(value: T, fromIndex?: number): boolean;
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ImplicitArray1<TResult>;
-        keyBy(iteratee?: ValuePredicate<T>): ImplicitValue1<{ [index: string]: T; }>;
+        keyBy<R>(iteratee?: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: T; }>;
         map<TResult>(iteratee?: (value: T, index: number) => TResult): ImplicitArray1<TResult>;
         map<TResult>(iteratee?: Iteratee): ImplicitArray1<TResult>;
-        groupBy(iteratee: ValuePredicate<T>): ImplicitValue1<{ [index: string]: T[]; }>;
+        groupBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee?: BooleanPredicate<T>): ImplicitValue1<[T[], T[]]>;
         reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): TAcc;
         reduce<TAcc>(iteratee?: Iteratee): TAcc;
@@ -536,7 +538,7 @@ namespace Types.Wrap {
     }
 
     interface ExplicitWrapper<T, TWrapper> {
-        countBy(iteratee: ValuePredicate<T>): ExplicitValue1<{ [index: string]: number; }>;
+        countBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: number; }>;
         every(iteratee?: ArrayPredicate<T>): ExplicitValue1<boolean>;
         every(iteratee?:Iteratee): ExplicitValue1<boolean>;
         filter(iteratee?: ArrayPredicate<T>): TWrapper;
@@ -553,10 +555,10 @@ namespace Types.Wrap {
         flatMapDepth<TResult>(iteratee?: Iteratee, depth?: number): ExplicitArray1<TResult>;
         includes(value: T, fromIndex?: number): ExplicitValue1<boolean>;
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ExplicitArray1<TResult>;
-        keyBy(iteratee?: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T; }>;
+        keyBy<R>(iteratee?: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: T; }>;
         map<TResult>(iteratee?: (value: T, index: number) => TResult): ExplicitArray1<TResult>;
         map<TResult>(iteratee?: Iteratee): ExplicitArray1<TResult>;
-        groupBy(iteratee: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T[]; }>;
+        groupBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee?: BooleanPredicate<T>): ExplicitValue1<[T[], T[]]>;
         reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
         reduce<TAcc>(iteratee?: Iteratee): ExplicitValue1<TAcc>;
@@ -593,15 +595,15 @@ namespace Types.Wrap {
 }
 namespace Types {
     interface CountBy {
-        <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
-        <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: number; };
-        <T>(collection: any, iteratee: ValuePredicate<T>): { [index: string]: number; };
+        <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>): { [index: string]: number; };
+        <T, R>(collection: _Obj<T>, iteratee: ValuePredicate<T, R>): { [index: string]: number; };
+        <T, R>(collection: any, iteratee: ValuePredicate<T, R>): { [index: string]: number; };
     }
 
     interface GroupBy {
-        <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
-        <T>(collection: _Obj<T>, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
-        <T>(collection: any, iteratee: ValuePredicate<T>): { [index: string]: T[]; };
+        <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>): { [index: string]: T[]; };
+        <T, R>(collection: _Obj<T>, iteratee: ValuePredicate<T, R>): { [index: string]: T[]; };
+        <T, R>(collection: any, iteratee: ValuePredicate<T, R>): { [index: string]: T[]; };
     }
 
     interface ByBooleanPredicate {
@@ -672,7 +674,7 @@ namespace Types {
     }
 
     interface KeyBy {
-        <T>(collection: ArrayLike<T> | _Obj<T>, iteratee?: ValuePredicate<T>): { [index: string]: T; };
+        <T, R>(collection: ArrayLike<T> | _Obj<T>, iteratee?: ValuePredicate<T, R>): { [index: string]: T; };
     }
 
     interface _Map {
@@ -685,9 +687,9 @@ namespace Types {
     }
 
     interface OrderBy {
-        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
-        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
-        <T>(collection: any, iteratee?: ValuePredicate<T> | ValuePredicate<T>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T, R>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T, R> | ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T, R>(collection: _Obj<T>, iteratee?: ValuePredicate<T, R> | ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T, R>(collection: any, iteratee?: ValuePredicate<T, R> | ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
     }
 
     interface Partition {
@@ -722,12 +724,12 @@ namespace Types {
     }
 
     interface SortBy {
-        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>[]): T[];
-        <T>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T>[]): T[];
-        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>[]): T[];
-        <T>(collection: _Obj<T>, ...iteratees: ValuePredicate<T>[]): T[];
-        <T>(collection: any, iteratee?: ValuePredicate<T>[]): T[];
-        <T>(collection: any, ...iteratees: ValuePredicate<T>[]): T[];
+        <T, R>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T, R>[]): T[];
+        <T, R>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T, R>[]): T[];
+        <T, R>(collection: _Obj<T>, iteratee?: ValuePredicate<T, R>[]): T[];
+        <T, R>(collection: _Obj<T>, ...iteratees: ValuePredicate<T, R>[]): T[];
+        <T, R>(collection: any, iteratee?: ValuePredicate<T, R>[]): T[];
+        <T, R>(collection: any, ...iteratees: ValuePredicate<T, R>[]): T[];
     }
 }
 
@@ -776,7 +778,7 @@ namespace Types {
    /* Iteratee */ type ObjectPredicate<T, TObj extends _Obj<T>> = (value: T, index: string, collection: TObj) => boolean;
    /* Iteratee */ type AccumulatorObjectPredicate<T, TObj extends _Obj<T>, TAcc> = (accumulator: TAcc, value: T, index: string, collection: TObj) => TAcc;
 
-   /* Iteratee */ type ValuePredicate<T> = (value: T) => string;
+   /* Iteratee */ type ValuePredicate<T, R> = (value: T) => R;
    /* Iteratee */ type BooleanPredicate<T> = (value: T) => boolean;
 
    namespace Wrap {
@@ -1374,9 +1376,9 @@ namespace Types {
     }
 
     interface InvertBy {
-        <T>(obj: { [index: string]: T }, iteratee?: ValuePredicate<T>): { [index: string]: string[]; };
-        <T>(obj: { [index: number]: T }, iteratee?: ValuePredicate<T>): { [index: string]: number[]; };
-        <T>(obj: any, iteratee?: ValuePredicate<T>): { [index: string]: number[]; };
+        <T, R>(obj: { [index: string]: T }, iteratee?: ValuePredicate<T, R>): { [index: string]: string[]; };
+        <T, R>(obj: { [index: number]: T }, iteratee?: ValuePredicate<T, R>): { [index: string]: number[]; };
+        <T, R>(obj: any, iteratee?: ValuePredicate<T, R>): { [index: string]: number[]; };
     }
 
     interface Invoke {
