@@ -1343,10 +1343,10 @@ namespace Types {
     }
 
     interface At {
-        <TResult>(obj: { [index: string]: any; }, paths: PathLocation[]): TResult[];
-        <TResult>(obj: { [index: string]: any; }, ...paths: PathLocation[]): TResult[];
         <TResult>(obj: { [index: number]: any; }, paths: (number | number[])[]): TResult[];
         <TResult>(obj: { [index: number]: any; }, ...paths: (number | number[])[]): TResult[];
+        <TResult>(obj: { [index: string]: any; }, paths: PathLocation[]): TResult[];
+        <TResult>(obj: { [index: string]: any; }, ...paths: PathLocation[]): TResult[];
     }
 
     interface FindKey {
@@ -1376,8 +1376,8 @@ namespace Types {
     }
 
     interface InvertBy {
-        <T, R>(obj: { [index: string]: T }, iteratee?: ValuePredicate<T, R>): { [index: string]: string[]; };
         <T, R>(obj: { [index: number]: T }, iteratee?: ValuePredicate<T, R>): { [index: string]: number[]; };
+        <T, R>(obj: { [index: string]: T }, iteratee?: ValuePredicate<T, R>): { [index: string]: string[]; };
         <T, R>(obj: any, iteratee?: ValuePredicate<T, R>): { [index: string]: number[]; };
     }
 
@@ -1447,8 +1447,8 @@ namespace Types {
     }
 
     interface Values {
-        <T>(obj: { [index: string]: T; }): T[];
         <T>(obj: { [index: number]: T; }): T[];
+        <T>(obj: { [index: string]: T; }): T[];
         <T>(obj: any): T[];
     }
 }
