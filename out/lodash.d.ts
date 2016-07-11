@@ -522,7 +522,7 @@ namespace Types.Wrap {
         map<TResult>(iteratee?: (value: T, index: number) => TResult): ImplicitArray1<TResult>;
         map<TResult>(iteratee?: Iteratee): ImplicitArray1<TResult>;
         groupBy(iteratee: ValuePredicate<T>): ImplicitValue1<{ [index: string]: T[]; }>;
-        partition(iteratee?: ValuePredicate<T>): ImplicitValue1<[T[], T[]]>;
+        partition(iteratee?: BooleanPredicate<T>): ImplicitValue1<[T[], T[]]>;
         reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): TAcc;
         reduce<TAcc>(iteratee?: Iteratee): TAcc;
         reduceRight<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): TAcc;
@@ -557,7 +557,7 @@ namespace Types.Wrap {
         map<TResult>(iteratee?: (value: T, index: number) => TResult): ExplicitArray1<TResult>;
         map<TResult>(iteratee?: Iteratee): ExplicitArray1<TResult>;
         groupBy(iteratee: ValuePredicate<T>): ExplicitValue1<{ [index: string]: T[]; }>;
-        partition(iteratee?: ValuePredicate<T>): ExplicitValue1<[T[], T[]]>;
+        partition(iteratee?: BooleanPredicate<T>): ExplicitValue1<[T[], T[]]>;
         reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
         reduce<TAcc>(iteratee?: Iteratee): ExplicitValue1<TAcc>;
         reduceRight<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
@@ -691,9 +691,9 @@ namespace Types {
     }
 
     interface Partition {
-        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
-        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
-        <T>(collection: any, iteratee?: ValuePredicate<T>): [T[], T[]];
+        <T>(collection: ArrayLike<T>, iteratee?: BooleanPredicate<T>): [T[], T[]];
+        <T>(collection: _Obj<T>, iteratee?: BooleanPredicate<T>): [T[], T[]];
+        <T>(collection: any, iteratee?: BooleanPredicate<T>): [T[], T[]];
     }
 
     interface Reduce {
@@ -777,6 +777,7 @@ namespace Types {
    /* Iteratee */ type AccumulatorObjectPredicate<T, TObj extends _Obj<T>, TAcc> = (accumulator: TAcc, value: T, index: string, collection: TObj) => TAcc;
 
    /* Iteratee */ type ValuePredicate<T> = (value: T) => string;
+   /* Iteratee */ type BooleanPredicate<T> = (value: T) => boolean;
 
    namespace Wrap {
        /* Iteratee */ type ArrayPredicate<T> = (value: T, index: number) => boolean;

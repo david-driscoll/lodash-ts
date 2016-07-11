@@ -98,9 +98,9 @@ namespace Types {
     }
 
     export interface Partition {
-        <T>(collection: ArrayLike<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
-        <T>(collection: _Obj<T>, iteratee?: ValuePredicate<T>): [T[], T[]];
-        <T>(collection: any, iteratee?: ValuePredicate<T>): [T[], T[]];
+        <T>(collection: ArrayLike<T>, iteratee?: BooleanPredicate<T>): [T[], T[]];
+        <T>(collection: _Obj<T>, iteratee?: BooleanPredicate<T>): [T[], T[]];
+        <T>(collection: any, iteratee?: BooleanPredicate<T>): [T[], T[]];
     }
 
     export interface Reduce {
