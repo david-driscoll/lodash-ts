@@ -813,11 +813,11 @@
 
 //     //_.differenceWith
 //     export interface DifferenceWithStatic {
-//         <T>(array: T[] | List<T>, values?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
-//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
-//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
+//         <T>(array: T[] | List<T>, values?: T[] | List<T>, comparator?: Comparator<T>): T[];
+//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, comparator?: Comparator<T>): T[];
+//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, comparator?: Comparator<T>): T[];
 //         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee?: ((value: T) => any) | string): T[];
-//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
+//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, comparator?: Comparator<T>): T[];
 //         <T>(array: T[] | List<T>, ...values: any[]): T[];
 //     }
 
@@ -836,11 +836,11 @@
 //     }
 
 //     export interface DifferenceWithImplicitWrapper<T> {
-//         (values?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashImplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashImplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashImplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashImplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashImplicitArrayWrapper<T>;
+//         (values?: T[] | List<T>, comparator?: Comparator<T>): LoDashImplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, comparator?: Comparator<T>): LoDashImplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, comparator?: Comparator<T>): LoDashImplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, comparator?: Comparator<T>): LoDashImplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, comparator?: Comparator<T>): LoDashImplicitArrayWrapper<T>;
 //         (...values: any[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
@@ -859,11 +859,11 @@
 //     }
 
 //     export interface DifferenceWithExplicitWrapper<T> {
-//         (values?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashExplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashExplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashExplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashExplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, comparator?: (arrVal: T, othVal: T) => boolean): LoDashExplicitArrayWrapper<T>;
+//         (values?: T[] | List<T>, comparator?: Comparator<T>): LoDashExplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, comparator?: Comparator<T>): LoDashExplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, comparator?: Comparator<T>): LoDashExplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, comparator?: Comparator<T>): LoDashExplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, comparator?: Comparator<T>): LoDashExplicitArrayWrapper<T>;
 //         (...values: any[]): LoDashExplicitArrayWrapper<T>;
 //     }
 

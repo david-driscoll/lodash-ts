@@ -24,26 +24,21 @@ namespace Types.Wrap {
     }
 
     export interface DifferenceBy<T, TWrapper> {
-        (values?: ArrayLike<T>, iteratee?: (value: T) => any): TWrapper;
-        (values?: ArrayLike<T>, iteratee?: Iteratee): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: (value: T) => any): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: Iteratee): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: (value: T) => any): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: Iteratee): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: (value: T) => any): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: Iteratee): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee?: (value: T) => any): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee?: Iteratee): TWrapper;
-        (...values: (ArrayLike<T> | Iteratee | ((value: T) => any))[]): TWrapper;
+        (values?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
+        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
+        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
+        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
+        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
+        (...values: (ArrayLike<T> | Iteratee | (AnySelector<T>))[]): TWrapper;
     }
 
     export interface DifferenceWith<T, TWrapper> {
-        (values?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: ((value: T) => any) | string): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): TWrapper;
-        (...values: (ArrayLike<T> | ((arrVal: T, othVal: T) => boolean))[]): TWrapper;
+        (values?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
+        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
+        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
+        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
+        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
+        (...values: (ArrayLike<T> | (Comparator<T>))[]): TWrapper;
     }
 
     export interface Drop<TWrapper> {
@@ -51,8 +46,7 @@ namespace Types.Wrap {
     }
 
     export interface DropWhile<T, TWrapper> {
-        (predicate?: ArrayPredicate<T>): TWrapper;
-        (predicate?: Iteratee): TWrapper;
+        (predicate?: ArrayPredicate<T> | Iteratee): TWrapper;
     }
 
     export interface Fill<T, TWrapper> {
@@ -77,8 +71,7 @@ namespace Types.Wrap {
     }
 
     export interface Remove<T, TWrapper> {
-        (predicate?: ArrayPredicate<T>): TWrapper;
-        (predicate?: Iteratee): TWrapper;
+        (predicate?: ArrayPredicate<T> | Iteratee): TWrapper;
     }
 
     export interface Slice<T, TWrapper> {
@@ -94,8 +87,7 @@ namespace Types.Wrap {
     }
 
     export interface TakeWhile<T, TWrapper> {
-        (predicate?: ArrayPredicate<T>): TWrapper;
-        (predicate?: Iteratee): TWrapper;
+        (predicate?: ArrayPredicate<T> | Iteratee): TWrapper;
     }
 
     export interface ZipWith<T, TWrapper> {
@@ -159,10 +151,8 @@ namespace Types.Wrap {
         flatten<TResult>(): ImplicitArray1<TResult>;
         flattenDeep<TResult>(): ImplicitArray1<TResult>;
         flattenDepth<T>(depth?: number): ImplicitArray1<T>;
-        findIndex(predicate?: ArrayPredicate<T>, fromIndex?: number): number;
-        findIndex(predicate?: Iteratee, fromIndex?: number): number;
-        findLastIndex(predicate?: ArrayPredicate<T>, fromIndex?: number): number;
-        findLastIndex(predicate?: Iteratee, fromIndex?: number): number;
+        findIndex(predicate?: ArrayPredicate<T> | Iteratee, fromIndex?: number): number;
+        findLastIndex(predicate?: ArrayPredicate<T> | Iteratee, fromIndex?: number): number;
         join(separator?: string): string;
         indexOf(value: T, fromIndex?: number): number;
         lastIndexOf(value: T, fromIndex?: number): number;
@@ -183,10 +173,8 @@ namespace Types.Wrap {
         flatten<T>(): ExplicitArray1<T>;
         flattenDeep<T>(): ExplicitArray1<T>;
         flattenDepth<T>(depth?: number): ExplicitArray1<T>;
-        findIndex(predicate?: ArrayPredicate<T>): ExplicitValue1<number>;
-        findIndex(predicate?: Iteratee): ExplicitValue1<number>;
-        findLastIndex(predicate?: ArrayPredicate<T>): ExplicitValue1<number>;
-        findLastIndex(predicate?: Iteratee): ExplicitValue1<number>;
+        findIndex(predicate?: ArrayPredicate<T> | Iteratee): ExplicitValue1<number>;
+        findLastIndex(predicate?: ArrayPredicate<T> | Iteratee): ExplicitValue1<number>;
         join(separator?: string): ExplicitString;
         indexOf(value: T, fromIndex?: number): ExplicitValue1<number>;
         lastIndexOf(value: T, fromIndex?: number): ExplicitValue1<number>;
@@ -229,26 +217,21 @@ namespace Types {
     }
 
     export interface DifferenceBy {
-        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, iteratee?: (value: T) => any): T[];
-        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, iteratee?: Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: (value: T) => any): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: (value: T) => any): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: (value: T) => any): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee?: (value: T) => any): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee?: Iteratee): T[];
-        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | Iteratee | ((value: T) => any))[]): T[];
+        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | Iteratee | (AnySelector<T>))[]): T[];
     }
 
     export interface DifferenceWith {
-        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: ((value: T) => any) | string): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
-        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | ((arrVal: T, othVal: T) => boolean))[]): T[];
+        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | (Comparator<T>))[]): T[];
     }
 
     export interface Drop {
@@ -256,8 +239,7 @@ namespace Types {
     }
 
     export interface DropWhile {
-        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): T[];
-        <T>(array: ArrayLike<T>, predicate?: Iteratee): T[];
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>> | Iteratee): T[];
     }
 
     export interface Flatten {
@@ -289,8 +271,7 @@ namespace Types {
     }
 
     export interface FindIndex {
-        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): number;
-        <T>(array: ArrayLike<T>, predicate?: Iteratee, fromIndex?: number): number;
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>> | Iteratee, fromIndex?: number): number;
     }
 
     export interface IndexOf {
@@ -319,10 +300,8 @@ namespace Types {
     }
 
     export interface Remove {
-        <T>(array: Array<T>, predicate?: ArrayPredicate<T, Array<T>>): Array<T>;
-        <T>(array: Array<T>, predicate?: Iteratee): Array<T>;
-        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): ArrayLike<T>;
-        <T>(array: ArrayLike<T>, predicate?: Iteratee): ArrayLike<T>;
+        <T>(array: Array<T>, predicate?: ArrayPredicate<T, Array<T>> | Iteratee): Array<T>;
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>> | Iteratee): ArrayLike<T>;
     }
 
     export interface Slice {
@@ -364,16 +343,11 @@ namespace Types {
     }
 
     export interface ZipWith {
-        <T, TResult>(t: ArrayLike<T>, predicate?: (t: T) => TResult): TResult[];
-        <T, TResult>(t: ArrayLike<T>, predicate?: Iteratee): TResult[];
-        <T, T2, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, predicate?: (t: T, t2: T2) => TResult): TResult[];
-        <T, T2, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, predicate?: Iteratee): TResult[];
-        <T, T2, T3, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, predicate?: (t: T, t2: T2, t3: T3) => TResult): TResult[];
-        <T, T2, T3, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, predicate?: Iteratee): TResult[];
-        <T, T2, T3, T4, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, predicate?: (t: T, t2: T2, t3: T3, t4: T4) => TResult): TResult[];
-        <T, T2, T3, T4, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, predicate?: Iteratee): TResult[];
-        <T, T2, T3, T4, T5, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, t5: ArrayLike<T5>, predicate?: (t: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult): TResult[];
-        <T, T2, T3, T4, T5, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, t5: ArrayLike<T5>, predicate?: Iteratee): TResult[];
+        <T, TResult>(t: ArrayLike<T>, predicate?: ((t: T) => TResult) | Iteratee): TResult[];
+        <T, T2, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, predicate?: ((t: T, t2: T2) => TResult) | Iteratee): TResult[];
+        <T, T2, T3, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, predicate?: ((t: T, t2: T2, t3: T3) => TResult) | Iteratee): TResult[];
+        <T, T2, T3, T4, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, predicate?: ((t: T, t2: T2, t3: T3, t4: T4) => TResult) | Iteratee): TResult[];
+        <T, T2, T3, T4, T5, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, t5: ArrayLike<T5>, predicate?: ((t: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult) | Iteratee): TResult[];
         <TResult>(...arrays: (ArrayLike<any> | Iteratee[] | ((...args: any[]) => TResult))[]): TResult[];
     }
 
@@ -463,13 +437,11 @@ interface IStatic {
 }
 namespace Types.Wrap {
     export interface ForEach<T, TWrapper> {
-        (iteratee?: Iteratee): TWrapper;
-        (iteratee?: (value: T, index: number) => boolean | void): TWrapper;
+        (iteratee?: ((value: T, index: number) => boolean | void) | Iteratee): TWrapper;
     }
 
     export interface ForEachObject<T, TWrapper> {
-        (iteratee?: Iteratee): TWrapper;
-        (iteratee?: (value: T, index: string) => boolean | void): TWrapper;
+        (iteratee?: ((value: T, index: string) => boolean | void) | Iteratee): TWrapper;
     }
 
     export interface OrderBy<T, TWrapper> {
@@ -504,72 +476,49 @@ namespace Types.Wrap {
 
     export interface ImplicitWrapper<T, TWrapper> {
         countBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: number; }>;
-        every(iteratee?: ArrayPredicate<T>): boolean;
-        every(iteratee?:Iteratee): boolean;
-        filter(iteratee?: ArrayPredicate<T>): TWrapper;
-        filter(iteratee?:Iteratee): TWrapper;
-        find(iteratee?: ArrayPredicate<T>, fromIndex?: number): T;
-        find(iteratee?:Iteratee, fromIndex?: number): T;
-        findLast(iteratee?: ArrayPredicate<T>, fromIndex?: number): T;
-        findLast(iteratee?:Iteratee, fromIndex?: number): T;
-        flatMap<TResult>(iteratee?: (value: T, index: number) => TResult[]): ImplicitArray1<TResult>;
-        flatMap<TResult>(iteratee?: Iteratee): ImplicitArray1<TResult>;
-        flatMapDeep<TResult>(iteratee?: (value: T, index: number) => TResult[]): ImplicitArray1<TResult>;
-        flatMapDeep<TResult>(iteratee?: Iteratee): ImplicitArray1<TResult>;
-        flatMapDepth<TResult>(iteratee?: (value: T, index: number) => TResult[], depth?: number): ImplicitArray1<TResult>;
-        flatMapDepth<TResult>(iteratee?: Iteratee, depth?: number): ImplicitArray1<TResult>;
+        every(iteratee?: ArrayPredicate<T> | Iteratee): boolean;
+        filter(iteratee?: ArrayPredicate<T> | Iteratee): TWrapper;
+        find(iteratee?: ArrayPredicate<T> | Iteratee, fromIndex?: number): T;
+        findLast(iteratee?: ArrayPredicate<T> | Iteratee, fromIndex?: number): T;
+        flatMap<TResult>(iteratee?: ((value: T, index: number) => TResult[]) | Iteratee): ImplicitArray1<TResult>;
+        flatMapDeep<TResult>(iteratee?: ((value: T, index: number) => TResult[]) | Iteratee): ImplicitArray1<TResult>;
+        flatMapDepth<TResult>(iteratee?: ((value: T, index: number) => TResult[]) | Iteratee, depth?: number): ImplicitArray1<TResult>;
         includes(value: T, fromIndex?: number): boolean;
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ImplicitArray1<TResult>;
         keyBy<R>(iteratee?: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: T; }>;
-        map<TResult>(iteratee?: (value: T, index: number) => TResult): ImplicitArray1<TResult>;
-        map<TResult>(iteratee?: Iteratee): ImplicitArray1<TResult>;
+        map<TResult>(iteratee?: ((value: T, index: number) => TResult)|Iteratee): ImplicitArray1<TResult>;
         groupBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee?: BooleanPredicate<T>): ImplicitValue1<[T[], T[]]>;
-        reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): TAcc;
-        reduce<TAcc>(iteratee?: Iteratee): TAcc;
-        reduceRight<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): TAcc;
-        reduceRight<TAcc>(iteratee?: Iteratee): TAcc;
-        reject(iteratee?: ArrayPredicate<T>): TWrapper;
-        reject(iteratee?:Iteratee): TWrapper;
+        reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc> | Iteratee): TAcc;
+        reduceRight<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc> | Iteratee): TAcc;
+        reject(iteratee?: ArrayPredicate<T> | Iteratee): TWrapper;
         sample(): T;
         size(): number;
-        some(iteratee?: ArrayPredicate<T>): boolean;
-        some(iteratee?:Iteratee): boolean;
+        some(iteratee?: ArrayPredicate<T> | Iteratee): boolean;
     }
 
     export interface ExplicitWrapper<T, TWrapper> {
         countBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: number; }>;
-        every(iteratee?: ArrayPredicate<T>): ExplicitValue1<boolean>;
-        every(iteratee?:Iteratee): ExplicitValue1<boolean>;
-        filter(iteratee?: ArrayPredicate<T>): TWrapper;
-        filter(iteratee?:Iteratee): TWrapper;
-        find(iteratee?: ArrayPredicate<T>): ExplicitValue1<T>;
-        find(iteratee?:Iteratee): ExplicitValue1<T>;
-        findLast(iteratee?: ArrayPredicate<T>): ExplicitValue1<T>;
-        findLast(iteratee?:Iteratee): ExplicitValue1<T>;
-        flatMap<TResult>(iteratee?: (value: T, index: number) => TResult[]): ExplicitArray1<TResult>;
-        flatMap<TResult>(iteratee?: Iteratee): ExplicitArray1<TResult>;
+        every(iteratee?: ArrayPredicate<T> | Iteratee): ExplicitValue1<boolean>;
+        filter(iteratee?: ArrayPredicate<T> | Iteratee): TWrapper;
+        find(iteratee?: ArrayPredicate<T> | Iteratee): ExplicitValue1<T>;
+        findLast(iteratee?: ArrayPredicate<T> | Iteratee): ExplicitValue1<T>;
+        flatMap<TResult>(iteratee?: ((value: T, index: number) => TResult[]) | Iteratee): ExplicitArray1<TResult>;
         flatMapDeep<TResult>(iteratee?: (value: T, index: number) => TResult[]): ExplicitArray1<TResult>;
-        flatMapDeep<TResult>(iteratee?: Iteratee): ExplicitArray1<TResult>;
-        flatMapDepth<TResult>(iteratee?: (value: T, index: number) => TResult[], depth?: number): ExplicitArray1<TResult>;
-        flatMapDepth<TResult>(iteratee?: Iteratee, depth?: number): ExplicitArray1<TResult>;
+        flatMapDeep<TResult>(iteratee?: ((value: T, index: number) => TResult[]) | Iteratee): ExplicitArray1<TResult>;
+        flatMapDepth<TResult>(iteratee?: ((value: T, index: number) => TResult[]) | Iteratee, depth?: number): ExplicitArray1<TResult>;
         includes(value: T, fromIndex?: number): ExplicitValue1<boolean>;
         invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ExplicitArray1<TResult>;
         keyBy<R>(iteratee?: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: T; }>;
-        map<TResult>(iteratee?: (value: T, index: number) => TResult): ExplicitArray1<TResult>;
-        map<TResult>(iteratee?: Iteratee): ExplicitArray1<TResult>;
+        map<TResult>(iteratee?: ((value: T, index: number) => TResult) | Iteratee): ExplicitArray1<TResult>;
         groupBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee?: BooleanPredicate<T>): ExplicitValue1<[T[], T[]]>;
-        reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
-        reduce<TAcc>(iteratee?: Iteratee): ExplicitValue1<TAcc>;
-        reduceRight<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
-        reduceRight<TAcc>(iteratee?: Iteratee): ExplicitValue1<TAcc>;
-        reject(iteratee?: ArrayPredicate<T>): TWrapper;
-        reject(iteratee?:Iteratee): TWrapper;
+        reduce<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc> | Iteratee): ExplicitValue1<TAcc>;
+        reduceRight<TAcc>(iteratee?: AccumulatorArrayPredicate<T, TAcc> | Iteratee): ExplicitValue1<TAcc>;
+        reject(iteratee?: ArrayPredicate<T> | Iteratee): TWrapper;
         sample(): ExplicitValue1<T>;
         size(): ExplicitValue1<number>;
-        some(iteratee?: ArrayPredicate<T>): ExplicitValue1<boolean>;
-        some(iteratee?:Iteratee): ExplicitValue1<boolean>;
+        some(iteratee?: ArrayPredicate<T> | Iteratee): ExplicitValue1<boolean>;
     }
 
     export interface ObjectWrapper<T, TObj extends { [index: string]: T }, TWrapper> {
@@ -607,59 +556,40 @@ namespace Types {
     }
 
     export interface ByBooleanPredicate {
-        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): boolean;
-        <T>(collection: ArrayLike<T>, iteratee?:Iteratee): boolean;
-        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): boolean;
-        <T>(collection: _Obj<T>, iteratee?:Iteratee): boolean;
-        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): boolean;
-        <T>(collection: any, iteratee?:Iteratee): boolean;
+        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>> | Iteratee): boolean;
+        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>> | Iteratee): boolean;
+        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>> | Iteratee): boolean;
     }
 
     export interface ByArrayPredicate {
-        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>): T[];
-        <T>(collection: ArrayLike<T>, iteratee?:Iteratee): T[];
-        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
-        <T>(collection: _Obj<T>, iteratee?:Iteratee): T[];
-        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>): T[];
-        <T>(collection: any, iteratee?:Iteratee): T[];
+        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>> | Iteratee): T[];
+        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>> | Iteratee): T[];
+        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>> | Iteratee): T[];
     }
 
     export interface FindPredicate {
-        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): T;
-        <T>(collection: ArrayLike<T>, iteratee?:Iteratee, fromIndex?: number): T;
-        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>, fromIndex?: number): T;
-        <T>(collection: _Obj<T>, iteratee?:Iteratee, fromIndex?: number): T;
-        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>>, fromIndex?: number): T;
-        <T>(collection: any, iteratee?:Iteratee, fromIndex?: number): T;
+        <T>(collection: ArrayLike<T>, iteratee?: ArrayPredicate<T, ArrayLike<T>> | Iteratee, fromIndex?: number): T;
+        <T>(collection: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>> | Iteratee, fromIndex?: number): T;
+        <T>(collection: any, iteratee?: ObjectPredicate<T, _Obj<T>> | Iteratee, fromIndex?: number): T;
     }
 
     export interface FlatMap {
-        <T, TResult>(collection: ArrayLike<T>, iteratee?: (value: T, index: number, collection: ArrayLike<T>) => TResult[]): TResult[];
-        <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee?: (value: T, index: string, collection: _Obj<T>) => TResult[]): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee): TResult[];
-        <T, TResult>(collection: any, iteratee?: (value: T, index: string, collection: _Obj<T>) => TResult[]): TResult[];
-        <T, TResult>(collection: any, iteratee?: Iteratee): TResult[];
+        <T, TResult>(collection: ArrayLike<T>, iteratee?: ((value: T, index: number, collection: ArrayLike<T>) => TResult[]) | Iteratee): TResult[];
+        <T, TResult>(collection: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) => TResult[]) | Iteratee): TResult[];
+        <T, TResult>(collection: any, iteratee?: ((value: T, index: string, collection: _Obj<T>) => TResult[]) | Iteratee): TResult[];
     }
 
     export interface FlatMapDepth {
-        <T, TResult>(collection: ArrayLike<T>, iteratee?: (value: T, index: number, collection: ArrayLike<T>, depth?: number) => TResult[]): TResult[];
-        <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee?: (value: T, index: string, collection: _Obj<T>) => TResult[], depth?: number): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee, depth?: number): TResult[];
-        <T, TResult>(collection: any, iteratee?: (value: T, index: string, collection: _Obj<T>) => TResult[], depth?: number): TResult[];
-        <T, TResult>(collection: any, iteratee?: Iteratee, depth?: number): TResult[];
+        <T, TResult>(collection: ArrayLike<T>, iteratee?: ((value: T, index: number, collection: ArrayLike<T>) => TResult[]) | Iteratee, depth?: number): TResult[];
+        <T, TResult>(collection: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) => TResult[]) | Iteratee, depth?: number): TResult[];
+        <T, TResult>(collection: any, iteratee?: ((value: T, index: string, collection: _Obj<T>) => TResult[]) | Iteratee, depth?: number): TResult[];
     }
 
     export interface ForEach {
-        <T>(collection: Array<T>, iteratee?: (value: T, index: number, collection: Array<T>) => boolean | void): Array<T>;
-        <T>(collection: Array<T>, iteratee?: Iteratee): Array<T>;
-        <T>(collection: ArrayLike<T>, iteratee?: (value: T, index: number, collection: ArrayLike<T>) => boolean | void): ArrayLike<T>;
-        <T>(collection: ArrayLike<T>, iteratee?: Iteratee): ArrayLike<T>;
-        <T>(collection: _Obj<T>, iteratee?: (value: T, index: string, collection: _Obj<T>) => boolean | void): _Obj<T>;
-        <T>(collection: _Obj<T>, iteratee?: Iteratee): _Obj<T>;
-        <T>(collection: any, iteratee?: (value: T, index: string, collection: _Obj<T>) => boolean | void): _Obj<T>;
-        <T>(collection: any, iteratee?: Iteratee): _Obj<T>;
+        <T>(collection: Array<T>, iteratee?: ((value: T, index: number, collection: Array<T>) => boolean | void) | Iteratee): Array<T>;
+        <T>(collection: ArrayLike<T>, iteratee?: ((value: T, index: number, collection: ArrayLike<T>) => boolean | void) | Iteratee): ArrayLike<T>;
+        <T>(collection: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
+        <T>(collection: any, iteratee?: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
     }
 
     export interface Includes {
@@ -678,12 +608,9 @@ namespace Types {
     }
 
     export interface _Map {
-        <T, TResult>(collection: ArrayLike<T>, iteratee?: (value: T, index: number, collection: ArrayLike<T>) => TResult): TResult[];
-        <T, TResult>(collection: ArrayLike<T>, iteratee?: Iteratee): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee?: (value: T, index: string, collection: _Obj<T>) => TResult): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee?: Iteratee): TResult[];
-        <T, TResult>(collection: any, iteratee?: (value: T, index: string, collection: _Obj<T>) => TResult): TResult[];
-        <T, TResult>(collection: any, iteratee?: Iteratee): TResult[];
+        <T, TResult>(collection: ArrayLike<T>, iteratee?: ((value: T, index: number, collection: ArrayLike<T>) => TResult) | Iteratee): TResult[];
+        <T, TResult>(collection: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) => TResult) | Iteratee): TResult[];
+        <T, TResult>(collection: any, iteratee?: ((value: T, index: string, collection: _Obj<T>) => TResult) | Iteratee): TResult[];
     }
 
     export interface OrderBy {
@@ -699,12 +626,9 @@ namespace Types {
     }
 
     export interface Reduce {
-        <T, TAcc>(collection: ArrayLike<T>, iteratee?: AccumulatorArrayPredicate<T, ArrayLike<T>, TAcc>, acc?: TAcc): TAcc;
-        <T, TAcc>(collection: ArrayLike<T>, iteratee?: Iteratee, acc?: TAcc): TAcc;
-        <T, TAcc>(collection: _Obj<T>, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc>, acc?: TAcc): TAcc;
-        <T, TAcc>(collection: _Obj<T>, iteratee?: Iteratee, acc?: TAcc): TAcc;
-        <T, TAcc>(collection: any, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc>, acc?: TAcc): TAcc;
-        <T, TAcc>(collection: any, iteratee?: Iteratee, acc?: TAcc): TAcc;
+        <T, TAcc>(collection: ArrayLike<T>, iteratee?: AccumulatorArrayPredicate<T, ArrayLike<T>, TAcc> | Iteratee, acc?: TAcc): TAcc;
+        <T, TAcc>(collection: _Obj<T>, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc> | Iteratee, acc?: TAcc): TAcc;
+        <T, TAcc>(collection: any, iteratee?: AccumulatorObjectPredicate<T, _Obj<T>, TAcc> | Iteratee, acc?: TAcc): TAcc;
     }
 
     export interface Sample {
@@ -772,21 +696,23 @@ namespace Types {
    export type PathLocation = string | string[];
 
    export type _Obj<T> = { [index: string]: T; } | { [index: number]: T; };
-   /* Iteratee */ export type ArrayPredicate<T, TArray extends ArrayLike<T>> = (value: T, index: number, collection: TArray) => boolean;
-   /* Iteratee */ export type AccumulatorArrayPredicate<T, TArray extends ArrayLike<T>, TAcc> = (accumulator: TAcc, value: T, index: number, collection: TArray) => TAcc;
+   export type ArrayPredicate<T, TArray extends ArrayLike<T>> = (value: T, index: number, collection: TArray) => boolean;
+   export type AccumulatorArrayPredicate<T, TArray extends ArrayLike<T>, TAcc> = (accumulator: TAcc, value: T, index: number, collection: TArray) => TAcc;
 
-   /* Iteratee */ export type ObjectPredicate<T, TObj extends _Obj<T>> = (value: T, index: string, collection: TObj) => boolean;
-   /* Iteratee */ export type AccumulatorObjectPredicate<T, TObj extends _Obj<T>, TAcc> = (accumulator: TAcc, value: T, index: string, collection: TObj) => TAcc;
+   export type ObjectPredicate<T, TObj extends _Obj<T>> = (value: T, index: string, collection: TObj) => boolean;
+   export type AccumulatorObjectPredicate<T, TObj extends _Obj<T>, TAcc> = (accumulator: TAcc, value: T, index: string, collection: TObj) => TAcc;
 
-   /* Iteratee */ export type ValuePredicate<T, R> = (value: T) => R;
-   /* Iteratee */ export type BooleanPredicate<T> = (value: T) => boolean;
+   export type ValuePredicate<T, R> = (value: T) => R;
+   export type BooleanPredicate<T> = (value: T) => boolean;
+   export type AnySelector<T> = (value: T) => any;
+   export type Comparator<T> = (arrVal: T, othVal: T) => boolean;
 
    export namespace Wrap {
-       /* Iteratee */ export type ArrayPredicate<T> = (value: T, index: number) => boolean;
-       /* Iteratee */ export type AccumulatorArrayPredicate<T, TAcc> = (accumulator: TAcc, value: T, index: number) => TAcc;
+       export type ArrayPredicate<T> = (value: T, index: number) => boolean;
+       export type AccumulatorArrayPredicate<T, TAcc> = (accumulator: TAcc, value: T, index: number) => TAcc;
 
-       /* Iteratee */ export type ObjectPredicate<T> = (value: T, index: string) => boolean;
-       /* Iteratee */ export type AccumulatorObjectPredicate<T, TAcc> = (accumulator: TAcc, value: T, index: string) => TAcc;
+       export type ObjectPredicate<T> = (value: T, index: string) => boolean;
+       export type AccumulatorObjectPredicate<T, TAcc> = (accumulator: TAcc, value: T, index: string) => TAcc;
     }
 }
 type MemoizedFunction = {
@@ -1257,9 +1183,7 @@ namespace Types.Wrap {
        export type Aggregation<T> = () => T;
         export interface AggregationBy<T, TWrapper> {
             (): TWrapper;
-            (iteratee: Iteratee): TWrapper;
-            (iteratee: (value: T) => number): TWrapper;
-            (iteratee: PathLocation): TWrapper;
+            (iteratee: Iteratee | PathLocation | ((value: T) => number)): TWrapper;
         }
     }
 
@@ -1292,9 +1216,7 @@ namespace Types {
        export type Rounding = (n: number, precision?: number) => number;
         export interface AggregationBy {
             <T>(array: T[]): T;
-            <T>(array: T[], iteratee: (value: T) => number): T;
-            <T>(array: T[], iteratee: Iteratee): T;
-            <T>(array: T[], iteratee: PathLocation): T;
+            <T>(array: T[], iteratee: Iteratee | PathLocation | ((value: T) => number)): T;
         }
     }
 }
@@ -1350,17 +1272,13 @@ namespace Types {
     }
 
     export interface FindKey {
-        <T>(obj: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>>): string;
-        <T>(obj: _Obj<T>, iteratee?:Iteratee): string;
-        <T>(obj: any, iteratee?: ObjectPredicate<T, _Obj<T>>): string;
-        <T>(obj: any, iteratee?:Iteratee): string;
+        <T>(obj: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>> | Iteratee): string;
+        <T>(obj: any, iteratee?: ObjectPredicate<T, _Obj<T>> | Iteratee): string;
     }
 
     export interface ForIn {
-        <T>(obj: _Obj<T>, iteratee?: (value: T, index: string, collection: _Obj<T>) => boolean | void): _Obj<T>;
-        <T>(obj: _Obj<T>, iteratee?: Iteratee): _Obj<T>;
-        <T>(obj: any, iteratee?: (value: T, index: string, collection: _Obj<T>) => boolean | void): _Obj<T>;
-        <T>(obj: any, iteratee?: Iteratee): _Obj<T>;
+        <T>(obj: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) | Iteratee): _Obj<T>;
+        <T>(obj: any, iteratee?: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
     }
 
     export interface Functions {
@@ -1390,15 +1308,12 @@ namespace Types {
     }
 
     export interface MapKeys {
-        <T>(obj: _Obj<T>, iteratee?: (value: T, index: string, collection: _Obj<T>) => string): _Obj<T>;
-        <T>(obj: _Obj<T>, iteratee?: Iteratee): _Obj<T>;
-        <T>(obj: any, iteratee?: (value: T, index: string, collection: _Obj<T>) => string): _Obj<T>;
-        <T>(obj: any, iteratee?: Iteratee): _Obj<T>;
+        <T>(obj: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) => string) | Iteratee): _Obj<T>;
+        <T>(obj: any, iteratee?: ((value: T, index: string, collection: _Obj<T>) => string) | Iteratee): _Obj<T>;
     }
 
     export interface MapValues {
-        <T, TResult>(obj: _Obj<T>, iteratee?: (value: T, index: string, collection: _Obj<T>) => TResult): _Obj<Rest>;
-        <T, TResult>(obj: _Obj<T>, iteratee?: Iteratee): _Obj<Rest>;
+        <T, TResult>(obj: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) => TResult) | Iteratee): _Obj<Rest>;
     }
 
     export interface Omit {
@@ -1407,10 +1322,8 @@ namespace Types {
     }
 
     export interface OmitBy {
-        <T, TResult>(obj: _Obj<T>, predicate?: (value: T, key: string) => boolean): TResult;
-        <T, TResult>(obj: _Obj<T>, predicate?: Iteratee): TResult;
-        <T, TResult>(obj: any, predicate?: (value: T, key: string) => boolean): TResult;
-        <T, TResult>(obj: any, predicate?: Iteratee): TResult;
+        <T, TResult>(obj: _Obj<T>, predicate?: ((value: T, key: string) => boolean) | Iteratee): TResult;
+        <T, TResult>(obj: any, predicate?: ((value: T, key: string) => boolean) | Iteratee): TResult;
     }
 
     export interface _Set {
@@ -1438,8 +1351,7 @@ namespace Types {
     }
 
     export interface Transform {
-        <T, TObj, TAcc>(obj: TObj, iteratee?: (acc: TAcc, value: any, key: string, obj: TObj) => any, acc?: TAcc): TAcc;
-        <T, TObj, TAcc>(obj: TObj, iteratee?: Iteratee, acc?: TAcc): TAcc;
+        <T, TObj, TAcc>(obj: TObj, iteratee?: ((acc: TAcc, value: any, key: string, obj: TObj) => any) | Iteratee, acc?: TAcc): TAcc;
     }
 
     export interface Unset {

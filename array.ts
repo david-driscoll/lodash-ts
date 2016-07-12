@@ -28,26 +28,21 @@ namespace Types {
     }
 
     export interface DifferenceBy {
-        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, iteratee?: (value: T) => any): T[];
-        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, iteratee?: Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: (value: T) => any): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: (value: T) => any): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: (value: T) => any): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee?: (value: T) => any): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee?: Iteratee): T[];
-        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | Iteratee | ((value: T) => any))[]): T[];
+        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | Iteratee | (AnySelector<T>))[]): T[];
     }
 
     export interface DifferenceWith {
-        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: ((value: T) => any) | string): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, comparator?: (arrVal: T, othVal: T) => boolean): T[];
-        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | ((arrVal: T, othVal: T) => boolean))[]): T[];
+        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | (Comparator<T>))[]): T[];
     }
 
     export interface Drop {
@@ -55,8 +50,7 @@ namespace Types {
     }
 
     export interface DropWhile {
-        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): T[];
-        <T>(array: ArrayLike<T>, predicate?: Iteratee): T[];
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>> | Iteratee): T[];
     }
 
     export interface Flatten {
@@ -88,8 +82,7 @@ namespace Types {
     }
 
     export interface FindIndex {
-        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>, fromIndex?: number): number;
-        <T>(array: ArrayLike<T>, predicate?: Iteratee, fromIndex?: number): number;
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>> | Iteratee, fromIndex?: number): number;
     }
 
     export interface IndexOf {
@@ -118,10 +111,8 @@ namespace Types {
     }
 
     export interface Remove {
-        <T>(array: Array<T>, predicate?: ArrayPredicate<T, Array<T>>): Array<T>;
-        <T>(array: Array<T>, predicate?: Iteratee): Array<T>;
-        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>>): ArrayLike<T>;
-        <T>(array: ArrayLike<T>, predicate?: Iteratee): ArrayLike<T>;
+        <T>(array: Array<T>, predicate?: ArrayPredicate<T, Array<T>> | Iteratee): Array<T>;
+        <T>(array: ArrayLike<T>, predicate?: ArrayPredicate<T, ArrayLike<T>> | Iteratee): ArrayLike<T>;
     }
 
     export interface Slice {
@@ -163,16 +154,11 @@ namespace Types {
     }
 
     export interface ZipWith {
-        <T, TResult>(t: ArrayLike<T>, predicate?: (t: T) => TResult): TResult[];
-        <T, TResult>(t: ArrayLike<T>, predicate?: Iteratee): TResult[];
-        <T, T2, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, predicate?: (t: T, t2: T2) => TResult): TResult[];
-        <T, T2, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, predicate?: Iteratee): TResult[];
-        <T, T2, T3, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, predicate?: (t: T, t2: T2, t3: T3) => TResult): TResult[];
-        <T, T2, T3, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, predicate?: Iteratee): TResult[];
-        <T, T2, T3, T4, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, predicate?: (t: T, t2: T2, t3: T3, t4: T4) => TResult): TResult[];
-        <T, T2, T3, T4, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, predicate?: Iteratee): TResult[];
-        <T, T2, T3, T4, T5, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, t5: ArrayLike<T5>, predicate?: (t: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult): TResult[];
-        <T, T2, T3, T4, T5, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, t5: ArrayLike<T5>, predicate?: Iteratee): TResult[];
+        <T, TResult>(t: ArrayLike<T>, predicate?: ((t: T) => TResult) | Iteratee): TResult[];
+        <T, T2, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, predicate?: ((t: T, t2: T2) => TResult) | Iteratee): TResult[];
+        <T, T2, T3, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, predicate?: ((t: T, t2: T2, t3: T3) => TResult) | Iteratee): TResult[];
+        <T, T2, T3, T4, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, predicate?: ((t: T, t2: T2, t3: T3, t4: T4) => TResult) | Iteratee): TResult[];
+        <T, T2, T3, T4, T5, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, t5: ArrayLike<T5>, predicate?: ((t: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult) | Iteratee): TResult[];
         <TResult>(...arrays: (ArrayLike<any> | Iteratee[] | ((...args: any[]) => TResult))[]): TResult[];
     }
 
