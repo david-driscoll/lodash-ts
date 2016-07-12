@@ -103,7 +103,7 @@ interface IStatic extends Types.PH {
     <T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ImplicitObject1<T, TObj>;
 }
 
-var Static: IStatic;
+var Types: IStatic;
 interface IStatic {
     chain<T>(array: ArrayLike<T>): Types.Wrap.ExplicitArray1<T>;
     chain<T, TObj extends { [index: string]: T }>(obj: T): Types.Wrap.ExplicitObject1<T, TObj>;
