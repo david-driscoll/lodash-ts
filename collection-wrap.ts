@@ -39,6 +39,7 @@ namespace Types.Wrap {
 
     export interface ImplicitWrapper<T, TWrapper> {
         countBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: number; }>;
+        every(): boolean;
         every(iteratee: ArrayPredicate<T> | Iteratee): boolean;
         filter(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
         find(iteratee: ArrayPredicate<T> | Iteratee, fromIndex?: number): T;
@@ -57,11 +58,13 @@ namespace Types.Wrap {
         reject(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
         sample(): T;
         size(): number;
+        some(): boolean;
         some(iteratee: ArrayPredicate<T> | Iteratee): boolean;
     }
 
     export interface ExplicitWrapper<T, TWrapper> {
         countBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: number; }>;
+        every(): ExplicitValue1<boolean>;
         every(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<boolean>;
         filter(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
         find(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<T>;
@@ -81,6 +84,7 @@ namespace Types.Wrap {
         reject(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
         sample(): ExplicitValue1<T>;
         size(): ExplicitValue1<number>;
+        some(): ExplicitValue1<boolean>;
         some(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<boolean>;
     }
 

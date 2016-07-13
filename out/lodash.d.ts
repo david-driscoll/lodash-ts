@@ -476,6 +476,7 @@ namespace Types.Wrap {
 
     export interface ImplicitWrapper<T, TWrapper> {
         countBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: number; }>;
+        every(): boolean;
         every(iteratee: ArrayPredicate<T> | Iteratee): boolean;
         filter(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
         find(iteratee: ArrayPredicate<T> | Iteratee, fromIndex?: number): T;
@@ -494,11 +495,13 @@ namespace Types.Wrap {
         reject(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
         sample(): T;
         size(): number;
+        some(): boolean;
         some(iteratee: ArrayPredicate<T> | Iteratee): boolean;
     }
 
     export interface ExplicitWrapper<T, TWrapper> {
         countBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: number; }>;
+        every(): ExplicitValue1<boolean>;
         every(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<boolean>;
         filter(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
         find(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<T>;
@@ -518,6 +521,7 @@ namespace Types.Wrap {
         reject(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
         sample(): ExplicitValue1<T>;
         size(): ExplicitValue1<number>;
+        some(): ExplicitValue1<boolean>;
         some(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<boolean>;
     }
 
@@ -556,8 +560,11 @@ namespace Types {
     }
 
     export interface ByBooleanPredicate {
+        <T>(collection: ArrayLike<T>): boolean;
         <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T, ArrayLike<T>> | Iteratee): boolean;
+        <T>(collection: _Obj<T>): boolean;
         <T>(collection: _Obj<T>, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): boolean;
+        <T>(collection: any): boolean;
         <T>(collection: any, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): boolean;
     }
 

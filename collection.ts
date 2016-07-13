@@ -12,8 +12,11 @@ namespace Types {
     }
 
     export interface ByBooleanPredicate {
+        <T>(collection: ArrayLike<T>): boolean;
         <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T, ArrayLike<T>> | Iteratee): boolean;
+        <T>(collection: _Obj<T>): boolean;
         <T>(collection: _Obj<T>, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): boolean;
+        <T>(collection: any): boolean;
         <T>(collection: any, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): boolean;
     }
 
