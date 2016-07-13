@@ -1277,7 +1277,7 @@ namespace Types {
     }
 
     export interface ForIn {
-        <T>(obj: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) | Iteratee): _Obj<T>;
+        <T>(obj: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
         <T>(obj: any, iteratee?: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
     }
 
