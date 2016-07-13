@@ -461,45 +461,45 @@
 //     }
 
 //     export interface LoDashArrayPredicateStatic {
-//         <T>(array: List<T>, predicate?: ListIterator<T, boolean>): T[];
-//         <T>(array: List<T>, predicate?: string): T[];
-//         <W extends {}, T>(array: List<T>, predicate?: W): T[];
+//         <T>(array: List<T>, predicate: ListIterator<T, boolean>): T[];
+//         <T>(array: List<T>, predicate: string): T[];
+//         <W extends {}, T>(array: List<T>, predicate: W): T[];
 //     }
 
 //     export interface LoDashArrayPredicateExplicitArrayWrapper<T> {
-//         (predicate?: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<T>;
-//         (predicate?: string): LoDashExplicitArrayWrapper<T>;
-//         <W>(predicate?: W): LoDashExplicitArrayWrapper<T>;
+//         (predicate: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<T>;
+//         (predicate: string): LoDashExplicitArrayWrapper<T>;
+//         <W>(predicate: W): LoDashExplicitArrayWrapper<T>;
 //     }
 
 //     export interface LoDashArrayPredicateExplicitObjectWrapper<T> {
-//         <TResult>(predicate?: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<TResult>;
-//         <TResult>(predicate?: string): LoDashExplicitArrayWrapper<TResult>;
-//         <W, TResult>(predicate?: W): LoDashExplicitArrayWrapper<TResult>;
+//         <TResult>(predicate: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<TResult>;
+//         <TResult>(predicate: string): LoDashExplicitArrayWrapper<TResult>;
+//         <W, TResult>(predicate: W): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
 //     export interface LoDashArrayPredicateImplicitArrayWrapper<T> {
-//         (predicate?: ListIterator<T, boolean>): LoDashImplicitArrayWrapper<T>;
-//         (predicate?: string): LoDashImplicitArrayWrapper<T>;
-//         <W>(predicate?: W): LoDashImplicitArrayWrapper<T>;
+//         (predicate: ListIterator<T, boolean>): LoDashImplicitArrayWrapper<T>;
+//         (predicate: string): LoDashImplicitArrayWrapper<T>;
+//         <W>(predicate: W): LoDashImplicitArrayWrapper<T>;
 //     }
 
 //     export interface LoDashArrayPredicateImplicitObjectWrapper<T> {
-//         <TResult>(predicate?: ListIterator<T, boolean>): LoDashImplicitArrayWrapper<TResult>;
-//         <TResult>(predicate?: string): LoDashImplicitArrayWrapper<TResult>;
-//         <W, TResult>(predicate?: W): LoDashImplicitArrayWrapper<TResult>;
+//         <TResult>(predicate: ListIterator<T, boolean>): LoDashImplicitArrayWrapper<TResult>;
+//         <TResult>(predicate: string): LoDashImplicitArrayWrapper<TResult>;
+//         <W, TResult>(predicate: W): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
 //     export interface LoDashCollectionPredicateStatic {
-//         <T>(collection: List<T>, predicate?: ListIterator<T, boolean>): T[];
-//         <T>(collection: Dictionary<T>, predicate?: DictionaryIterator<T, boolean>): T[];
-//         <T>(collection: string, predicate?: StringIterator<boolean>): string[];
+//         <T>(collection: List<T>, predicate: ListIterator<T, boolean>): T[];
+//         <T>(collection: Dictionary<T>, predicate: DictionaryIterator<T, boolean>): T[];
+//         <T>(collection: string, predicate: StringIterator<boolean>): string[];
 //         <T>(collection: List<T> | Dictionary<T>, predicate: string): T[];
 //         <W extends {}, T>(collection: List<T> | Dictionary<T>, predicate: W): T[];
 //     }
 
 //     export interface LoDashCollectionExplicitWrapper<T> {
-//         (predicate?: StringIterator<boolean>): LoDashExplicitArrayWrapper<string>;
+//         (predicate: StringIterator<boolean>): LoDashExplicitArrayWrapper<string>;
 //     }
 
 //     export interface LoDashCollectionPredicateExplicitArrayWrapper<T> {
@@ -515,7 +515,7 @@
 //     }
 
 //     export interface LoDashCollectionImplicitWrapper<T> {
-//         (predicate?: StringIterator<boolean>): LoDashImplicitArrayWrapper<string>;
+//         (predicate: StringIterator<boolean>): LoDashImplicitArrayWrapper<string>;
 //     }
 
 //     export interface LoDashCollectionPredicateImplicitArrayWrapper<T> {
@@ -531,35 +531,35 @@
 //     }
 
 //     export interface LoDashBooleanPredicateStatic {
-//         <T>(collection: List<T>, predicate?: ListIterator<T, boolean>): boolean;
-//         <T>(collection: Dictionary<T>, predicate?: DictionaryIterator<T, boolean>): boolean;
-//         <T>(collection: NumericDictionary<T>, predicate?: NumericDictionaryIterator<T, boolean>): boolean;
-//         <T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, predicate?: string | any[]): boolean;
-//         <TObject extends {}, T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, predicate?: TObject): boolean;
+//         <T>(collection: List<T>, predicate: ListIterator<T, boolean>): boolean;
+//         <T>(collection: Dictionary<T>, predicate: DictionaryIterator<T, boolean>): boolean;
+//         <T>(collection: NumericDictionary<T>, predicate: NumericDictionaryIterator<T, boolean>): boolean;
+//         <T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, predicate: string | any[]): boolean;
+//         <TObject extends {}, T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, predicate: TObject): boolean;
 //     }
 
 //     export interface LoDashBooleanPredicateExplicitArrayWrapper<T> {
-//         (predicate?: ListIterator<T, boolean> | NumericDictionaryIterator<T, boolean>): LoDashExplicitWrapper<boolean>;
-//         (predicate?: string | any[]): LoDashExplicitWrapper<boolean>;
-//         <TObject extends {}>(predicate?: TObject): LoDashExplicitWrapper<boolean>;
+//         (predicate: ListIterator<T, boolean> | NumericDictionaryIterator<T, boolean>): LoDashExplicitWrapper<boolean>;
+//         (predicate: string | any[]): LoDashExplicitWrapper<boolean>;
+//         <TObject extends {}>(predicate: TObject): LoDashExplicitWrapper<boolean>;
 //     }
 
 //     export interface LoDashBooleanPredicateExplicitObjectWrapper<T> {
-//         <TResult>(predicate?: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<TResult>;
-//         <TResult>(predicate?: string): LoDashExplicitArrayWrapper<TResult>;
-//         <W, TResult>(predicate?: W): LoDashExplicitArrayWrapper<TResult>;
+//         <TResult>(predicate: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<TResult>;
+//         <TResult>(predicate: string): LoDashExplicitArrayWrapper<TResult>;
+//         <W, TResult>(predicate: W): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
 //     export interface LoDashBooleanPredicateImplicitWrapper<T> {
-//         <TResult>(predicate?: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean> | NumericDictionaryIterator<T, boolean>): LoDashExplicitWrapper<boolean>;
-//         every(predicate?: string | any[]): LoDashExplicitWrapper<boolean>;
-//         every<TObject extends {}>(predicate?: TObject): LoDashExplicitWrapper<boolean>;
+//         <TResult>(predicate: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean> | NumericDictionaryIterator<T, boolean>): LoDashExplicitWrapper<boolean>;
+//         every(predicate: string | any[]): LoDashExplicitWrapper<boolean>;
+//         every<TObject extends {}>(predicate: TObject): LoDashExplicitWrapper<boolean>;
 //     }
 
 //     export interface LoDashBooleanPredicateImplicitObjectWrapper<T> {
-//         <TResult>(predicate?: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean> | NumericDictionaryIterator<T, boolean>): boolean;
-//         every(predicate?: string | any[]): boolean;
-//         every<TObject extends {}>(predicate?: TObject): boolean;
+//         <TResult>(predicate: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean> | NumericDictionaryIterator<T, boolean>): boolean;
+//         every(predicate: string | any[]): boolean;
+//         every<TObject extends {}>(predicate: TObject): boolean;
 //     }
 
 //     export interface LoDashArrayNumberStatic {
@@ -728,16 +728,16 @@
 
 //     //_.differenceBy
 //     export interface DifferenceByStatic {
-//         <T>(array: T[] | List<T>, values?: T[] | List<T>, iteratee?: ((value: T) => any) | string): T[];
-//         <T, W extends Object>(array: T[] | List<T>, values?: T[] | List<T>, iteratee?: W): T[];
-//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee?: ((value: T) => any) | string): T[];
-//         <T, W extends Object>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee?: W): T[];
-//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee?: ((value: T) => any) | string): T[];
-//         <T, W extends Object>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee?: W): T[];
-//         <T, W extends Object>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee?: W): T[];
-//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee?: ((value: T) => any) | string): T[];
-//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee?: ((value: T) => any) | string): T[];
-//         <T, W extends Object>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee?: W): T[];
+//         <T>(array: T[] | List<T>, values?: T[] | List<T>, iteratee: ((value: T) => any) | string): T[];
+//         <T, W extends Object>(array: T[] | List<T>, values?: T[] | List<T>, iteratee: W): T[];
+//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee: ((value: T) => any) | string): T[];
+//         <T, W extends Object>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee: W): T[];
+//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee: ((value: T) => any) | string): T[];
+//         <T, W extends Object>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee: W): T[];
+//         <T, W extends Object>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee: W): T[];
+//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee: ((value: T) => any) | string): T[];
+//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee: ((value: T) => any) | string): T[];
+//         <T, W extends Object>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee: W): T[];
 //         <T>(array: T[] | List<T>, ...values: any[]): T[];
 //     }
 
@@ -756,16 +756,16 @@
 //     }
 
 //     export interface DifferenceByImplicitWrapper<T> {
-//         (values?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
-//         <W extends Object>(values?: T[] | List<T>, iteratee?: W): LoDashImplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
-//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee?: W): LoDashImplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
-//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee?: W): LoDashImplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
-//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee?: W): LoDashImplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
-//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee?: W): LoDashImplicitArrayWrapper<T>;
+//         (values?: T[] | List<T>, iteratee: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
+//         <W extends Object>(values?: T[] | List<T>, iteratee: W): LoDashImplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
+//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee: W): LoDashImplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
+//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee: W): LoDashImplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
+//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee: W): LoDashImplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee: ((value: T) => any) | string): LoDashImplicitArrayWrapper<T>;
+//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee: W): LoDashImplicitArrayWrapper<T>;
 //         (...values: any[]): LoDashImplicitArrayWrapper<T>;
 //     }
 
@@ -784,16 +784,16 @@
 //     }
 
 //     export interface DifferenceByExplicitWrapper<T> {
-//         (values?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
-//         <W extends Object>(values?: T[] | List<T>, iteratee?: W): LoDashExplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
-//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee?: W): LoDashExplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
-//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee?: W): LoDashExplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
-//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee?: W): LoDashExplicitArrayWrapper<T>;
-//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee?: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
-//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee?: W): LoDashExplicitArrayWrapper<T>;
+//         (values?: T[] | List<T>, iteratee: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
+//         <W extends Object>(values?: T[] | List<T>, iteratee: W): LoDashExplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
+//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, iteratee: W): LoDashExplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
+//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, iteratee: W): LoDashExplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
+//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee: W): LoDashExplicitArrayWrapper<T>;
+//         (values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee: ((value: T) => any) | string): LoDashExplicitArrayWrapper<T>;
+//         <W extends Object>(values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, iteratee: W): LoDashExplicitArrayWrapper<T>;
 //         (...values: any[]): LoDashExplicitArrayWrapper<T>;
 //     }
 
@@ -816,7 +816,7 @@
 //         <T>(array: T[] | List<T>, values?: T[] | List<T>, comparator?: Comparator<T>): T[];
 //         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, comparator?: Comparator<T>): T[];
 //         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, comparator?: Comparator<T>): T[];
-//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee?: ((value: T) => any) | string): T[];
+//         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, iteratee: ((value: T) => any) | string): T[];
 //         <T>(array: T[] | List<T>, values1?: T[] | List<T>, values2?: T[] | List<T>, values3?: T[] | List<T>, values4?: T[] | List<T>, values5?: T[] | List<T>, comparator?: Comparator<T>): T[];
 //         <T>(array: T[] | List<T>, ...values: any[]): T[];
 //     }
@@ -975,9 +975,9 @@
 
 //     //_.dropRightWhile
 //     export interface DropWhileStatic {
-//         <TValue>(array: List<TValue>, predicate?: ListIterator<TValue, boolean>): TValue[];
-//         <TValue>(array: List<TValue>, predicate?: string): TValue[];
-//         <TWhere, TValue>(array: List<TValue>, predicate?: TWhere): TValue[];
+//         <TValue>(array: List<TValue>, predicate: ListIterator<TValue, boolean>): TValue[];
+//         <TValue>(array: List<TValue>, predicate: string): TValue[];
+//         <TWhere, TValue>(array: List<TValue>, predicate: TWhere): TValue[];
 //     }
 
 //     export interface LoDashStatic {
@@ -1020,11 +1020,11 @@
 //     }
 
 //     export interface DropWhileExplictWrapper<T> {
-//         (predicate?: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<T>;
+//         (predicate: ListIterator<T, boolean>): LoDashExplicitArrayWrapper<T>;
 
-//         (predicate?: string): LoDashExplicitArrayWrapper<T>;
+//         (predicate: string): LoDashExplicitArrayWrapper<T>;
 
-//         <TWhere>(predicate?: TWhere): LoDashExplicitArrayWrapper<T>;
+//         <TWhere>(predicate: TWhere): LoDashExplicitArrayWrapper<T>;
 //     }
 
 //     export interface LoDashExplicitArrayWrapper<T> {
@@ -1143,9 +1143,9 @@
 
 //     //_.findIndex
 //     export interface FindIndexStatic {
-//         <T>(array: List<T>, predicate?: ListIterator<T, boolean>): number;
-//         <T>(array: List<T>, predicate?: string): number;
-//         <W, T>(array: List<T>, predicate?: W): number;
+//         <T>(array: List<T>, predicate: ListIterator<T, boolean>): number;
+//         <T>(array: List<T>, predicate: string): number;
+//         <W, T>(array: List<T>, predicate: W): number;
 //     }
 
 //     export interface LoDashStatic {
@@ -1171,9 +1171,9 @@
 //     }
 
 //     export interface FindIndexImplicitWrapper<T> {
-//         (predicate?: ListIterator<T, boolean>): number;
-//         (predicate?: string): number;
-//         <W>(predicate?: W): number;
+//         (predicate: ListIterator<T, boolean>): number;
+//         (predicate: string): number;
+//         <W>(predicate: W): number;
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
@@ -1191,9 +1191,9 @@
 //     }
 
 //     export interface FindIndexExplicitWrapper<T> {
-//         (predicate?: ListIterator<T, boolean>): LoDashExplicitWrapper<number>;
-//         (predicate?: string): LoDashExplicitWrapper<number>;
-//         <W>(predicate?: W): LoDashExplicitWrapper<number>;
+//         (predicate: ListIterator<T, boolean>): LoDashExplicitWrapper<number>;
+//         (predicate: string): LoDashExplicitWrapper<number>;
+//         <W>(predicate: W): LoDashExplicitWrapper<number>;
 //     }
 
 //     export interface LoDashExplicitArrayWrapper<T> {
@@ -3329,7 +3329,7 @@
 
 //     //_.unzipWith
 //     export interface UnzipWithStatic {
-//         <TArray, TResult>(array: List<List<TArray>>, iteratee?: MemoIterator<TArray, TResult>): TResult[];
+//         <TArray, TResult>(array: List<List<TArray>>, iteratee: MemoIterator<TArray, TResult>): TResult[];
 //     }
 
 //     export interface LoDashStatic {
@@ -3347,7 +3347,7 @@
 //     }
 
 //     export interface UnzipWithImplicitWrapper<T> {
-//         <TArr, TResult>(iteratee?: MemoIterator<TArr, TResult>): LoDashImplicitArrayWrapper<TResult>;
+//         <TArr, TResult>(iteratee: MemoIterator<TArr, TResult>): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
@@ -3365,7 +3365,7 @@
 //     }
 
 //     export interface UnzipWithExplicitWrapper<T> {
-//         <TArr, TResult>(iteratee?: MemoIterator<TArr, TResult>): LoDashExplicitArrayWrapper<TResult>;
+//         <TArr, TResult>(iteratee: MemoIterator<TArr, TResult>): LoDashExplicitArrayWrapper<TResult>;
 //     }
 
 //     export interface LoDashExplicitArrayWrapper<T> {
@@ -4094,12 +4094,12 @@
 
 //     //_.countBy
 //     export interface CountByStatic {
-//         <T>(collection: List<T>, iteratee?: ListIterator<T, any>): Dictionary<number>;
-//         <T>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, any>): Dictionary<number>;
-//         <T>(collection: NumericDictionary<T>, iteratee?: NumericDictionaryIterator<T, any>): Dictionary<number>;
-//         <T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, iteratee?: string): Dictionary<number>;
-//         <W, T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, iteratee?: W): Dictionary<number>;
-//         <T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, iteratee?: Object): Dictionary<number>;
+//         <T>(collection: List<T>, iteratee: ListIterator<T, any>): Dictionary<number>;
+//         <T>(collection: Dictionary<T>, iteratee: DictionaryIterator<T, any>): Dictionary<number>;
+//         <T>(collection: NumericDictionary<T>, iteratee: NumericDictionaryIterator<T, any>): Dictionary<number>;
+//         <T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, iteratee: string): Dictionary<number>;
+//         <W, T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, iteratee: W): Dictionary<number>;
+//         <T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, iteratee: Object): Dictionary<number>;
 //     }
 
 //     export interface LoDashStatic {
@@ -4127,7 +4127,7 @@
 //     }
 
 //     export interface CountByImplicitWrapper<T> {
-//         (iteratee?: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<number>>;
+//         (iteratee: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<number>>;
 //     }
 
 //     export interface LoDashImplicitWrapper<T> {
@@ -4138,9 +4138,9 @@
 //     }
 
 //     export interface CountByImplicitArrayWrapper<T> {
-//         (iteratee?: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<number>>;
-//         (iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<number>>;
-//         <W>(iteratee?: W): LoDashImplicitObjectWrapper<Dictionary<number>>;
+//         (iteratee: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<number>>;
+//         (iteratee: string): LoDashImplicitObjectWrapper<Dictionary<number>>;
+//         <W>(iteratee: W): LoDashImplicitObjectWrapper<Dictionary<number>>;
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
@@ -4151,9 +4151,9 @@
 //     }
 
 //     export interface CountByImplicitObjectWrapper<T> {
-//         (iteratee?: ListIterator<T, any> | DictionaryIterator<T, any> | NumericDictionaryIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<number>>;
-//         (iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<number>>;
-//         <W>(iteratee?: W): LoDashImplicitObjectWrapper<Dictionary<number>>;
+//         (iteratee: ListIterator<T, any> | DictionaryIterator<T, any> | NumericDictionaryIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<number>>;
+//         (iteratee: string): LoDashImplicitObjectWrapper<Dictionary<number>>;
+//         <W>(iteratee: W): LoDashImplicitObjectWrapper<Dictionary<number>>;
 //     }
 
 //     export interface LoDashImplicitObjectWrapper<T> {
@@ -4164,7 +4164,7 @@
 //     }
 
 //     export interface CountByExplicitWrapper<T> {
-//         (iteratee?: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<number>>;
+//         (iteratee: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<number>>;
 //     }
 
 //     export interface LoDashExplicitWrapper<T> {
@@ -4175,9 +4175,9 @@
 //     }
 
 //     export interface CountByExplicitArrayWrapper<T> {
-//         (iteratee?: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<number>>;
-//         (iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<number>>;
-//         <W>(iteratee?: W): LoDashExplicitObjectWrapper<Dictionary<number>>;
+//         (iteratee: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<number>>;
+//         (iteratee: string): LoDashExplicitObjectWrapper<Dictionary<number>>;
+//         <W>(iteratee: W): LoDashExplicitObjectWrapper<Dictionary<number>>;
 //     }
 
 //     export interface LoDashExplicitArrayWrapper<T> {
@@ -4188,9 +4188,9 @@
 //     }
 
 //     export interface CountByExplicitObjectWrapper<T> {
-//         (iteratee?: ListIterator<T, any> | DictionaryIterator<T, any> | NumericDictionaryIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<number>>;
-//         (iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<number>>;
-//         <W>(iteratee?: W): LoDashExplicitObjectWrapper<Dictionary<number>>;
+//         (iteratee: ListIterator<T, any> | DictionaryIterator<T, any> | NumericDictionaryIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<number>>;
+//         (iteratee: string): LoDashExplicitObjectWrapper<Dictionary<number>>;
+//         <W>(iteratee: W): LoDashExplicitObjectWrapper<Dictionary<number>>;
 //     }
 
 //     export interface LoDashExplicitObjectWrapper<T> {
@@ -4202,11 +4202,11 @@
 
 //     //_.each
 //     export interface ForEachStatic {
-//         <T>(collection: T[], iteratee?: ListIterator<T, any>): T[];
-//         <T>(collection: List<T>, iteratee?: ListIterator<T, any>): List<T>;
-//         <T>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, any>): Dictionary<T>;
-//         <T extends {}>(collection: T, iteratee?: ObjectIterator<any, any>): T;
-//         <T extends {}, TValue>(collection: T, iteratee?: ObjectIterator<TValue, any>): T;
+//         <T>(collection: T[], iteratee: ListIterator<T, any>): T[];
+//         <T>(collection: List<T>, iteratee: ListIterator<T, any>): List<T>;
+//         <T>(collection: Dictionary<T>, iteratee: DictionaryIterator<T, any>): Dictionary<T>;
+//         <T extends {}>(collection: T, iteratee: ObjectIterator<any, any>): T;
+//         <T extends {}, TValue>(collection: T, iteratee: ObjectIterator<TValue, any>): T;
 //     }
 
 //     export interface LoDashStatic {
@@ -4225,7 +4225,7 @@
 //     }
 
 //     export interface ForEachImplicitObjectWrapper<T> {
-//         <TValue>(iteratee?: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashImplicitObjectWrapper<T>;
+//         <TValue>(iteratee: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashImplicitObjectWrapper<T>;
 //     }
 
 //     export interface ForEachExplicitWrapper<T> {
@@ -4237,7 +4237,7 @@
 //     }
 
 //     export interface ForEachExplicitObjectWrapper<T> {
-//         <TValue>(iteratee?: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashExplicitObjectWrapper<T>;
+//         <TValue>(iteratee: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashExplicitObjectWrapper<T>;
 //     }
 
 //     export interface LoDashImplicitWrapper<T> {
@@ -4458,55 +4458,55 @@
 //          * @param thisArg The this binding of predicate.
 //          * @return Returns the matched element, else undefined.
 //          */
-//         find<T>(collection: List<T>, predicate?: ListIterator<T, boolean>): T;
+//         find<T>(collection: List<T>, predicate: ListIterator<T, boolean>): T;
 
 //         /**
 //          * @see _.find
 //          */
-//         find<T>(collection: Dictionary<T>, predicate?: DictionaryIterator<T, boolean>): T;
+//         find<T>(collection: Dictionary<T>, predicate: DictionaryIterator<T, boolean>): T;
 
 //         /**
 //          * @see _.find
 //          */
-//         find<T>(collection: List<T> | Dictionary<T>, predicate?: string): T;
+//         find<T>(collection: List<T> | Dictionary<T>, predicate: string): T;
 
 //         /**
 //          * @see _.find
 //          */
-//         find<TObject extends {}, T>(collection: List<T> | Dictionary<T>, predicate?: TObject): T;
+//         find<TObject extends {}, T>(collection: List<T> | Dictionary<T>, predicate: TObject): T;
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.find
 //          */
-//         find(predicate?: ListIterator<T, boolean>): T;
+//         find(predicate: ListIterator<T, boolean>): T;
 
 //         /**
 //          * @see _.find
 //          */
-//         find(predicate?: string): T;
+//         find(predicate: string): T;
 
 //         /**
 //          * @see _.find
 //          */
-//         find<TObject extends {}>(predicate?: TObject): T;
+//         find<TObject extends {}>(predicate: TObject): T;
 //     }
 
 //     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.find
 //          */
-//         find<TResult>(predicate?: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean>): TResult;
+//         find<TResult>(predicate: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean>): TResult;
 //         /**
 //          * @see _.find
 //          */
-//         find<TResult>(predicate?: string): TResult;
+//         find<TResult>(predicate: string): TResult;
 
 //         /**
 //          * @see _.find
 //          */
-//         find<TObject extends {}, TResult>(predicate?: TObject): TResult;
+//         find<TObject extends {}, TResult>(predicate: TObject): TResult;
 //     }
 
 //     //_.findLast
@@ -4602,27 +4602,27 @@
 //          * @param iteratee The function invoked per iteration.
 //          * @param thisArg The this binding of iteratee.
 //          */
-//         forEach<T>(collection: T[], iteratee?: ListIterator<T, any>): T[];
+//         forEach<T>(collection: T[], iteratee: ListIterator<T, any>): T[];
 
 //         /**
 //          * @see _.forEach
 //          */
-//         forEach<T>(collection: List<T>, iteratee?: ListIterator<T, any>): List<T>;
+//         forEach<T>(collection: List<T>, iteratee: ListIterator<T, any>): List<T>;
 
 //         /**
 //          * @see _.forEach
 //          */
-//         forEach<T>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, any>): Dictionary<T>;
+//         forEach<T>(collection: Dictionary<T>, iteratee: DictionaryIterator<T, any>): Dictionary<T>;
 
 //         /**
 //          * @see _.forEach
 //          */
-//         forEach<T extends {}>(collection: T, iteratee?: ObjectIterator<any, any>): T;
+//         forEach<T extends {}>(collection: T, iteratee: ObjectIterator<any, any>): T;
 
 //         /**
 //          * @see _.forEach
 //          */
-//         forEach<T extends {}, TValue>(collection: T, iteratee?: ObjectIterator<TValue, any>): T;
+//         forEach<T extends {}, TValue>(collection: T, iteratee: ObjectIterator<TValue, any>): T;
 //     }
 
 //     export interface LoDashImplicitWrapper<T> {
@@ -4643,7 +4643,7 @@
 //         /**
 //          * @see _.forEach
 //          */
-//         forEach<TValue>(iteratee?: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashImplicitObjectWrapper<T>;
+//         forEach<TValue>(iteratee: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashImplicitObjectWrapper<T>;
 //     }
 
 //     export interface LoDashExplicitWrapper<T> {
@@ -4664,7 +4664,7 @@
 //         /**
 //          * @see _.forEach
 //          */
-//         forEach<TValue>(iteratee?: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashExplicitObjectWrapper<T>;
+//         forEach<TValue>(iteratee: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashExplicitObjectWrapper<T>;
 //     }
 
 //     //_.forEachRight
@@ -4678,27 +4678,27 @@
 //          * @param iteratee The function called per iteration.
 //          * @param thisArg The this binding of callback.
 //          */
-//         forEachRight<T>(collection: T[], iteratee?: ListIterator<T, any>): T[];
+//         forEachRight<T>(collection: T[], iteratee: ListIterator<T, any>): T[];
 
 //         /**
 //          * @see _.forEachRight
 //          */
-//         forEachRight<T>(collection: List<T>, iteratee?: ListIterator<T, any>): List<T>;
+//         forEachRight<T>(collection: List<T>, iteratee: ListIterator<T, any>): List<T>;
 
 //         /**
 //          * @see _.forEachRight
 //          */
-//         forEachRight<T>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, any>): Dictionary<T>;
+//         forEachRight<T>(collection: Dictionary<T>, iteratee: DictionaryIterator<T, any>): Dictionary<T>;
 
 //         /**
 //          * @see _.forEachRight
 //          */
-//         forEachRight<T extends {}>(collection: T, iteratee?: ObjectIterator<any, any>): T;
+//         forEachRight<T extends {}>(collection: T, iteratee: ObjectIterator<any, any>): T;
 
 //         /**
 //          * @see _.forEachRight
 //          */
-//         forEachRight<T extends {}, TValue>(collection: T, iteratee?: ObjectIterator<TValue, any>): T;
+//         forEachRight<T extends {}, TValue>(collection: T, iteratee: ObjectIterator<TValue, any>): T;
 //     }
 
 //     export interface LoDashImplicitWrapper<T> {
@@ -4719,7 +4719,7 @@
 //         /**
 //          * @see _.forEachRight
 //          */
-//         forEachRight<TValue>(iteratee?: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashImplicitObjectWrapper<T>;
+//         forEachRight<TValue>(iteratee: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashImplicitObjectWrapper<T>;
 //     }
 
 //     export interface LoDashExplicitWrapper<T> {
@@ -4740,7 +4740,7 @@
 //         /**
 //          * @see _.forEachRight
 //          */
-//         forEachRight<TValue>(iteratee?: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashExplicitObjectWrapper<T>;
+//         forEachRight<TValue>(iteratee: ListIterator<TValue, any> | DictionaryIterator<TValue, any>): LoDashExplicitObjectWrapper<T>;
 //     }
 
 //     //_.groupBy
@@ -4765,154 +4765,154 @@
 //          * @param thisArg The this binding of iteratee.
 //          * @return Returns the composed aggregate object.
 //          */
-//         groupBy<T, TKey>(collection: List<T>, iteratee?: ListIterator<T, TKey>): Dictionary<T[]>;
+//         groupBy<T, TKey>(collection: List<T>, iteratee: ListIterator<T, TKey>): Dictionary<T[]>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T>(collection: List<any>, iteratee?: ListIterator<T, any>): Dictionary<T[]>;
+//         groupBy<T>(collection: List<any>, iteratee: ListIterator<T, any>): Dictionary<T[]>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T, TKey>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, TKey>): Dictionary<T[]>;
+//         groupBy<T, TKey>(collection: Dictionary<T>, iteratee: DictionaryIterator<T, TKey>): Dictionary<T[]>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T>(collection: Dictionary<any>, iteratee?: DictionaryIterator<T, any>): Dictionary<T[]>;
+//         groupBy<T>(collection: Dictionary<any>, iteratee: DictionaryIterator<T, any>): Dictionary<T[]>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T, TValue>(collection: List<T> | Dictionary<T>, iteratee?: string): Dictionary<T[]>;
+//         groupBy<T, TValue>(collection: List<T> | Dictionary<T>, iteratee: string): Dictionary<T[]>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T>(collection: List<T> | Dictionary<T>, iteratee?: string): Dictionary<T[]>;
+//         groupBy<T>(collection: List<T> | Dictionary<T>, iteratee: string): Dictionary<T[]>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TWhere, T>(collection: List<T> | Dictionary<T>, iteratee?: TWhere): Dictionary<T[]>;
+//         groupBy<TWhere, T>(collection: List<T> | Dictionary<T>, iteratee: TWhere): Dictionary<T[]>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T>(collection: List<T> | Dictionary<T>, iteratee?: Object): Dictionary<T[]>;
+//         groupBy<T>(collection: List<T> | Dictionary<T>, iteratee: Object): Dictionary<T[]>;
 //     }
 
 //     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TKey>(iteratee?: ListIterator<T, TKey>): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<TKey>(iteratee: ListIterator<T, TKey>): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TKey>(iteratee?: ListIterator<T, TKey>): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<TKey>(iteratee: ListIterator<T, TKey>): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TValue>(iteratee?: string, thisArg?: TValue): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<TValue>(iteratee: string, thisArg?: TValue): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TWhere>(iteratee?: TWhere): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<TWhere>(iteratee: TWhere): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
 //     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T, TKey>(iteratee?: ListIterator<T, TKey> | DictionaryIterator<T, TKey>): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<T, TKey>(iteratee: ListIterator<T, TKey> | DictionaryIterator<T, TKey>): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T>(iteratee?: ListIterator<T, any> | DictionaryIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<T>(iteratee: ListIterator<T, any> | DictionaryIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T, TValue>(iteratee?: string, thisArg?: TValue): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<T, TValue>(iteratee: string, thisArg?: TValue): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T>(iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<T>(iteratee: string): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TWhere, T>(iteratee?: TWhere): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<TWhere, T>(iteratee: TWhere): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T>(iteratee?: Object): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<T>(iteratee: Object): LoDashImplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
 //     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TKey>(iteratee?: ListIterator<T, TKey>): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<TKey>(iteratee: ListIterator<T, TKey>): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
 //     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TKey>(iteratee?: ListIterator<T, TKey>): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<TKey>(iteratee: ListIterator<T, TKey>): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TValue>(iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<TValue>(iteratee: string): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TWhere>(iteratee?: TWhere): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<TWhere>(iteratee: TWhere): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
 //     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T, TKey>(iteratee?: ListIterator<T, TKey> | DictionaryIterator<T, TKey>): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<T, TKey>(iteratee: ListIterator<T, TKey> | DictionaryIterator<T, TKey>): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T>(iteratee?: ListIterator<T, any> | DictionaryIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<T>(iteratee: ListIterator<T, any> | DictionaryIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T, TValue>(iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<T, TValue>(iteratee: string): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T>(iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<T>(iteratee: string): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<TWhere, T>(iteratee?: TWhere): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<TWhere, T>(iteratee: TWhere): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 
 //         /**
 //          * @see _.groupBy
 //          */
-//         groupBy<T>(iteratee?: Object): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
+//         groupBy<T>(iteratee: Object): LoDashExplicitObjectWrapper<Dictionary<T[]>>;
 //     }
 
 //     //_.includes
@@ -4998,125 +4998,125 @@
 //          * @param thisArg The this binding of iteratee.
 //          * @return Returns the composed aggregate object.
 //          */
-//         keyBy<T>(collection: List<T>, iteratee?: ListIterator<T, any>): Dictionary<T>;
+//         keyBy<T>(collection: List<T>, iteratee: ListIterator<T, any>): Dictionary<T>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<T>(collection: NumericDictionary<T>, iteratee?: NumericDictionaryIterator<T, any>): Dictionary<T>;
+//         keyBy<T>(collection: NumericDictionary<T>, iteratee: NumericDictionaryIterator<T, any>): Dictionary<T>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<T>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, any>
+//         keyBy<T>(collection: Dictionary<T>, iteratee: DictionaryIterator<T, any>
 //         ): Dictionary<T>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<T>(collection: List<T> | NumericDictionary<T> | Dictionary<T>, iteratee?: string): Dictionary<T>;
+//         keyBy<T>(collection: List<T> | NumericDictionary<T> | Dictionary<T>, iteratee: string): Dictionary<T>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<W extends Object, T>(collection: List<T> | NumericDictionary<T> | Dictionary<T>, iteratee?: W): Dictionary<T>;
+//         keyBy<W extends Object, T>(collection: List<T> | NumericDictionary<T> | Dictionary<T>, iteratee: W): Dictionary<T>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<T>(collection: List<T> | NumericDictionary<T> | Dictionary<T>, iteratee?: Object): Dictionary<T>;
+//         keyBy<T>(collection: List<T> | NumericDictionary<T> | Dictionary<T>, iteratee: Object): Dictionary<T>;
 //     }
 
 //     export interface LoDashImplicitWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy(iteratee?: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         keyBy(iteratee: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<T>>;
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy(iteratee?: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         keyBy(iteratee: ListIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy(iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         keyBy(iteratee: string): LoDashImplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<W extends Object>(iteratee?: W): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         keyBy<W extends Object>(iteratee: W): LoDashImplicitObjectWrapper<Dictionary<T>>;
 //     }
 
 //     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<T>(iteratee?: ListIterator<T, any> | NumericDictionaryIterator<T, any> | DictionaryIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         keyBy<T>(iteratee: ListIterator<T, any> | NumericDictionaryIterator<T, any> | DictionaryIterator<T, any>): LoDashImplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<T>(iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         keyBy<T>(iteratee: string): LoDashImplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<W extends Object, T>(iteratee?: W): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         keyBy<W extends Object, T>(iteratee: W): LoDashImplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<T>(iteratee?: Object): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         keyBy<T>(iteratee: Object): LoDashImplicitObjectWrapper<Dictionary<T>>;
 //     }
 
 //     export interface LoDashExplicitWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy(iteratee?: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         keyBy(iteratee: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<T>>;
 //     }
 
 //     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy(iteratee?: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         keyBy(iteratee: ListIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy(iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         keyBy(iteratee: string): LoDashExplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<W extends Object>(iteratee?: W): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         keyBy<W extends Object>(iteratee: W): LoDashExplicitObjectWrapper<Dictionary<T>>;
 //     }
 
 //     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<T>(iteratee?: ListIterator<T, any> | NumericDictionaryIterator<T, any> | DictionaryIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         keyBy<T>(iteratee: ListIterator<T, any> | NumericDictionaryIterator<T, any> | DictionaryIterator<T, any>): LoDashExplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<T>(iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         keyBy<T>(iteratee: string): LoDashExplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<W extends Object, T>(iteratee?: W): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         keyBy<W extends Object, T>(iteratee: W): LoDashExplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.keyBy
 //          */
-//         keyBy<T>(iteratee?: Object): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         keyBy<T>(iteratee: Object): LoDashExplicitObjectWrapper<Dictionary<T>>;
 //     }
 
 //     //_.invokeMap
@@ -5244,90 +5244,90 @@
 //          * @param thisArg The this binding of iteratee.
 //          * @return Returns the new mapped array.
 //          */
-//         map<T, TResult>(collection: List<T>, iteratee?: ListIterator<T, TResult>): TResult[];
+//         map<T, TResult>(collection: List<T>, iteratee: ListIterator<T, TResult>): TResult[];
 
 //         /**
 //          * @see _.map
 //          */
-//         map<T extends {}, TResult>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, TResult>): TResult[];
+//         map<T extends {}, TResult>(collection: Dictionary<T>, iteratee: DictionaryIterator<T, TResult>): TResult[];
 
 //         /**
 //          * @see _.map
 //          */
-//         map<T, TResult>(collection: List<T> | Dictionary<T>, iteratee?: string): TResult[];
+//         map<T, TResult>(collection: List<T> | Dictionary<T>, iteratee: string): TResult[];
 
 //         /**
 //          * @see _.map
 //          */
-//         map<T, TObject extends {}>(collection: List<T> | Dictionary<T>, iteratee?: TObject): boolean[];
+//         map<T, TObject extends {}>(collection: List<T> | Dictionary<T>, iteratee: TObject): boolean[];
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.map
 //          */
-//         map<TResult>(iteratee?: ListIterator<T, TResult>): LoDashImplicitArrayWrapper<TResult>;
+//         map<TResult>(iteratee: ListIterator<T, TResult>): LoDashImplicitArrayWrapper<TResult>;
 
 //         /**
 //          * @see _.map
 //          */
-//         map<TResult>(iteratee?: string): LoDashImplicitArrayWrapper<TResult>;
+//         map<TResult>(iteratee: string): LoDashImplicitArrayWrapper<TResult>;
 
 //         /**
 //          * @see _.map
 //          */
-//         map<TObject extends {}>(iteratee?: TObject): LoDashImplicitArrayWrapper<boolean>;
+//         map<TObject extends {}>(iteratee: TObject): LoDashImplicitArrayWrapper<boolean>;
 //     }
 
 //     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.map
 //          */
-//         map<TValue, TResult>(iteratee?: ListIterator<TValue, TResult> | DictionaryIterator<TValue, TResult>): LoDashImplicitArrayWrapper<TResult>;
+//         map<TValue, TResult>(iteratee: ListIterator<TValue, TResult> | DictionaryIterator<TValue, TResult>): LoDashImplicitArrayWrapper<TResult>;
 
 //         /**
 //          * @see _.map
 //          */
-//         map<TValue, TResult>(iteratee?: string): LoDashImplicitArrayWrapper<TResult>;
+//         map<TValue, TResult>(iteratee: string): LoDashImplicitArrayWrapper<TResult>;
 
 //         /**
 //          * @see _.map
 //          */
-//         map<TObject extends {}>(iteratee?: TObject): LoDashImplicitArrayWrapper<boolean>;
+//         map<TObject extends {}>(iteratee: TObject): LoDashImplicitArrayWrapper<boolean>;
 //     }
 
 //     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.map
 //          */
-//         map<TResult>(iteratee?: ListIterator<T, TResult>): LoDashExplicitArrayWrapper<TResult>;
+//         map<TResult>(iteratee: ListIterator<T, TResult>): LoDashExplicitArrayWrapper<TResult>;
 
 //         /**
 //          * @see _.map
 //          */
-//         map<TResult>(iteratee?: string): LoDashExplicitArrayWrapper<TResult>;
+//         map<TResult>(iteratee: string): LoDashExplicitArrayWrapper<TResult>;
 
 //         /**
 //          * @see _.map
 //          */
-//         map<TObject extends {}>(iteratee?: TObject): LoDashExplicitArrayWrapper<boolean>;
+//         map<TObject extends {}>(iteratee: TObject): LoDashExplicitArrayWrapper<boolean>;
 //     }
 
 //     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.map
 //          */
-//         map<TValue, TResult>(iteratee?: ListIterator<TValue, TResult> | DictionaryIterator<TValue, TResult>): LoDashExplicitArrayWrapper<TResult>;
+//         map<TValue, TResult>(iteratee: ListIterator<TValue, TResult> | DictionaryIterator<TValue, TResult>): LoDashExplicitArrayWrapper<TResult>;
 
 //         /**
 //          * @see _.map
 //          */
-//         map<TValue, TResult>(iteratee?: string): LoDashExplicitArrayWrapper<TResult>;
+//         map<TValue, TResult>(iteratee: string): LoDashExplicitArrayWrapper<TResult>;
 
 //         /**
 //          * @see _.map
 //          */
-//         map<TObject extends {}>(iteratee?: TObject): LoDashExplicitArrayWrapper<boolean>;
+//         map<TObject extends {}>(iteratee: TObject): LoDashExplicitArrayWrapper<boolean>;
 //     }
 
 //     //_.partition
@@ -5559,17 +5559,17 @@
 //          * @param thisArg The this binding of predicate.
 //          * @return Returns the new filtered array.
 //          */
-//         reject<T>(collection: List<T>, predicate?: ListIterator<T, boolean>): T[];
+//         reject<T>(collection: List<T>, predicate: ListIterator<T, boolean>): T[];
 
 //         /**
 //          * @see _.reject
 //          */
-//         reject<T>(collection: Dictionary<T>, predicate?: DictionaryIterator<T, boolean>): T[];
+//         reject<T>(collection: Dictionary<T>, predicate: DictionaryIterator<T, boolean>): T[];
 
 //         /**
 //          * @see _.reject
 //          */
-//         reject(collection: string, predicate?: StringIterator<boolean>): string[];
+//         reject(collection: string, predicate: StringIterator<boolean>): string[];
 
 //         /**
 //          * @see _.reject
@@ -5586,7 +5586,7 @@
 //         /**
 //          * @see _.reject
 //          */
-//         reject(predicate?: StringIterator<boolean>): LoDashImplicitArrayWrapper<string>;
+//         reject(predicate: StringIterator<boolean>): LoDashImplicitArrayWrapper<string>;
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
@@ -5627,7 +5627,7 @@
 //         /**
 //          * @see _.reject
 //          */
-//         reject(predicate?: StringIterator<boolean>): LoDashExplicitArrayWrapper<string>;
+//         reject(predicate: StringIterator<boolean>): LoDashExplicitArrayWrapper<string>;
 //     }
 
 //     export interface LoDashExplicitArrayWrapper<T> {
@@ -5867,95 +5867,95 @@
 //          * @param predicate The function invoked per iteration.
 //          * @return Returns true if any element passes the predicate check, else false.
 //          */
-//         some<T>(collection: List<T>, predicate?: ListIterator<T, boolean>): boolean;
+//         some<T>(collection: List<T>, predicate: ListIterator<T, boolean>): boolean;
 
 //         /**
 //          * @see _.some
 //          */
-//         some<T>(collection: Dictionary<T>, predicate?: DictionaryIterator<T, boolean>): boolean;
+//         some<T>(collection: Dictionary<T>, predicate: DictionaryIterator<T, boolean>): boolean;
 
 //         /**
 //          * @see _.some
 //          */
-//         some<T>(collection: NumericDictionary<T>, predicate?: NumericDictionaryIterator<T, boolean>): boolean;
+//         some<T>(collection: NumericDictionary<T>, predicate: NumericDictionaryIterator<T, boolean>): boolean;
 
 //         /**
 //          * @see _.some
 //          */
-//         some<T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, predicate?: string | any[]): boolean;
+//         some<T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, predicate: string | any[]): boolean;
 
 //         /**
 //          * @see _.some
 //          */
-//         some<TObject extends {}, T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, predicate?: TObject): boolean;
+//         some<TObject extends {}, T>(collection: List<T> | Dictionary<T> | NumericDictionary<T>, predicate: TObject): boolean;
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.some
 //          */
-//         some(predicate?: ListIterator<T, boolean> | NumericDictionaryIterator<T, boolean>): boolean;
+//         some(predicate: ListIterator<T, boolean> | NumericDictionaryIterator<T, boolean>): boolean;
 
 //         /**
 //          * @see _.some
 //          */
-//         some(predicate?: string | any[]): boolean;
+//         some(predicate: string | any[]): boolean;
 
 //         /**
 //          * @see _.some
 //          */
-//         some<TObject extends {}>(predicate?: TObject): boolean;
+//         some<TObject extends {}>(predicate: TObject): boolean;
 //     }
 
 //     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.some
 //          */
-//         some<TResult>(predicate?: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean> | NumericDictionaryIterator<T, boolean>): boolean;
+//         some<TResult>(predicate: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean> | NumericDictionaryIterator<T, boolean>): boolean;
 
 //         /**
 //          * @see _.some
 //          */
-//         some(predicate?: string | any[]): boolean;
+//         some(predicate: string | any[]): boolean;
 
 //         /**
 //          * @see _.some
 //          */
-//         some<TObject extends {}>(predicate?: TObject): boolean;
+//         some<TObject extends {}>(predicate: TObject): boolean;
 //     }
 
 //     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.some
 //          */
-//         some(predicate?: ListIterator<T, boolean> | NumericDictionaryIterator<T, boolean>): LoDashExplicitWrapper<boolean>;
+//         some(predicate: ListIterator<T, boolean> | NumericDictionaryIterator<T, boolean>): LoDashExplicitWrapper<boolean>;
 
 //         /**
 //          * @see _.some
 //          */
-//         some(predicate?: string | any[]): LoDashExplicitWrapper<boolean>;
+//         some(predicate: string | any[]): LoDashExplicitWrapper<boolean>;
 
 //         /**
 //          * @see _.some
 //          */
-//         some<TObject extends {}>(predicate?: TObject): LoDashExplicitWrapper<boolean>;
+//         some<TObject extends {}>(predicate: TObject): LoDashExplicitWrapper<boolean>;
 //     }
 
 //     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.some
 //          */
-//         some<TResult>(predicate?: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean> | NumericDictionaryIterator<T, boolean>): LoDashExplicitWrapper<boolean>;
+//         some<TResult>(predicate: ListIterator<TResult, boolean> | DictionaryIterator<TResult, boolean> | NumericDictionaryIterator<T, boolean>): LoDashExplicitWrapper<boolean>;
 
 //         /**
 //          * @see _.some
 //          */
-//         some(predicate?: string | any[]): LoDashExplicitWrapper<boolean>;
+//         some(predicate: string | any[]): LoDashExplicitWrapper<boolean>;
 
 //         /**
 //          * @see _.some
 //          */
-//         some<TObject extends {}>(predicate?: TObject): LoDashExplicitWrapper<boolean>;
+//         some<TObject extends {}>(predicate: TObject): LoDashExplicitWrapper<boolean>;
 //     }
 
 //     //_.sortBy
@@ -5993,12 +5993,12 @@
 //          * });
 //          * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 42]]
 //          */
-//         sortBy<T, TSort>(collection: List<T>, iteratee?: ListIterator<T, TSort>): T[];
+//         sortBy<T, TSort>(collection: List<T>, iteratee: ListIterator<T, TSort>): T[];
 
 //         /**
 //          * @see _.sortBy
 //          */
-//         sortBy<T, TSort>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, TSort>): T[];
+//         sortBy<T, TSort>(collection: Dictionary<T>, iteratee: DictionaryIterator<T, TSort>): T[];
 
 //         /**
 //          * @see _.sortBy
@@ -6030,7 +6030,7 @@
 //         /**
 //          * @see _.sortBy
 //          */
-//         sortBy<TSort>(iteratee?: ListIterator<T, TSort>): LoDashImplicitArrayWrapper<T>;
+//         sortBy<TSort>(iteratee: ListIterator<T, TSort>): LoDashImplicitArrayWrapper<T>;
 
 //         /**
 //          * @see _.sortBy
@@ -6063,7 +6063,7 @@
 //          * @see _.sortBy
 //          */
 //         sortBy<T, TSort>(
-//             iteratee?: ListIterator<T, TSort> | DictionaryIterator<T, TSort>
+//             iteratee: ListIterator<T, TSort> | DictionaryIterator<T, TSort>
 //         ): LoDashImplicitArrayWrapper<T>;
 
 //         /**
@@ -6086,7 +6086,7 @@
 //         /**
 //          * @see _.sortBy
 //          */
-//         sortBy<TSort>(iteratee?: ListIterator<T, TSort>): LoDashExplicitArrayWrapper<T>;
+//         sortBy<TSort>(iteratee: ListIterator<T, TSort>): LoDashExplicitArrayWrapper<T>;
 
 //         /**
 //          * @see _.sortBy
@@ -6109,7 +6109,7 @@
 //          * @see _.sortBy
 //          */
 //         sortBy<T, TSort>(
-//             iteratee?: ListIterator<T, TSort> | DictionaryIterator<T, TSort>
+//             iteratee: ListIterator<T, TSort> | DictionaryIterator<T, TSort>
 //         ): LoDashExplicitArrayWrapper<T>;
 
 //         /**
@@ -9172,17 +9172,17 @@
 //          * _.maxBy(objects, 'n');
 //          * // => { 'n': 2 }
 //          */
-//         maxBy<T>(collection: List<T>, iteratee?: ListIterator<T, any>): T;
+//         maxBy<T>(collection: List<T>, iteratee: ListIterator<T, any>): T;
 
 //         /**
 //          * @see _.maxBy
 //          */
-//         maxBy<T>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, any>): T;
+//         maxBy<T>(collection: Dictionary<T>, iteratee: DictionaryIterator<T, any>): T;
 
 //         /**
 //          * @see _.maxBy
 //          */
-//         maxBy<T>(collection: List<T> | Dictionary<T>, iteratee?: string): T;
+//         maxBy<T>(collection: List<T> | Dictionary<T>, iteratee: string): T;
 
 //         /**
 //          * @see _.maxBy
@@ -9194,12 +9194,12 @@
 //         /**
 //          * @see _.maxBy
 //          */
-//         maxBy(iteratee?: ListIterator<T, any>): T;
+//         maxBy(iteratee: ListIterator<T, any>): T;
 
 //         /**
 //          * @see _.maxBy
 //          */
-//         maxBy(iteratee?: string): T;
+//         maxBy(iteratee: string): T;
 
 //         /**
 //          * @see _.maxBy
@@ -9211,12 +9211,12 @@
 //         /**
 //          * @see _.maxBy
 //          */
-//         maxBy<T>(iteratee?: ListIterator<T, any> | DictionaryIterator<T, any>): T;
+//         maxBy<T>(iteratee: ListIterator<T, any> | DictionaryIterator<T, any>): T;
 
 //         /**
 //          * @see _.maxBy
 //          */
-//         maxBy<T>(iteratee?: string): T;
+//         maxBy<T>(iteratee: string): T;
 
 //         /**
 //          * @see _.maxBy
@@ -9307,17 +9307,17 @@
 //          * _.minBy(objects, 'n');
 //          * // => { 'n': 1 }
 //          */
-//         minBy<T>(collection: List<T>, iteratee?: ListIterator<T, any>): T;
+//         minBy<T>(collection: List<T>, iteratee: ListIterator<T, any>): T;
 
 //         /**
 //          * @see _.minBy
 //          */
-//         minBy<T>(collection: Dictionary<T>, iteratee?: DictionaryIterator<T, any>): T;
+//         minBy<T>(collection: Dictionary<T>, iteratee: DictionaryIterator<T, any>): T;
 
 //         /**
 //          * @see _.minBy
 //          */
-//         minBy<T>(collection: List<T> | Dictionary<T>, iteratee?: string): T;
+//         minBy<T>(collection: List<T> | Dictionary<T>, iteratee: string): T;
 
 //         /**
 //          * @see _.minBy
@@ -9329,12 +9329,12 @@
 //         /**
 //          * @see _.minBy
 //          */
-//         minBy(iteratee?: ListIterator<T, any>): T;
+//         minBy(iteratee: ListIterator<T, any>): T;
 
 //         /**
 //          * @see _.minBy
 //          */
-//         minBy(iteratee?: string): T;
+//         minBy(iteratee: string): T;
 
 //         /**
 //          * @see _.minBy
@@ -9346,12 +9346,12 @@
 //         /**
 //          * @see _.minBy
 //          */
-//         minBy<T>(iteratee?: ListIterator<T, any> | DictionaryIterator<T, any>): T;
+//         minBy<T>(iteratee: ListIterator<T, any> | DictionaryIterator<T, any>): T;
 
 //         /**
 //          * @see _.minBy
 //          */
-//         minBy<T>(iteratee?: string): T;
+//         minBy<T>(iteratee: string): T;
 
 //         /**
 //          * @see _.minBy
@@ -10119,13 +10119,13 @@
 
 //     //_.findKey
 //     export interface FindKeyStatic {
-//         <TValues, TObject>(object: TObject, predicate?: DictionaryIterator<TValues, boolean>): string;
+//         <TValues, TObject>(object: TObject, predicate: DictionaryIterator<TValues, boolean>): string;
 
-//         <TObject>(object: TObject, predicate?: ObjectIterator<any, boolean>): string;
+//         <TObject>(object: TObject, predicate: ObjectIterator<any, boolean>): string;
 
-//         <TObject>(object: TObject, predicate?: string): string;
+//         <TObject>(object: TObject, predicate: string): string;
 
-//         <TWhere extends Dictionary<any>, TObject>(object: TObject, predicate?: TWhere): string;
+//         <TWhere extends Dictionary<any>, TObject>(object: TObject, predicate: TWhere): string;
 //     }
 
 //     export interface LoDashStatic {
@@ -10151,13 +10151,13 @@
 //     }
 
 //     export interface FindKeyImplicitWrapper<T> {
-//         <TValues>(predicate?: DictionaryIterator<TValues, boolean>): string;
+//         <TValues>(predicate: DictionaryIterator<TValues, boolean>): string;
 
-//         (predicate?: ObjectIterator<any, boolean>): string;
+//         (predicate: ObjectIterator<any, boolean>): string;
 
-//         (predicate?: string): string;
+//         (predicate: string): string;
 
-//         <TWhere extends Dictionary<any>>(predicate?: TWhere): string;
+//         <TWhere extends Dictionary<any>>(predicate: TWhere): string;
 //     }
 
 //     export interface LoDashImplicitObjectWrapper<T> {
@@ -10168,12 +10168,12 @@
 //     }
 
 //     export interface FindKeyExplicitWrapper<T> {
-//         <TValues>(predicate?: DictionaryIterator<TValues, boolean>): LoDashExplicitWrapper<string>;
-//         (predicate?: ObjectIterator<any, boolean>): LoDashExplicitWrapper<string>;
+//         <TValues>(predicate: DictionaryIterator<TValues, boolean>): LoDashExplicitWrapper<string>;
+//         (predicate: ObjectIterator<any, boolean>): LoDashExplicitWrapper<string>;
 
-//         (predicate?: string): LoDashExplicitWrapper<string>;
+//         (predicate: string): LoDashExplicitWrapper<string>;
 
-//         <TWhere extends Dictionary<any>>(predicate?: TWhere): LoDashExplicitWrapper<string>;
+//         <TWhere extends Dictionary<any>>(predicate: TWhere): LoDashExplicitWrapper<string>;
 //     }
 
 //     export interface LoDashExplicitObjectWrapper<T> {
@@ -10221,9 +10221,9 @@
 
 //     //_.forIn
 //     export interface ForStatic {
-//         <T>(object: Dictionary<T>, iteratee?: DictionaryIterator<T, any>): Dictionary<T>;
+//         <T>(object: Dictionary<T>, iteratee: DictionaryIterator<T, any>): Dictionary<T>;
 
-//         <T extends {}>(object: T, iteratee?: ObjectIterator<any, any>): T;
+//         <T extends {}>(object: T, iteratee: ObjectIterator<any, any>): T;
 //     }
 
 //     export interface LoDashStatic {
@@ -10241,7 +10241,7 @@
 //     }
 
 //     export interface ForImplicitWrapper<T> {
-//         <TValue>(iteratee?: DictionaryIterator<TValue, any>): _.LoDashImplicitObjectWrapper<T>;
+//         <TValue>(iteratee: DictionaryIterator<TValue, any>): _.LoDashImplicitObjectWrapper<T>;
 //     }
 
 //     export interface LoDashImplicitObjectWrapper<T> {
@@ -10252,7 +10252,7 @@
 //     }
 
 //     export interface ForExplicitWrapper<T> {
-//         <TValue>(iteratee?: DictionaryIterator<TValue, any>): _.LoDashExplicitObjectWrapper<T>;
+//         <TValue>(iteratee: DictionaryIterator<TValue, any>): _.LoDashExplicitObjectWrapper<T>;
 //     }
 
 //     export interface LoDashExplicitObjectWrapper<T> {
@@ -10631,90 +10631,90 @@
 //          * @param thisArg The this binding of iteratee.
 //          * @return Returns the new mapped object.
 //          */
-//         mapKeys<T, TKey>(object: List<T>, iteratee?: ListIterator<T, TKey>): Dictionary<T>;
+//         mapKeys<T, TKey>(object: List<T>, iteratee: ListIterator<T, TKey>): Dictionary<T>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<T, TKey>(object: Dictionary<T>, iteratee?: DictionaryIterator<T, TKey>): Dictionary<T>;
+//         mapKeys<T, TKey>(object: Dictionary<T>, iteratee: DictionaryIterator<T, TKey>): Dictionary<T>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<T, TObject extends {}>(object: List<T> | Dictionary<T>, iteratee?: TObject): Dictionary<T>;
+//         mapKeys<T, TObject extends {}>(object: List<T> | Dictionary<T>, iteratee: TObject): Dictionary<T>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<T>(object: List<T> | Dictionary<T>, iteratee?: string): Dictionary<T>;
+//         mapKeys<T>(object: List<T> | Dictionary<T>, iteratee: string): Dictionary<T>;
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<TKey>(iteratee?: ListIterator<T, TKey>): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         mapKeys<TKey>(iteratee: ListIterator<T, TKey>): LoDashImplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<TObject extends {}>(iteratee?: TObject): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         mapKeys<TObject extends {}>(iteratee: TObject): LoDashImplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys(iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<T>>;
+//         mapKeys(iteratee: string): LoDashImplicitObjectWrapper<Dictionary<T>>;
 //     }
 
 //     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<TResult, TKey>(iteratee?: ListIterator<TResult, TKey> | DictionaryIterator<TResult, TKey>): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
+//         mapKeys<TResult, TKey>(iteratee: ListIterator<TResult, TKey> | DictionaryIterator<TResult, TKey>): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<TResult, TObject extends {}>(iteratee?: TObject): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
+//         mapKeys<TResult, TObject extends {}>(iteratee: TObject): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<TResult>(iteratee?: string): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
+//         mapKeys<TResult>(iteratee: string): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
 //     }
 
 //     export interface LoDashExplicitArrayWrapper<T> {
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<TKey>(iteratee?: ListIterator<T, TKey>): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         mapKeys<TKey>(iteratee: ListIterator<T, TKey>): LoDashExplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<TObject extends {}>(iteratee?: TObject): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         mapKeys<TObject extends {}>(iteratee: TObject): LoDashExplicitObjectWrapper<Dictionary<T>>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys(iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<T>>;
+//         mapKeys(iteratee: string): LoDashExplicitObjectWrapper<Dictionary<T>>;
 //     }
 
 //     export interface LoDashExplicitObjectWrapper<T> {
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<TResult, TKey>(iteratee?: ListIterator<TResult, TKey> | DictionaryIterator<TResult, TKey>): LoDashExplicitObjectWrapper<Dictionary<TResult>>;
+//         mapKeys<TResult, TKey>(iteratee: ListIterator<TResult, TKey> | DictionaryIterator<TResult, TKey>): LoDashExplicitObjectWrapper<Dictionary<TResult>>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<TResult, TObject extends {}>(iteratee?: TObject): LoDashExplicitObjectWrapper<Dictionary<TResult>>;
+//         mapKeys<TResult, TObject extends {}>(iteratee: TObject): LoDashExplicitObjectWrapper<Dictionary<TResult>>;
 
 //         /**
 //          * @see _.mapKeys
 //          */
-//         mapKeys<TResult>(iteratee?: string): LoDashExplicitObjectWrapper<Dictionary<TResult>>;
+//         mapKeys<TResult>(iteratee: string): LoDashExplicitObjectWrapper<Dictionary<TResult>>;
 //     }
 
 //     //_.mapValues
@@ -11313,46 +11313,46 @@
 //          * @param thisArg The this binding of iteratee.
 //          * @return Returns the accumulated value.
 //          */
-//         transform<T, TResult>(object: T[], iteratee?: MemoVoidArrayIterator<T, TResult[]>, accumulator?: TResult[]): TResult[];
+//         transform<T, TResult>(object: T[], iteratee: MemoVoidArrayIterator<T, TResult[]>, accumulator?: TResult[]): TResult[];
 
 //         /**
 //          * @see _.transform
 //          */
-//         transform<T, TResult>(object: T[], iteratee?: MemoVoidArrayIterator<T, Dictionary<TResult>>, accumulator?: Dictionary<TResult>): Dictionary<TResult>;
+//         transform<T, TResult>(object: T[], iteratee: MemoVoidArrayIterator<T, Dictionary<TResult>>, accumulator?: Dictionary<TResult>): Dictionary<TResult>;
 
 //         /**
 //          * @see _.transform
 //          */
-//         transform<T, TResult>(object: Dictionary<T>, iteratee?: MemoVoidDictionaryIterator<T, Dictionary<TResult>>, accumulator?: Dictionary<TResult>): Dictionary<TResult>;
+//         transform<T, TResult>(object: Dictionary<T>, iteratee: MemoVoidDictionaryIterator<T, Dictionary<TResult>>, accumulator?: Dictionary<TResult>): Dictionary<TResult>;
 
 //         /**
 //          * @see _.transform
 //          */
-//         transform<T, TResult>(object: Dictionary<T>, iteratee?: MemoVoidDictionaryIterator<T, TResult[]>, accumulator?: TResult[]): TResult[];
+//         transform<T, TResult>(object: Dictionary<T>, iteratee: MemoVoidDictionaryIterator<T, TResult[]>, accumulator?: TResult[]): TResult[];
 //     }
 
 //     export interface LoDashImplicitArrayWrapper<T> {
 //         /**
 //          * @see _.transform
 //          */
-//         transform<TResult>(iteratee?: MemoVoidArrayIterator<T, TResult[]>, accumulator?: TResult[]): LoDashImplicitArrayWrapper<TResult>;
+//         transform<TResult>(iteratee: MemoVoidArrayIterator<T, TResult[]>, accumulator?: TResult[]): LoDashImplicitArrayWrapper<TResult>;
 
 //         /**
 //          * @see _.transform
 //          */
-//         transform<TResult>(iteratee?: MemoVoidArrayIterator<T, Dictionary<TResult>>, accumulator?: Dictionary<TResult>): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
+//         transform<TResult>(iteratee: MemoVoidArrayIterator<T, Dictionary<TResult>>, accumulator?: Dictionary<TResult>): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
 //     }
 
 //     export interface LoDashImplicitObjectWrapper<T> {
 //         /**
 //          * @see _.transform
 //          */
-//         transform<T, TResult>(iteratee?: MemoVoidDictionaryIterator<T, Dictionary<TResult>>, accumulator?: Dictionary<TResult>): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
+//         transform<T, TResult>(iteratee: MemoVoidDictionaryIterator<T, Dictionary<TResult>>, accumulator?: Dictionary<TResult>): LoDashImplicitObjectWrapper<Dictionary<TResult>>;
 
 //         /**
 //          * @see _.transform
 //          */
-//         transform<T, TResult>(iteratee?: MemoVoidDictionaryIterator<T, TResult[]>, accumulator?: TResult[]): LoDashImplicitArrayWrapper<TResult>;
+//         transform<T, TResult>(iteratee: MemoVoidDictionaryIterator<T, TResult[]>, accumulator?: TResult[]): LoDashImplicitArrayWrapper<TResult>;
 //     }
 
 //     //_.unset

@@ -27,13 +27,13 @@ namespace Types {
     }
 
     export interface FindKey {
-        <T>(obj: _Obj<T>, iteratee?: ObjectPredicate<T, _Obj<T>> | Iteratee): string;
-        <T>(obj: any, iteratee?: ObjectPredicate<T, _Obj<T>> | Iteratee): string;
+        <T>(obj: _Obj<T>, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): string;
+        <T>(obj: any, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): string;
     }
 
     export interface ForIn {
-        <T>(obj: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
-        <T>(obj: any, iteratee?: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
+        <T>(obj: _Obj<T>, iteratee: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
+        <T>(obj: any, iteratee: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
     }
 
     export interface Functions {
@@ -49,9 +49,9 @@ namespace Types {
     }
 
     export interface InvertBy {
-        <T, R>(obj: { [index: number]: T }, iteratee?: ValuePredicate<T, R>): { [index: string]: number[]; };
-        <T, R>(obj: { [index: string]: T }, iteratee?: ValuePredicate<T, R>): { [index: string]: string[]; };
-        <T, R>(obj: any, iteratee?: ValuePredicate<T, R>): { [index: string]: number[]; };
+        <T, R>(obj: { [index: number]: T }, iteratee: ValuePredicate<T, R>): { [index: string]: number[]; };
+        <T, R>(obj: { [index: string]: T }, iteratee: ValuePredicate<T, R>): { [index: string]: string[]; };
+        <T, R>(obj: any, iteratee: ValuePredicate<T, R>): { [index: string]: number[]; };
     }
 
     export interface Invoke {
@@ -63,12 +63,12 @@ namespace Types {
     }
 
     export interface MapKeys {
-        <T>(obj: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) => string) | Iteratee): _Obj<T>;
-        <T>(obj: any, iteratee?: ((value: T, index: string, collection: _Obj<T>) => string) | Iteratee): _Obj<T>;
+        <T>(obj: _Obj<T>, iteratee: ((value: T, index: string, collection: _Obj<T>) => string) | Iteratee): _Obj<T>;
+        <T>(obj: any, iteratee: ((value: T, index: string, collection: _Obj<T>) => string) | Iteratee): _Obj<T>;
     }
 
     export interface MapValues {
-        <T, TResult>(obj: _Obj<T>, iteratee?: ((value: T, index: string, collection: _Obj<T>) => TResult) | Iteratee): _Obj<Rest>;
+        <T, TResult>(obj: _Obj<T>, iteratee: ((value: T, index: string, collection: _Obj<T>) => TResult) | Iteratee): _Obj<Rest>;
     }
 
     export interface Omit {
@@ -77,8 +77,8 @@ namespace Types {
     }
 
     export interface OmitBy {
-        <T, TResult>(obj: _Obj<T>, predicate?: ((value: T, key: string) => boolean) | Iteratee): TResult;
-        <T, TResult>(obj: any, predicate?: ((value: T, key: string) => boolean) | Iteratee): TResult;
+        <T, TResult>(obj: _Obj<T>, predicate: ((value: T, key: string) => boolean) | Iteratee): TResult;
+        <T, TResult>(obj: any, predicate: ((value: T, key: string) => boolean) | Iteratee): TResult;
     }
 
     export interface _Set {
@@ -106,7 +106,7 @@ namespace Types {
     }
 
     export interface Transform {
-        <T, TObj, TAcc>(obj: TObj, iteratee?: ((acc: TAcc, value: any, key: string, obj: TObj) => any) | Iteratee, acc?: TAcc): TAcc;
+        <T, TObj, TAcc>(obj: TObj, iteratee: ((acc: TAcc, value: any, key: string, obj: TObj) => any) | Iteratee, acc?: TAcc): TAcc;
     }
 
     export interface Unset {
