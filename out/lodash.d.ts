@@ -594,11 +594,11 @@ namespace Types {
 
     export interface FlatMapDepth {
         <T, TResult>(collection: ArrayLike<T>, iteratee: FlatMapIteratorArray<T, TResult>, depth?: number): TResult[];
-        <T, TResult>(collection: ArrayLike<T>, iteratee: Iteratee, depth?: number): TResult[];
+        <TResult>(collection: ArrayLike<any>, iteratee: Iteratee, depth?: number): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee: FlatMapIteratorObject<T, TResult>, depth?: number): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee: Iteratee, depth?: number): TResult[];
+        <TResult>(collection: _Obj<any>, iteratee: Iteratee, depth?: number): TResult[];
         <T, TResult>(collection: any, iteratee: FlatMapIteratorObject<T, TResult>, depth?: number): TResult[];
-        <T, TResult>(collection: any, iteratee: Iteratee, depth?: number): TResult[];
+        <TResult>(collection: any, iteratee: Iteratee, depth?: number): TResult[];
     }
 
     export type ForEachIterator<T> = (value: T, index: number, collection: Array<T>) => boolean | void;
@@ -630,11 +630,11 @@ namespace Types {
 
     export interface _Map {
         <T, TResult>(collection: ArrayLike<T>, iteratee: MapIteratorArray<T, TResult>): TResult[];
-        <T, TResult>(collection: ArrayLike<T>, iteratee: Iteratee): TResult[];
+        <TResult>(collection: ArrayLike<any>, iteratee: Iteratee): TResult[];
         <T, TResult>(collection: _Obj<T>, iteratee: MapIteratorObject<T, TResult>): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee: Iteratee): TResult[];
+        <TResult>(collection: _Obj<any>, iteratee: Iteratee): TResult[];
         <T, TResult>(collection: any, iteratee: MapIteratorObject<T, TResult>): TResult[];
-        <T, TResult>(collection: any, iteratee: Iteratee): TResult[];
+        <TResult>(collection: any, iteratee: Iteratee): TResult[];
     }
 
     export interface OrderBy {
