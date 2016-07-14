@@ -53,13 +53,15 @@ namespace Types {
         <TResult>(collection: any, iteratee: Iteratee, depth?: number): TResult[];
     }
 
-    export type ForEachIterator<T> = (value: T, index: number, collection: Array<T>) => boolean | void;
+    export type ForEachIteratorArray<T> = (value: T, index: number, collection: Array<T>) => boolean | void;
+    export type ForEachIteratorArrayLike<T> = (value: T, index: number, collection: ArrayLike<T>) => boolean | void;
+    export type ForEachIteratorObject<T> = (value: T, index: number, collection: _Obj<T>) => boolean | void;
 
     export interface ForEach {
-        <T>(collection: Array<T>, iteratee: ForEachIterator<T>): Array<T>;
-        <T>(collection: ArrayLike<T>, iteratee: ForEachIterator<T>): ArrayLike<T>;
-        <T>(collection: _Obj<T>, iteratee: ForEachIterator<T>): _Obj<T>;
-        <T>(collection: any, iteratee: ForEachIterator<T>): _Obj<T>;
+        <T>(collection: Array<T>, iteratee: ForEachIteratorArray<T>): Array<T>;
+        <T>(collection: ArrayLike<T>, iteratee: ForEachIteratorArrayLike<T>): ArrayLike<T>;
+        <T>(collection: _Obj<T>, iteratee: ForEachIteratorObject<T>): _Obj<T>;
+        <T>(collection: any, iteratee: ForEachIteratorObject<T>): _Obj<T>;
     }
 
     export interface Includes {
