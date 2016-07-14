@@ -1,11 +1,12 @@
 namespace Types {
     export namespace Math {
-       export type Operation = (augend: number, addend: number) => number;
-       export type Aggregation = (array: number[]) => number;
-       export type Rounding = (n: number, precision?: number) => number;
+        export type Operation = (augend: number, addend: number) => number;
+        export type Aggregation = (array: number[]) => number;
+        export type Rounding = (n: number, precision?: number) => number;
+        export type AggregationIterator<T> = ((value: T) => number);
         export interface AggregationBy {
             <T>(array: T[]): T;
-            <T>(array: T[], iteratee: Iteratee | PathLocation | ((value: T) => number)): T;
+            <T>(array: T[], iteratee: Iteratee | PathLocation | AggregationIterator<T>): T;
         }
     }
 }
