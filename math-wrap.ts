@@ -1,6 +1,6 @@
 namespace Types.Wrap {
     export namespace Math {
-       export type Aggregation<T> = () => T;
+        export type Aggregation<T> = () => T;
         export interface AggregationBy<T, TWrapper> {
             (): TWrapper;
             (iteratee: Iteratee | PathLocation | ((value: T) => number)): TWrapper;

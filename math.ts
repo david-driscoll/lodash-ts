@@ -8,6 +8,11 @@ namespace Types {
             <T>(array: T[]): T;
             <T>(array: T[], iteratee: Iteratee | PathLocation | AggregationIterator<T>): T;
         }
+        export interface MeanBy {
+            (array: number[]): number;
+            (array: any[], iteratee: Iteratee | PathLocation): number;
+            <T>(array: T[], iteratee: AggregationIterator<T>): number;
+        }
     }
 }
 
@@ -19,14 +24,14 @@ interface IStatic {
     max: Types.Math.Aggregation;
     maxBy: Types.Math.AggregationBy;
     mean: Types.Math.Aggregation;
-    meanBy: Types.Math.AggregationBy;
+    meanBy: Types.Math.MeanBy;
     min: Types.Math.Aggregation;
     minBy: Types.Math.AggregationBy;
     multiply: Types.Math.Operation;
     round: Types.Math.Rounding;
     subtract: Types.Math.Operation;
     sum: Types.Math.Aggregation;
-    sumBy: Types.Math.AggregationBy;
+    sumBy: Types.Math.MeanBy;
     clamp(num: number, upper: number): number
     clamp(num: number, lower: number, upper: number): number
     inRange(num: number, end: number): boolean
