@@ -6,12 +6,14 @@ namespace Types {
         export type AggregationIterator<T> = ((value: T) => number);
         export interface AggregationBy {
             <T>(array: T[]): T;
-            <T>(array: T[], iteratee: Iteratee | PathLocation | AggregationIterator<T>): T;
+            <T>(array: T[], iteratee: AggregationIterator<T>): T;
+            <T>(array: T[], iteratee: Iteratee | PathLocation): T;
+            <T>(array: any[], iteratee: Iteratee | PathLocation): T;
         }
         export interface MeanBy {
             (array: number[]): number;
-            (array: any[], iteratee: Iteratee | PathLocation): number;
             <T>(array: T[], iteratee: AggregationIterator<T>): number;
+            (array: any[], iteratee: Iteratee | PathLocation): number;
         }
     }
 }
