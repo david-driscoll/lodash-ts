@@ -35,25 +35,16 @@ namespace Types {
     }
 
     export interface Over {
-        <TResult>(s1: string): (object: any) => [string];
-        <TResult>(s1: string, s2: string): (object: any) => [string, string];
-        <TResult>(s1: string, s2: string, s3: string): (object: any) => [string, string, string];
-        <TResult>(s1: string, s2: string, s3: string, s4: string): (object: any) => [string, string, string, string];
-        <TResult>(s1: string, s2: string, s3: string, s4: string, s5: string): (object: any) => [string, string, string, string, string];
-        <TResult>(...funcs: any[]): (...args: any[]) => TResult[];
-        <TResult>(funcs: any[]): (...args: any[]) => TResult[];
-
-        (o1: any): (object: any) => [boolean];
-        (o1: any, o2: any): (object: any) => [boolean, boolean];
-        (o1: any, o2: any, o3: any): (object: any) => [boolean, boolean, boolean];
-        (o1: any, o2: any, o3: any, o4: any): (object: any) => [boolean, boolean, boolean, boolean];
-        (o1: any, o2: any, o3: any, o4: any, o5: any): (object: any) => [boolean, boolean, boolean, boolean, boolean];
-
-        <TResult>(...funcs: ((...args: any[]) => TResult)[]): (object: any) => TResult[];
-        <TResult>(...funcs: string[]): (object: any) => TResult[];
-
-        <TResult>(funcs: ((...args: any[]) => TResult)[]): (object: any) => TResult[];
-        <TResult>(funcs: string[]): (object: any) => TResult[];
+        <T, TResult>(...funcs: ((t1: T) => TResult)[]): (t1: T) => TResult[];
+        <T, T2, TResult>(...funcs: ((t1: T, t2: T2) => TResult)[]): (t1: T, t2: T2) => TResult[];
+        <T, T2, T3, TResult>(...funcs: ((t1: T, t2: T2, t3: T3) => TResult)[]): (t1: T, t2: T2, t3: T3) => TResult[];
+        <T, T2, T3, T4, TResult>(...funcs: ((t1: T, t2: T2, t3: T3, t4: T4) => TResult)[]): (t1: T, t2: T2, t3: T3, t4: T4) => TResult[];
+        <T, T2, T3, T4, T5, TResult>(...funcs: ((t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult)[]): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult[];
+        <T, TResult>(funcs: ((t1: T) => TResult)[]): (t1: T) => TResult[];
+        <T, T2, TResult>(funcs: ((t1: T, t2: T2) => TResult)[]): (t1: T, t2: T2) => TResult[];
+        <T, T2, T3, TResult>(funcs: ((t1: T, t2: T2, t3: T3) => TResult)[]): (t1: T, t2: T2, t3: T3) => TResult[];
+        <T, T2, T3, T4, TResult>(funcs: ((t1: T, t2: T2, t3: T3, t4: T4) => TResult)[]): (t1: T, t2: T2, t3: T3, t4: T4) => TResult[];
+        <T, T2, T3, T4, T5, TResult>(funcs: ((t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult)[]): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult[];
     }
 
     export interface OverEveryORSome {
