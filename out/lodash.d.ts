@@ -1119,7 +1119,7 @@ interface IStatic {
     spread: Types.Spread;
     throttle<T extends Function>(func: T, wait?: number, options?: Types.ThrottleOptions): T
     unary: Types.Unary;
-    wrap<TResult>(value: any, wrapper: Function): TResult
+    wrap<T, TResult>(value: T, wrapper: (value: T) => T): TResult;
 }
 namespace Types {
     export interface CastArray {
