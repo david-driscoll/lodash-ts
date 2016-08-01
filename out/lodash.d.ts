@@ -603,7 +603,7 @@ namespace Types {
 
     export type ForEachIteratorArray<T> = (value: T, index: number, collection: Array<T>) => boolean | void;
     export type ForEachIteratorArrayLike<T> = (value: T, index: number, collection: ArrayLike<T>) => boolean | void;
-    export type ForEachIteratorObject<T> = (value: T, index: number, collection: _Obj<T>) => boolean | void;
+    export type ForEachIteratorObject<T> = (value: T, index: string, collection: _Obj<T>) => boolean | void;
 
     export interface ForEach {
         <T>(collection: Array<T>, iteratee: ForEachIteratorArray<T>): Array<T>;
@@ -628,7 +628,7 @@ namespace Types {
     }
 
     export type MapIteratorArray<T, TResult> = (value: T, index: number, collection: ArrayLike<T>) => TResult;
-    export type MapIteratorObject<T, TResult> = (value: T, index: number, collection: _Obj<T>) => TResult;
+    export type MapIteratorObject<T, TResult> = (value: T, index: string, collection: _Obj<T>) => TResult;
 
     export interface _Map {
         <T, TResult>(collection: ArrayLike<T>, iteratee: MapIteratorArray<T, TResult>): TResult[];
