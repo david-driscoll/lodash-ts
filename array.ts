@@ -28,20 +28,21 @@ namespace Types {
     }
 
     export interface DifferenceBy {
-        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, values5: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
         <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | Iteratee | (AnySelector<T>))[]): T[];
     }
 
     export interface DifferenceWith {
-        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
+        <T, R>(array: ArrayLike<T>, values: ArrayLike<R>, comparator: Comparator<R>): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, values5: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
         <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | (Comparator<T>))[]): T[];
     }
 
