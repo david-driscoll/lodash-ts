@@ -34,7 +34,7 @@ namespace Types.Wrap {
 
     export interface DifferenceWith<T, TWrapper> {
         (values?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
-        <R>(values?: ArrayLike<R>, comparator?: Comparator<R>): TWrapper;
+        <R>(values?: ArrayLike<R>, comparator?: ComparatorR<T, R>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
@@ -228,7 +228,7 @@ namespace Types {
 
     export interface DifferenceWith {
         <T>(array: ArrayLike<T>, values: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
-        <T, R>(array: ArrayLike<T>, values: ArrayLike<R>, comparator: Comparator<R>): T[];
+        <T, R>(array: ArrayLike<T>, values: ArrayLike<R>, comparator: ComparatorR<T, R>): T[];
         <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
         <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
         <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
@@ -734,6 +734,7 @@ namespace Types {
    export type BooleanPredicate<T> = (value: T) => boolean;
    export type AnySelector<T> = (value: T) => any;
    export type Comparator<T> = (arrVal: T, othVal: T) => boolean;
+   export type ComparatorR<T, R> = (arrVal: T, othVal: R) => boolean;
 
    export namespace Wrap {
        export type ArrayPredicate<T> = (value: T, index: number) => boolean;
