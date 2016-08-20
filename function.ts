@@ -376,5 +376,11 @@ interface IStatic {
     spread: Types.Spread;
     throttle<T extends Function>(func: T, wait?: number, options?: Types.ThrottleOptions): T
     unary: Types.Unary;
-    wrap<TResult>(value: any, wrapper: Function): TResult
+    wrap<T, TResult>(value: T, wrapper: (value: T) => TResult): () => TResult;
+    wrap<T, TResult, A1>(value: T, wrapper: (value: T, arg1: A1) => TResult): (arg1: A1) => TResult;
+    wrap<T, TResult, A1, A2>(value: T, wrapper: (value: T, arg1: A1, arg2: A2) => TResult): (arg1: A1, arg2: A2) => TResult;
+    wrap<T, TResult, A1, A2, A3>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3) => TResult): (arg1: A1, arg2: A2, arg3: A3) => TResult;
+    wrap<T, TResult, A1, A2, A3, A4>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3, arg4: A4) => TResult): (arg1: A1, arg2: A2, arg3: A3, arg4: A4) => TResult;
+    wrap<T, TResult, A1, A2, A3, A4, A5>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => TResult): (arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => TResult;
+
 }

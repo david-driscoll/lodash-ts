@@ -34,6 +34,7 @@ namespace Types.Wrap {
 
     export interface DifferenceWith<T, TWrapper> {
         (values?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
+        <R>(values?: ArrayLike<R>, comparator?: ComparatorR<T, R>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;

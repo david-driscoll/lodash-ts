@@ -34,6 +34,7 @@ namespace Types.Wrap {
 
     export interface DifferenceWith<T, TWrapper> {
         (values?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
+        <R>(values?: ArrayLike<R>, comparator?: ComparatorR<T, R>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
         (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, comparator?: Comparator<T>): TWrapper;
@@ -217,20 +218,21 @@ namespace Types {
     }
 
     export interface DifferenceBy {
-        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, values5: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
         <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | Iteratee | (AnySelector<T>))[]): T[];
     }
 
     export interface DifferenceWith {
-        <T>(array: ArrayLike<T>, values?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
+        <T, R>(array: ArrayLike<T>, values: ArrayLike<R>, comparator: ComparatorR<T, R>): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, values5: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
         <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | (Comparator<T>))[]): T[];
     }
 
@@ -603,7 +605,7 @@ namespace Types {
 
     export type ForEachIteratorArray<T> = (value: T, index: number, collection: Array<T>) => boolean | void;
     export type ForEachIteratorArrayLike<T> = (value: T, index: number, collection: ArrayLike<T>) => boolean | void;
-    export type ForEachIteratorObject<T> = (value: T, index: number, collection: _Obj<T>) => boolean | void;
+    export type ForEachIteratorObject<T> = (value: T, index: string, collection: _Obj<T>) => boolean | void;
 
     export interface ForEach {
         <T>(collection: Array<T>, iteratee: ForEachIteratorArray<T>): Array<T>;
@@ -628,7 +630,7 @@ namespace Types {
     }
 
     export type MapIteratorArray<T, TResult> = (value: T, index: number, collection: ArrayLike<T>) => TResult;
-    export type MapIteratorObject<T, TResult> = (value: T, index: number, collection: _Obj<T>) => TResult;
+    export type MapIteratorObject<T, TResult> = (value: T, index: string, collection: _Obj<T>) => TResult;
 
     export interface _Map {
         <T, TResult>(collection: ArrayLike<T>, iteratee: MapIteratorArray<T, TResult>): TResult[];
@@ -732,6 +734,7 @@ namespace Types {
    export type BooleanPredicate<T> = (value: T) => boolean;
    export type AnySelector<T> = (value: T) => any;
    export type Comparator<T> = (arrVal: T, othVal: T) => boolean;
+   export type ComparatorR<T, R> = (arrVal: T, othVal: R) => boolean;
 
    export namespace Wrap {
        export type ArrayPredicate<T> = (value: T, index: number) => boolean;
@@ -1119,7 +1122,13 @@ interface IStatic {
     spread: Types.Spread;
     throttle<T extends Function>(func: T, wait?: number, options?: Types.ThrottleOptions): T
     unary: Types.Unary;
-    wrap<TResult>(value: any, wrapper: Function): TResult
+    wrap<T, TResult>(value: T, wrapper: (value: T) => TResult): () => TResult;
+    wrap<T, TResult, A1>(value: T, wrapper: (value: T, arg1: A1) => TResult): (arg1: A1) => TResult;
+    wrap<T, TResult, A1, A2>(value: T, wrapper: (value: T, arg1: A1, arg2: A2) => TResult): (arg1: A1, arg2: A2) => TResult;
+    wrap<T, TResult, A1, A2, A3>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3) => TResult): (arg1: A1, arg2: A2, arg3: A3) => TResult;
+    wrap<T, TResult, A1, A2, A3, A4>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3, arg4: A4) => TResult): (arg1: A1, arg2: A2, arg3: A3, arg4: A4) => TResult;
+    wrap<T, TResult, A1, A2, A3, A4, A5>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => TResult): (arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => TResult;
+
 }
 namespace Types {
     export interface CastArray {

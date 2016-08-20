@@ -17,6 +17,7 @@ namespace Types {
    export type BooleanPredicate<T> = (value: T) => boolean;
    export type AnySelector<T> = (value: T) => any;
    export type Comparator<T> = (arrVal: T, othVal: T) => boolean;
+   export type ComparatorR<T, R> = (arrVal: T, othVal: R) => boolean;
 
    export namespace Wrap {
        export type ArrayPredicate<T> = (value: T, index: number) => boolean;
