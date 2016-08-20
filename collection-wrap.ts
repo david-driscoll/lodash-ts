@@ -22,7 +22,9 @@ namespace Types.Wrap {
     }
 
     export interface SortBy<T, TWrapper> {
+        (iteratee: ValuePredicate<T, any>[]): TWrapper;
         <R>(iteratee: ValuePredicate<T, R>[]): TWrapper;
+        (...iteratees: ValuePredicate<T, any>[]): TWrapper;
         <R>(...iteratees: ValuePredicate<T, R>[]): TWrapper;
     }
 
