@@ -461,7 +461,9 @@ namespace Types.Wrap {
     }
 
     export interface SortBy<T, TWrapper> {
+        (iteratee: ValuePredicate<T, any>[]): TWrapper;
         <R>(iteratee: ValuePredicate<T, R>[]): TWrapper;
+        (...iteratees: ValuePredicate<T, any>[]): TWrapper;
         <R>(...iteratees: ValuePredicate<T, R>[]): TWrapper;
     }
 
@@ -676,11 +678,17 @@ namespace Types {
     }
 
     export interface SortBy {
+        <T>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, any>[]): T[];
         <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>[]): T[];
+        <T>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T, any>[]): T[];
         <T, R>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T, R>[]): T[];
+        <T>(collection: _Obj<T>, iteratee: ValuePredicate<T, any>[]): T[];
         <T, R>(collection: _Obj<T>, iteratee: ValuePredicate<T, R>[]): T[];
+        <T>(collection: _Obj<T>, ...iteratees: ValuePredicate<T, any>[]): T[];
         <T, R>(collection: _Obj<T>, ...iteratees: ValuePredicate<T, R>[]): T[];
+        <T>(collection: any, iteratee: ValuePredicate<T, any>[]): T[];
         <T, R>(collection: any, iteratee: ValuePredicate<T, R>[]): T[];
+        <T>(collection: any, ...iteratees: ValuePredicate<T, any>[]): T[];
         <T, R>(collection: any, ...iteratees: ValuePredicate<T, R>[]): T[];
     }
 }
