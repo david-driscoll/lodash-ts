@@ -24,11 +24,11 @@ namespace Types.Wrap {
     }
 
     export interface DifferenceBy<T, TWrapper> {
-        (values?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
-        (values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
+        <T2>(values?: ArrayLike<T2>, iteratee?: AnySelector<T | T2> | Iteratee): TWrapper;
+        <T2, T3>(values1?: ArrayLike<T2>, values2?: ArrayLike<T3>, iteratee?: AnySelector<T | T2 | T3> | Iteratee): TWrapper;
+        <T2, T3, T4>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: AnySelector<T | T2 | T3 | T4> | Iteratee): TWrapper;
+        <T2, T3, T4, T5>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: AnySelector<T | T2 | T3 | T4 | T5> | Iteratee): TWrapper;
+        <T2, T3, T4, T5, T6>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T | T2 | T3 | T4 | T5 | T6>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
         (...values: (ArrayLike<T> | Iteratee | (AnySelector<T>))[]): TWrapper;
     }
 

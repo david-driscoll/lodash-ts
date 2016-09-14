@@ -28,11 +28,11 @@ namespace Types {
     }
 
     export interface DifferenceBy {
-        <T>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, values5: ArrayLike<T>, iteratee: AnySelector<T> | Iteratee): T[];
+        <T, T2>(array: ArrayLike<T>, values: ArrayLike<T2>, iteratee: AnySelector<T | T2> | Iteratee): T[];
+        <T, T2, T3>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, iteratee: AnySelector<T | T2 | T3> | Iteratee): T[];
+        <T, T2, T3, T4>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, iteratee: AnySelector<T | T2 | T3 | T4> | Iteratee): T[];
+        <T, T2, T3, T4, T5>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, values3: ArrayLike<T4>, values4: ArrayLike<T5>, iteratee: AnySelector<T | T2 | T3 | T4 | T5> | Iteratee): T[];
+        <T, T2, T3, T4, T5, T6>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, values3: ArrayLike<T4>, values4: ArrayLike<T5>, values5: ArrayLike<T6>, iteratee: AnySelector<T | T2 | T3 | T4 | T5 | T6> | Iteratee): T[];
         <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | Iteratee | (AnySelector<T>))[]): T[];
     }
 
