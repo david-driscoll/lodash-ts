@@ -10,7 +10,7 @@ namespace Types {
 
     export interface CloneWith {
         <T>(value: T): T;
-        <T, TResult>(value: T, customizer: (value: any, key: string, object: T, stack: any) => any): TResult;
+        <T, R>(value: T, customizer: (value: T[keyof T], key: keyof T, object: T, stack: T) => any): T;
     }
 
     export interface Comparison {
@@ -43,7 +43,7 @@ interface IStatic {
     isElement<T extends Element>(value: any): value is T;
     isEmpty(value: any): boolean;
     isEqual: Types.Comparison;
-    isEqualWith<T>(a: T, b: T, customizer: (valueA: any, valueB: any, key: string, a: T, b: T, stack: any) => any): boolean;
+    isEqualWith<T>(a: T, b: T, customizer: (valueA: T[keyof T], valueB: T[keyof T], key: keyof T, a: T, b: T, stack: any) => any): boolean;
     isError<T extends Error>(value: any): value is T;
     isFinite(value: number): boolean;
     isFunction<T extends Function>(value: any): value is T;
@@ -51,7 +51,7 @@ interface IStatic {
     isLength(value: number): boolean;
     isMap<K, V>(value: any): value is Map<K, V>;
     isMatch<T extends R, R>(value: T, match: R): boolean;
-    isMatchWith<T, R>(value: T, source: R, customizer: (valueA: any, valueB: any, key: string, a: T, b: R) => any): boolean;
+    isMatchWith<T, R>(value: T, source: R, customizer: (valueA: T[keyof T], valueB: R[keyof R], key: keyof T, a: T, b: R) => any): boolean;
     isNaN(value: number): boolean;
     isNative<T extends Function>(value: T): boolean;
     isNil(value: any): boolean;

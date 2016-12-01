@@ -5,118 +5,136 @@ namespace Types {
         <TObject, TSource1, TSource2, TSource3>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3): TObject & TSource1 & TSource2 & TSource3;
         <TObject, TSource1, TSource2, TSource3, TSource4>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, source4: TSource4): TObject & TSource1 & TSource2 & TSource3 & TSource4;
         <TObject>(object: TObject): TObject;
-        <TResult>(...otherArgs: any[]): TResult;
+        <R>(...otherArgs: any[]): R;
     }
 
    export type AssignCustomizer = (objectValue: any, sourceValue: any, key?: string, object?: {}, source?: {}) => any;
 
     export interface AssignWith {
-        <TObject, TSource, TResult>(object: TObject, source: TSource, customizer: AssignCustomizer): TResult;
-        <TObject, TSource1, TSource2, TResult>(object: TObject, source1: TSource1, source2: TSource2, customizer: AssignCustomizer): TResult;
-        <TObject, TSource1, TSource2, TSource3, TResult>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, customizer: AssignCustomizer): TResult;
-        <TObject, TSource1, TSource2, TSource3, TSource4, TResult>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, source4: TSource4, customizer: AssignCustomizer): TResult;
+        <TObject, TSource, R>(object: TObject, source: TSource, customizer: AssignCustomizer): R;
+        <TObject, TSource1, TSource2, R>(object: TObject, source1: TSource1, source2: TSource2, customizer: AssignCustomizer): R;
+        <TObject, TSource1, TSource2, TSource3, R>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, customizer: AssignCustomizer): R;
+        <TObject, TSource1, TSource2, TSource3, TSource4, R>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, source4: TSource4, customizer: AssignCustomizer): R;
         <TObject>(object: TObject): TObject;
-        <TObject, TResult>(object: TObject, ...otherArgs: any[]): TResult;
+        <TObject, R>(object: TObject, ...otherArgs: any[]): R;
     }
 
     export interface At {
-        <TResult>(obj: { [index: number]: any; }, paths: (number | number[])[]): TResult[];
-        <TResult>(obj: { [index: number]: any; }, ...paths: (number | number[])[]): TResult[];
-        <TResult>(obj: { [index: string]: any; }, paths: PathLocation[]): TResult[];
-        <TResult>(obj: { [index: string]: any; }, ...paths: PathLocation[]): TResult[];
+        <R>(obj: { [index: number]: any; }, paths: (number | number[])[]): R[];
+        <R>(obj: { [index: number]: any; }, ...paths: (number | number[])[]): R[];
+        <R>(obj: { [index: string]: any; }, paths: PathLocation[]): R[];
+        <R>(obj: { [index: string]: any; }, ...paths: PathLocation[]): R[];
     }
 
     export interface FindKey {
-        <T>(obj: _Obj<T>, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): string;
-        <T>(obj: any, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): string;
+        <T>(obj: T, iteratee: ObjectPredicate<T>): string;
+        <T>(obj: T, iteratee: Property<T>): string;
+        <T>(obj: T, iteratee: Matches<T>): string;
+        <T>(obj: T, iteratee: MatchesProperty<T>): string;
     }
 
     export interface ForIn {
-        <T>(obj: _Obj<T>, iteratee: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
-        <T>(obj: any, iteratee: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
+        <T>(obj: T, iteratee: (value: T, index: string, collection: T) => boolean | void): T;
     }
 
     export interface Functions {
-        <TResult extends Function>(obj: _Obj<any>): TResult[];
+        <R extends Function>(obj: any): R[];
     }
 
     export interface Get {
-        <TResult>(obj: any, path: PathLocation, defaultValue?: TResult): TResult;
+        <T, K extends keyof T>(obj: T, path: K): T[K];
+        <R>(obj: any, path: PathLocation, defaultValue?: R): R;
     }
 
     export interface Has {
-        (obj: any, path: PathLocation): boolean;
+        <T, K extends keyof T>(obj: T, path: K): boolean;
+        <T>(obj: T, path: PathLocation): boolean;
+    }
+
+    export interface Invert {
+        <T>(obj: T): { [P in keyof T]: T[P] };
     }
 
     export interface InvertBy {
-        <T, R>(obj: { [index: number]: T }, iteratee: ValuePredicate<T, R>): { [index: string]: number[]; };
-        <T, R>(obj: { [index: string]: T }, iteratee: ValuePredicate<T, R>): { [index: string]: string[]; };
-        <T, R>(obj: any, iteratee: ValuePredicate<T, R>): { [index: string]: number[]; };
+        <T, R extends string>(obj: T, iteratee?: ValuePredicate<T[keyof T], R>): { [p in R]: R[] };
     }
 
     export interface Invoke {
-        <TResult>(obj: any, path: PathLocation, ...args: any[]): TResult[];
+        <R>(obj: any, path: PathLocation, ...args: any[]): R[];
     }
 
     export interface Keys {
-        (obj: any): string[];
+        <T>(obj: T): keyof T;
     }
 
     export interface MapKeys {
-        <T>(obj: _Obj<T>, iteratee: ((value: T, index: string, collection: _Obj<T>) => string) | Iteratee): _Obj<T>;
-        <T>(obj: any, iteratee: ((value: T, index: string, collection: _Obj<T>) => string) | Iteratee): _Obj<T>;
+        <T, R>(obj: T, iteratee: ((value: T[keyof T], index: keyof T, collection: T) => R)): { [x: string]: T[keyof T] };
     }
 
     export interface MapValues {
-        <T, TResult>(obj: _Obj<T>, iteratee: ((value: T, index: string, collection: _Obj<T>) => TResult) | Iteratee): _Obj<Rest>;
+        <T, R>(obj: T, iteratee: (value: T[keyof T], index: keyof T, collection: T) => R): { [P in keyof T]: R };
+        <T, R>(obj: T, iteratee: string);
+    }
+
+    export interface _Pick {
+        <T, K extends keyof T>(obj: Object, props?: K[]): Pick<T, K>;
+        <R>(obj: Object, props?: PathLocation): R;
+        <T, K extends keyof T>(obj: Object, ...props: K[]): Pick<T, K>;
+        <R>(obj: Object, ...props: PathLocation[]): R;
+    }
+
+    export interface PickBy {
+        <T, R>(obj: T, predicate: (value: T, key: string) => boolean): R;
     }
 
     export interface Omit {
-        <TResult>(obj: Object, props?: string | string[]): TResult;
-        <TResult>(obj: Object, ...props: string[]): TResult;
+        <R>(obj: Object, props?: PathLocation): R;
+        <R>(obj: Object, ...props: PathLocation[]): R;
     }
 
     export interface OmitBy {
-        <T, TResult>(obj: _Obj<T>, predicate: ((value: T, key: string) => boolean) | Iteratee): TResult;
-        <T, TResult>(obj: any, predicate: ((value: T, key: string) => boolean) | Iteratee): TResult;
+        <T, R>(obj: T, predicate: (value: T, key: string) => boolean): R;
     }
 
     export interface _Set {
+        <T, K extends keyof T>(obj: T, path: K, value: T[K]): T;
         <T, TObj>(obj: TObj, path: PathLocation, value: T): TObj;
     }
 
     export interface SetWith {
+        <T, K extends keyof T>(obj: T, path: K, value: T[K], customizer?: (nsValue: T[K], key: K, nsObject: T) => any): T;
         <T, TObj>(obj: TObj, path: PathLocation, value: T, customizer?: (nsValue: T, key: string, nsObject: TObj) => any): TObj;
     }
 
     export interface Update {
+        <T, K extends keyof T>(obj: T, path: K, updater: (value: T[K]) => T[K]): T;
         <T, TObj>(obj: TObj, path: PathLocation, updater: (value: T) => any): TObj;
     }
 
     export interface UpdateWith {
+        <T, K extends keyof T>(obj: T, path: K, updater: (value: T[K]) => any, customizer?: (nsValue: T[K], key: K, nsObject: T) => any): T;
         <T, TObj>(obj: TObj, path: PathLocation, updater: (value: T) => any, customizer?: (nsValue: T, key: string, nsObject: TObj) => any): TObj;
     }
 
     export interface ToPairs {
+        <T, K extends keyof T>(obj: T): [K, T[K]][];
         <T>(obj: { [index: number]: T }): [number, T][];
-        <T>(obj: { [index: string]: T }): [string, T][];
         <K, V>(map: Map<K, V>): [K, V][];
         <V>(set: Set<V>): [number, V][];
-        <T>(obj: any): [string, T][];
     }
 
     export interface Transform {
-        <T, TObj, TAcc>(obj: TObj, iteratee: ((acc: TAcc, value: any, key: string, obj: TObj) => any) | Iteratee, acc?: TAcc): TAcc;
+        <T, TAcc>(obj: T, iteratee: ((acc: TAcc, value: T[keyof T], key: keyof T, obj: T) => any), acc?: TAcc): TAcc;
     }
 
     export interface Unset {
-        (obj: any, path: PathLocation): boolean;
+        <T, K extends keyof T>(obj: T, path: K): boolean;
+        <T>(obj: T, path: PathLocation): boolean;
     }
 
     export interface Values {
         <T>(obj: { [index: number]: T; }): T[];
-        <T>(obj: { [index: string]: T; }): T[];
-        <T>(obj: any): T[];
+        <T>(obj: T): (keyof T)[];
     }
 }
 
@@ -127,7 +145,7 @@ interface IStatic {
     assignInWith: Types.AssignWith;
     at: Types.At;
     create<T, P>(prototype: T, properties?: P): T & P;
-    create<TResult>(prototype: any, properties?: any): TResult;
+    create<R>(prototype: any, properties?: any): R;
     defaults: Types.Assign;
     defaultsDeep: Types.Assign;
     entires: Types.ToPairs;
@@ -145,7 +163,7 @@ interface IStatic {
     get: Types.Get;
     has: Types.Has;
     hasIn: Types.Has;
-    invert<TResult>(obj: Object): TResult;
+    invert: Types.Invert;
     invertBy: Types.InvertBy;
     invoke: Types.Invoke;
     keys: Types.Keys;
@@ -156,8 +174,8 @@ interface IStatic {
     mergeWith: Types.AssignWith;
     omit: Types.Omit;
     omitBy: Types.OmitBy;
-    pick: Types.Omit;
-    pickBy: Types.OmitBy;
+    pick: Types._Pick;
+    pickBy: Types.PickBy;
     result: Types.Get;
     set: Types._Set;
     setWith: Types.SetWith;

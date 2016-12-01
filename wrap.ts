@@ -5,7 +5,7 @@ namespace Types {
     }
 
     export interface Thru {
-        <T, TResult>(array: ArrayLike<T>, interceptor: (value: T) => TResult): TResult;
+        <T, R>(array: ArrayLike<T>, interceptor: (value: T) => R): R;
     }
 
     export namespace Wrap {
@@ -30,14 +30,14 @@ namespace Types {
         export interface ImplicitArray<T, TWrapper extends ImplicitArray<T, TWrapper>> extends ArrayWrapper<T, TWrapper>, ImplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
             chain(): ExplicitArray1<T>;
-            thru<TResult>(interceptor: (value: T) => TResult): ImplicitArray1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ImplicitArray1<R>;
         }
 
         export interface ImplicitArray1<T> extends ImplicitArray<T, ImplicitArray1<T>> { }
 
         export interface ExplicitArray<T, TWrapper extends ExplicitArray<T, TWrapper>> extends ArrayWrapper<T, TWrapper>, ExplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
-            thru<TResult>(interceptor: (value: T) => TResult): ExplicitArray1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ExplicitArray1<R>;
         }
 
         export interface ExplicitArray1<T> extends ExplicitArray<T, ExplicitArray1<T>> { }
@@ -54,14 +54,14 @@ namespace Types {
         export interface ImplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ImplicitObject<T, TObj, TWrapper>> extends ObjectWrapper<T, TObj, TWrapper>, ImplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
             chain(): ExplicitObject1<T, TObj>;
-            thru<TResult>(interceptor: (value: T) => TResult): ImplicitArray1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ImplicitArray1<R>;
         }
 
         export interface ImplicitObject1<T, TObj extends { [index: string]: T }> extends ImplicitObject<T, TObj, ImplicitObject1<T, TObj>> { }
 
         export interface ExplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ExplicitObject<T, TObj, TWrapper>> extends ObjectWrapper<T, TObj, TWrapper>, ExplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
-            thru<TResult>(interceptor: (value: T) => TResult): ExplicitArray1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ExplicitArray1<R>;
         }
 
         export interface ExplicitObject1<T, TObj extends { [index: string]: T }> extends ExplicitObject<T, TObj, ExplicitObject1<T, TObj>> { }
@@ -75,14 +75,14 @@ namespace Types {
 
         export interface ImplicitValue<T, TWrapper extends ImplicitValue<T, TWrapper>> extends ValueWrapper<T, TWrapper> {
             commit(): TWrapper;
-            thru<TResult>(interceptor: (value: T) => TResult): ImplicitValue1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ImplicitValue1<R>;
         }
 
         export interface ImplicitValue1<T> extends ImplicitValue<T, ImplicitValue1<T>> { }
 
         export interface ExplicitValue<T, TWrapper extends ExplicitValue<T, TWrapper>> extends ValueWrapper<T, TWrapper> {
             commit(): TWrapper;
-            thru<TResult>(interceptor: (value: T) => TResult): ExplicitValue1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ExplicitValue1<R>;
         }
 
         export interface ExplicitValue1<T> extends ExplicitValue<T, ExplicitValue1<T>> { }

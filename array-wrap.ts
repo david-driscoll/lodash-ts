@@ -24,12 +24,18 @@ namespace Types.Wrap {
     }
 
     export interface DifferenceBy<T, TWrapper> {
-        <T2>(values?: ArrayLike<T2>, iteratee?: AnySelector<T | T2> | Iteratee): TWrapper;
-        <T2, T3>(values1?: ArrayLike<T2>, values2?: ArrayLike<T3>, iteratee?: AnySelector<T | T2 | T3> | Iteratee): TWrapper;
-        <T2, T3, T4>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: AnySelector<T | T2 | T3 | T4> | Iteratee): TWrapper;
-        <T2, T3, T4, T5>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: AnySelector<T | T2 | T3 | T4 | T5> | Iteratee): TWrapper;
-        <T2, T3, T4, T5, T6>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T | T2 | T3 | T4 | T5 | T6>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
-        (...values: (ArrayLike<T> | Iteratee | (AnySelector<T>))[]): TWrapper;
+        <T2, TT extends T | T2>(values?: ArrayLike<T2>, iteratee?: AnySelector<TT>): TWrapper;
+        <T2, TT extends T | T2>(values?: ArrayLike<T2>, iteratee?: Property<TT>): TWrapper;
+        <T2, T3, TT extends T | T2 | T3>(values1?: ArrayLike<T2>, values2?: ArrayLike<T3>, iteratee?: AnySelector<TT>): TWrapper;
+        <T2, T3, TT extends T | T2 | T3>(values1?: ArrayLike<T2>, values2?: ArrayLike<T3>, iteratee?: Property<TT>): TWrapper;
+        <T2, T3, T4, TT extends T | T2 | T3 | T4>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: AnySelector<TT>): TWrapper;
+        <T2, T3, T4, TT extends T | T2 | T3 | T4>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: Property<TT>): TWrapper;
+        <T2, T3, T4, T5, TT extends T | T2 | T3 | T4 | T5>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: AnySelector<TT>): TWrapper;
+        <T2, T3, T4, T5, TT extends T | T2 | T3 | T4 | T5>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: Property<TT>): TWrapper;
+        <T2, T3, T4, T5, T6, TT extends T | T2 | T3 | T4 | T5 | T6>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<TT>, iteratee?: AnySelector<T>): TWrapper;
+        <T2, T3, T4, T5, T6, TT extends T | T2 | T3 | T4 | T5 | T6>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<TT>, iteratee?: Property<TT>): TWrapper;
+        (...values: (ArrayLike<T> | (AnySelector<T>))[]): TWrapper;
+        (...values: (ArrayLike<T> | (AnySelector<T>))[]): TWrapper;
     }
 
     export interface DifferenceWith<T, TWrapper> {
@@ -47,11 +53,21 @@ namespace Types.Wrap {
     }
 
     export interface DropWhile<T, TWrapper> {
-        (predicate: ArrayPredicate<T> | Iteratee): TWrapper;
+        (predicate: ArrayPredicate<T>): TWrapper;
+        (predicate: Property<T>): T[];
+        (predicate: Matches<T>): T[];
+        (predicate: MatchesProperty<T>): T[];
     }
 
     export interface Fill<T, TWrapper> {
         (value: T, start?: number, end?: number): TWrapper;
+    }
+
+    export interface FindIndex<T, TWrapper> {
+        (predicate: ArrayPredicate<T>): TWrapper;
+        (predicate: Property<T>): TWrapper;
+        (predicate: Matches<T>): TWrapper;
+        (predicate: MatchesProperty<T>): TWrapper;
     }
 
     export interface Nth<T, TWrapper> {
@@ -59,8 +75,8 @@ namespace Types.Wrap {
     }
 
     export interface PullAll<T, TWrapper> {
-        (array: ArrayLike<T>, values: ArrayLike<T>): TWrapper;
-        (array: ArrayLike<T>, ...values: T[]): TWrapper;
+        (values: ArrayLike<T>): TWrapper;
+        (...values: T[]): TWrapper;
     }
 
     export interface PullAt<T, TWrapper> {
@@ -72,7 +88,8 @@ namespace Types.Wrap {
     }
 
     export interface Remove<T, TWrapper> {
-        (predicate: ArrayPredicate<T> | Iteratee): TWrapper;
+        (predicate: ArrayPredicate<T>): TWrapper;
+        (predicate: Property<T>): TWrapper;
     }
 
     export interface Slice<T, TWrapper> {
@@ -87,12 +104,8 @@ namespace Types.Wrap {
         (comparator?: (valueA: T, valueB: T) => boolean): TWrapper;
     }
 
-    export interface TakeWhile<T, TWrapper> {
-        (predicate: ArrayPredicate<T> | Iteratee): TWrapper;
-    }
-
     export interface ZipWith<T, TWrapper> {
-        <TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): TWrapper;
+        <R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): TWrapper;
     }
 
     export interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
@@ -149,11 +162,11 @@ namespace Types.Wrap {
         first: ArrayValueThrough<T>;
         head: ArrayValueThrough<T>;
         last: ArrayValueThrough<T>;
-        flatten<TResult>(): ImplicitArray1<TResult>;
-        flattenDeep<TResult>(): ImplicitArray1<TResult>;
+        flatten<R>(): ImplicitArray1<R>;
+        flattenDeep<R>(): ImplicitArray1<R>;
         flattenDepth<T>(depth?: number): ImplicitArray1<T>;
-        findIndex(predicate: ArrayPredicate<T> | Iteratee, fromIndex?: number): number;
-        findLastIndex(predicate: ArrayPredicate<T> | Iteratee, fromIndex?: number): number;
+        findIndex: FindIndex<T, number>;
+        findLastIndex: FindIndex<T, number>;
         join(separator?: string): string;
         indexOf(value: T, fromIndex?: number): number;
         lastIndexOf(value: T, fromIndex?: number): number;
@@ -162,8 +175,8 @@ namespace Types.Wrap {
         sortedLastIndexOf(value: T): number;
         sortedIndexBy<R>(value: T, predicate: ValuePredicate<T, R>): number;
         sortedLastIndexBy<R>(value: T, predicate: ValuePredicate<T, R>): number;
-        unzipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ImplicitArray1<TResult>;
-        zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ImplicitArray1<TResult>;
+        unzipWith<R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): ImplicitArray1<R>;
+        zipWith<R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): ImplicitArray1<R>;
     }
 
     export interface ExplicitArray<T, TWrapper extends ExplicitArray<T, TWrapper>> {
@@ -174,8 +187,8 @@ namespace Types.Wrap {
         flatten<T>(): ExplicitArray1<T>;
         flattenDeep<T>(): ExplicitArray1<T>;
         flattenDepth<T>(depth?: number): ExplicitArray1<T>;
-        findIndex(predicate: ArrayPredicate<T> | Iteratee): ExplicitValue1<number>;
-        findLastIndex(predicate: ArrayPredicate<T> | Iteratee): ExplicitValue1<number>;
+        findIndex: FindIndex<T, ExplicitValue1<number>>;
+        findLastIndex: FindIndex<T, ExplicitValue1<number>>;
         join(separator?: string): ExplicitString;
         indexOf(value: T, fromIndex?: number): ExplicitValue1<number>;
         lastIndexOf(value: T, fromIndex?: number): ExplicitValue1<number>;
@@ -184,7 +197,7 @@ namespace Types.Wrap {
         sortedLastIndexOf(value: T): ExplicitValue1<number>;
         sortedIndexBy<R>(value: T, predicate: ValuePredicate<T, R>): ExplicitValue1<number>;
         sortedLastIndexBy<R>(value: T, predicate: ValuePredicate<T, R>): ExplicitValue1<number>;
-        unzipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ExplicitArray1<TResult>;
-        zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ExplicitArray1<TResult>;
+        unzipWith<R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): ExplicitArray1<R>;
+        zipWith<R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): ExplicitArray1<R>;
     }
 }

@@ -1,10 +1,10 @@
 namespace Types.Wrap {
     export interface ForEach<T, TWrapper> {
-        (iteratee: ((value: T, index: number) => boolean | void) | Iteratee): TWrapper;
+        (iteratee: ((value: T, index: number) => boolean | void)): TWrapper;
     }
 
     export interface ForEachObject<T, TWrapper> {
-        (iteratee: ((value: T, index: string) => boolean | void) | Iteratee): TWrapper;
+        (iteratee: ((value: T, index: string) => boolean | void)): TWrapper;
     }
 
     export interface OrderBy<T, TWrapper> {
@@ -39,55 +39,81 @@ namespace Types.Wrap {
         sortBy: SortBy<T, TWrapper>;
     }
 
+    export interface ImplicitIteratee<T, TWrapper> {
+        (iteratee: ArrayPredicate<T>): TWrapper;
+        (iteratee: Property<T>): TWrapper;
+        (iteratee: Matches<T>): TWrapper;
+        (iteratee: MatchesProperty<T>): TWrapper;
+    }
+
+    export interface ImplicitFindIteratee<T, TWrapper> {
+        (iteratee: ArrayPredicate<T>, fromIndex?: number): TWrapper;
+        (iteratee: Property<T>, fromIndex?: number): TWrapper;
+        (iteratee: Matches<T>, fromIndex?: number): TWrapper;
+        (iteratee: MatchesProperty<T>, fromIndex?: number): TWrapper;
+    }
+
     export interface ImplicitWrapper<T, TWrapper> {
         countBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: number; }>;
-        every(): boolean;
-        every(iteratee: ArrayPredicate<T> | Iteratee): boolean;
-        filter(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
-        find(iteratee: ArrayPredicate<T> | Iteratee, fromIndex?: number): T;
-        findLast(iteratee: ArrayPredicate<T> | Iteratee, fromIndex?: number): T;
-        flatMap<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee): ImplicitArray1<TResult>;
-        flatMapDeep<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee): ImplicitArray1<TResult>;
-        flatMapDepth<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee, depth?: number): ImplicitArray1<TResult>;
+        every: ImplicitIteratee<T, boolean> & { (): boolean };
+        filter: ImplicitIteratee<T, TWrapper>;
+        find: ImplicitFindIteratee<T, T>;
+        findLast: ImplicitFindIteratee<T, T>;
+        flatMap<R>(iteratee: (value: T, index: number) => R[]): ImplicitArray1<R>;
+        flatMapDeep<R>(iteratee: (value: T, index: number) => R[]): ImplicitArray1<R>;
+        flatMapDepth<R>(iteratee: (value: T, index: number) => R[], depth?: number): ImplicitArray1<R>;
         includes(value: T, fromIndex?: number): boolean;
-        invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ImplicitArray1<TResult>;
+        invokeMap<R>(path: PathLocation | Function, ...args: any[]): ImplicitArray1<R>;
         keyBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: T; }>;
-        map<TResult>(iteratee: ((value: T, index: number) => TResult)|Iteratee): ImplicitArray1<TResult>;
+        map<R>(iteratee: (value: T, index: number) => R): ImplicitArray1<R>;
         groupBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee: BooleanPredicate<T>): ImplicitValue1<[T[], T[]]>;
-        reduce<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc> | Iteratee): TAcc;
-        reduceRight<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc> | Iteratee): TAcc;
-        reject(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
+        reduce<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc>): TAcc;
+        reduceRight<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc>): TAcc;
+        reject(iteratee: ArrayPredicate<T>): TWrapper;
         sample(): T;
         size(): number;
         some(): boolean;
-        some(iteratee: ArrayPredicate<T> | Iteratee): boolean;
+        some(iteratee: ArrayPredicate<T>): boolean;
+    }
+
+    export interface ExplicitIteratee<T, TWrapper> {
+        (iteratee: ArrayPredicate<T>): TWrapper;
+        (iteratee: Property<T>): TWrapper;
+        (iteratee: Matches<T>): TWrapper;
+        (iteratee: MatchesProperty<T>): TWrapper;
+    }
+
+    export interface ExplicitFindIteratee<T, TWrapper> {
+        (iteratee: ArrayPredicate<T>, fromIndex?: number): TWrapper;
+        (iteratee: Property<T>, fromIndex?: number): TWrapper;
+        (iteratee: Matches<T>, fromIndex?: number): TWrapper;
+        (iteratee: MatchesProperty<T>, fromIndex?: number): TWrapper;
     }
 
     export interface ExplicitWrapper<T, TWrapper> {
         countBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: number; }>;
-        every(): ExplicitValue1<boolean>;
-        every(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<boolean>;
-        filter(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
-        find(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<T>;
-        findLast(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<T>;
-        flatMap<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee): ExplicitArray1<TResult>;
-        flatMapDeep<TResult>(iteratee: (value: T, index: number) => TResult[]): ExplicitArray1<TResult>;
-        flatMapDeep<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee): ExplicitArray1<TResult>;
-        flatMapDepth<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee, depth?: number): ExplicitArray1<TResult>;
+        every: ExplicitIteratee<T, ExplicitValue1<boolean>> & { (): ExplicitValue1<boolean> };
+        filter: ExplicitIteratee<T, TWrapper>;
+        find: ExplicitFindIteratee<T, ExplicitValue1<T>>;
+        findLast: ExplicitFindIteratee<T, ExplicitValue1<T>>;
+        flatMap<R>(iteratee: (value: T, index: number) => R[]): ExplicitArray1<R>;
+        flatMapDeep<R>(iteratee: (value: T, index: number) => R[]): ExplicitArray1<R>;
+        flatMapDeep<R>(iteratee: (value: T, index: number) => R[]): ExplicitArray1<R>;
+        flatMapDepth<R>(iteratee: (value: T, index: number) => R[], depth?: number): ExplicitArray1<R>;
         includes(value: T, fromIndex?: number): ExplicitValue1<boolean>;
-        invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ExplicitArray1<TResult>;
+        invokeMap<R>(path: PathLocation | Function, ...args: any[]): ExplicitArray1<R>;
         keyBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: T; }>;
-        map<TResult>(iteratee: ((value: T, index: number) => TResult) | Iteratee): ExplicitArray1<TResult>;
+        map<R>(iteratee: (value: T, index: number) => R): ExplicitArray1<R>;
         groupBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee: BooleanPredicate<T>): ExplicitValue1<[T[], T[]]>;
-        reduce<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc> | Iteratee): ExplicitValue1<TAcc>;
-        reduceRight<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc> | Iteratee): ExplicitValue1<TAcc>;
-        reject(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
+        reduce<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
+        reduceRight<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
+        reject(iteratee: ArrayPredicate<T>): TWrapper;
         sample(): ExplicitValue1<T>;
         size(): ExplicitValue1<number>;
         some(): ExplicitValue1<boolean>;
-        some(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<boolean>;
+        some(iteratee: ArrayPredicate<T>): ExplicitValue1<boolean>;
     }
 
     export interface ObjectWrapper<T, TObj extends { [index: string]: T }, TWrapper> {

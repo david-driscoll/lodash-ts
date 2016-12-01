@@ -24,12 +24,18 @@ namespace Types.Wrap {
     }
 
     export interface DifferenceBy<T, TWrapper> {
-        <T2>(values?: ArrayLike<T2>, iteratee?: AnySelector<T | T2> | Iteratee): TWrapper;
-        <T2, T3>(values1?: ArrayLike<T2>, values2?: ArrayLike<T3>, iteratee?: AnySelector<T | T2 | T3> | Iteratee): TWrapper;
-        <T2, T3, T4>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: AnySelector<T | T2 | T3 | T4> | Iteratee): TWrapper;
-        <T2, T3, T4, T5>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: AnySelector<T | T2 | T3 | T4 | T5> | Iteratee): TWrapper;
-        <T2, T3, T4, T5, T6>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<T | T2 | T3 | T4 | T5 | T6>, iteratee?: AnySelector<T> | Iteratee): TWrapper;
-        (...values: (ArrayLike<T> | Iteratee | (AnySelector<T>))[]): TWrapper;
+        <T2, TT extends T | T2>(values?: ArrayLike<T2>, iteratee?: AnySelector<TT>): TWrapper;
+        <T2, TT extends T | T2>(values?: ArrayLike<T2>, iteratee?: Property<TT>): TWrapper;
+        <T2, T3, TT extends T | T2 | T3>(values1?: ArrayLike<T2>, values2?: ArrayLike<T3>, iteratee?: AnySelector<TT>): TWrapper;
+        <T2, T3, TT extends T | T2 | T3>(values1?: ArrayLike<T2>, values2?: ArrayLike<T3>, iteratee?: Property<TT>): TWrapper;
+        <T2, T3, T4, TT extends T | T2 | T3 | T4>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: AnySelector<TT>): TWrapper;
+        <T2, T3, T4, TT extends T | T2 | T3 | T4>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, iteratee?: Property<TT>): TWrapper;
+        <T2, T3, T4, T5, TT extends T | T2 | T3 | T4 | T5>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: AnySelector<TT>): TWrapper;
+        <T2, T3, T4, T5, TT extends T | T2 | T3 | T4 | T5>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, iteratee?: Property<TT>): TWrapper;
+        <T2, T3, T4, T5, T6, TT extends T | T2 | T3 | T4 | T5 | T6>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<TT>, iteratee?: AnySelector<T>): TWrapper;
+        <T2, T3, T4, T5, T6, TT extends T | T2 | T3 | T4 | T5 | T6>(values1?: ArrayLike<T>, values2?: ArrayLike<T>, values3?: ArrayLike<T>, values4?: ArrayLike<T>, values5?: ArrayLike<TT>, iteratee?: Property<TT>): TWrapper;
+        (...values: (ArrayLike<T> | (AnySelector<T>))[]): TWrapper;
+        (...values: (ArrayLike<T> | (AnySelector<T>))[]): TWrapper;
     }
 
     export interface DifferenceWith<T, TWrapper> {
@@ -47,11 +53,21 @@ namespace Types.Wrap {
     }
 
     export interface DropWhile<T, TWrapper> {
-        (predicate: ArrayPredicate<T> | Iteratee): TWrapper;
+        (predicate: ArrayPredicate<T>): TWrapper;
+        (predicate: Property<T>): T[];
+        (predicate: Matches<T>): T[];
+        (predicate: MatchesProperty<T>): T[];
     }
 
     export interface Fill<T, TWrapper> {
         (value: T, start?: number, end?: number): TWrapper;
+    }
+
+    export interface FindIndex<T, TWrapper> {
+        (predicate: ArrayPredicate<T>): TWrapper;
+        (predicate: Property<T>): TWrapper;
+        (predicate: Matches<T>): TWrapper;
+        (predicate: MatchesProperty<T>): TWrapper;
     }
 
     export interface Nth<T, TWrapper> {
@@ -59,8 +75,8 @@ namespace Types.Wrap {
     }
 
     export interface PullAll<T, TWrapper> {
-        (array: ArrayLike<T>, values: ArrayLike<T>): TWrapper;
-        (array: ArrayLike<T>, ...values: T[]): TWrapper;
+        (values: ArrayLike<T>): TWrapper;
+        (...values: T[]): TWrapper;
     }
 
     export interface PullAt<T, TWrapper> {
@@ -72,7 +88,8 @@ namespace Types.Wrap {
     }
 
     export interface Remove<T, TWrapper> {
-        (predicate: ArrayPredicate<T> | Iteratee): TWrapper;
+        (predicate: ArrayPredicate<T>): TWrapper;
+        (predicate: Property<T>): TWrapper;
     }
 
     export interface Slice<T, TWrapper> {
@@ -87,12 +104,8 @@ namespace Types.Wrap {
         (comparator?: (valueA: T, valueB: T) => boolean): TWrapper;
     }
 
-    export interface TakeWhile<T, TWrapper> {
-        (predicate: ArrayPredicate<T> | Iteratee): TWrapper;
-    }
-
     export interface ZipWith<T, TWrapper> {
-        <TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): TWrapper;
+        <R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): TWrapper;
     }
 
     export interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
@@ -149,11 +162,11 @@ namespace Types.Wrap {
         first: ArrayValueThrough<T>;
         head: ArrayValueThrough<T>;
         last: ArrayValueThrough<T>;
-        flatten<TResult>(): ImplicitArray1<TResult>;
-        flattenDeep<TResult>(): ImplicitArray1<TResult>;
+        flatten<R>(): ImplicitArray1<R>;
+        flattenDeep<R>(): ImplicitArray1<R>;
         flattenDepth<T>(depth?: number): ImplicitArray1<T>;
-        findIndex(predicate: ArrayPredicate<T> | Iteratee, fromIndex?: number): number;
-        findLastIndex(predicate: ArrayPredicate<T> | Iteratee, fromIndex?: number): number;
+        findIndex: FindIndex<T, number>;
+        findLastIndex: FindIndex<T, number>;
         join(separator?: string): string;
         indexOf(value: T, fromIndex?: number): number;
         lastIndexOf(value: T, fromIndex?: number): number;
@@ -162,8 +175,8 @@ namespace Types.Wrap {
         sortedLastIndexOf(value: T): number;
         sortedIndexBy<R>(value: T, predicate: ValuePredicate<T, R>): number;
         sortedLastIndexBy<R>(value: T, predicate: ValuePredicate<T, R>): number;
-        unzipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ImplicitArray1<TResult>;
-        zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ImplicitArray1<TResult>;
+        unzipWith<R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): ImplicitArray1<R>;
+        zipWith<R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): ImplicitArray1<R>;
     }
 
     export interface ExplicitArray<T, TWrapper extends ExplicitArray<T, TWrapper>> {
@@ -174,8 +187,8 @@ namespace Types.Wrap {
         flatten<T>(): ExplicitArray1<T>;
         flattenDeep<T>(): ExplicitArray1<T>;
         flattenDepth<T>(depth?: number): ExplicitArray1<T>;
-        findIndex(predicate: ArrayPredicate<T> | Iteratee): ExplicitValue1<number>;
-        findLastIndex(predicate: ArrayPredicate<T> | Iteratee): ExplicitValue1<number>;
+        findIndex: FindIndex<T, ExplicitValue1<number>>;
+        findLastIndex: FindIndex<T, ExplicitValue1<number>>;
         join(separator?: string): ExplicitString;
         indexOf(value: T, fromIndex?: number): ExplicitValue1<number>;
         lastIndexOf(value: T, fromIndex?: number): ExplicitValue1<number>;
@@ -184,8 +197,8 @@ namespace Types.Wrap {
         sortedLastIndexOf(value: T): ExplicitValue1<number>;
         sortedIndexBy<R>(value: T, predicate: ValuePredicate<T, R>): ExplicitValue1<number>;
         sortedLastIndexBy<R>(value: T, predicate: ValuePredicate<T, R>): ExplicitValue1<number>;
-        unzipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ExplicitArray1<TResult>;
-        zipWith<TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): ExplicitArray1<TResult>;
+        unzipWith<R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): ExplicitArray1<R>;
+        zipWith<R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): ExplicitArray1<R>;
     }
 }
 namespace Types {
@@ -218,21 +231,20 @@ namespace Types {
     }
 
     export interface DifferenceBy {
-        <T, T2>(array: ArrayLike<T>, values: ArrayLike<T2>, iteratee: AnySelector<T | T2> | Iteratee): T[];
-        <T, T2, T3>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, iteratee: AnySelector<T | T2 | T3> | Iteratee): T[];
-        <T, T2, T3, T4>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, iteratee: AnySelector<T | T2 | T3 | T4> | Iteratee): T[];
-        <T, T2, T3, T4, T5>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, values3: ArrayLike<T4>, values4: ArrayLike<T5>, iteratee: AnySelector<T | T2 | T3 | T4 | T5> | Iteratee): T[];
-        <T, T2, T3, T4, T5, T6>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, values3: ArrayLike<T4>, values4: ArrayLike<T5>, values5: ArrayLike<T6>, iteratee: AnySelector<T | T2 | T3 | T4 | T5 | T6> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | Iteratee | (AnySelector<T>))[]): T[];
+        <T, T2, TT extends T | T2>(array: ArrayLike<T>, values: ArrayLike<T2>, iteratee: AnySelector<TT>): T[];
+        <T, T2, TT extends T | T2>(array: ArrayLike<T>, values: ArrayLike<T2>, iteratee: Property<TT>): T[];
+        <T, T2, T3, TT extends T | T2 | T3>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, iteratee: AnySelector<TT>): T[];
+        <T, T2, T3, TT extends T | T2 | T3>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, iteratee: Property<TT>): T[];
+        <T, T2, T3, T4, TT extends T | T2 | T3 | T4>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, values3: ArrayLike<T4>, iteratee: AnySelector<TT>): T[];
+        <T, T2, T3, T4, TT extends T | T2 | T3 | T4>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, values3: ArrayLike<T4>, iteratee: Property<TT>): T[];
+        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T>)[]): T[];
     }
 
     export interface DifferenceWith {
-        <T>(array: ArrayLike<T>, values: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
-        <T, R>(array: ArrayLike<T>, values: ArrayLike<R>, comparator: ComparatorR<T, R>): T[];
-        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, comparator: Comparator<T> | Iteratee): T[];
-        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, values4: ArrayLike<T>, values5: ArrayLike<T>, comparator?: Comparator<T> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, values: ArrayLike<T>, comparator: Comparator<T>): T[];
+        <T, T2>(array: ArrayLike<T>, values: ArrayLike<T2>, comparator: ComparatorR<T, T2>): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, comparator: Comparator<T>): T[];
+        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, comparator: Comparator<T>): T[];
         <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | (Comparator<T>))[]): T[];
     }
 
@@ -241,13 +253,16 @@ namespace Types {
     }
 
     export interface DropWhile {
-        <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T, ArrayLike<T>> | Iteratee): T[];
+        <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T>): T[];
+        <T>(array: ArrayLike<T>, predicate: Property<T>): T[];
+        <T>(array: ArrayLike<T>, predicate: Matches<T>): T[];
+        <T>(array: ArrayLike<T>, predicate: MatchesProperty<T>): T[];
     }
 
     export interface Flatten {
         <T>(array: ArrayLike<T | ArrayLike<T>>): T[];
         <T>(array: RecursiveArrayLike<T>): RecursiveArray<T>;
-        <TResult>(array: ArrayLike<any>): TResult[];
+        <R>(array: ArrayLike<any>): R[];
     }
 
     export interface FlattenDeep {
@@ -273,7 +288,10 @@ namespace Types {
     }
 
     export interface FindIndex {
-        <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T, ArrayLike<T>> | Iteratee, fromIndex?: number): number;
+        <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T>, fromIndex?: number): number;
+        <T>(array: ArrayLike<T>, predicate: Property<T>, fromIndex?: number): number;
+        <T>(array: ArrayLike<T>, predicate: Matches<T>, fromIndex?: number): number;
+        <T>(array: ArrayLike<T>, predicate: MatchesProperty<T>, fromIndex?: number): number;
     }
 
     export interface IndexOf {
@@ -302,8 +320,10 @@ namespace Types {
     }
 
     export interface Remove {
-        <T>(array: Array<T>, predicate: ArrayPredicate<T, Array<T>> | Iteratee): Array<T>;
-        <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T, ArrayLike<T>> | Iteratee): ArrayLike<T>;
+        <T>(array: Array<T>, predicate: ArrayPredicate<T>): Array<T>;
+        <T>(array: Array<T>, predicate: Property<T>): Array<T>;
+        <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T>): ArrayLike<T>;
+        <T>(array: ArrayLike<T>, predicate: Property<T>): ArrayLike<T>;
     }
 
     export interface Slice {
@@ -332,7 +352,7 @@ namespace Types {
         <T, T2, T3>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>): [T, T2, T3][];
         <T, T2, T3, T4>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>): [T, T2, T3, T4][];
         <T, T2, T3, T4, T5>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, t5: ArrayLike<T5>): [T, T2, T3, T4, T5][];
-        <TResult>(...arrays: ArrayLike<any>[]): TResult[];
+        <R>(...arrays: ArrayLike<any>[]): R[];
     }
 
     export interface Unzip {
@@ -341,29 +361,28 @@ namespace Types {
         <T, T2, T3>(...arrays: [T, T2, T3][]): [T[], T2[], T3[]];
         <T, T2, T3, T4>(...arrays: [T, T2, T3, T4][]): [T[], T2[], T3[], T4[]];
         <T, T2, T3, T4, T5>(...arrays: [T, T2, T3, T4, T5][]): [T[], T2[], T3[], T4[], T5[]];
-        <TResult>(...arrays: ArrayLike<any>[]): TResult[];
+        <R>(...arrays: ArrayLike<any>[]): R[];
     }
 
     export interface ZipWith {
-        <T, TResult>(t: ArrayLike<T>, predicate: ((t: T) => TResult) | Iteratee): TResult[];
-        <T, T2, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, predicate: ((t: T, t2: T2) => TResult) | Iteratee): TResult[];
-        <T, T2, T3, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, predicate: ((t: T, t2: T2, t3: T3) => TResult) | Iteratee): TResult[];
-        <T, T2, T3, T4, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, predicate: ((t: T, t2: T2, t3: T3, t4: T4) => TResult) | Iteratee): TResult[];
-        <T, T2, T3, T4, T5, TResult>(t: ArrayLike<T>, t2: ArrayLike<T2>, t3: ArrayLike<T3>, t4: ArrayLike<T4>, t5: ArrayLike<T5>, predicate: ((t: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult) | Iteratee): TResult[];
-        <TResult>(...arrays: (ArrayLike<any> | Iteratee[] | ((...args: any[]) => TResult))[]): TResult[];
+        <T, R>(t: ArrayLike<T>, predicate: (t: T) => R): [R];
+        <T, T2, R>(t: ArrayLike<T>, t2: ArrayLike<T>, predicate: (t: T, t2: T2) => R): [R, R];
+        <T, T2, T3, R>(t: ArrayLike<T>, t2: ArrayLike<T>, t3: ArrayLike<T>, predicate: (t: T, t2: T2, t3: T3) => R): [R, R, R];
+        <T, T2, T3, T4, R>(t: ArrayLike<T>, t2: ArrayLike<T>, t3: ArrayLike<T>, t4: ArrayLike<T>, predicate: (t: T, t2: T2, t3: T3, t4: T4) => R): [R, R, R, R];
+        <T, T2, T3, T4, T5, R>(t: ArrayLike<T>, t2: ArrayLike<T>, t3: ArrayLike<T>, t4: ArrayLike<T>, t5: ArrayLike<T>, predicate: (t: T, t2: T2, t3: T3, t4: T4, t5: T5) => R): [R, R, R, R, R];
+        <R>(...arrays: (ArrayLike<any> | ((...args: any[]) => R))[]): R[];
     }
 
     export interface UnzipWith {
-        <T, TResult>(...arrays: ([T] | Iteratee | ((t: T) => TResult))[]): TResult[];
-        <T, T2, TResult>(...arrays: ([T, T2] | Iteratee | ((t: T, t2: T2) => TResult))[]): TResult[];
-        <T, T2, T3, TResult>(...arrays: ([T, T2, T3] | Iteratee | ((t: T, t2: T2, t3: T3) => TResult))[]): TResult[];
-        <T, T2, T3, T4, TResult>(...arrays: ([T, T2, T3, T4] | Iteratee | ((t: T, t2: T2, t3: T3, t4: T4) => TResult))[]): TResult[];
-        <T, T2, T3, T4, T5, TResult>(...arrays: ([T, T2, T3, T4, T5] | Iteratee | ((t: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult))[]): TResult[];
-        <TResult>(...arrays: (ArrayLike<any> | Iteratee | ((...args: any[]) => TResult))[]): TResult[];
+        <T, R>(array: ArrayLike<[T]>, predicate: (T: T) => R): R[];
+        <T, T2, R>(array: ArrayLike<[T, T2]>, predicate: (T: T, T2: T2) => R): R[];
+        <T, T2, T3, R>(array: ArrayLike<[T, T2, T3]>, predicate: (T: T, T2: T2, T3: T3) => R): R[];
+        <T, T2, T3, T4, R>(array: ArrayLike<[T, T2, T3, T4]>, predicate: (T: T, T2: T2, T3: T3, T4: T4) => R): R[];
+        <T, T2, T3, T4, T5, R>(array: ArrayLike<[T, T2, T3, T4, T5]>, predicate: (T: T, T2: T2, T3: T3, T4: T4, T5: T5) => R): R[];
     }
 
     export interface ZipObject {
-        <T, TResult extends _Obj<T>>(props?: string[], values?: ArrayLike<T>): TResult;
+        <T, K extends string>(props: K[], values: T[]): { [P in K]: T; };
     }
 
     export interface RecursiveArrayLike<T> extends ArrayLike<T | RecursiveArrayLike<T>> { }
@@ -439,11 +458,11 @@ interface IStatic {
 }
 namespace Types.Wrap {
     export interface ForEach<T, TWrapper> {
-        (iteratee: ((value: T, index: number) => boolean | void) | Iteratee): TWrapper;
+        (iteratee: ((value: T, index: number) => boolean | void)): TWrapper;
     }
 
     export interface ForEachObject<T, TWrapper> {
-        (iteratee: ((value: T, index: string) => boolean | void) | Iteratee): TWrapper;
+        (iteratee: ((value: T, index: string) => boolean | void)): TWrapper;
     }
 
     export interface OrderBy<T, TWrapper> {
@@ -478,55 +497,81 @@ namespace Types.Wrap {
         sortBy: SortBy<T, TWrapper>;
     }
 
+    export interface ImplicitIteratee<T, TWrapper> {
+        (iteratee: ArrayPredicate<T>): TWrapper;
+        (iteratee: Property<T>): TWrapper;
+        (iteratee: Matches<T>): TWrapper;
+        (iteratee: MatchesProperty<T>): TWrapper;
+    }
+
+    export interface ImplicitFindIteratee<T, TWrapper> {
+        (iteratee: ArrayPredicate<T>, fromIndex?: number): TWrapper;
+        (iteratee: Property<T>, fromIndex?: number): TWrapper;
+        (iteratee: Matches<T>, fromIndex?: number): TWrapper;
+        (iteratee: MatchesProperty<T>, fromIndex?: number): TWrapper;
+    }
+
     export interface ImplicitWrapper<T, TWrapper> {
         countBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: number; }>;
-        every(): boolean;
-        every(iteratee: ArrayPredicate<T> | Iteratee): boolean;
-        filter(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
-        find(iteratee: ArrayPredicate<T> | Iteratee, fromIndex?: number): T;
-        findLast(iteratee: ArrayPredicate<T> | Iteratee, fromIndex?: number): T;
-        flatMap<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee): ImplicitArray1<TResult>;
-        flatMapDeep<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee): ImplicitArray1<TResult>;
-        flatMapDepth<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee, depth?: number): ImplicitArray1<TResult>;
+        every: ImplicitIteratee<T, boolean> & { (): boolean };
+        filter: ImplicitIteratee<T, TWrapper>;
+        find: ImplicitFindIteratee<T, T>;
+        findLast: ImplicitFindIteratee<T, T>;
+        flatMap<R>(iteratee: (value: T, index: number) => R[]): ImplicitArray1<R>;
+        flatMapDeep<R>(iteratee: (value: T, index: number) => R[]): ImplicitArray1<R>;
+        flatMapDepth<R>(iteratee: (value: T, index: number) => R[], depth?: number): ImplicitArray1<R>;
         includes(value: T, fromIndex?: number): boolean;
-        invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ImplicitArray1<TResult>;
+        invokeMap<R>(path: PathLocation | Function, ...args: any[]): ImplicitArray1<R>;
         keyBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: T; }>;
-        map<TResult>(iteratee: ((value: T, index: number) => TResult)|Iteratee): ImplicitArray1<TResult>;
+        map<R>(iteratee: (value: T, index: number) => R): ImplicitArray1<R>;
         groupBy<R>(iteratee: ValuePredicate<T, R>): ImplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee: BooleanPredicate<T>): ImplicitValue1<[T[], T[]]>;
-        reduce<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc> | Iteratee): TAcc;
-        reduceRight<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc> | Iteratee): TAcc;
-        reject(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
+        reduce<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc>): TAcc;
+        reduceRight<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc>): TAcc;
+        reject(iteratee: ArrayPredicate<T>): TWrapper;
         sample(): T;
         size(): number;
         some(): boolean;
-        some(iteratee: ArrayPredicate<T> | Iteratee): boolean;
+        some(iteratee: ArrayPredicate<T>): boolean;
+    }
+
+    export interface ExplicitIteratee<T, TWrapper> {
+        (iteratee: ArrayPredicate<T>): TWrapper;
+        (iteratee: Property<T>): TWrapper;
+        (iteratee: Matches<T>): TWrapper;
+        (iteratee: MatchesProperty<T>): TWrapper;
+    }
+
+    export interface ExplicitFindIteratee<T, TWrapper> {
+        (iteratee: ArrayPredicate<T>, fromIndex?: number): TWrapper;
+        (iteratee: Property<T>, fromIndex?: number): TWrapper;
+        (iteratee: Matches<T>, fromIndex?: number): TWrapper;
+        (iteratee: MatchesProperty<T>, fromIndex?: number): TWrapper;
     }
 
     export interface ExplicitWrapper<T, TWrapper> {
         countBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: number; }>;
-        every(): ExplicitValue1<boolean>;
-        every(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<boolean>;
-        filter(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
-        find(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<T>;
-        findLast(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<T>;
-        flatMap<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee): ExplicitArray1<TResult>;
-        flatMapDeep<TResult>(iteratee: (value: T, index: number) => TResult[]): ExplicitArray1<TResult>;
-        flatMapDeep<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee): ExplicitArray1<TResult>;
-        flatMapDepth<TResult>(iteratee: ((value: T, index: number) => TResult[]) | Iteratee, depth?: number): ExplicitArray1<TResult>;
+        every: ExplicitIteratee<T, ExplicitValue1<boolean>> & { (): ExplicitValue1<boolean> };
+        filter: ExplicitIteratee<T, TWrapper>;
+        find: ExplicitFindIteratee<T, ExplicitValue1<T>>;
+        findLast: ExplicitFindIteratee<T, ExplicitValue1<T>>;
+        flatMap<R>(iteratee: (value: T, index: number) => R[]): ExplicitArray1<R>;
+        flatMapDeep<R>(iteratee: (value: T, index: number) => R[]): ExplicitArray1<R>;
+        flatMapDeep<R>(iteratee: (value: T, index: number) => R[]): ExplicitArray1<R>;
+        flatMapDepth<R>(iteratee: (value: T, index: number) => R[], depth?: number): ExplicitArray1<R>;
         includes(value: T, fromIndex?: number): ExplicitValue1<boolean>;
-        invokeMap<TResult>(path: PathLocation | Function, ...args: any[]): ExplicitArray1<TResult>;
+        invokeMap<R>(path: PathLocation | Function, ...args: any[]): ExplicitArray1<R>;
         keyBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: T; }>;
-        map<TResult>(iteratee: ((value: T, index: number) => TResult) | Iteratee): ExplicitArray1<TResult>;
+        map<R>(iteratee: (value: T, index: number) => R): ExplicitArray1<R>;
         groupBy<R>(iteratee: ValuePredicate<T, R>): ExplicitValue1<{ [index: string]: T[]; }>;
         partition(iteratee: BooleanPredicate<T>): ExplicitValue1<[T[], T[]]>;
-        reduce<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc> | Iteratee): ExplicitValue1<TAcc>;
-        reduceRight<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc> | Iteratee): ExplicitValue1<TAcc>;
-        reject(iteratee: ArrayPredicate<T> | Iteratee): TWrapper;
+        reduce<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
+        reduceRight<TAcc>(iteratee: AccumulatorArrayPredicate<T, TAcc>): ExplicitValue1<TAcc>;
+        reject(iteratee: ArrayPredicate<T>): TWrapper;
         sample(): ExplicitValue1<T>;
         size(): ExplicitValue1<number>;
         some(): ExplicitValue1<boolean>;
-        some(iteratee: ArrayPredicate<T> | Iteratee): ExplicitValue1<boolean>;
+        some(iteratee: ArrayPredicate<T>): ExplicitValue1<boolean>;
     }
 
     export interface ObjectWrapper<T, TObj extends { [index: string]: T }, TWrapper> {
@@ -552,129 +597,138 @@ namespace Types.Wrap {
 }
 namespace Types {
     export interface CountBy {
-        <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>): { [index: string]: number; };
-        <T, R>(collection: _Obj<T>, iteratee: ValuePredicate<T, R>): { [index: string]: number; };
-        <T, R>(collection: any, iteratee: ValuePredicate<T, R>): { [index: string]: number; };
+        <T, R extends string>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>): { [ P in R ]: number; };
+        <T, R extends string>(collection: T, iteratee: (value: ValuePredicate<T[keyof T], R>) => R): { [ P in R ]: number; };
     }
 
     export interface GroupBy {
-        <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>): { [index: string]: T[]; };
-        <T, R>(collection: _Obj<T>, iteratee: ValuePredicate<T, R>): { [index: string]: T[]; };
-        <T, R>(collection: any, iteratee: ValuePredicate<T, R>): { [index: string]: T[]; };
+        <T, R extends string>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>): { [ P in R ]: T[]; };
+        <T, R extends string>(collection: T, iteratee: ValuePredicate<T[keyof T], R>): { [ P in R ]: T[]; };
     }
 
     export interface ByBooleanPredicate {
         <T>(collection: ArrayLike<T>): boolean;
-        <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T, ArrayLike<T>> | Iteratee): boolean;
-        <T>(collection: _Obj<T>): boolean;
-        <T>(collection: _Obj<T>, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): boolean;
-        <T>(collection: any): boolean;
-        <T>(collection: any, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): boolean;
+        <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T>): boolean;
+        <T>(collection: ArrayLike<T>, iteratee: Property<T>): boolean;
+        <T>(collection: ArrayLike<T>, iteratee: Matches<T>): boolean;
+        <T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T>): boolean;
+        <T>(collection: T): boolean;
+        <T>(collection: T, iteratee: ObjectPredicate<T>): boolean;
+        <T>(collection: T, iteratee: Property<T>): boolean;
+        <T>(collection: T, iteratee: Matches<T[keyof T]>): boolean;
+        <T>(collection: T, iteratee: MatchesProperty<T[keyof T]>): boolean;
     }
 
     export interface ByArrayPredicate {
-        <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T, ArrayLike<T>> | Iteratee): T[];
-        <T>(collection: _Obj<T>, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): T[];
-        <T>(collection: any, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): T[];
+        <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T>): T[];
+        <T>(collection: ArrayLike<T>, iteratee: Property<T>): T[];
+        <T>(collection: ArrayLike<T>, iteratee: Matches<T>): T[];
+        <T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T>): T[];
+        <T>(collection: T, iteratee: ObjectPredicate<T>): T[];
+        <T>(collection: T, iteratee: Property<T>): T[];
+        <T>(collection: T, iteratee: Matches<T>): T[];
+        <T>(collection: T, iteratee: MatchesProperty<T>): T[];
     }
 
     export interface FindPredicate {
-        <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T, ArrayLike<T>> | Iteratee, fromIndex?: number): T;
-        <T>(collection: _Obj<T>, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee, fromIndex?: number): T;
-        <T>(collection: any, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee, fromIndex?: number): T;
+        <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T>, fromIndex?: number): T;
+        <T>(collection: ArrayLike<T>, iteratee: Property<T>, fromIndex?: number): T;
+        <T>(collection: ArrayLike<T>, iteratee: Matches<T>, fromIndex?: number): T;
+        <T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T>, fromIndex?: number): T;
+        <T>(collection: T, iteratee: ObjectPredicate<T>, fromIndex?: number): T;
+        <T>(collection: T, iteratee: Property<T>, fromIndex?: number): T;
+        <T>(collection: T, iteratee: Matches<T>, fromIndex?: number): T;
+        <T>(collection: T, iteratee: MatchesProperty<T>, fromIndex?: number): T;
     }
 
-    export type FlatMapIteratorArray<T, TResult> = (value: T, index: number, collection: ArrayLike<T>) => TResult[];
-    export type FlatMapIteratorObject<T, TResult> = (value: T, index: string, collection: _Obj<T>) => TResult[];
+    export type FlatMapIteratorArray<T, R> = (value: T, index: number, collection: T[]) => R[];
+    export type FlatMapIteratorObject<T, R> = (value: T, index: keyof T, collection: T) => R[];
 
     export interface FlatMap {
-        <T, TResult>(collection: ArrayLike<T>, iteratee: FlatMapIteratorArray<T, TResult>): TResult[];
-        <TResult>(collection: ArrayLike<any>, iteratee: Iteratee): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee: FlatMapIteratorObject<T, TResult>): TResult[];
-        <TResult>(collection: _Obj<any>, iteratee: Iteratee): TResult[];
-        <T, TResult>(collection: any, iteratee: FlatMapIteratorObject<T, TResult>): TResult[];
-        <TResult>(collection: any, iteratee: Iteratee): TResult[];
+        <T>(collection: ArrayLike<ArrayLike<T>>): T[];
+        <T, R>(collection: ArrayLike<T>, iteratee: FlatMapIteratorArray<T, R>): R[];
+        <T, R>(collection: T, iteratee: FlatMapIteratorObject<T, R>): R[];
     }
 
     export interface FlatMapDepth {
-        <T, TResult>(collection: ArrayLike<T>, iteratee: FlatMapIteratorArray<T, TResult>, depth?: number): TResult[];
-        <TResult>(collection: ArrayLike<any>, iteratee: Iteratee, depth?: number): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee: FlatMapIteratorObject<T, TResult>, depth?: number): TResult[];
-        <TResult>(collection: _Obj<any>, iteratee: Iteratee, depth?: number): TResult[];
-        <T, TResult>(collection: any, iteratee: FlatMapIteratorObject<T, TResult>, depth?: number): TResult[];
-        <TResult>(collection: any, iteratee: Iteratee, depth?: number): TResult[];
+        <T>(collection: ArrayLike<ArrayLike<T>>, depth?: number): T[];
+        <T, R>(collection: ArrayLike<T>, iteratee: FlatMapIteratorArray<T, R>, depth?: number): R[];
+        <T, R>(collection: T, iteratee: FlatMapIteratorObject<T, R>, depth?: number): R[];
     }
 
     export type ForEachIteratorArray<T> = (value: T, index: number, collection: Array<T>) => boolean | void;
-    export type ForEachIteratorArrayLike<T> = (value: T, index: number, collection: ArrayLike<T>) => boolean | void;
-    export type ForEachIteratorObject<T> = (value: T, index: string, collection: _Obj<T>) => boolean | void;
+    export type ForEachIteratorObject<T> = (value: T[keyof T], index: string, collection: T) => boolean | void;
 
     export interface ForEach {
-        <T>(collection: Array<T>, iteratee: ForEachIteratorArray<T>): Array<T>;
-        <T>(collection: ArrayLike<T>, iteratee: ForEachIteratorArrayLike<T>): ArrayLike<T>;
-        <T>(collection: _Obj<T>, iteratee: ForEachIteratorObject<T>): _Obj<T>;
-        <T>(collection: any, iteratee: ForEachIteratorObject<T>): _Obj<T>;
+        <T>(collection: ArrayLike<T>, iteratee: ForEachIteratorArray<T>): ArrayLike<T>;
+        <T>(collection: T, iteratee: ForEachIteratorObject<T>): T;
     }
 
     export interface Includes {
         (collection: string, value: string, fromIndex?: number): boolean;
         <T>(collection: ArrayLike<T>, value: T, fromIndex?: number): boolean;
-        <T>(collection: _Obj<T>, value: any, fromIndex?: number): boolean;
-        <T>(collection: any, value: any, fromIndex?: number): boolean;
+        <T>(collection: T, value: any, fromIndex?: number): boolean;
     }
 
     export interface InvokeMap {
-        <TResult>(collection: ArrayLike<any> | _Obj<any>, path: PathLocation | Function, ...args: any[]): TResult[];
+        <T, R>(collection: ArrayLike<T>, path: PathLocation, ...args: any[]): R[];
+        <T, A1, R, F extends ((this: T, a1: A1) => R)>(collection: ArrayLike<T>, func: F, a1: A1): R[];
+        <T, A1, A2, R, F extends ((this: T, a1: A1, a2: A2) => R)>(collection: ArrayLike<T>, func: F, a1: A1, a2: A2): R[];
+        <T, A1, A2, A3, R, F extends ((this: T, a1: A1, a2: A2, a3: A3) => R)>(collection: ArrayLike<T>, func: F, a1: A1, a2: A2, a3: A3): R[];
+        <T, A1, A2, A3, A4, R, F extends ((this: T, a1: A1, a2: A2, a3: A3, a4: A4) => R)>(collection: ArrayLike<T>, func: F, a1: A1, a2: A2, a3: A3, a4: A4): R[];
+        <T, A1, A2, A3, A4, A5, R, F extends ((this: T, a1: A1, a2: A2, a3: A3, a4: A4, a5: A5) => R)>(collection: ArrayLike<T>, func: F, a1: A1, a2: A2, a3: A3, a4: A4, a5: A5): R[];
+        <T, R>(obj: T, path: PathLocation, ...args: any[]): R[];
+        <T, A1, R, F extends ((this: T[keyof T], a1: A1) => R)>(obj: T, func: F, a1: A1): R[];
+        <T, A1, A2, R, F extends ((this: T[keyof T], a1: A1, a2: A2) => R)>(obj: T, func: F, a1: A1, a2: A2): R[];
+        <T, A1, A2, A3, R, F extends ((this: T[keyof T], a1: A1, a2: A2, a3: A3) => R)>(obj: T, func: F, a1: A1, a2: A2, a3: A3): R[];
+        <T, A1, A2, A3, A4, R, F extends ((this: T[keyof T], a1: A1, a2: A2, a3: A3, a4: A4) => R)>(obj: T, func: F, a1: A1, a2: A2, a3: A3, a4: A4): R[];
+        <T, A1, A2, A3, A4, A5, R, F extends ((this: T[keyof T], a1: A1, a2: A2, a3: A3, a4: A4, a5: A5) => R)>(obj: T, func: F, a1: A1, a2: A2, a3: A3, a4: A4, a5: A5): R[];
     }
 
     export interface KeyBy {
-        <T, R>(collection: ArrayLike<T> | _Obj<T>, iteratee: ValuePredicate<T, R>): { [index: string]: T; };
+        <T, R>(collection: ArrayLike<T> | T, iteratee: ValuePredicate<T, R>): { [index: string]: T; };
     }
 
-    export type MapIteratorArray<T, TResult> = (value: T, index: number, collection: ArrayLike<T>) => TResult;
-    export type MapIteratorObject<T, TResult> = (value: T, index: string, collection: _Obj<T>) => TResult;
+    export type MapIteratorArray<T, R> = (value: T, index: number, collection: T[]) => R;
+    export type MapIteratorObject<T, R> = (value: T[keyof T], index: keyof T, collection: T) => R;
 
     export interface _Map {
-        <T, TResult>(collection: ArrayLike<T>, iteratee: MapIteratorArray<T, TResult>): TResult[];
-        <TResult>(collection: ArrayLike<any>, iteratee: Iteratee): TResult[];
-        <T, TResult>(collection: _Obj<T>, iteratee: MapIteratorObject<T, TResult>): TResult[];
-        <TResult>(collection: _Obj<any>, iteratee: Iteratee): TResult[];
-        <T, TResult>(collection: any, iteratee: MapIteratorObject<T, TResult>): TResult[];
-        <TResult>(collection: any, iteratee: Iteratee): TResult[];
+        <T, R>(collection: ArrayLike<T>, iteratee: MapIteratorArray<T, R>): R[];
+        <T, K extends keyof T>(collection: ArrayLike<T>, iteratee: K): T[K][];
+        <T, R>(collection: T, iteratee: MapIteratorObject<T, R>): R[];
     }
 
     export interface OrderBy {
-        <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R> | ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
-        <T, R>(collection: _Obj<T>, iteratee: ValuePredicate<T, R> | ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
-        <T, R>(collection: any, iteratee: ValuePredicate<T, R> | ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>, orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T, R>(collection: T, iteratee: ValuePredicate<T, R>, orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
+        <T, R>(collection: T, iteratee: ValuePredicate<T, R>[], orders?: ("asc" | "desc") | ("asc" | "desc")[]): T[];
     }
 
     export interface Partition {
         <T>(collection: ArrayLike<T>, iteratee: BooleanPredicate<T>): [T[], T[]];
-        <T>(collection: _Obj<T>, iteratee: BooleanPredicate<T>): [T[], T[]];
-        <T>(collection: any, iteratee: BooleanPredicate<T>): [T[], T[]];
+        <T>(collection: T, iteratee: BooleanPredicate<T>): [T[], T[]];
     }
 
     export interface Reduce {
-        <T, TAcc>(collection: ArrayLike<T>, iteratee: AccumulatorArrayPredicate<T, ArrayLike<T>, TAcc> | Iteratee, acc?: TAcc): TAcc;
-        <T, TAcc>(collection: _Obj<T>, iteratee: AccumulatorObjectPredicate<T, _Obj<T>, TAcc> | Iteratee, acc?: TAcc): TAcc;
-        <T, TAcc>(collection: any, iteratee: AccumulatorObjectPredicate<T, _Obj<T>, TAcc> | Iteratee, acc?: TAcc): TAcc;
+        <T, TAcc>(collection: ArrayLike<T>, iteratee: AccumulatorArrayPredicate<T, TAcc>, acc?: TAcc): TAcc;
+        <T, TAcc>(collection: T, iteratee: AccumulatorObjectPredicate<T, TAcc>, acc?: TAcc): TAcc;
     }
 
     export interface Sample {
-        <T>(collection: ArrayLike<T> | _Obj<T>): T;
+        <T>(collection: ArrayLike<T> | T): T;
     }
 
     export interface SampleSize {
-        <T>(collection: ArrayLike<T> | _Obj<T>, n?: number): T[];
+        <T>(collection: ArrayLike<T> | T, n?: number): T[];
     }
 
     export interface Shuffle {
-        <T>(collection: ArrayLike<T> | _Obj<T>): T[];
+        <T>(collection: ArrayLike<T> | T): T[];
     }
 
     export interface Size {
-        <T>(collection: ArrayLike<T> | _Obj<T>): number;
+        <T>(collection: ArrayLike<T> | T): number;
     }
 
     export interface SortBy {
@@ -682,14 +736,10 @@ namespace Types {
         <T, R>(collection: ArrayLike<T>, iteratee: ValuePredicate<T, R>[]): T[];
         <T>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T, any>[]): T[];
         <T, R>(collection: ArrayLike<T>, ...iteratees: ValuePredicate<T, R>[]): T[];
-        <T>(collection: _Obj<T>, iteratee: ValuePredicate<T, any>[]): T[];
-        <T, R>(collection: _Obj<T>, iteratee: ValuePredicate<T, R>[]): T[];
-        <T>(collection: _Obj<T>, ...iteratees: ValuePredicate<T, any>[]): T[];
-        <T, R>(collection: _Obj<T>, ...iteratees: ValuePredicate<T, R>[]): T[];
-        <T>(collection: any, iteratee: ValuePredicate<T, any>[]): T[];
-        <T, R>(collection: any, iteratee: ValuePredicate<T, R>[]): T[];
-        <T>(collection: any, ...iteratees: ValuePredicate<T, any>[]): T[];
-        <T, R>(collection: any, ...iteratees: ValuePredicate<T, R>[]): T[];
+        <T>(collection: T, iteratee: ValuePredicate<T, any>[]): T[];
+        <T, R>(collection: T, iteratee: ValuePredicate<T, R>[]): T[];
+        <T>(collection: T, ...iteratees: ValuePredicate<T, any>[]): T[];
+        <T, R>(collection: T, ...iteratees: ValuePredicate<T, R>[]): T[];
     }
 }
 
@@ -728,28 +778,30 @@ namespace Types {
         <T>(value: T, ...args: any[]): T;
     }
 
-   export type Iteratee = string | Object;
-   export type PathLocation = string | string[];
+    export type Property<T> = keyof T;
+    export type Matches<T> = Pick<T, keyof T>;
+    export type MatchesProperty<T> = [keyof T, T[keyof T]];
+    export type PathLocation = string | string[];
 
-   export type _Obj<T> = { [index: string]: T; } | { [index: number]: T; };
-   export type ArrayPredicate<T, TArray extends ArrayLike<T>> = (value: T, index: number, collection: TArray) => boolean;
-   export type AccumulatorArrayPredicate<T, TArray extends ArrayLike<T>, TAcc> = (accumulator: TAcc, value: T, index: number, collection: TArray) => TAcc;
+    // export type _Obj<T> = { [index: string]: T; } | { [index: number]: T; };
+    export type ArrayPredicate<T> = (value: T, index: number, collection: T[]) => boolean;
+    export type AccumulatorArrayPredicate<T, TAcc> = (accumulator: TAcc, value: T[keyof T], index: number, collection: T[]) => TAcc;
 
-   export type ObjectPredicate<T, TObj extends _Obj<T>> = (value: T, index: string, collection: TObj) => boolean;
-   export type AccumulatorObjectPredicate<T, TObj extends _Obj<T>, TAcc> = (accumulator: TAcc, value: T, index: string, collection: TObj) => TAcc;
+    export type ObjectPredicate<T> = (value: T[keyof T], index: keyof T, collection: T) => boolean;
+    export type AccumulatorObjectPredicate<T, TAcc> = (accumulator: TAcc, value: T[keyof T], index: keyof T, collection: T) => TAcc;
 
-   export type ValuePredicate<T, R> = (value: T) => R;
-   export type BooleanPredicate<T> = (value: T) => boolean;
-   export type AnySelector<T> = (value: T) => any;
-   export type Comparator<T> = (arrVal: T, othVal: T) => boolean;
-   export type ComparatorR<T, R> = (arrVal: T, othVal: R) => boolean;
+    export type ValuePredicate<T, R> = (value: T) => R;
+    export type BooleanPredicate<T> = (value: T) => boolean;
+    export type AnySelector<T> = (value: T) => any;
+    export type Comparator<T> = (arrVal: T, othVal: T) => boolean;
+    export type ComparatorR<T, R> = (arrVal: T, othVal: R) => boolean;
 
-   export namespace Wrap {
-       export type ArrayPredicate<T> = (value: T, index: number) => boolean;
-       export type AccumulatorArrayPredicate<T, TAcc> = (accumulator: TAcc, value: T, index: number) => TAcc;
+    export namespace Wrap {
+        export type ArrayPredicate<T> = (value: T, index: number) => boolean;
+        export type AccumulatorArrayPredicate<T, TAcc> = (accumulator: TAcc, value: T, index: number) => TAcc;
 
-       export type ObjectPredicate<T> = (value: T, index: string) => boolean;
-       export type AccumulatorObjectPredicate<T, TAcc> = (accumulator: TAcc, value: T, index: string) => TAcc;
+        export type ObjectPredicate<T> = (value: T[keyof T], index: keyof T) => boolean;
+        export type AccumulatorObjectPredicate<T, TAcc> = (accumulator: TAcc, value: T[keyof T], index: keyof T) => TAcc;
     }
 }
 type MemoizedFunction = {
@@ -801,12 +853,12 @@ namespace Types {
     }
 
     export interface Flip {
-        <T, TResult>(func: (t1: T) => TResult): (t1: T) => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t2: T2, t1: T) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t3: T3, t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult): (t4: T4, t3: T3, t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult): (t5: T5, t4: T4, t3: T3, t2: T2, t1: T) => TResult;
-        <TResult extends Function>(func: Function): TResult;
+        <T, R>(func: (t1: T) => R): (t1: T) => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R): (t2: T2, t1: T) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R): (t3: T3, t2: T2, t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R): (t4: T4, t3: T3, t2: T2, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R): (t5: T5, t4: T4, t3: T3, t2: T2, t1: T) => R;
+        <R extends Function>(func: Function): R;
     }
 
     export interface Memoize {
@@ -820,232 +872,232 @@ namespace Types {
     }
 
     export interface Negate {
-        <T, TResult>(func: (t1: T) => TResult): (t1: T) => boolean;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t1: T, t2: T2) => boolean;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t1: T, t2: T2, t3: T3) => boolean;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult): (t1: T, t2: T2, t3: T3, t4: T4) => boolean;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => boolean;
+        <T, R>(func: (t1: T) => R): (t1: T) => boolean;
+        <T, T2, R>(func: (t1: T, t2: T2) => R): (t1: T, t2: T2) => boolean;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R): (t1: T, t2: T2, t3: T3) => boolean;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R): (t1: T, t2: T2, t3: T3, t4: T4) => boolean;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => boolean;
         (func: (...args: any[]) => any): (...args: any[]) => boolean;
     }
 
     export interface OverArgs {
-        <T, TResult>(func: (t1: T) => TResult, t1: (t1: T) => T): (t1: T) => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: (t1: T) => T, t2: (t2: T2) => T2): (t1: T, t2: T2) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: (t1: T) => T, t2: (t2: T2) => T2, t3: (t3: T3) => T3): (t1: T, t2: T2, t3: T3) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: (t1: T) => T, t2: (t2: T2) => T2, t3: (t3: T3) => T3, t4: (t4: T4) => T4): (t1: T, t2: T2, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: (t1: T) => T, t2: (t2: T2) => T2, t3: (t3: T3) => T3, t4: (t4: T4) => T4, t5: (t5: T5) => T5): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult;
+        <T, R>(func: (t1: T) => R, t1: (t1: T) => T): (t1: T) => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, t1: (t1: T) => T, t2: (t2: T2) => T2): (t1: T, t2: T2) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t1: (t1: T) => T, t2: (t2: T2) => T2, t3: (t3: T3) => T3): (t1: T, t2: T2, t3: T3) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: (t1: T) => T, t2: (t2: T2) => T2, t3: (t3: T3) => T3, t4: (t4: T4) => T4): (t1: T, t2: T2, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: (t1: T) => T, t2: (t2: T2) => T2, t3: (t3: T3) => T3, t4: (t4: T4) => T4, t5: (t5: T5) => T5): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R;
         <T extends Function>(func: T, ...args: any[]): T;
     }
 
     export interface Rest {
-        <T, TArg, TResult>(func: (t1: T, args: TArg[]) => TResult): (t1: T, ...args: TArg[]) => TResult;
-        <T, T2, TArg, TResult>(func: (t1: T, t2: T2, args: TArg[]) => TResult): (t1: T, t2: T2, ...args: TArg[]) => TResult;
-        <T, T2, T3, TArg, TResult>(func: (t1: T, t2: T2, t3: T3, args: TArg[]) => TResult): (t1: T, t2: T2, t3: T3, ...args: TArg[]) => TResult;
-        <T, T2, T3, T4, TArg, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, args: TArg[]) => TResult): (t1: T, t2: T2, t3: T3, t4: T4, ...args: TArg[]) => TResult;
-        <T, T2, T3, T4, T5, TArg, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5, args: TArg[]) => TResult): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5, ...args: TArg[]) => TResult;
+        <T, TArg, R>(func: (t1: T, args: TArg[]) => R): (t1: T, ...args: TArg[]) => R;
+        <T, T2, TArg, R>(func: (t1: T, t2: T2, args: TArg[]) => R): (t1: T, t2: T2, ...args: TArg[]) => R;
+        <T, T2, T3, TArg, R>(func: (t1: T, t2: T2, t3: T3, args: TArg[]) => R): (t1: T, t2: T2, t3: T3, ...args: TArg[]) => R;
+        <T, T2, T3, T4, TArg, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, args: TArg[]) => R): (t1: T, t2: T2, t3: T3, t4: T4, ...args: TArg[]) => R;
+        <T, T2, T3, T4, T5, TArg, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5, args: TArg[]) => R): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5, ...args: TArg[]) => R;
         <T extends Function>(func: Function, start?: number): T;
     }
 
     export interface Spread {
-        <T, TResult>(func: (args: T[]) => TResult): (...args: T[]) => TResult;
+        <T, R>(func: (args: T[]) => R): (...args: T[]) => R;
         <T extends Function>(func: Function, start?: number): T;
     }
 
     export interface Unary {
-        <T, TResult>(func: (t1: T) => TResult): (t1: T) => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult): (t1: T) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult): (t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult): (t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult): (t1: T) => TResult;
-        <TResult extends Function>(func: Function): TResult;
+        <T, R>(func: (t1: T) => R): (t1: T) => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R): (t1: T) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R): (t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R): (t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R): (t1: T) => R;
+        <R extends Function>(func: Function): R;
     }
 
     export interface Bind {
-        <TResult>(func: () => TResult, thisArg: any): () => TResult;
-        <T, TResult>(func: (t1: T) => TResult, thisArg: any): (t1: T) => TResult;
-        <T, TResult>(func: (t1: T) => TResult, thisArg: any, t1: T): () => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, thisArg: any): (t1: T, t2: T2) => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, thisArg: any, t1: PH, t2: T2): (t1: T) => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, thisArg: any, t1: T): (t2: T2) => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, thisArg: any, t1: T, t2: T2): () => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, thisArg: any, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, thisArg: any, t1: PH, t2: T2): (t1: T, t3: T3) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, thisArg: any, t1: PH, t2: T2, t3: T3): (t1: T) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, thisArg: any, t1: T, t2: PH, t3: T3): (t2: T2) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, thisArg: any): (t1: T, t2: T2, t3: T3) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, thisArg: any, t1: T): (t2: T2, t3: T3) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, thisArg: any, t1: T, t2: T2): (t3: T3) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, thisArg: any, t1: T, t2: T2, t3: T3): () => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: PH, t2: PH, t3: PH, t4: T4): (t1: T, t2: T2, t3: PH) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: PH, t2: PH, t3: T3, t4: T4): (t1: T, t2: T2) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: PH, t2: T2, t3: PH, t4: T4): (t1: T, t3: T3) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: T, t2: PH, t3: PH, t4: T4): (t2: T2, t3: T3) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: PH, t2: T2): (t1: T, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: PH, t2: T2, t3: T3): (t1: T, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: T, t2: PH, t3: T3): (t2: T2, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: PH, t2: T2, t3: T3, t4: T4): (t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: T, t2: PH, t3: T3, t4: T4): (t2: T2) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: T, t2: T2, t3: PH, t4: T4): (t3: T3) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any): (t1: T, t2: T2, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: T): (t2: T2, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: T, t2: T2): (t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: T, t2: T2, t3: T3): (t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, thisArg: any, t1: T, t2: T2, t3: T3, t4: T4): () => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: T2): (t1: T, t3: T3, t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: T2, t3: T3): (t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: T2, t3: T3): (t1: T, t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: PH, t3: T3): (t2: T2, t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2, t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: PH, t3: PH, t4: T4): (t2: T2, t3: T3, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: PH, t3: PH, t4: T4): (t1: T, t2: T2, t3: T3, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: T2, t3: T3, t4: T4): (t1: T, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: PH, t3: T3, t4: T4): (t1: T, t2: T2, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: T2, t3: PH, t4: T4): (t1: T, t3: T3, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: PH, t3: T3, t4: T4): (t2: T2, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: T2, t3: PH, t4: T4): (t3: T3, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: T2, t3: T3, t4: T4): (t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: PH, t3: PH, t4: PH, t5: T5): (t1: T, t2: T2, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: PH, t3: PH, t4: T4, t5: T5): (t1: T, t2: T2, t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: PH, t3: T3, t4: PH, t5: T5): (t1: T, t2: T2, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: T2, t3: PH, t4: PH, t5: T5): (t1: T, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: PH, t3: PH, t4: PH, t5: T5): (t2: T2, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: PH, t3: T3, t4: T4, t5: T5): (t1: T, t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: T2, t3: PH, t4: T4, t5: T5): (t1: T, t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: T2, t3: T3, t4: PH, t5: T5): (t1: T, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: PH, t3: PH, t4: T4, t5: T5): (t2: T2, t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: PH, t3: T3, t4: PH, t5: T5): (t2: T2, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: T2, t3: PH, t4: PH, t5: T5): (t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: PH, t2: T2, t3: T3, t4: T4, t5: T5): (t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: PH, t3: T3, t4: T4, t5: T5): (t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: T2, t3: PH, t4: T4, t5: T5): (t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: T2, t3: T3, t4: PH, t5: T5): (t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): () => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T, t2: T2): (t3: T3, t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, thisArg: any, t1: T): (t2: T2, t3: T3, t4: T4, t5: T5) => TResult;
-        <TResult extends Function>(func: Function, thisArg: any, ...args: any[]): TResult;
+        <R>(func: () => R, thisArg: any): () => R;
+        <T, R>(func: (t1: T) => R, thisArg: any): (t1: T) => R;
+        <T, R>(func: (t1: T) => R, thisArg: any, t1: T): () => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, thisArg: any): (t1: T, t2: T2) => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, thisArg: any, t1: PH, t2: T2): (t1: T) => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, thisArg: any, t1: T): (t2: T2) => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, thisArg: any, t1: T, t2: T2): () => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, thisArg: any, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, thisArg: any, t1: PH, t2: T2): (t1: T, t3: T3) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, thisArg: any, t1: PH, t2: T2, t3: T3): (t1: T) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, thisArg: any, t1: T, t2: PH, t3: T3): (t2: T2) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, thisArg: any): (t1: T, t2: T2, t3: T3) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, thisArg: any, t1: T): (t2: T2, t3: T3) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, thisArg: any, t1: T, t2: T2): (t3: T3) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, thisArg: any, t1: T, t2: T2, t3: T3): () => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: PH, t2: PH, t3: PH, t4: T4): (t1: T, t2: T2, t3: PH) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: PH, t2: PH, t3: T3, t4: T4): (t1: T, t2: T2) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: PH, t2: T2, t3: PH, t4: T4): (t1: T, t3: T3) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: T, t2: PH, t3: PH, t4: T4): (t2: T2, t3: T3) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: PH, t2: T2): (t1: T, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: PH, t2: T2, t3: T3): (t1: T, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: T, t2: PH, t3: T3): (t2: T2, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: PH, t2: T2, t3: T3, t4: T4): (t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: T, t2: PH, t3: T3, t4: T4): (t2: T2) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: T, t2: T2, t3: PH, t4: T4): (t3: T3) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any): (t1: T, t2: T2, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: T): (t2: T2, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: T, t2: T2): (t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: T, t2: T2, t3: T3): (t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, thisArg: any, t1: T, t2: T2, t3: T3, t4: T4): () => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: T2): (t1: T, t3: T3, t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: T2, t3: T3): (t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: T2, t3: T3): (t1: T, t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: PH, t3: T3): (t2: T2, t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2, t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: PH, t3: PH, t4: T4): (t2: T2, t3: T3, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: PH, t3: PH, t4: T4): (t1: T, t2: T2, t3: T3, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: T2, t3: T3, t4: T4): (t1: T, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: PH, t3: T3, t4: T4): (t1: T, t2: T2, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: T2, t3: PH, t4: T4): (t1: T, t3: T3, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: PH, t3: T3, t4: T4): (t2: T2, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: T2, t3: PH, t4: T4): (t3: T3, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: T2, t3: T3, t4: T4): (t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: PH, t3: PH, t4: PH, t5: T5): (t1: T, t2: T2, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: PH, t3: PH, t4: T4, t5: T5): (t1: T, t2: T2, t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: PH, t3: T3, t4: PH, t5: T5): (t1: T, t2: T2, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: T2, t3: PH, t4: PH, t5: T5): (t1: T, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: PH, t3: PH, t4: PH, t5: T5): (t2: T2, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: PH, t3: T3, t4: T4, t5: T5): (t1: T, t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: T2, t3: PH, t4: T4, t5: T5): (t1: T, t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: T2, t3: T3, t4: PH, t5: T5): (t1: T, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: PH, t3: PH, t4: T4, t5: T5): (t2: T2, t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: PH, t3: T3, t4: PH, t5: T5): (t2: T2, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: T2, t3: PH, t4: PH, t5: T5): (t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: PH, t2: T2, t3: T3, t4: T4, t5: T5): (t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: PH, t3: T3, t4: T4, t5: T5): (t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: T2, t3: PH, t4: T4, t5: T5): (t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: T2, t3: T3, t4: PH, t5: T5): (t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): () => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T, t2: T2): (t3: T3, t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, thisArg: any, t1: T): (t2: T2, t3: T3, t4: T4, t5: T5) => R;
+        <R extends Function>(func: Function, thisArg: any, ...args: any[]): R;
     }
 
-    export interface Partial {
-        <T, TResult>(func: (t1: T) => TResult, t1: T): () => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: PH, t2: T2): (t1: T) => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T): (t2: T2) => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): () => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: PH, t2: T2): (t1: T, t3: T3) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: PH, t2: T2, t3: T3): (t1: T) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: PH, t3: T3): (t2: T2) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T): (t2: T2, t3: T3) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2): (t3: T3) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): () => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: PH, t2: PH, t3: PH, t4: T4): (t1: T, t2: T2, t3: PH) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: PH, t2: PH, t3: T3, t4: T4): (t1: T, t2: T2) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: PH, t2: T2, t3: PH, t4: T4): (t1: T, t3: T3) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: PH, t3: PH, t4: T4): (t2: T2, t3: T3) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: PH, t2: T2): (t1: T, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: PH, t2: T2, t3: T3): (t1: T, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: PH, t3: T3): (t2: T2, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: PH, t2: T2, t3: T3, t4: T4): (t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: PH, t3: T3, t4: T4): (t2: T2) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: PH, t4: T4): (t3: T3) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T): (t2: T2, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2): (t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3): (t4: T4) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): () => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: T2): (t1: T, t3: T3, t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3): (t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: T2, t3: T3): (t1: T, t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: PH, t3: T3): (t2: T2, t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2, t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: PH, t3: PH, t4: T4): (t2: T2, t3: T3, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: PH, t3: PH, t4: T4): (t1: T, t2: T2, t3: T3, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: T2, t3: T3, t4: T4): (t1: T, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: PH, t3: T3, t4: T4): (t1: T, t2: T2, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: T2, t3: PH, t4: T4): (t1: T, t3: T3, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: PH, t3: T3, t4: T4): (t2: T2, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: PH, t4: T4): (t3: T3, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4): (t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: PH, t3: PH, t4: PH, t5: T5): (t1: T, t2: T2, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: PH, t3: PH, t4: T4, t5: T5): (t1: T, t2: T2, t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: PH, t3: T3, t4: PH, t5: T5): (t1: T, t2: T2, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: T2, t3: PH, t4: PH, t5: T5): (t1: T, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: PH, t3: PH, t4: PH, t5: T5): (t2: T2, t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: PH, t3: T3, t4: T4, t5: T5): (t1: T, t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: T2, t3: PH, t4: T4, t5: T5): (t1: T, t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: T2, t3: T3, t4: PH, t5: T5): (t1: T, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: PH, t3: PH, t4: T4, t5: T5): (t2: T2, t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: PH, t3: T3, t4: PH, t5: T5): (t2: T2, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: PH, t4: PH, t5: T5): (t3: T3, t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: PH, t2: T2, t3: T3, t4: T4, t5: T5): (t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: PH, t3: T3, t4: T4, t5: T5): (t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: PH, t4: T4, t5: T5): (t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: PH, t5: T5): (t4: T4) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): () => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2): (t3: T3, t4: T4, t5: T5) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T): (t2: T2, t3: T3, t4: T4, t5: T5) => TResult;
-        <TResult extends Function>(func: Function, ...args: any[]): TResult;
+    export interface Partial1 {
+        <T, R>(func: (t1: T) => R, t1: T): () => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, t1: PH, t2: T2): (t1: T) => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, t1: T): (t2: T2) => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, t1: T, t2: T2): () => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t1: PH, t2: T2): (t1: T, t3: T3) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t1: PH, t2: T2, t3: T3): (t1: T) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t1: T, t2: PH, t3: T3): (t2: T2) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t1: T): (t2: T2, t3: T3) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t1: T, t2: T2): (t3: T3) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t1: T, t2: T2, t3: T3): () => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: PH, t2: PH, t3: PH, t4: T4): (t1: T, t2: T2, t3: PH) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: PH, t2: PH, t3: T3, t4: T4): (t1: T, t2: T2) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: PH, t2: T2, t3: PH, t4: T4): (t1: T, t3: T3) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: T, t2: PH, t3: PH, t4: T4): (t2: T2, t3: T3) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: PH, t2: T2): (t1: T, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: PH, t2: T2, t3: T3): (t1: T, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: T, t2: PH, t3: T3): (t2: T2, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: PH, t2: T2, t3: T3, t4: T4): (t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: T, t2: PH, t3: T3, t4: T4): (t2: T2) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: T, t2: T2, t3: PH, t4: T4): (t3: T3) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: T): (t2: T2, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: T, t2: T2): (t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: T, t2: T2, t3: T3): (t4: T4) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: T, t2: T2, t3: T3, t4: T4): () => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: T2): (t1: T, t3: T3, t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: T2, t3: T3): (t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: T2, t3: T3): (t1: T, t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: PH, t3: T3): (t2: T2, t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: PH, t3: T3): (t1: T, t2: T2, t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: PH, t3: PH, t4: T4): (t2: T2, t3: T3, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: PH, t3: PH, t4: T4): (t1: T, t2: T2, t3: T3, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: T2, t3: T3, t4: T4): (t1: T, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: PH, t3: T3, t4: T4): (t1: T, t2: T2, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: T2, t3: PH, t4: T4): (t1: T, t3: T3, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: PH, t3: T3, t4: T4): (t2: T2, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: T2, t3: PH, t4: T4): (t3: T3, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: T2, t3: T3, t4: T4): (t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: PH, t3: PH, t4: PH, t5: T5): (t1: T, t2: T2, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: PH, t3: PH, t4: T4, t5: T5): (t1: T, t2: T2, t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: PH, t3: T3, t4: PH, t5: T5): (t1: T, t2: T2, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: T2, t3: PH, t4: PH, t5: T5): (t1: T, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: PH, t3: PH, t4: PH, t5: T5): (t2: T2, t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: PH, t3: T3, t4: T4, t5: T5): (t1: T, t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: T2, t3: PH, t4: T4, t5: T5): (t1: T, t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: T2, t3: T3, t4: PH, t5: T5): (t1: T, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: PH, t3: PH, t4: T4, t5: T5): (t2: T2, t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: PH, t3: T3, t4: PH, t5: T5): (t2: T2, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: T2, t3: PH, t4: PH, t5: T5): (t3: T3, t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: PH, t2: T2, t3: T3, t4: T4, t5: T5): (t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: PH, t3: T3, t4: T4, t5: T5): (t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: T2, t3: PH, t4: T4, t5: T5): (t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: T2, t3: T3, t4: PH, t5: T5): (t4: T4) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): () => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: T2): (t3: T3, t4: T4, t5: T5) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T): (t2: T2, t3: T3, t4: T4, t5: T5) => R;
+        <R extends Function>(func: Function, ...args: any[]): R;
     }
 
     export interface PartialRight {
-        <T, TResult>(func: (t1: T) => TResult, t1: T): () => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t2: PH, t1: T): (t1: T) => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t2: T2): (t1: T) => TResult;
-        <T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t2: T2, t1: T): () => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t3: PH, t2: PH, t1: T): (t3: T3, t2: T2) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: PH, t2: T2): (t3: T3, t1: T) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t3: PH, t2: T2, t1: T): (t3: T3) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t3: T3, t2: PH, t1: T): (t2: T2) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t3: T3): (t2: T2, t1: T) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t3: T3, t2: T2): (t1: T) => TResult;
-        <T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t3: T3, t2: T2, t1: T): () => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: PH, t3: PH, t2: PH, t1: T): (t4: T, t2: T2, t3: PH) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: PH, t3: PH, t2: T2, t1: T): (t4: T, t2: T2) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: PH, t2: T2, t3: PH, t1: T): (t4: T, t2: T2) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: PH, t3: PH, t2: T2): (t4: T, t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: T, t3: PH, t2: PH, t1: T): (t3: T3, t2: T2) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: PH, t2: T2): (t4: T, t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: PH, t3: T3, t2: T2): (t4: T, t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: T, t3: PH, t2: T2): (t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: PH, t3: T3, t2: T2, t1: T): (t4: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: T, t3: PH, t2: T2, t1: T): (t2: T2) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: T, t2: T2, t3: PH, t1: T): (t2: T2) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: T): (t3: T3, t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: T, t2: T2): (t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: T, t3: T3, t2: T2): (t1: T) => TResult;
-        <T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t4: T, t3: T3, t2: T2, t1: T): () => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: T4): (t5: T5, t3: T3, t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: T4, t3: T3): (t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: T4, t3: T3): (t5: T5, t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: PH, t3: T3): (t4: T4, t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: PH, t3: T3): (t5: T5, t4: T4, t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: PH, t3: PH, t2: T2): (t4: T4, t3: T3, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: PH, t3: PH, t2: T2): (t5: T5, t4: T4, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: T4, t3: T3, t2: T2): (t5: T5, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: PH, t3: T3, t2: T2): (t5: T5, t4: T4, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: T4, t3: PH, t2: T2): (t3: T3, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: PH, t3: T3, t2: T2): (t4: T4, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: T4, t3: PH, t2: T2): (t3: T3, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: T4, t3: T3, t2: T2): (t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: PH, t3: PH, t2: PH, t1: T): (t5: T5, t4: T4, t3: T3, t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: PH, t3: PH, t2: T2, t1: T): (t5: T5, t4: T4, t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: PH, t3: T3, t2: PH, t1: T): (t5: T5, t4: T4, t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: T4, t3: PH, t2: PH, t1: T): (t5: T5, t3: T3, t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: PH, t3: PH, t2: PH, t1: T): (t4: T4, t3: T3, t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: PH, t3: T3, t2: T2, t1: T): (t5: T5, t4: T4, t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: T4, t3: PH, t2: T2, t1: T): (t5: T5, t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: T4, t3: T3, t2: PH, t1: T): (t5: T5, t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: PH, t3: PH, t2: T2, t1: T): (t4: T4, t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: PH, t3: T3, t2: PH, t1: T): (t4: T4, t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: T4, t3: PH, t2: PH, t1: T): (t3: T3, t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: PH, t4: T4, t3: T3, t2: T2, t1: T): (t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: PH, t3: T3, t2: T2, t1: T): (t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: T4, t3: PH, t2: T2, t1: T): (t3: T3) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: T4, t3: T3, t2: PH, t1: T): (t2: T2) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: T4, t3: T3, t2: T2, t1: T): () => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5, t4: T4): (t3: T3, t2: T2, t1: T) => TResult;
-        <T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t5: T5): (t4: T4, t3: T3, t2: T2, t1: T) => TResult;
-        <TResult extends Function>(func: Function, ...args: any[]): TResult;
+        <T, R>(func: (t1: T) => R, t1: T): () => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, t2: PH, t1: T): (t1: T) => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, t2: T2): (t1: T) => R;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, t2: T2, t1: T): () => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t3: PH, t2: PH, t1: T): (t3: T3, t2: T2) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t1: PH, t2: T2): (t3: T3, t1: T) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t3: PH, t2: T2, t1: T): (t3: T3) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t3: T3, t2: PH, t1: T): (t2: T2) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t3: T3): (t2: T2, t1: T) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t3: T3, t2: T2): (t1: T) => R;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t3: T3, t2: T2, t1: T): () => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: PH, t3: PH, t2: PH, t1: T): (t4: T, t2: T2, t3: PH) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: PH, t3: PH, t2: T2, t1: T): (t4: T, t2: T2) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: PH, t2: T2, t3: PH, t1: T): (t4: T, t2: T2) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: PH, t3: PH, t2: T2): (t4: T, t2: T2, t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: T, t3: PH, t2: PH, t1: T): (t3: T3, t2: T2) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: PH, t2: T2): (t4: T, t2: T2, t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: PH, t3: T3, t2: T2): (t4: T, t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: T, t3: PH, t2: T2): (t2: T2, t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: PH, t3: T3, t2: T2, t1: T): (t4: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: T, t3: PH, t2: T2, t1: T): (t2: T2) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: T, t2: T2, t3: PH, t1: T): (t2: T2) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: T): (t3: T3, t2: T2, t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: T, t2: T2): (t2: T2, t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: T, t3: T3, t2: T2): (t1: T) => R;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t4: T, t3: T3, t2: T2, t1: T): () => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: T4): (t5: T5, t3: T3, t2: T2, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: T4, t3: T3): (t2: T2, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: T4, t3: T3): (t5: T5, t2: T2, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: PH, t3: T3): (t4: T4, t2: T2, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: PH, t3: T3): (t5: T5, t4: T4, t2: T2, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: PH, t3: PH, t2: T2): (t4: T4, t3: T3, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: PH, t3: PH, t2: T2): (t5: T5, t4: T4, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: T4, t3: T3, t2: T2): (t5: T5, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: PH, t3: T3, t2: T2): (t5: T5, t4: T4, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: T4, t3: PH, t2: T2): (t3: T3, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: PH, t3: T3, t2: T2): (t4: T4, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: T4, t3: PH, t2: T2): (t3: T3, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: T4, t3: T3, t2: T2): (t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: PH, t3: PH, t2: PH, t1: T): (t5: T5, t4: T4, t3: T3, t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: PH, t3: PH, t2: T2, t1: T): (t5: T5, t4: T4, t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: PH, t3: T3, t2: PH, t1: T): (t5: T5, t4: T4, t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: T4, t3: PH, t2: PH, t1: T): (t5: T5, t3: T3, t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: PH, t3: PH, t2: PH, t1: T): (t4: T4, t3: T3, t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: PH, t3: T3, t2: T2, t1: T): (t5: T5, t4: T4, t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: T4, t3: PH, t2: T2, t1: T): (t5: T5, t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: T4, t3: T3, t2: PH, t1: T): (t5: T5, t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: PH, t3: PH, t2: T2, t1: T): (t4: T4, t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: PH, t3: T3, t2: PH, t1: T): (t4: T4, t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: T4, t3: PH, t2: PH, t1: T): (t3: T3, t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: PH, t4: T4, t3: T3, t2: T2, t1: T): (t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: PH, t3: T3, t2: T2, t1: T): (t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: T4, t3: PH, t2: T2, t1: T): (t3: T3) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: T4, t3: T3, t2: PH, t1: T): (t2: T2) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: T4, t3: T3, t2: T2, t1: T): () => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5, t4: T4): (t3: T3, t2: T2, t1: T) => R;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t5: T5): (t4: T4, t3: T3, t2: T2, t1: T) => R;
+        <R extends Function>(func: Function, ...args: any[]): R;
     }
 
     export interface CurriedFunction1<T1, R> {
@@ -1089,7 +1141,7 @@ namespace Types {
         <T1, T2, T3, R>(func: (t1: T1, t2: T2, t3: T3) => R): CurriedFunction3<T1, T2, T3, R>;
         <T1, T2, T3, T4, R>(func: (t1: T1, t2: T2, t3: T3, t4: T4) => R): CurriedFunction4<T1, T2, T3, T4, R>;
         <T1, T2, T3, T4, T5, R>(func: (t1: T1, t2: T2, t3: T3, t4: T4, t5: T5) => R): CurriedFunction5<T1, T2, T3, T4, T5, R>;
-        <TResult extends Function>(func: Function, arity?: number): TResult;
+        <R extends Function>(func: Function, arity?: number): R;
     }
 
     export interface CurryRight {
@@ -1098,12 +1150,12 @@ namespace Types {
         <T1, T2, T3, R>(func: (t1: T1, t2: T2, t3: T3) => R): CurriedFunction3<T3, T2, T1, R>;
         <T1, T2, T3, T4, R>(func: (t1: T1, t2: T2, t3: T3, t4: T4) => R): CurriedFunction4<T4, T3, T2, T1, R>;
         <T1, T2, T3, T4, T5, R>(func: (t1: T1, t2: T2, t3: T3, t4: T4, t5: T5) => R): CurriedFunction5<T5, T4, T3, T2, T1, R>;
-        <TResult extends Function>(func: Function, arity?: number): TResult;
+        <R extends Function>(func: Function, arity?: number): R;
     }
 
     export interface Rearg {
-        <TResult extends Function>(func: Function, indexes: number[]): TResult;
-        <TResult extends Function>(func: Function, ...indexes: number[]): TResult;
+        <R extends Function>(func: Function, indexes: number[]): R;
+        <R extends Function>(func: Function, ...indexes: number[]): R;
     }
 }
 
@@ -1112,7 +1164,7 @@ interface IStatic {
     ary<T extends Function>(func: T, num?: number): T
     before: Types.AfterMethod;
     bind: Types.Bind;
-    bindKey<TResult extends Function>(object: Object, key: string, ...partials: any[]): TResult
+    bindKey<R extends Function>(object: Object, key: string, ...partials: any[]): R
     curry: Types.Curry;
     curryRight: Types.CurryRight;
     debounce<T extends Function>(func: T, wait?: number, options?: Types.DebounceOptions): T
@@ -1123,19 +1175,19 @@ interface IStatic {
     negate: Types.Negate;
     once: Types.ReturnMethod;
     overArgs: Types.OverArgs;
-    partial: Types.Partial;
+    partial: Types.Partial1;
     partialRight: Types.PartialRight;
     rearg: Types.Rearg;
     rest: Types.Rest;
     spread: Types.Spread;
     throttle<T extends Function>(func: T, wait?: number, options?: Types.ThrottleOptions): T
     unary: Types.Unary;
-    wrap<T, TResult>(value: T, wrapper: (value: T) => TResult): () => TResult;
-    wrap<T, TResult, A1>(value: T, wrapper: (value: T, arg1: A1) => TResult): (arg1: A1) => TResult;
-    wrap<T, TResult, A1, A2>(value: T, wrapper: (value: T, arg1: A1, arg2: A2) => TResult): (arg1: A1, arg2: A2) => TResult;
-    wrap<T, TResult, A1, A2, A3>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3) => TResult): (arg1: A1, arg2: A2, arg3: A3) => TResult;
-    wrap<T, TResult, A1, A2, A3, A4>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3, arg4: A4) => TResult): (arg1: A1, arg2: A2, arg3: A3, arg4: A4) => TResult;
-    wrap<T, TResult, A1, A2, A3, A4, A5>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => TResult): (arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => TResult;
+    wrap<T, R>(value: T, wrapper: (value: T) => R): () => R;
+    wrap<T, R, A1>(value: T, wrapper: (value: T, arg1: A1) => R): (arg1: A1) => R;
+    wrap<T, R, A1, A2>(value: T, wrapper: (value: T, arg1: A1, arg2: A2) => R): (arg1: A1, arg2: A2) => R;
+    wrap<T, R, A1, A2, A3>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3) => R): (arg1: A1, arg2: A2, arg3: A3) => R;
+    wrap<T, R, A1, A2, A3, A4>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3, arg4: A4) => R): (arg1: A1, arg2: A2, arg3: A3, arg4: A4) => R;
+    wrap<T, R, A1, A2, A3, A4, A5>(value: T, wrapper: (value: T, arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => R): (arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => R;
 
 }
 namespace Types {
@@ -1150,7 +1202,7 @@ namespace Types {
 
     export interface CloneWith {
         <T>(value: T): T;
-        <T, TResult>(value: T, customizer: (value: any, key: string, object: T, stack: any) => any): TResult;
+        <T, R>(value: T, customizer: (value: T[keyof T], key: keyof T, object: T, stack: T) => any): T;
     }
 
     export interface Comparison {
@@ -1183,7 +1235,7 @@ interface IStatic {
     isElement<T extends Element>(value: any): value is T;
     isEmpty(value: any): boolean;
     isEqual: Types.Comparison;
-    isEqualWith<T>(a: T, b: T, customizer: (valueA: any, valueB: any, key: string, a: T, b: T, stack: any) => any): boolean;
+    isEqualWith<T>(a: T, b: T, customizer: (valueA: T[keyof T], valueB: T[keyof T], key: keyof T, a: T, b: T, stack: any) => any): boolean;
     isError<T extends Error>(value: any): value is T;
     isFinite(value: number): boolean;
     isFunction<T extends Function>(value: any): value is T;
@@ -1191,7 +1243,7 @@ interface IStatic {
     isLength(value: number): boolean;
     isMap<K, V>(value: any): value is Map<K, V>;
     isMatch<T extends R, R>(value: T, match: R): boolean;
-    isMatchWith<T, R>(value: T, source: R, customizer: (valueA: any, valueB: any, key: string, a: T, b: R) => any): boolean;
+    isMatchWith<T, R>(value: T, source: R, customizer: (valueA: T[keyof T], valueB: R[keyof R], key: keyof T, a: T, b: R) => any): boolean;
     isNaN(value: number): boolean;
     isNative<T extends Function>(value: T): boolean;
     isNil(value: any): boolean;
@@ -1226,7 +1278,9 @@ namespace Types.Wrap {
         export type Aggregation<T> = () => T;
         export interface AggregationBy<T, TWrapper> {
             (): TWrapper;
-            (iteratee: Iteratee | PathLocation | ((value: T) => number)): TWrapper;
+            (iteratee: (value: T) => number): TWrapper;
+            (iteratee: Property<T>): TWrapper;
+            (iteratee: PathLocation): TWrapper;
         }
     }
 
@@ -1261,13 +1315,12 @@ namespace Types {
         export interface AggregationBy {
             <T>(array: T[]): T;
             <T>(array: T[], iteratee: AggregationIterator<T>): T;
-            <T>(array: T[], iteratee: Iteratee | PathLocation): T;
-            <T>(array: any[], iteratee: Iteratee | PathLocation): T;
+            <T>(array: T[], iteratee: Property<T>): T;
         }
         export interface MeanBy {
             (array: number[]): number;
             <T>(array: T[], iteratee: AggregationIterator<T>): number;
-            (array: any[], iteratee: Iteratee | PathLocation): number;
+            <T>(array: T[], iteratee: Property<T>): number;
         }
     }
 }
@@ -1301,118 +1354,136 @@ namespace Types {
         <TObject, TSource1, TSource2, TSource3>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3): TObject & TSource1 & TSource2 & TSource3;
         <TObject, TSource1, TSource2, TSource3, TSource4>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, source4: TSource4): TObject & TSource1 & TSource2 & TSource3 & TSource4;
         <TObject>(object: TObject): TObject;
-        <TResult>(...otherArgs: any[]): TResult;
+        <R>(...otherArgs: any[]): R;
     }
 
    export type AssignCustomizer = (objectValue: any, sourceValue: any, key?: string, object?: {}, source?: {}) => any;
 
     export interface AssignWith {
-        <TObject, TSource, TResult>(object: TObject, source: TSource, customizer: AssignCustomizer): TResult;
-        <TObject, TSource1, TSource2, TResult>(object: TObject, source1: TSource1, source2: TSource2, customizer: AssignCustomizer): TResult;
-        <TObject, TSource1, TSource2, TSource3, TResult>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, customizer: AssignCustomizer): TResult;
-        <TObject, TSource1, TSource2, TSource3, TSource4, TResult>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, source4: TSource4, customizer: AssignCustomizer): TResult;
+        <TObject, TSource, R>(object: TObject, source: TSource, customizer: AssignCustomizer): R;
+        <TObject, TSource1, TSource2, R>(object: TObject, source1: TSource1, source2: TSource2, customizer: AssignCustomizer): R;
+        <TObject, TSource1, TSource2, TSource3, R>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, customizer: AssignCustomizer): R;
+        <TObject, TSource1, TSource2, TSource3, TSource4, R>(object: TObject, source1: TSource1, source2: TSource2, source3: TSource3, source4: TSource4, customizer: AssignCustomizer): R;
         <TObject>(object: TObject): TObject;
-        <TObject, TResult>(object: TObject, ...otherArgs: any[]): TResult;
+        <TObject, R>(object: TObject, ...otherArgs: any[]): R;
     }
 
     export interface At {
-        <TResult>(obj: { [index: number]: any; }, paths: (number | number[])[]): TResult[];
-        <TResult>(obj: { [index: number]: any; }, ...paths: (number | number[])[]): TResult[];
-        <TResult>(obj: { [index: string]: any; }, paths: PathLocation[]): TResult[];
-        <TResult>(obj: { [index: string]: any; }, ...paths: PathLocation[]): TResult[];
+        <R>(obj: { [index: number]: any; }, paths: (number | number[])[]): R[];
+        <R>(obj: { [index: number]: any; }, ...paths: (number | number[])[]): R[];
+        <R>(obj: { [index: string]: any; }, paths: PathLocation[]): R[];
+        <R>(obj: { [index: string]: any; }, ...paths: PathLocation[]): R[];
     }
 
     export interface FindKey {
-        <T>(obj: _Obj<T>, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): string;
-        <T>(obj: any, iteratee: ObjectPredicate<T, _Obj<T>> | Iteratee): string;
+        <T>(obj: T, iteratee: ObjectPredicate<T>): string;
+        <T>(obj: T, iteratee: Property<T>): string;
+        <T>(obj: T, iteratee: Matches<T>): string;
+        <T>(obj: T, iteratee: MatchesProperty<T>): string;
     }
 
     export interface ForIn {
-        <T>(obj: _Obj<T>, iteratee: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
-        <T>(obj: any, iteratee: ((value: T, index: string, collection: _Obj<T>) => boolean | void) | Iteratee): _Obj<T>;
+        <T>(obj: T, iteratee: (value: T, index: string, collection: T) => boolean | void): T;
     }
 
     export interface Functions {
-        <TResult extends Function>(obj: _Obj<any>): TResult[];
+        <R extends Function>(obj: any): R[];
     }
 
     export interface Get {
-        <TResult>(obj: any, path: PathLocation, defaultValue?: TResult): TResult;
+        <T, K extends keyof T>(obj: T, path: K): T[K];
+        <R>(obj: any, path: PathLocation, defaultValue?: R): R;
     }
 
     export interface Has {
-        (obj: any, path: PathLocation): boolean;
+        <T, K extends keyof T>(obj: T, path: K): boolean;
+        <T>(obj: T, path: PathLocation): boolean;
+    }
+
+    export interface Invert {
+        <T>(obj: T): { [P in keyof T]: T[P] };
     }
 
     export interface InvertBy {
-        <T, R>(obj: { [index: number]: T }, iteratee: ValuePredicate<T, R>): { [index: string]: number[]; };
-        <T, R>(obj: { [index: string]: T }, iteratee: ValuePredicate<T, R>): { [index: string]: string[]; };
-        <T, R>(obj: any, iteratee: ValuePredicate<T, R>): { [index: string]: number[]; };
+        <T, R extends string>(obj: T, iteratee?: ValuePredicate<T[keyof T], R>): { [p in R]: R[] };
     }
 
     export interface Invoke {
-        <TResult>(obj: any, path: PathLocation, ...args: any[]): TResult[];
+        <R>(obj: any, path: PathLocation, ...args: any[]): R[];
     }
 
     export interface Keys {
-        (obj: any): string[];
+        <T>(obj: T): keyof T;
     }
 
     export interface MapKeys {
-        <T>(obj: _Obj<T>, iteratee: ((value: T, index: string, collection: _Obj<T>) => string) | Iteratee): _Obj<T>;
-        <T>(obj: any, iteratee: ((value: T, index: string, collection: _Obj<T>) => string) | Iteratee): _Obj<T>;
+        <T, R>(obj: T, iteratee: ((value: T[keyof T], index: keyof T, collection: T) => R)): { [x: string]: T[keyof T] };
     }
 
     export interface MapValues {
-        <T, TResult>(obj: _Obj<T>, iteratee: ((value: T, index: string, collection: _Obj<T>) => TResult) | Iteratee): _Obj<Rest>;
+        <T, R>(obj: T, iteratee: (value: T[keyof T], index: keyof T, collection: T) => R): { [P in keyof T]: R };
+        <T, R>(obj: T, iteratee: string);
+    }
+
+    export interface _Pick {
+        <T, K extends keyof T>(obj: Object, props?: K[]): Pick<T, K>;
+        <R>(obj: Object, props?: PathLocation): R;
+        <T, K extends keyof T>(obj: Object, ...props: K[]): Pick<T, K>;
+        <R>(obj: Object, ...props: PathLocation[]): R;
+    }
+
+    export interface PickBy {
+        <T, R>(obj: T, predicate: (value: T, key: string) => boolean): R;
     }
 
     export interface Omit {
-        <TResult>(obj: Object, props?: string | string[]): TResult;
-        <TResult>(obj: Object, ...props: string[]): TResult;
+        <R>(obj: Object, props?: PathLocation): R;
+        <R>(obj: Object, ...props: PathLocation[]): R;
     }
 
     export interface OmitBy {
-        <T, TResult>(obj: _Obj<T>, predicate: ((value: T, key: string) => boolean) | Iteratee): TResult;
-        <T, TResult>(obj: any, predicate: ((value: T, key: string) => boolean) | Iteratee): TResult;
+        <T, R>(obj: T, predicate: (value: T, key: string) => boolean): R;
     }
 
     export interface _Set {
+        <T, K extends keyof T>(obj: T, path: K, value: T[K]): T;
         <T, TObj>(obj: TObj, path: PathLocation, value: T): TObj;
     }
 
     export interface SetWith {
+        <T, K extends keyof T>(obj: T, path: K, value: T[K], customizer?: (nsValue: T[K], key: K, nsObject: T) => any): T;
         <T, TObj>(obj: TObj, path: PathLocation, value: T, customizer?: (nsValue: T, key: string, nsObject: TObj) => any): TObj;
     }
 
     export interface Update {
+        <T, K extends keyof T>(obj: T, path: K, updater: (value: T[K]) => T[K]): T;
         <T, TObj>(obj: TObj, path: PathLocation, updater: (value: T) => any): TObj;
     }
 
     export interface UpdateWith {
+        <T, K extends keyof T>(obj: T, path: K, updater: (value: T[K]) => any, customizer?: (nsValue: T[K], key: K, nsObject: T) => any): T;
         <T, TObj>(obj: TObj, path: PathLocation, updater: (value: T) => any, customizer?: (nsValue: T, key: string, nsObject: TObj) => any): TObj;
     }
 
     export interface ToPairs {
+        <T, K extends keyof T>(obj: T): [K, T[K]][];
         <T>(obj: { [index: number]: T }): [number, T][];
-        <T>(obj: { [index: string]: T }): [string, T][];
         <K, V>(map: Map<K, V>): [K, V][];
         <V>(set: Set<V>): [number, V][];
-        <T>(obj: any): [string, T][];
     }
 
     export interface Transform {
-        <T, TObj, TAcc>(obj: TObj, iteratee: ((acc: TAcc, value: any, key: string, obj: TObj) => any) | Iteratee, acc?: TAcc): TAcc;
+        <T, TAcc>(obj: T, iteratee: ((acc: TAcc, value: T[keyof T], key: keyof T, obj: T) => any), acc?: TAcc): TAcc;
     }
 
     export interface Unset {
-        (obj: any, path: PathLocation): boolean;
+        <T, K extends keyof T>(obj: T, path: K): boolean;
+        <T>(obj: T, path: PathLocation): boolean;
     }
 
     export interface Values {
         <T>(obj: { [index: number]: T; }): T[];
-        <T>(obj: { [index: string]: T; }): T[];
-        <T>(obj: any): T[];
+        <T>(obj: T): (keyof T)[];
     }
 }
 
@@ -1423,7 +1494,7 @@ interface IStatic {
     assignInWith: Types.AssignWith;
     at: Types.At;
     create<T, P>(prototype: T, properties?: P): T & P;
-    create<TResult>(prototype: any, properties?: any): TResult;
+    create<R>(prototype: any, properties?: any): R;
     defaults: Types.Assign;
     defaultsDeep: Types.Assign;
     entires: Types.ToPairs;
@@ -1441,7 +1512,7 @@ interface IStatic {
     get: Types.Get;
     has: Types.Has;
     hasIn: Types.Has;
-    invert<TResult>(obj: Object): TResult;
+    invert: Types.Invert;
     invertBy: Types.InvertBy;
     invoke: Types.Invoke;
     keys: Types.Keys;
@@ -1452,8 +1523,8 @@ interface IStatic {
     mergeWith: Types.AssignWith;
     omit: Types.Omit;
     omitBy: Types.OmitBy;
-    pick: Types.Omit;
-    pickBy: Types.OmitBy;
+    pick: Types._Pick;
+    pickBy: Types.PickBy;
     result: Types.Get;
     set: Types._Set;
     setWith: Types.SetWith;
@@ -1529,6 +1600,15 @@ interface IStatic {
     words(str?: string, pattern?: string | RegExp): string[]
 }
 namespace Types {
+    export interface Attempt {
+        <T, R>(func: (t1: T) => R, t1: T): R | Error;
+        <T, T2, R>(func: (t1: T, t2: T2) => R, t1: T, t2: T2): R | Error;
+        <T, T2, T3, R>(func: (t1: T, t2: T2, t3: T3) => R, t1: T, t2: T2, t3: T3): R | Error;
+        <T, T2, T3, T4, R>(func: (t1: T, t2: T2, t3: T3, t4: T4) => R, t1: T, t2: T2, t3: T3, t4: T4): R | Error;
+        <T, T2, T3, T4, T5, R>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): R | Error;
+        <R>(func: (...args: any[]) => R, ...args: any[]): R | Error;
+    }
+
     export interface Flow {
         <A1, R1, R2>(f1: (a1: A1) => R1, f2: (a: R1) => R2): (a1: A1) => R2;
         <A1, R1, R2, R3>(f1: (a1: A1) => R1, f2: (a: R1) => R2, f3: (a: R2) => R3): (a1: A1) => R3;
@@ -1554,27 +1634,28 @@ namespace Types {
         <A1, A2, A3, A4, R1, R2, R3, R4, R5>(f1: (a1: A1, a2: A2, a3: A3, a4: A4) => R1, f2: (a: R1) => R2, f3: (a: R2) => R3, f4: (a: R3) => R4, f5: (a: R4) => R5): (a1: A1, a2: A2, a3: A3, a4: A4) => R5;
         <A1, A2, A3, A4, R1, R2, R3, R4, R5, R6>(f1: (a1: A1, a2: A2, a3: A3, a4: A4) => R1, f2: (a: R1) => R2, f3: (a: R2) => R3, f4: (a: R3) => R4, f5: (a: R4) => R5, f6: (a: R5) => R6): (a1: A1, a2: A2, a3: A3, a4: A4) => R6;
         <A1, A2, A3, A4, R1, R2, R3, R4, R5, R6, R7>(f1: (a1: A1, a2: A2, a3: A3, a4: A4) => R1, f2: (a: R1) => R2, f3: (a: R2) => R3, f4: (a: R3) => R4, f5: (a: R4) => R5, f6: (a: R5) => R6, f7: (a: R6) => R7): (a1: A1, a2: A2, a3: A3, a4: A4) => R7;
-        <TResult extends Function>(...funcs: Function[]): TResult;
+        <R extends Function>(...funcs: Function[]): R;
     }
 
     export interface IterateeMethod {
-        <T extends Function>(func: T): T;
-        <TResult>(value: string): (object: any) => TResult;
-        (func: Object): (object: any) => boolean;
-        (): Identity;
+        <T extends Function>(func: T): (arg: T) => boolean;
+        (): (arg: any) => boolean;
+        <T>(matches: Property<T>): (arg: T) => boolean;
+        <T>(matches: Matches<T>): (arg: T) => boolean;
+        <T>(matchesProperty: MatchesProperty<T>): (arg: T) => boolean;
     }
 
     export interface Over {
-        <T, TResult>(...funcs: ((t1: T) => TResult)[]): (t1: T) => TResult[];
-        <T, T2, TResult>(...funcs: ((t1: T, t2: T2) => TResult)[]): (t1: T, t2: T2) => TResult[];
-        <T, T2, T3, TResult>(...funcs: ((t1: T, t2: T2, t3: T3) => TResult)[]): (t1: T, t2: T2, t3: T3) => TResult[];
-        <T, T2, T3, T4, TResult>(...funcs: ((t1: T, t2: T2, t3: T3, t4: T4) => TResult)[]): (t1: T, t2: T2, t3: T3, t4: T4) => TResult[];
-        <T, T2, T3, T4, T5, TResult>(...funcs: ((t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult)[]): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult[];
-        <T, TResult>(funcs: ((t1: T) => TResult)[]): (t1: T) => TResult[];
-        <T, T2, TResult>(funcs: ((t1: T, t2: T2) => TResult)[]): (t1: T, t2: T2) => TResult[];
-        <T, T2, T3, TResult>(funcs: ((t1: T, t2: T2, t3: T3) => TResult)[]): (t1: T, t2: T2, t3: T3) => TResult[];
-        <T, T2, T3, T4, TResult>(funcs: ((t1: T, t2: T2, t3: T3, t4: T4) => TResult)[]): (t1: T, t2: T2, t3: T3, t4: T4) => TResult[];
-        <T, T2, T3, T4, T5, TResult>(funcs: ((t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult)[]): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult[];
+        <T, R>(...funcs: ((t1: T) => R)[]): (t1: T) => R[];
+        <T, T2, R>(...funcs: ((t1: T, t2: T2) => R)[]): (t1: T, t2: T2) => R[];
+        <T, T2, T3, R>(...funcs: ((t1: T, t2: T2, t3: T3) => R)[]): (t1: T, t2: T2, t3: T3) => R[];
+        <T, T2, T3, T4, R>(...funcs: ((t1: T, t2: T2, t3: T3, t4: T4) => R)[]): (t1: T, t2: T2, t3: T3, t4: T4) => R[];
+        <T, T2, T3, T4, T5, R>(...funcs: ((t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R)[]): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R[];
+        <T, R>(funcs: ((t1: T) => R)[]): (t1: T) => R[];
+        <T, T2, R>(funcs: ((t1: T, t2: T2) => R)[]): (t1: T, t2: T2) => R[];
+        <T, T2, T3, R>(funcs: ((t1: T, t2: T2, t3: T3) => R)[]): (t1: T, t2: T2, t3: T3) => R[];
+        <T, T2, T3, T4, R>(funcs: ((t1: T, t2: T2, t3: T3, t4: T4) => R)[]): (t1: T, t2: T2, t3: T3, t4: T4) => R[];
+        <T, T2, T3, T4, T5, R>(funcs: ((t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R)[]): (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => R[];
     }
 
     export interface OverEveryORSome {
@@ -1597,44 +1678,45 @@ namespace Types {
     }
 
     export interface Method {
-        <T, TResult>(path: PathLocation, t1: T): (obj: any) => TResult;
-        <T, T2, TResult>(path: PathLocation, t1: T, t2: T2): (obj: any) => TResult;
-        <T, T2, T3, TResult>(path: PathLocation, t1: T, t2: T2, t3: T3): (obj: any) => TResult;
-        <T, T2, T3, T4, TResult>(path: PathLocation, t1: T, t2: T2, t3: T3, t4: T4): (obj: any) => TResult;
-        <T, T2, T3, T4, T5, TResult>(path: PathLocation, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): (obj: any) => TResult;
-        <TResult>(path: PathLocation, ...args: any[]): (obj: any) => TResult;
+        <T, R>(path: keyof T, t1: T): (obj: any) => R;
+        <T, R>(path: PathLocation, t1: T): (obj: any) => R;
+        <T, T2, R>(path: keyof T, t1: T, t2: T2): (obj: any) => R;
+        <T, T2, R>(path: PathLocation, t1: T, t2: T2): (obj: any) => R;
+        <T, T2, T3, R>(path: keyof T, t1: T, t2: T2, t3: T3): (obj: any) => R;
+        <T, T2, T3, R>(path: PathLocation, t1: T, t2: T2, t3: T3): (obj: any) => R;
+        <T, T2, T3, T4, R>(path: keyof T, t1: T, t2: T2, t3: T3, t4: T4): (obj: any) => R;
+        <T, T2, T3, T4, R>(path: PathLocation, t1: T, t2: T2, t3: T3, t4: T4): (obj: any) => R;
+        <T, T2, T3, T4, T5, R>(path: keyof T, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): (obj: any) => R;
+        <T, T2, T3, T4, T5, R>(path: PathLocation, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): (obj: any) => R;
+        <T, R>(path: keyof T, ...args: any[]): (obj: any) => R;
+        <R>(path: PathLocation, ...args: any[]): (obj: any) => R;
     }
 
     export interface MethodOf {
-        <T, TResult>(obj: any, t1: T): (path: PathLocation) => TResult;
-        <T, T2, TResult>(obj: any, t1: T, t2: T2): (path: PathLocation) => TResult;
-        <T, T2, T3, TResult>(obj: any, t1: T, t2: T2, t3: T3): (path: PathLocation) => TResult;
-        <T, T2, T3, T4, TResult>(obj: any, t1: T, t2: T2, t3: T3, t4: T4): (path: PathLocation) => TResult;
-        <T, T2, T3, T4, T5, TResult>(obj: any, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): (path: PathLocation) => TResult;
-        <TResult>(obj: any, ...args: any[]): (path: PathLocation) => TResult;
+        <T, R>(obj: any, t1: T): (path: keyof T | PathLocation) => R;
+        <T, T2, R>(obj: any, t1: T, t2: T2): (path: keyof T | PathLocation) => R;
+        <T, T2, T3, R>(obj: any, t1: T, t2: T2, t3: T3): (path: keyof T | PathLocation) => R;
+        <T, T2, T3, T4, R>(obj: any, t1: T, t2: T2, t3: T3, t4: T4): (path: keyof T | PathLocation) => R;
+        <T, T2, T3, T4, T5, R>(obj: any, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): (path: keyof T | PathLocation) => R;
+        <R>(obj: any, ...args: any[]): (path: PathLocation) => R;
     }
 }
 
 interface IStatic {
-    attempt<T, TResult>(func: (t1: T) => TResult, t1: T): TResult | Error;
-    attempt<T, T2, TResult>(func: (t1: T, t2: T2) => TResult, t1: T, t2: T2): TResult | Error;
-    attempt<T, T2, T3, TResult>(func: (t1: T, t2: T2, t3: T3) => TResult, t1: T, t2: T2, t3: T3): TResult | Error;
-    attempt<T, T2, T3, T4, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4) => TResult, t1: T, t2: T2, t3: T3, t4: T4): TResult | Error;
-    attempt<T, T2, T3, T4, T5, TResult>(func: (t1: T, t2: T2, t3: T3, t4: T4, t5: T5) => TResult, t1: T, t2: T2, t3: T3, t4: T4, t5: T5): TResult | Error;
-    attempt<TResult>(func: (...args: any[]) => TResult, ...args: any[]): TResult | Error;
+    attempt: Types.Attempt;
 
-    bindAll<T>(object: T, ...methodNames: Types.PathLocation[]): T;
+    bindAll<T>(object: T, ...methodNames: Types.Property<T>[]): T;
 
-    cond<T, TResult>(array: [(arg: T) => boolean, (arg: T) => TResult][]): TResult;
+    cond<T, R>(array: [(arg: T) => boolean, (arg: T) => R][]): R;
 
-    conforms<U, T extends { [index: string]: (obj: U) => boolean }>(arg: T): (arg: U) => boolean;
+    conforms<U>(arg: {[P in keyof U]?: (obj: U) => boolean }): (arg: U) => boolean;
 
     constant<T>(value: T): () => T;
 
     flow: Types.Flow;
     flowRight: Types.Flow;
 
-    identity<T>(value: T): T;
+    identity<T>(value: T, ...args: any[]): T;
 
     iteratee: Types.IterateeMethod;
 
@@ -1652,22 +1734,23 @@ interface IStatic {
 
     noop(...args: any[]): void;
 
-    nthArg<TResult>(num?: number): TResult;
+    nthArg<R>(num?: number): R;
 
     over: Types.Over;
 
     overEvery: Types.OverEveryORSome;
     overSome: Types.OverEveryORSome;
 
-    property<TResult>(path: Types.PathLocation): (object: any) => TResult;
-    propertyOf<TResult>(object: any): (path: Types.PathLocation) => TResult;
+    property<T, R>(path: Types.Property<R>): (object: T) => R;
+    property<R>(path: Types.PathLocation): (object: any) => R;
+    propertyOf<T, R>(object: T): (path: keyof T | Types.PathLocation) => R;
 
     range: Types.Range;
     rangeRight: Types.Range;
 
     runInContext(context?: any): IStatic;
 
-    times<TResult>(n: number, iteratee: (num: number) => TResult): TResult[];
+    times<R>(n: number, iteratee: (num: number) => R): R[];
     times(n: number): number[];
 
     toPath(value: string): string[];
@@ -1679,8 +1762,8 @@ interface IStatic {
     stubArray(): any[];
     stubArray<T>(): T[];
 
-    stubFalse(): boolean;
-    stubTrue(): boolean;
+    stubFalse(): false;
+    stubTrue(): true;
 
     stubObject(): {};
     stubObject<T extends Object>(): T;
@@ -1694,7 +1777,7 @@ namespace Types {
     }
 
     export interface Thru {
-        <T, TResult>(array: ArrayLike<T>, interceptor: (value: T) => TResult): TResult;
+        <T, R>(array: ArrayLike<T>, interceptor: (value: T) => R): R;
     }
 
     export namespace Wrap {
@@ -1719,14 +1802,14 @@ namespace Types {
         export interface ImplicitArray<T, TWrapper extends ImplicitArray<T, TWrapper>> extends ArrayWrapper<T, TWrapper>, ImplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
             chain(): ExplicitArray1<T>;
-            thru<TResult>(interceptor: (value: T) => TResult): ImplicitArray1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ImplicitArray1<R>;
         }
 
         export interface ImplicitArray1<T> extends ImplicitArray<T, ImplicitArray1<T>> { }
 
         export interface ExplicitArray<T, TWrapper extends ExplicitArray<T, TWrapper>> extends ArrayWrapper<T, TWrapper>, ExplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
-            thru<TResult>(interceptor: (value: T) => TResult): ExplicitArray1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ExplicitArray1<R>;
         }
 
         export interface ExplicitArray1<T> extends ExplicitArray<T, ExplicitArray1<T>> { }
@@ -1743,14 +1826,14 @@ namespace Types {
         export interface ImplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ImplicitObject<T, TObj, TWrapper>> extends ObjectWrapper<T, TObj, TWrapper>, ImplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
             chain(): ExplicitObject1<T, TObj>;
-            thru<TResult>(interceptor: (value: T) => TResult): ImplicitArray1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ImplicitArray1<R>;
         }
 
         export interface ImplicitObject1<T, TObj extends { [index: string]: T }> extends ImplicitObject<T, TObj, ImplicitObject1<T, TObj>> { }
 
         export interface ExplicitObject<T, TObj extends { [index: string]: T }, TWrapper extends ExplicitObject<T, TObj, TWrapper>> extends ObjectWrapper<T, TObj, TWrapper>, ExplicitWrapper<T, TWrapper> {
             commit(): TWrapper;
-            thru<TResult>(interceptor: (value: T) => TResult): ExplicitArray1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ExplicitArray1<R>;
         }
 
         export interface ExplicitObject1<T, TObj extends { [index: string]: T }> extends ExplicitObject<T, TObj, ExplicitObject1<T, TObj>> { }
@@ -1764,14 +1847,14 @@ namespace Types {
 
         export interface ImplicitValue<T, TWrapper extends ImplicitValue<T, TWrapper>> extends ValueWrapper<T, TWrapper> {
             commit(): TWrapper;
-            thru<TResult>(interceptor: (value: T) => TResult): ImplicitValue1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ImplicitValue1<R>;
         }
 
         export interface ImplicitValue1<T> extends ImplicitValue<T, ImplicitValue1<T>> { }
 
         export interface ExplicitValue<T, TWrapper extends ExplicitValue<T, TWrapper>> extends ValueWrapper<T, TWrapper> {
             commit(): TWrapper;
-            thru<TResult>(interceptor: (value: T) => TResult): ExplicitValue1<TResult>;
+            thru<R>(interceptor: (value: T) => R): ExplicitValue1<R>;
         }
 
         export interface ExplicitValue1<T> extends ExplicitValue<T, ExplicitValue1<T>> { }

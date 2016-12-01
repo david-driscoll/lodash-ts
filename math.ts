@@ -7,13 +7,12 @@ namespace Types {
         export interface AggregationBy {
             <T>(array: T[]): T;
             <T>(array: T[], iteratee: AggregationIterator<T>): T;
-            <T>(array: T[], iteratee: Iteratee | PathLocation): T;
-            <T>(array: any[], iteratee: Iteratee | PathLocation): T;
+            <T>(array: T[], iteratee: Property<T>): T;
         }
         export interface MeanBy {
             (array: number[]): number;
             <T>(array: T[], iteratee: AggregationIterator<T>): number;
-            (array: any[], iteratee: Iteratee | PathLocation): number;
+            <T>(array: T[], iteratee: Property<T>): number;
         }
     }
 }
