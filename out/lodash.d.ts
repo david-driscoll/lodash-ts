@@ -1276,9 +1276,10 @@ interface IStatic {
 namespace Types.Wrap {
     export namespace Math {
         export type Aggregation<T> = () => T;
+        export type AggregationIterator<T> = (value: T) => number | { valueOf(): number; };
         export interface AggregationBy<T, TWrapper> {
             (): TWrapper;
-            (iteratee: (value: T) => number): TWrapper;
+            (iteratee: AggregationIterator<T>): TWrapper;
             (iteratee: Property<T>): TWrapper;
             (iteratee: PathLocation): TWrapper;
         }
@@ -1311,7 +1312,7 @@ namespace Types {
         export type Operation = (augend: number, addend: number) => number;
         export type Aggregation = (array: number[]) => number;
         export type Rounding = (n: number, precision?: number) => number;
-        export type AggregationIterator<T> = ((value: T) => number);
+        export type AggregationIterator<T> = (value: T) => number | { valueOf(): number; };
         export interface AggregationBy {
             <T>(array: T[]): T;
             <T>(array: T[], iteratee: AggregationIterator<T>): T;

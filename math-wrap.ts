@@ -1,9 +1,10 @@
 namespace Types.Wrap {
     export namespace Math {
         export type Aggregation<T> = () => T;
+        export type AggregationIterator<T> = (value: T) => number | { valueOf(): number; };
         export interface AggregationBy<T, TWrapper> {
             (): TWrapper;
-            (iteratee: (value: T) => number): TWrapper;
+            (iteratee: AggregationIterator<T>): TWrapper;
             (iteratee: Property<T>): TWrapper;
             (iteratee: PathLocation): TWrapper;
         }
