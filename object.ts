@@ -27,10 +27,10 @@ namespace Types {
     }
 
     export interface FindKey {
-        <T>(obj: T, iteratee: ObjectPredicate<T>): string;
+        <T, K extends keyof T>(obj: T, iteratee: ObjectPredicate<T, K>): string;
         <T>(obj: T, iteratee: Property<T>): string;
         <T>(obj: T, iteratee: Matches<T>): string;
-        <T>(obj: T, iteratee: MatchesProperty<T>): string;
+        <T, K extends keyof T>(obj: T, iteratee: MatchesProperty<T, K>): string;
     }
 
     export interface ForIn {
@@ -134,7 +134,7 @@ namespace Types {
 
     export interface Values {
         <T>(obj: { [index: number]: T; }): T[];
-        <T>(obj: T): (keyof T)[];
+        <T, K extends keyof T>(obj: T): (T[K])[];
     }
 }
 

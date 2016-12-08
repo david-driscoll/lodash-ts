@@ -53,7 +53,7 @@ namespace Types {
         <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T>): T[];
         <T>(array: ArrayLike<T>, predicate: Property<T>): T[];
         <T>(array: ArrayLike<T>, predicate: Matches<T>): T[];
-        <T>(array: ArrayLike<T>, predicate: MatchesProperty<T>): T[];
+        <T, K extends keyof T>(array: ArrayLike<T>, predicate: MatchesProperty<T, K>): T[];
     }
 
     export interface Flatten {
@@ -88,7 +88,7 @@ namespace Types {
         <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T>, fromIndex?: number): number;
         <T>(array: ArrayLike<T>, predicate: Property<T>, fromIndex?: number): number;
         <T>(array: ArrayLike<T>, predicate: Matches<T>, fromIndex?: number): number;
-        <T>(array: ArrayLike<T>, predicate: MatchesProperty<T>, fromIndex?: number): number;
+        <T, K extends keyof T>(array: ArrayLike<T>, predicate: MatchesProperty<T, K>, fromIndex?: number): number;
     }
 
     export interface IndexOf {

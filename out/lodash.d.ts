@@ -56,7 +56,7 @@ namespace Types.Wrap {
         (predicate: ArrayPredicate<T>): TWrapper;
         (predicate: Property<T>): T[];
         (predicate: Matches<T>): T[];
-        (predicate: MatchesProperty<T>): T[];
+        <K extends keyof T>(predicate: MatchesProperty<T, K>): T[];
     }
 
     export interface Fill<T, TWrapper> {
@@ -67,7 +67,7 @@ namespace Types.Wrap {
         (predicate: ArrayPredicate<T>): TWrapper;
         (predicate: Property<T>): TWrapper;
         (predicate: Matches<T>): TWrapper;
-        (predicate: MatchesProperty<T>): TWrapper;
+        <K extends keyof T>(predicate: MatchesProperty<T, K>): TWrapper;
     }
 
     export interface Nth<T, TWrapper> {
@@ -256,7 +256,7 @@ namespace Types {
         <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T>): T[];
         <T>(array: ArrayLike<T>, predicate: Property<T>): T[];
         <T>(array: ArrayLike<T>, predicate: Matches<T>): T[];
-        <T>(array: ArrayLike<T>, predicate: MatchesProperty<T>): T[];
+        <T, K extends keyof T>(array: ArrayLike<T>, predicate: MatchesProperty<T, K>): T[];
     }
 
     export interface Flatten {
@@ -291,7 +291,7 @@ namespace Types {
         <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T>, fromIndex?: number): number;
         <T>(array: ArrayLike<T>, predicate: Property<T>, fromIndex?: number): number;
         <T>(array: ArrayLike<T>, predicate: Matches<T>, fromIndex?: number): number;
-        <T>(array: ArrayLike<T>, predicate: MatchesProperty<T>, fromIndex?: number): number;
+        <T, K extends keyof T>(array: ArrayLike<T>, predicate: MatchesProperty<T, K>, fromIndex?: number): number;
     }
 
     export interface IndexOf {
@@ -501,14 +501,14 @@ namespace Types.Wrap {
         (iteratee: ArrayPredicate<T>): TWrapper;
         (iteratee: Property<T>): TWrapper;
         (iteratee: Matches<T>): TWrapper;
-        (iteratee: MatchesProperty<T>): TWrapper;
+        <K extends keyof T>(iteratee: MatchesProperty<T, K>): TWrapper;
     }
 
     export interface ImplicitFindIteratee<T, TWrapper> {
         (iteratee: ArrayPredicate<T>, fromIndex?: number): TWrapper;
         (iteratee: Property<T>, fromIndex?: number): TWrapper;
         (iteratee: Matches<T>, fromIndex?: number): TWrapper;
-        (iteratee: MatchesProperty<T>, fromIndex?: number): TWrapper;
+        <K extends keyof T>(iteratee: MatchesProperty<T, K>, fromIndex?: number): TWrapper;
     }
 
     export interface ImplicitWrapper<T, TWrapper> {
@@ -539,14 +539,14 @@ namespace Types.Wrap {
         (iteratee: ArrayPredicate<T>): TWrapper;
         (iteratee: Property<T>): TWrapper;
         (iteratee: Matches<T>): TWrapper;
-        (iteratee: MatchesProperty<T>): TWrapper;
+        <K extends keyof T>(iteratee: MatchesProperty<T, K>): TWrapper;
     }
 
     export interface ExplicitFindIteratee<T, TWrapper> {
         (iteratee: ArrayPredicate<T>, fromIndex?: number): TWrapper;
         (iteratee: Property<T>, fromIndex?: number): TWrapper;
         (iteratee: Matches<T>, fromIndex?: number): TWrapper;
-        (iteratee: MatchesProperty<T>, fromIndex?: number): TWrapper;
+        <K extends keyof T>(iteratee: MatchesProperty<T, K>, fromIndex?: number): TWrapper;
     }
 
     export interface ExplicitWrapper<T, TWrapper> {
@@ -611,34 +611,34 @@ namespace Types {
         <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T>): boolean;
         <T>(collection: ArrayLike<T>, iteratee: Property<T>): boolean;
         <T>(collection: ArrayLike<T>, iteratee: Matches<T>): boolean;
-        <T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T>): boolean;
+        <T, K extends keyof T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T, K>): boolean;
         <T>(collection: T): boolean;
-        <T>(collection: T, iteratee: ObjectPredicate<T>): boolean;
+        <T, K extends keyof T>(collection: T, iteratee: ObjectPredicate<T, K>): boolean;
         <T>(collection: T, iteratee: Property<T>): boolean;
         <T>(collection: T, iteratee: Matches<T[keyof T]>): boolean;
-        <T>(collection: T, iteratee: MatchesProperty<T[keyof T]>): boolean;
+        <T, K extends keyof T>(collection: T, iteratee: MatchesProperty<T, K>): boolean;
     }
 
     export interface ByArrayPredicate {
         <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T>): T[];
         <T>(collection: ArrayLike<T>, iteratee: Property<T>): T[];
         <T>(collection: ArrayLike<T>, iteratee: Matches<T>): T[];
-        <T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T>): T[];
-        <T>(collection: T, iteratee: ObjectPredicate<T>): T[];
+        <T, K extends keyof T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T, K>): T[];
+        <T, K extends keyof T>(collection: T, iteratee: ObjectPredicate<T, K>): T[];
         <T>(collection: T, iteratee: Property<T>): T[];
         <T>(collection: T, iteratee: Matches<T>): T[];
-        <T>(collection: T, iteratee: MatchesProperty<T>): T[];
+        <T, K extends keyof T>(collection: T, iteratee: MatchesProperty<T, K>): T[];
     }
 
     export interface FindPredicate {
         <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T>, fromIndex?: number): T;
         <T>(collection: ArrayLike<T>, iteratee: Property<T>, fromIndex?: number): T;
         <T>(collection: ArrayLike<T>, iteratee: Matches<T>, fromIndex?: number): T;
-        <T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T>, fromIndex?: number): T;
-        <T>(collection: T, iteratee: ObjectPredicate<T>, fromIndex?: number): T;
+        <T, K extends keyof T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T, K>, fromIndex?: number): T;
+        <T, K extends keyof T>(collection: T, iteratee: ObjectPredicate<T, K>, fromIndex?: number): T;
         <T>(collection: T, iteratee: Property<T>, fromIndex?: number): T;
         <T>(collection: T, iteratee: Matches<T>, fromIndex?: number): T;
-        <T>(collection: T, iteratee: MatchesProperty<T>, fromIndex?: number): T;
+        <T, K extends keyof T>(collection: T, iteratee: MatchesProperty<T, K>, fromIndex?: number): T;
     }
 
     export type FlatMapIteratorArray<T, R> = (value: T, index: number, collection: T[]) => R[];
@@ -712,7 +712,7 @@ namespace Types {
 
     export interface Reduce {
         <T, TAcc>(collection: ArrayLike<T>, iteratee: AccumulatorArrayPredicate<T, TAcc>, acc?: TAcc): TAcc;
-        <T, TAcc>(collection: T, iteratee: AccumulatorObjectPredicate<T, TAcc>, acc?: TAcc): TAcc;
+        <T, TAcc, K extends keyof T>(collection: T, iteratee: AccumulatorObjectPredicate<T, TAcc, K>, acc?: TAcc): TAcc;
     }
 
     export interface Sample {
@@ -780,15 +780,15 @@ namespace Types {
 
     export type Property<T> = keyof T;
     export type Matches<T> = Pick<T, keyof T>;
-    export type MatchesProperty<T> = [keyof T, T[keyof T]];
+    export type MatchesProperty<T, K extends keyof T> = [K, T[K]];
     export type PathLocation = string | string[];
 
     // export type _Obj<T> = { [index: string]: T; } | { [index: number]: T; };
     export type ArrayPredicate<T> = (value: T, index: number, collection: T[]) => boolean;
     export type AccumulatorArrayPredicate<T, TAcc> = (accumulator: TAcc, value: T[keyof T], index: number, collection: T[]) => TAcc;
 
-    export type ObjectPredicate<T> = (value: T[keyof T], index: keyof T, collection: T) => boolean;
-    export type AccumulatorObjectPredicate<T, TAcc> = (accumulator: TAcc, value: T[keyof T], index: keyof T, collection: T) => TAcc;
+    export type ObjectPredicate<T, K extends keyof T> = (value: T[K], index: K, collection: T) => boolean;
+    export type AccumulatorObjectPredicate<T, TAcc, K extends keyof T> = (accumulator: TAcc, value: T[K], index: K, collection: T) => TAcc;
 
     export type ValuePredicate<T, R> = (value: T) => R;
     export type BooleanPredicate<T> = (value: T) => boolean;
@@ -800,8 +800,8 @@ namespace Types {
         export type ArrayPredicate<T> = (value: T, index: number) => boolean;
         export type AccumulatorArrayPredicate<T, TAcc> = (accumulator: TAcc, value: T, index: number) => TAcc;
 
-        export type ObjectPredicate<T> = (value: T[keyof T], index: keyof T) => boolean;
-        export type AccumulatorObjectPredicate<T, TAcc> = (accumulator: TAcc, value: T[keyof T], index: keyof T) => TAcc;
+        export type ObjectPredicate<T, K extends keyof T> = (value: T[K], index: K) => boolean;
+        export type AccumulatorObjectPredicate<T, TAcc, K extends keyof T> = (accumulator: TAcc, value: T[K], index: K) => TAcc;
     }
 }
 type MemoizedFunction = {
@@ -1376,10 +1376,10 @@ namespace Types {
     }
 
     export interface FindKey {
-        <T>(obj: T, iteratee: ObjectPredicate<T>): string;
+        <T, K extends keyof T>(obj: T, iteratee: ObjectPredicate<T, K>): string;
         <T>(obj: T, iteratee: Property<T>): string;
         <T>(obj: T, iteratee: Matches<T>): string;
-        <T>(obj: T, iteratee: MatchesProperty<T>): string;
+        <T, K extends keyof T>(obj: T, iteratee: MatchesProperty<T, K>): string;
     }
 
     export interface ForIn {
@@ -1483,7 +1483,7 @@ namespace Types {
 
     export interface Values {
         <T>(obj: { [index: number]: T; }): T[];
-        <T>(obj: T): (keyof T)[];
+        <T, K extends keyof T>(obj: T): (T[K])[];
     }
 }
 
@@ -1642,7 +1642,7 @@ namespace Types {
         (): (arg: any) => boolean;
         <T>(matches: Property<T>): (arg: T) => boolean;
         <T>(matches: Matches<T>): (arg: T) => boolean;
-        <T>(matchesProperty: MatchesProperty<T>): (arg: T) => boolean;
+        <T, K extends keyof T>(matchesProperty: MatchesProperty<T, K>): (arg: T) => boolean;
     }
 
     export interface Over {
@@ -1741,9 +1741,12 @@ interface IStatic {
     overEvery: Types.OverEveryORSome;
     overSome: Types.OverEveryORSome;
 
-    property<T, R>(path: Types.Property<R>): (object: T) => R;
     property<R>(path: Types.PathLocation): (object: any) => R;
-    propertyOf<T, R>(object: T): (path: keyof T | Types.PathLocation) => R;
+    property<T, K extends keyof T>(path: K): (object: T) => T[K];
+    propertyOf<T, K extends keyof T>(object: T): {
+        (path: K): T[K];
+        <R>(path: Types.PathLocation): R;
+    };
 
     range: Types.Range;
     rangeRight: Types.Range;

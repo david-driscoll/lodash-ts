@@ -14,34 +14,34 @@ namespace Types {
         <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T>): boolean;
         <T>(collection: ArrayLike<T>, iteratee: Property<T>): boolean;
         <T>(collection: ArrayLike<T>, iteratee: Matches<T>): boolean;
-        <T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T>): boolean;
+        <T, K extends keyof T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T, K>): boolean;
         <T>(collection: T): boolean;
-        <T>(collection: T, iteratee: ObjectPredicate<T>): boolean;
+        <T, K extends keyof T>(collection: T, iteratee: ObjectPredicate<T, K>): boolean;
         <T>(collection: T, iteratee: Property<T>): boolean;
         <T>(collection: T, iteratee: Matches<T[keyof T]>): boolean;
-        <T>(collection: T, iteratee: MatchesProperty<T[keyof T]>): boolean;
+        <T, K extends keyof T>(collection: T, iteratee: MatchesProperty<T, K>): boolean;
     }
 
     export interface ByArrayPredicate {
         <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T>): T[];
         <T>(collection: ArrayLike<T>, iteratee: Property<T>): T[];
         <T>(collection: ArrayLike<T>, iteratee: Matches<T>): T[];
-        <T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T>): T[];
-        <T>(collection: T, iteratee: ObjectPredicate<T>): T[];
+        <T, K extends keyof T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T, K>): T[];
+        <T, K extends keyof T>(collection: T, iteratee: ObjectPredicate<T, K>): T[];
         <T>(collection: T, iteratee: Property<T>): T[];
         <T>(collection: T, iteratee: Matches<T>): T[];
-        <T>(collection: T, iteratee: MatchesProperty<T>): T[];
+        <T, K extends keyof T>(collection: T, iteratee: MatchesProperty<T, K>): T[];
     }
 
     export interface FindPredicate {
         <T>(collection: ArrayLike<T>, iteratee: ArrayPredicate<T>, fromIndex?: number): T;
         <T>(collection: ArrayLike<T>, iteratee: Property<T>, fromIndex?: number): T;
         <T>(collection: ArrayLike<T>, iteratee: Matches<T>, fromIndex?: number): T;
-        <T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T>, fromIndex?: number): T;
-        <T>(collection: T, iteratee: ObjectPredicate<T>, fromIndex?: number): T;
+        <T, K extends keyof T>(collection: ArrayLike<T>, iteratee: MatchesProperty<T, K>, fromIndex?: number): T;
+        <T, K extends keyof T>(collection: T, iteratee: ObjectPredicate<T, K>, fromIndex?: number): T;
         <T>(collection: T, iteratee: Property<T>, fromIndex?: number): T;
         <T>(collection: T, iteratee: Matches<T>, fromIndex?: number): T;
-        <T>(collection: T, iteratee: MatchesProperty<T>, fromIndex?: number): T;
+        <T, K extends keyof T>(collection: T, iteratee: MatchesProperty<T, K>, fromIndex?: number): T;
     }
 
     export type FlatMapIteratorArray<T, R> = (value: T, index: number, collection: T[]) => R[];
@@ -115,7 +115,7 @@ namespace Types {
 
     export interface Reduce {
         <T, TAcc>(collection: ArrayLike<T>, iteratee: AccumulatorArrayPredicate<T, TAcc>, acc?: TAcc): TAcc;
-        <T, TAcc>(collection: T, iteratee: AccumulatorObjectPredicate<T, TAcc>, acc?: TAcc): TAcc;
+        <T, TAcc, K extends keyof T>(collection: T, iteratee: AccumulatorObjectPredicate<T, TAcc, K>, acc?: TAcc): TAcc;
     }
 
     export interface Sample {

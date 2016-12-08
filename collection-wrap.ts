@@ -43,14 +43,14 @@ namespace Types.Wrap {
         (iteratee: ArrayPredicate<T>): TWrapper;
         (iteratee: Property<T>): TWrapper;
         (iteratee: Matches<T>): TWrapper;
-        (iteratee: MatchesProperty<T>): TWrapper;
+        <K extends keyof T>(iteratee: MatchesProperty<T, K>): TWrapper;
     }
 
     export interface ImplicitFindIteratee<T, TWrapper> {
         (iteratee: ArrayPredicate<T>, fromIndex?: number): TWrapper;
         (iteratee: Property<T>, fromIndex?: number): TWrapper;
         (iteratee: Matches<T>, fromIndex?: number): TWrapper;
-        (iteratee: MatchesProperty<T>, fromIndex?: number): TWrapper;
+        <K extends keyof T>(iteratee: MatchesProperty<T, K>, fromIndex?: number): TWrapper;
     }
 
     export interface ImplicitWrapper<T, TWrapper> {
@@ -81,14 +81,14 @@ namespace Types.Wrap {
         (iteratee: ArrayPredicate<T>): TWrapper;
         (iteratee: Property<T>): TWrapper;
         (iteratee: Matches<T>): TWrapper;
-        (iteratee: MatchesProperty<T>): TWrapper;
+        <K extends keyof T>(iteratee: MatchesProperty<T, K>): TWrapper;
     }
 
     export interface ExplicitFindIteratee<T, TWrapper> {
         (iteratee: ArrayPredicate<T>, fromIndex?: number): TWrapper;
         (iteratee: Property<T>, fromIndex?: number): TWrapper;
         (iteratee: Matches<T>, fromIndex?: number): TWrapper;
-        (iteratee: MatchesProperty<T>, fromIndex?: number): TWrapper;
+        <K extends keyof T>(iteratee: MatchesProperty<T, K>, fromIndex?: number): TWrapper;
     }
 
     export interface ExplicitWrapper<T, TWrapper> {

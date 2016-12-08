@@ -41,7 +41,7 @@ namespace Types {
         (): (arg: any) => boolean;
         <T>(matches: Property<T>): (arg: T) => boolean;
         <T>(matches: Matches<T>): (arg: T) => boolean;
-        <T>(matchesProperty: MatchesProperty<T>): (arg: T) => boolean;
+        <T, K extends keyof T>(matchesProperty: MatchesProperty<T, K>): (arg: T) => boolean;
     }
 
     export interface Over {
@@ -140,9 +140,12 @@ interface IStatic {
     overEvery: Types.OverEveryORSome;
     overSome: Types.OverEveryORSome;
 
-    property<T, R>(path: Types.Property<R>): (object: T) => R;
     property<R>(path: Types.PathLocation): (object: any) => R;
-    propertyOf<T, R>(object: T): (path: keyof T | Types.PathLocation) => R;
+    property<T, K extends keyof T>(path: K): (object: T) => T[K];
+    propertyOf<T, K extends keyof T>(object: T): {
+        (path: K): T[K];
+        <R>(path: Types.PathLocation): R;
+    };
 
     range: Types.Range;
     rangeRight: Types.Range;

@@ -56,7 +56,7 @@ namespace Types.Wrap {
         (predicate: ArrayPredicate<T>): TWrapper;
         (predicate: Property<T>): T[];
         (predicate: Matches<T>): T[];
-        (predicate: MatchesProperty<T>): T[];
+        <K extends keyof T>(predicate: MatchesProperty<T, K>): T[];
     }
 
     export interface Fill<T, TWrapper> {
@@ -67,7 +67,7 @@ namespace Types.Wrap {
         (predicate: ArrayPredicate<T>): TWrapper;
         (predicate: Property<T>): TWrapper;
         (predicate: Matches<T>): TWrapper;
-        (predicate: MatchesProperty<T>): TWrapper;
+        <K extends keyof T>(predicate: MatchesProperty<T, K>): TWrapper;
     }
 
     export interface Nth<T, TWrapper> {
