@@ -93,12 +93,12 @@ namespace Types {
     }
 
     export type MapIteratorArray<T, R> = (value: T, index: number, collection: T[]) => R;
-    export type MapIteratorObject<T, R> = (value: T[keyof T], index: keyof T, collection: T) => R;
+    export type MapIteratorObject<T, R, K extends keyof T> = (value: T[K], index: K, collection: T) => R;
 
     export interface _Map {
         <T, R>(collection: ArrayLike<T>, iteratee: MapIteratorArray<T, R>): R[];
         <T, K extends keyof T>(collection: ArrayLike<T>, iteratee: K): T[K][];
-        <T, R>(collection: T, iteratee: MapIteratorObject<T, R>): R[];
+        <T, R, K extends keyof T>(collection: T, iteratee: MapIteratorObject<T, R, K>): R[];
     }
 
     export interface OrderBy {
