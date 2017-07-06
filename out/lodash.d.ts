@@ -1427,9 +1427,9 @@ namespace Types {
     }
 
     export interface _Pick {
-        <T, K extends keyof T>(obj: Object, props?: K[]): Pick<T, K>;
+        <T, K extends keyof T>(obj: T, props?: K[]): Pick<T, K>;
         <R>(obj: Object, props?: PathLocation): R;
-        <T, K extends keyof T>(obj: Object, ...props: K[]): Pick<T, K>;
+        <T, K extends keyof T>(obj: T, ...props: K[]): Pick<T, K>;
         <R>(obj: Object, ...props: PathLocation[]): R;
     }
 
