@@ -57,7 +57,9 @@ namespace Types {
     }
 
     export interface Flatten {
+        <T>(array: Array<T | ArrayLike<T>>): T[];
         <T>(array: ArrayLike<T | ArrayLike<T>>): T[];
+        <T>(array: RecursiveArray<T>): RecursiveArray<T>;
         <T>(array: RecursiveArrayLike<T>): RecursiveArray<T>;
         <R>(array: ArrayLike<any>): R[];
     }
