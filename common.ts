@@ -4,7 +4,7 @@ namespace Types {
     }
 
     export type Property<T> = keyof T;
-    export type Matches<T> = Pick<T, keyof T>;
+    export type Matches<T> = Pick<Partial<T>, keyof T>;
     export type MatchesProperty<T, K extends keyof T> = [K, T[K]];
     export type PathLocation = string | string[];
 

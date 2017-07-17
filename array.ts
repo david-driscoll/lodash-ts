@@ -1,59 +1,59 @@
 namespace Types {
     export interface ArrayPassThrough {
-        <T>(array: ArrayLike<T>): T[];
+        <T>(array: ArrayLike<T> | undefined | null): T[];
     }
 
     export interface ArrayArgs {
-        <T>(array: ArrayLike<T>, ...args: T[]): T[];
+        <T>(array: ArrayLike<T> | undefined | null, ...args: T[]): T[];
     }
 
     export interface ArrayArrayArg {
-        <T>(array: ArrayLike<T>, args: ArrayLike<T>): T[];
+        <T>(array: ArrayLike<T> | undefined | null, args: ArrayLike<T>): T[];
     }
 
     export interface ArrayValueThrough {
-        <T>(array: ArrayLike<T>): T;
+        <T>(array: ArrayLike<T> | undefined | null): T;
     }
 
     export interface Chunk {
-        <T>(array: ArrayLike<T>, size?: number): T[][];
+        <T>(array: ArrayLike<T> | undefined | null, size?: number): T[][];
     }
 
     export interface Concat {
-        <T>(array: ArrayLike<T>, ...items: (T | T[])[]): T[];
+        <T>(array: ArrayLike<T> | undefined | null, ...items: (T | T[])[]): T[];
     }
 
     export interface Difference {
-        <T>(array: ArrayLike<T>, ...values: ArrayLike<T>[]): T[];
+        <T>(array: ArrayLike<T> | undefined | null, ...values: ArrayLike<T>[]): T[];
     }
 
     export interface DifferenceBy {
-        <T, T2, TT extends T | T2>(array: ArrayLike<T>, values: ArrayLike<T2>, iteratee: AnySelector<TT>): T[];
-        <T, T2, TT extends T | T2>(array: ArrayLike<T>, values: ArrayLike<T2>, iteratee: Property<TT>): T[];
-        <T, T2, T3, TT extends T | T2 | T3>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, iteratee: AnySelector<TT>): T[];
-        <T, T2, T3, TT extends T | T2 | T3>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, iteratee: Property<TT>): T[];
-        <T, T2, T3, T4, TT extends T | T2 | T3 | T4>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, values3: ArrayLike<T4>, iteratee: AnySelector<TT>): T[];
-        <T, T2, T3, T4, TT extends T | T2 | T3 | T4>(array: ArrayLike<T>, values1: ArrayLike<T2>, values2: ArrayLike<T3>, values3: ArrayLike<T4>, iteratee: Property<TT>): T[];
-        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T>)[]): T[];
+        <T, T2, TT extends T | T2>(array: ArrayLike<T> | undefined | null, values: ArrayLike<T2>, iteratee: AnySelector<TT>): T[];
+        <T, T2, TT extends T | T2>(array: ArrayLike<T> | undefined | null, values: ArrayLike<T2>, iteratee: Property<TT>): T[];
+        <T, T2, T3, TT extends T | T2 | T3>(array: ArrayLike<T> | undefined | null, values1: ArrayLike<T2>, values2: ArrayLike<T3>, iteratee: AnySelector<TT>): T[];
+        <T, T2, T3, TT extends T | T2 | T3>(array: ArrayLike<T> | undefined | null, values1: ArrayLike<T2>, values2: ArrayLike<T3>, iteratee: Property<TT>): T[];
+        <T, T2, T3, T4, TT extends T | T2 | T3 | T4>(array: ArrayLike<T> | undefined | null, values1: ArrayLike<T2>, values2: ArrayLike<T3>, values3: ArrayLike<T4>, iteratee: AnySelector<TT>): T[];
+        <T, T2, T3, T4, TT extends T | T2 | T3 | T4>(array: ArrayLike<T> | undefined | null, values1: ArrayLike<T2>, values2: ArrayLike<T3>, values3: ArrayLike<T4>, iteratee: Property<TT>): T[];
+        <T>(array: ArrayLike<T> | undefined | null, ...values: (ArrayLike<T>)[]): T[];
     }
 
     export interface DifferenceWith {
-        <T>(array: ArrayLike<T>, values: ArrayLike<T>, comparator: Comparator<T>): T[];
-        <T, T2>(array: ArrayLike<T>, values: ArrayLike<T2>, comparator: ComparatorR<T, T2>): T[];
-        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, comparator: Comparator<T>): T[];
-        <T>(array: ArrayLike<T>, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, comparator: Comparator<T>): T[];
-        <T>(array: ArrayLike<T>, ...values: (ArrayLike<T> | (Comparator<T>))[]): T[];
+        <T>(array: ArrayLike<T> | undefined | null, values: ArrayLike<T>, comparator: Comparator<T>): T[];
+        <T, T2>(array: ArrayLike<T> | undefined | null, values: ArrayLike<T2>, comparator: ComparatorR<T, T2>): T[];
+        <T>(array: ArrayLike<T> | undefined | null, values1: ArrayLike<T>, values2: ArrayLike<T>, comparator: Comparator<T>): T[];
+        <T>(array: ArrayLike<T> | undefined | null, values1: ArrayLike<T>, values2: ArrayLike<T>, values3: ArrayLike<T>, comparator: Comparator<T>): T[];
+        <T>(array: ArrayLike<T> | undefined | null, ...values: (ArrayLike<T> | (Comparator<T>))[]): T[];
     }
 
     export interface Drop {
-        <T>(array: ArrayLike<T>, num?: number): T[];
+        <T>(array: ArrayLike<T> | undefined | null, num?: number): T[];
     }
 
     export interface DropWhile {
-        <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T>): T[];
-        <T>(array: ArrayLike<T>, predicate: Property<T>): T[];
-        <T>(array: ArrayLike<T>, predicate: Matches<T>): T[];
-        <T, K extends keyof T>(array: ArrayLike<T>, predicate: MatchesProperty<T, K>): T[];
+        <T>(array: ArrayLike<T> | undefined | null, predicate: ArrayPredicate<T>): T[];
+        <T>(array: ArrayLike<T> | undefined | null, predicate: Property<T>): T[];
+        <T>(array: ArrayLike<T> | undefined | null, predicate: Matches<T>): T[];
+        <T, K extends keyof T>(array: ArrayLike<T> | undefined | null, predicate: MatchesProperty<T, K>): T[];
     }
 
     export interface Flatten {
@@ -78,71 +78,71 @@ namespace Types {
     }
 
     export interface Join {
-        <T>(array: ArrayLike<T>, separator?: string): string;
+        <T>(array: ArrayLike<T> | undefined | null, separator?: string): string;
     }
 
     export interface Fill {
-        <T>(array: Array<T>, value: T, start?: number, end?: number): Array<T>;
-        <T>(array: ArrayLike<T>, value: T, start?: number, end?: number): ArrayLike<T>;
+        <T>(array: Array<T> | undefined | null, value: T, start?: number, end?: number): Array<T>;
+        <T>(array: ArrayLike<T> | undefined | null, value: T, start?: number, end?: number): ArrayLike<T>;
     }
 
     export interface FindIndex {
-        <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T>, fromIndex?: number): number;
-        <T>(array: ArrayLike<T>, predicate: Property<T>, fromIndex?: number): number;
-        <T>(array: ArrayLike<T>, predicate: Matches<T>, fromIndex?: number): number;
-        <T, K extends keyof T>(array: ArrayLike<T>, predicate: MatchesProperty<T, K>, fromIndex?: number): number;
+        <T>(array: ArrayLike<T> | undefined | null, predicate: ArrayPredicate<T>, fromIndex?: number): number;
+        <T>(array: ArrayLike<T> | undefined | null, predicate: Property<T>, fromIndex?: number): number;
+        <T>(array: ArrayLike<T> | undefined | null, predicate: Matches<T>, fromIndex?: number): number;
+        <T, K extends keyof T>(array: ArrayLike<T> | undefined | null, predicate: MatchesProperty<T, K>, fromIndex?: number): number;
     }
 
     export interface IndexOf {
-        <T>(array: ArrayLike<T>, value: T, fromIndex?: number): number;
+        <T>(array: ArrayLike<T> | undefined | null, value: T, fromIndex?: number): number;
     }
 
     export interface Nth {
-        <T>(array: ArrayLike<T>, index?: number): T;
+        <T>(array: ArrayLike<T> | undefined | null, index?: number): T;
     }
 
     export interface PullAll {
-        <T>(array: ArrayLike<T>, values: ArrayLike<T>): T[];
-        <T>(array: ArrayLike<T>, ...values: T[]): T[];
+        <T>(array: ArrayLike<T> | undefined | null, values: ArrayLike<T>): T[];
+        <T>(array: ArrayLike<T> | undefined | null, ...values: T[]): T[];
     }
 
     export interface PullAllWith {
-        <T>(array: ArrayLike<T>, values: ArrayLike<T>, comparator?: (valueA: T, valueB: T) => boolean): T[];
+        <T>(array: ArrayLike<T> | undefined | null, values: ArrayLike<T>, comparator?: (valueA: T, valueB: T) => boolean): T[];
     }
 
     export interface PullAt {
-        <T>(array: ArrayLike<T>, ...indexes: (number | ArrayLike<number>)[]): T[];
+        <T>(array: ArrayLike<T> | undefined | null, ...indexes: (number | ArrayLike<number>)[]): T[];
     }
 
     export interface PullAllBy {
-        <T, R>(array: ArrayLike<T>, values: ArrayLike<T>, iteratee: ValuePredicate<T, R>): T[];
+        <T, R>(array: ArrayLike<T> | undefined | null, values: ArrayLike<T>, iteratee: ValuePredicate<T, R>): T[];
     }
 
     export interface Remove {
-        <T>(array: Array<T>, predicate: ArrayPredicate<T>): Array<T>;
-        <T>(array: Array<T>, predicate: Property<T>): Array<T>;
-        <T>(array: ArrayLike<T>, predicate: ArrayPredicate<T>): ArrayLike<T>;
-        <T>(array: ArrayLike<T>, predicate: Property<T>): ArrayLike<T>;
+        <T>(array: Array<T> | undefined | null, predicate: ArrayPredicate<T>): Array<T>;
+        <T>(array: Array<T> | undefined | null, predicate: Property<T>): Array<T>;
+        <T>(array: ArrayLike<T> | undefined | null, predicate: ArrayPredicate<T>): ArrayLike<T>;
+        <T>(array: ArrayLike<T> | undefined | null, predicate: Property<T>): ArrayLike<T>;
     }
 
     export interface Slice {
-        <T>(array: ArrayLike<T>, start?: number, end?: number): T[];
+        <T>(array: ArrayLike<T> | undefined | null, start?: number, end?: number): T[];
     }
 
     export interface SortedIndex {
-        <T>(array: ArrayLike<T>, value: T): number;
+        <T>(array: ArrayLike<T> | undefined | null, value: T): number;
     }
 
     export interface SortedIndexBy {
-        <T, R>(array: ArrayLike<T>, value: T, predicate: ValuePredicate<T, R>): number;
+        <T, R>(array: ArrayLike<T> | undefined | null, value: T, predicate: ValuePredicate<T, R>): number;
     }
 
     export interface UniqBy {
-        <T, R>(array: ArrayLike<T>, iteratee: ValuePredicate<T, R>): T[];
+        <T, R>(array: ArrayLike<T> | undefined | null, iteratee: ValuePredicate<T, R>): T[];
     }
 
     export interface UniqWith {
-        <T>(array: ArrayLike<T>, comparator?: (valueA: T, valueB: T) => boolean): T[];
+        <T>(array: ArrayLike<T> | undefined | null, comparator?: (valueA: T, valueB: T) => boolean): T[];
     }
 
     export interface Zip {
